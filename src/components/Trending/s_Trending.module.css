@@ -1,0 +1,5 @@
+.trending-container {
+    margin: 2rem;
+    padding: 1rem;
+    background-color: var(--secondary);
+}
