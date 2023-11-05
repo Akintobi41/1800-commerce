@@ -3,12 +3,12 @@
     min-height: 100vh;
     margin: 0 auto;
     max-width: 1500px;
-    background: var(--bg-col);
+    background: var(--grey);
 }
 
 .header {
     position: relative;
-    background-color: var(--bg-col);
+    background-color: var(--white);
     padding: 1rem;
     display: flex;
     height: 4rem;

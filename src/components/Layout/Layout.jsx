@@ -2,7 +2,8 @@ import s from "./s_Layout.module.css";
 import Navbar from "../navbar/Navbar";
 import Slider from "../slider/Slider";
 import Products from "../products/Products";
-import Trending from "../Trending/Trending";
+import Trending from "../trending/Trending";
+import About from "../about/About";
 
 const Layout = () => {
   return (
@@ -17,6 +18,7 @@ const Layout = () => {
         <Slider />
         <Products />
         <Trending />
+        <About />
       </section>
     </main>
   );
