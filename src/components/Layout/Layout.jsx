@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import s from "./s_Layout.module.css";
 import Navbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 
 const Layout = ({ children }) => {
   return (
@@ -14,6 +15,7 @@ const Layout = ({ children }) => {
         </header>
         {children}
       </section>
+      <Footer />
     </main>
   );
 };
