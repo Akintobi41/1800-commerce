@@ -4,6 +4,7 @@
     margin: 0 auto;
     max-width: 1500px;
     background: var(--grey);
+    /* color: var(--black); */
 }
 
 .header {

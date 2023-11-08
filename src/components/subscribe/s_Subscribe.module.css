@@ -1,0 +1,121 @@
+.subscribe-container {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    /* gap: 1rem; */
+}
+
+
+.email {
+    position: relative;
+    padding: .75rem;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    flex: 1;
+}
+
+.email-label {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 1rem;
+    background-color: var(--white);
+    cursor: pointer;
+}
+
+.input-section {
+    display: flex;
+    align-items: center;
+    position: relative;
+    /* background-color: #20202012; */
+}
+
+.arrow {
+    width: 2.5rem;
+    padding: .5rem;
+    filter: invert(87%) sepia(54%) saturate(757%) hue-rotate(16deg) brightness(93%) contrast(84%);
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+
+.spam-message,
+.sign-up {
+    font-size: 0.75rem;
+    margin: 0.2rem 0 1.2rem 0;
+}
+
+.email-preference {
+    font-size: 1.5rem;
+    letter-spacing: -1.07px;
+    line-height: 1.63;
+    margin-bottom: 1.5rem;
+}
+
+.email-type {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.email-type-text {
+    margin-left: .15rem;
+}
+
+.radio-btn {
+    position: relative;
+    accent-color: var(--black);
+    width: 28px;
+    height: 28px;
+    appearance: none;
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 14px;
+    cursor: pointer;
+    height: 28px;
+    margin: 0 10px 0 0;
+    padding: 0;
+    position: relative;
+}
+
+.radio-btn:checked::before {
+    transform: translate3d(-50%, -50%, 0) scale(1);
+}
+
+.radio-btn::before {
+    background: var(--black);
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 18px;
+    width: 18px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate3d(-50%, -50%, 0) scale(.01);
+    transform: translate3d(-50%, -50%, 0) scale(.01);
+    transition: -webkit-transform .2s ease-in-out;
+    transition: transform .2s ease-in-out;
+    transition: transform .2s ease-in-out, -webkit-transform .2s ease-in-out;
+}
+
+.radio-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    align-self: end;
+    margin-top: -3.4rem;
+    background: #202020;
+    border: 0;
+    border-radius: 18px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    height: 36px;
+    padding: 0 17px;
+    position: relative;
+    transition: background .2s ease-in-out, color .2s ease-in-out;
+    white-space: nowrap;
+}

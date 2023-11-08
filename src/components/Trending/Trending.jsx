@@ -1,4 +1,6 @@
 import s from "./s_Trending.module.css";
+import "/styles/sharedStyles.css";
+
 const Trending = () => {
   const brands = [
     "/Images/puma-logo.svg",
@@ -8,7 +10,7 @@ const Trending = () => {
   ];
   return (
     <section className={s["trending-container"]}>
-      <h3>2023 Trending Brands</h3>
+      <h2 className="shared-h2">2023 Trending Brands</h2>
       {brands.map((brand) => (
         <img
           src={brand}

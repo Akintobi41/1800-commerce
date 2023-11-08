@@ -22,3 +22,8 @@
     font-size: 1.5rem;
     margin-bottom: 5rem;
 }
+
+.shop,
+.description {
+    color: var(--white);
+}

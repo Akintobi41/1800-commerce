@@ -1,11 +1,8 @@
+/* eslint-disable react/prop-types */
 import s from "./s_Layout.module.css";
 import Navbar from "../navbar/Navbar";
-import Slider from "../slider/Slider";
-import Products from "../products/Products";
-import Trending from "../trending/Trending";
-import About from "../about/About";
 
-const Layout = () => {
+const Layout = ({ children }) => {
   return (
     <main className={s.main}>
       <section className={s["main-container"]}>
@@ -15,10 +12,7 @@ const Layout = () => {
         <header className={s.header}>
           <Navbar />
         </header>
-        <Slider />
-        <Products />
-        <Trending />
-        <About />
+        {children}
       </section>
     </main>
   );

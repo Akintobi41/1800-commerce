@@ -118,12 +118,6 @@
     margin-left: .5rem;
 }
 
-.logo {
-    font-size: 2.5rem;
-    font-weight: bold;
-    letter-spacing: -4px;
-}
-
 .search-icon {
     cursor: pointer;
 
@@ -147,6 +141,10 @@
 
 .search {
     display: none;
+}
+
+.cart-text {
+    color: var(--white)
 }
 
 .show-search {

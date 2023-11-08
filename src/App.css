@@ -4,7 +4,9 @@
   --secondary: #aadb1e;
   --sec-col: #B9D6F2;
   --pry-col: #53caec;
-  --black: #121212
+  --black: #170c0c;
+  --heading-font: 27px;
+  --text-font: 13px;
 }
 
 *,
@@ -13,6 +15,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: var(--black);
 }
 
 body {
