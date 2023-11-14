@@ -1,8 +1,8 @@
 .subscribe-container {
     display: flex;
     flex-direction: column;
-    padding: 1.5rem;
-    /* gap: 1rem; */
+    padding: 1.5rem 1.5rem 4rem;
+    border-bottom: solid 0.5px rgb(23 12 12 / 25%);
 }
 
 
@@ -27,7 +27,6 @@
     display: flex;
     align-items: center;
     position: relative;
-    /* background-color: #20202012; */
 }
 
 .arrow {
@@ -43,6 +42,13 @@
 .sign-up {
     font-size: 0.75rem;
     margin: 0.2rem 0 1.2rem 0;
+    line-height: 1rem;
+}
+
+.feedback-text {
+    font-size: 2.15rem;
+    font-weight: bold;
+
 }
 
 .email-preference {
@@ -118,4 +124,49 @@
     position: relative;
     transition: background .2s ease-in-out, color .2s ease-in-out;
     white-space: nowrap;
+}
+
+.email-warning-text {
+    position: relative;
+    top: 25px;
+    color: #972111;
+    font-weight: 500;
+}
+
+
+.shake {
+    animation: Shake linear .3s;
+}
+
+.feedback {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+    height: 15rem;
+}
+
+
+/*Using keyframes for shaking an image*/
+@keyframes Shake {
+    0% {
+        transform: rotate(3deg);
+    }
+
+    25% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    75% {
+        transform: rotate(-3deg);
+    }
+
+    100% {
+        transform: rotate(3deg);
+    }
 }

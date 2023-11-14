@@ -1,8 +1,14 @@
 .patronize-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     background-color: var(--white);
     padding: 1.5rem;
     margin: 1.5rem;
+    gap: .2rem;
     text-align: center;
+}
+
+.h2 {
+    margin-bottom: 1rem;
 }

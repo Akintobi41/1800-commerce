@@ -1,8 +1,8 @@
+/* eslint-disable react/prop-types */
 import s from "./s_Navbar.module.css";
 import { useState } from "react";
 import RenderNav from "./RenderNav";
-const Navbar = () => {
-  const [menuToggle, setMenuToggle] = useState(false);
+const Navbar = ({ menuToggle, setMenuToggle }) => {
   const [search, setSearch] = useState(false);
 
   const navList = {
@@ -18,6 +18,7 @@ const Navbar = () => {
       <section className={s["show-search"]}>
         <input
           type="search"
+          name="search"
           className={`${
             search ? s["open-search"] : s.searching
           }`}

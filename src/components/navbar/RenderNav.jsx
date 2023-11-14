@@ -41,6 +41,7 @@ const RenderNav = ({
                     onClick={() => setSearch(!search)}
                   />
                   <input
+                    name="search"
                     type="search"
                     className={s.search}
                   />

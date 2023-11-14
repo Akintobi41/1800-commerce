@@ -24,3 +24,7 @@ body {
   margin: 0 auto;
   font-family: 'Plein', sans-serif;
 }
+
+.overflow {
+  overflow: hidden;
+}

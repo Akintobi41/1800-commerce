@@ -3,7 +3,11 @@ import s from "./s_Layout.module.css";
 import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
 
-const Layout = ({ children }) => {
+const Layout = ({
+  children,
+  menuToggle,
+  setMenuToggle,
+}) => {
   return (
     <main className={s.main}>
       <section className={s["main-container"]}>
@@ -11,7 +15,10 @@ const Layout = ({ children }) => {
           Free express shipping over &#8358;100000*
         </p>
         <header className={s.header}>
-          <Navbar />
+          <Navbar
+            menuToggle={menuToggle}
+            setMenuToggle={setMenuToggle}
+          />
         </header>
         {children}
       </section>

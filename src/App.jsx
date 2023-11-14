@@ -11,11 +11,27 @@ import About from "./components/about/About";
 import Slider from "./components/slider/Slider";
 import Patronize from "./components/patronize/Patronize";
 import Subscribe from "./components/subscribe/Subscribe";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [menuToggle, setMenuToggle] = useState(false);
+
+  useEffect(() => {
+    menuToggle
+      ? document
+          .querySelector("body")
+          .classList.add("overflow")
+      : document
+          .querySelector("body")
+          .classList.remove("overflow");
+  }, [menuToggle]);
+
   return (
     <div>
-      <Layout>
+      <Layout
+        menuToggle={menuToggle}
+        setMenuToggle={setMenuToggle}
+      >
         <Slider />
         <Products />
         <Trending />
