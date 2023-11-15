@@ -1,6 +1,11 @@
 import s from "./s_Logo.module.css";
+import { Link } from "react-router-dom";
 const Logo = () => {
-  return <p className={s.logo}>1800Store</p>;
+  return (
+    <Link to={"/"} className={s.logo}>
+      1800Store
+    </Link>
+  );
 };
 
 export default Logo;

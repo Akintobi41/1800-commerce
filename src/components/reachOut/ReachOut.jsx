@@ -1,4 +1,7 @@
 import s from "./s_ReachOut.module.css";
+import { Link } from "react-router-dom";
+import React from "react";
+
 const textOptions = ["Happiness", "Guarantee"];
 const btnOptions = ["Contact Us", "FAQ"];
 
@@ -32,9 +35,20 @@ const ReachOut = () => {
       </p>
       <section className={s["reach-out-btn-section"]}>
         {btnOptions.map((btn) => (
-          <button key={btn} className={s["reach-out-btn"]}>
-            {btn}
-          </button>
+          <React.Fragment key={btn}>
+            <Link
+              to={`${
+                btn.endsWith("Us")
+                  ? "contact"
+                  : btn.toLowerCase() + "s"
+              }  `}
+              key={btn}
+            >
+              <button className={s["reach-out-btn"]}>
+                {btn}
+              </button>
+            </Link>
+          </React.Fragment>
         ))}
       </section>
     </section>

@@ -1,31 +1,9 @@
 .main {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     min-height: 100vh;
     margin: 0 auto;
     max-width: 1500px;
     background: var(--grey);
-    /* color: var(--black); */
-}
-
-.header {
-    position: relative;
-    background-color: var(--white);
-    padding: 1rem;
-    display: flex;
-    height: 4rem;
-    border-bottom: solid 1px grey;
-}
-
-.free {
-    background: var(--pry-col);
-    padding: .5rem;
-    text-align: center;
-    color: var(--white);
-}
-
-@media screen and (min-width:1024px) {
-    .header {
-        padding: 1.5rem 1rem;
-    }
-
 }

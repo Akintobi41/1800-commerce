@@ -1,13 +1,10 @@
 /* eslint-disable react/prop-types */
-// import { useEffect, useRef, useState } from "react";
 import s from "./s_Details.module.css";
 const Details = ({ el, activeIndex, setActiveIndex }) => {
   function handleClick() {
     setActiveIndex((prevIndex) =>
       prevIndex === el.id ? null : el.id
     );
-    // console.log(el.id);
-    // console.log(activeIndex);
   }
 
   return (
@@ -17,12 +14,12 @@ const Details = ({ el, activeIndex, setActiveIndex }) => {
           activeIndex ? s.active : ""
         }`}
         onClick={handleClick}
-        // aria-expanded={
-        //   el.id === activeIndex ? "true" : "false"
-        // }
-        // aria-controls={`panel-${el.id}`}
+        aria-expanded={
+          el.id === activeIndex ? "true" : "false"
+        }
+        aria-controls={`panel-${el.id}`}
       >
-        {el.title}
+        <p className={s["accordion-title"]}>{el.title}</p>
       </button>
       <div
         className={`${s.panel} ${
@@ -31,7 +28,6 @@ const Details = ({ el, activeIndex, setActiveIndex }) => {
         style={{
           maxHeight: activeIndex ? "1000px" : "0",
         }}
-        // aria-hidden={!activeIndex}
       >
         <p className={s["accordion-text"]}>{el.text}</p>
       </div>

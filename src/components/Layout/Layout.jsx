@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import s from "./s_Layout.module.css";
-import Navbar from "../navbar/Navbar";
 import Footer from "../footer/Footer";
+import Navbar from "../navbar/Navbar";
+import HeaderText from "../headerText/HeaderText";
 
 const Layout = ({
   children,
@@ -10,16 +11,12 @@ const Layout = ({
 }) => {
   return (
     <main className={s.main}>
+      <HeaderText />
+      <Navbar
+        menuToggle={menuToggle}
+        setMenuToggle={setMenuToggle}
+      />
       <section className={s["main-container"]}>
-        <p className={s.free}>
-          Free express shipping over &#8358;100000*
-        </p>
-        <header className={s.header}>
-          <Navbar
-            menuToggle={menuToggle}
-            setMenuToggle={setMenuToggle}
-          />
-        </header>
         {children}
       </section>
       <Footer />

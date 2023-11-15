@@ -12,6 +12,9 @@ import Slider from "./components/slider/Slider";
 import Patronize from "./components/patronize/Patronize";
 import Subscribe from "./components/subscribe/Subscribe";
 import { useEffect, useState } from "react";
+import ReachOut from "./components/reachOut/ReachOut";
+import Contact from "./pages/contact/Contact";
+import Faqs from "./pages/faqs/Faqs";
 
 function App() {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -28,17 +31,31 @@ function App() {
 
   return (
     <div>
-      <Layout
-        menuToggle={menuToggle}
-        setMenuToggle={setMenuToggle}
-      >
-        <Slider />
-        <Products />
-        <Trending />
-        <About />
-        <Patronize />
-        <Subscribe />
-      </Layout>
+      <Router>
+        <Layout
+          menuToggle={menuToggle}
+          setMenuToggle={setMenuToggle}
+        >
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Slider />
+                  <Products />
+                  <Trending />
+                  <About />
+                  <Patronize />
+                  <Subscribe />
+                  <ReachOut />
+                </>
+              }
+            />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/faqs" element={<Faqs />} />
+          </Routes>
+        </Layout>
+      </Router>
     </div>
   );
 }

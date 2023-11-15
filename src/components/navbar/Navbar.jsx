@@ -14,8 +14,12 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
     "Sign Up": "/sign up",
   };
   return (
-    <>
-      <section className={s["show-search"]}>
+    <header className={s.header}>
+      <section
+        className={`${s["show-search"]} ${
+          search ? s["show-search-active"] : ""
+        }`}
+      >
         <input
           type="search"
           name="search"
@@ -59,7 +63,7 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
           setSearch={setSearch}
         />
       </section>
-    </>
+    </header>
   );
 };
 
