@@ -15,6 +15,7 @@ import { useEffect, useState } from "react";
 import ReachOut from "./components/reachOut/ReachOut";
 import Contact from "./pages/contact/Contact";
 import Faqs from "./pages/faqs/Faqs";
+import Scroll from "./components/scrollToTop/Scroll";
 
 function App() {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -32,6 +33,7 @@ function App() {
   return (
     <div>
       <Router>
+        <Scroll />
         <Layout
           menuToggle={menuToggle}
           setMenuToggle={setMenuToggle}
