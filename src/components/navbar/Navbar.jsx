@@ -1,32 +1,21 @@
 /* eslint-disable react/prop-types */
 import s from "./s_Navbar.module.css";
-import { useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import RenderNav from "./RenderNav";
+import { MyContext } from "../../contexts/MyContext";
 
-const Navbar = ({
-  menuToggle,
-  setMenuToggle,
-  search,
-  setSearch,
-}) => {
+const Navbar = ({ menuToggle, setMenuToggle }) => {
+  const { search, setSearch } = useContext(MyContext);
+
   const navList = {
     Home: "/",
     Products: "/products",
     About: "/about",
     Contact: "/contact",
-    "Sign In": "/sign in",
-    "Sign Up": "/sign up",
+    "Sign In": "/signin",
+    "Sign Up": "/signup",
   };
-
-  // useEffect(() => {
-  //   if (search) {
-  //     console.log("search");
-  //   }
-  //   return () => {
-  //     setSearch(false);
-  //   };
-  // }, [search]);
 
   return (
     <header className={s.header}>

@@ -5,14 +5,8 @@ import {
   Route,
 } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import ProductSlider from "./components/productSlider/ProductSlider";
-import Trending from "./components/Trending/Trending";
-import About from "./components/about/About";
-import Slider from "./components/slider/Slider";
-import Patronize from "./components/patronize/Patronize";
-import Subscribe from "./components/subscribe/Subscribe";
+import Home from "./pages/home/Home";
 import { useEffect, useState } from "react";
-import ReachOut from "./components/reachOut/ReachOut";
 import Contact from "./pages/contact/Contact";
 import Faqs from "./pages/faqs/Faqs";
 import Scroll from "./components/scrollToTop/Scroll";
@@ -22,7 +16,7 @@ import { MyContext } from "./contexts/MyContext";
 
 function App() {
   const [menuToggle, setMenuToggle] = useState(false);
-
+  const [search, setSearch] = useState(false);
   useEffect(() => {
     menuToggle
       ? document
@@ -32,9 +26,6 @@ function App() {
           .querySelector("body")
           .classList.remove("overflow");
   }, [menuToggle]);
-
-  const [search, setSearch] = useState(false);
-
   return (
     <div>
       <Router>
@@ -43,24 +34,9 @@ function App() {
           <Layout
             menuToggle={menuToggle}
             setMenuToggle={setMenuToggle}
-            search={search}
-            setSearch={setSearch}
           >
             <Routes>
-              <Route
-                path="/"
-                element={
-                  <>
-                    <Slider />
-                    <ProductSlider />
-                    <Trending />
-                    <About />
-                    <Patronize />
-                    <Subscribe />
-                    <ReachOut />
-                  </>
-                }
-              />
+              <Route path="/" element={<Home />} />
               <Route
                 path="/contact"
                 element={<Contact />}

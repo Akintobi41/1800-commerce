@@ -8,8 +8,6 @@ const Layout = ({
   children,
   menuToggle,
   setMenuToggle,
-  search,
-  setSearch,
 }) => {
   return (
     <main className={s.main}>
@@ -17,8 +15,6 @@ const Layout = ({
       <Navbar
         menuToggle={menuToggle}
         setMenuToggle={setMenuToggle}
-        search={search}
-        setSearch={setSearch}
       />
       <section className={s["main-container"]}>
         {children}
