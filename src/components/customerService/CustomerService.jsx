@@ -7,6 +7,7 @@ const CustomerService = () => {
       <h3 className={s["text-header"]}>Customer Service</h3>
       {list.map((list) => (
         <Link
+          to={`/${list.split(" ").join("").toLowerCase()}`}
           key={list}
           className={`${s.list} ${s["list"]}`}
         >

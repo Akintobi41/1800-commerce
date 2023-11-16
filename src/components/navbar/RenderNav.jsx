@@ -2,6 +2,7 @@
 import React from "react";
 import s from "./s_Navbar.module.css";
 import Logo from ".//../logo/Logo";
+import { Link } from "react-router-dom";
 const RenderNav = ({
   search,
   setSearch,
@@ -45,7 +46,10 @@ const RenderNav = ({
                     type="search"
                     className={s.search}
                   />
-                  <section className={s["cart-section"]}>
+                  <Link
+                    className={s["cart-section"]}
+                    to={"/cart"}
+                  >
                     <img
                       src="Images/cart-icon.svg"
                       alt="cart"
@@ -54,7 +58,7 @@ const RenderNav = ({
                     <div className={s["cart-figure"]}>
                       <p className={s["cart-text"]}>0</p>
                     </div>
-                  </section>{" "}
+                  </Link>{" "}
                 </>
               )}
             </section>

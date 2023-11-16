@@ -1,7 +1,7 @@
-import s from "./s_Products.module.css";
+import s from "./s_ProductSlider.module.css";
 
-const Products = () => {
-  const products = [
+const ProductSlider = () => {
+  const productSlider_items = [
     { id: 1, name: "Caps", img: "url('') no-repeat grey" },
     { id: 2, name: "Bags", img: "url('') no-repeat grey" },
     {
@@ -11,11 +11,11 @@ const Products = () => {
     },
   ];
   return (
-    <section className={s["main-product-container"]}>
-      {products.map((item) => (
+    <section className={s["main-productSlider-container"]}>
+      {productSlider_items.map((item) => (
         <section
           key={item.id}
-          className={s["product-container"]}
+          className={s["productSlider-container"]}
           style={{ background: item.img }}
         ></section>
       ))}
@@ -23,4 +23,4 @@ const Products = () => {
   );
 };
 
-export default Products;
+export default ProductSlider;

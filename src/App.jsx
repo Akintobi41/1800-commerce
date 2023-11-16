@@ -5,7 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import Layout from "./components/layout/Layout";
-import Products from "./components/products/Products";
+import ProductSlider from "./components/productSlider/ProductSlider";
 import Trending from "./components/Trending/Trending";
 import About from "./components/about/About";
 import Slider from "./components/slider/Slider";
@@ -16,6 +16,9 @@ import ReachOut from "./components/reachOut/ReachOut";
 import Contact from "./pages/contact/Contact";
 import Faqs from "./pages/faqs/Faqs";
 import Scroll from "./components/scrollToTop/Scroll";
+import ReturnPolicy from "./pages/returnPolicy/ReturnPolicy";
+import Cart from "./pages/cart/Cart";
+import { MyContext } from "./contexts/MyContext";
 
 function App() {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -30,33 +33,47 @@ function App() {
           .classList.remove("overflow");
   }, [menuToggle]);
 
+  const [search, setSearch] = useState(false);
+
   return (
     <div>
       <Router>
         <Scroll />
-        <Layout
-          menuToggle={menuToggle}
-          setMenuToggle={setMenuToggle}
-        >
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <>
-                  <Slider />
-                  <Products />
-                  <Trending />
-                  <About />
-                  <Patronize />
-                  <Subscribe />
-                  <ReachOut />
-                </>
-              }
-            />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faqs" element={<Faqs />} />
-          </Routes>
-        </Layout>
+        <MyContext.Provider value={{ search, setSearch }}>
+          <Layout
+            menuToggle={menuToggle}
+            setMenuToggle={setMenuToggle}
+            search={search}
+            setSearch={setSearch}
+          >
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <>
+                    <Slider />
+                    <ProductSlider />
+                    <Trending />
+                    <About />
+                    <Patronize />
+                    <Subscribe />
+                    <ReachOut />
+                  </>
+                }
+              />
+              <Route
+                path="/contact"
+                element={<Contact />}
+              />
+              <Route path="/faqs" element={<Faqs />} />
+              <Route
+                path="/returnpolicy"
+                element={<ReturnPolicy />}
+              />
+              <Route path="/cart" element={<Cart />} />
+            </Routes>
+          </Layout>
+        </MyContext.Provider>
       </Router>
     </div>
   );

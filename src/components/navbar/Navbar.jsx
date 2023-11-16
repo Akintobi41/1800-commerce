@@ -1,10 +1,15 @@
 /* eslint-disable react/prop-types */
 import s from "./s_Navbar.module.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import RenderNav from "./RenderNav";
-const Navbar = ({ menuToggle, setMenuToggle }) => {
-  const [search, setSearch] = useState(false);
 
+const Navbar = ({
+  menuToggle,
+  setMenuToggle,
+  search,
+  setSearch,
+}) => {
   const navList = {
     Home: "/",
     Products: "/products",
@@ -13,6 +18,16 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
     "Sign In": "/sign in",
     "Sign Up": "/sign up",
   };
+
+  // useEffect(() => {
+  //   if (search) {
+  //     console.log("search");
+  //   }
+  //   return () => {
+  //     setSearch(false);
+  //   };
+  // }, [search]);
+
   return (
     <header className={s.header}>
       <section
@@ -44,14 +59,15 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
       >
         <ul className={s.ul}>
           {Object.keys(navList).map((list, i) => (
-            <li
+            <Link
+              to={"faqs"}
               key={list}
               className={`${s.list} ${
                 i === 4 ? s["lower-list"] : ""
               }`}
             >
               {list}
-            </li>
+            </Link>
           ))}
         </ul>
       </nav>
