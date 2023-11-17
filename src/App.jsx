@@ -13,10 +13,12 @@ import Scroll from "./components/scrollToTop/Scroll";
 import ReturnPolicy from "./pages/returnPolicy/ReturnPolicy";
 import Cart from "./pages/cart/Cart";
 import { MyContext } from "./contexts/MyContext";
+import Products from "./pages/products/Products";
 
 function App() {
   const [menuToggle, setMenuToggle] = useState(false);
   const [search, setSearch] = useState(false);
+
   useEffect(() => {
     menuToggle
       ? document
@@ -30,7 +32,14 @@ function App() {
     <div>
       <Router>
         <Scroll />
-        <MyContext.Provider value={{ search, setSearch }}>
+        <MyContext.Provider
+          value={{
+            search,
+            setSearch,
+            menuToggle,
+            setMenuToggle,
+          }}
+        >
           <Layout
             menuToggle={menuToggle}
             setMenuToggle={setMenuToggle}
@@ -40,6 +49,10 @@ function App() {
               <Route
                 path="/contact"
                 element={<Contact />}
+              />{" "}
+              <Route
+                path="/products"
+                element={<Products />}
               />
               <Route path="/faqs" element={<Faqs />} />
               <Route

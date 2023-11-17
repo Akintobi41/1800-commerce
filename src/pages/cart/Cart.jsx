@@ -1,13 +1,12 @@
 import { MyContext } from "../../contexts/MyContext";
 import s from "./s_Cart.module.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
+import useResetSearchAndMenu from "../../hooks/useResetSearchAndMenu";
 
 const Cart = () => {
-  const { setSearch } = useContext(MyContext);
-
-  useEffect(() => {
-    setSearch(false);
-  }, []);
+  const { setSearch, setMenuToggle } =
+    useContext(MyContext);
+  useResetSearchAndMenu(setSearch, setMenuToggle);
 
   return <section className={s["cart-section"]}></section>;
 };

@@ -49,7 +49,7 @@ const Navbar = ({ menuToggle, setMenuToggle }) => {
         <ul className={s.ul}>
           {Object.keys(navList).map((list, i) => (
             <Link
-              to={"faqs"}
+              to={`${navList[list]}`}
               key={list}
               className={`${s.list} ${
                 i === 4 ? s["lower-list"] : ""
