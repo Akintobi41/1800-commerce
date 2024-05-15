@@ -1,15 +1,20 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext } from "react";
 import s from "./s_Navbar.module.css";
 import Logo from ".//../logo/Logo";
 import { Link } from "react-router-dom";
-const RenderNav = ({
-  search,
-  setSearch,
-  menuToggle,
-  setMenuToggle,
-}) => {
+import { MyContext } from "../../contexts/MyContext";
+
+const RenderNav = () => {
   const menu = ["menuToggle", "p", "cart-section"];
+  const {
+    menuToggle,
+    setMenuToggle,
+    search,
+    setSearch,
+    cart,
+    setCart,
+  } = useContext(MyContext);
 
   return (
     <section className={s["toggle-section"]}>
@@ -56,7 +61,9 @@ const RenderNav = ({
                       className={s.cart}
                     />
                     <div className={s["cart-figure"]}>
-                      <p className={s["cart-text"]}>0</p>
+                      <p className={s["cart-text"]}>
+                        {cart}
+                      </p>
                     </div>
                   </Link>{" "}
                 </>

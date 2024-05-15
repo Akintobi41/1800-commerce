@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
-import s from "./s_Navbar.module.css";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import RenderNav from "./RenderNav";
 import { MyContext } from "../../contexts/MyContext";
+import RenderNav from "./RenderNav";
+import s from "./s_Navbar.module.css";
 
-const Navbar = ({ menuToggle, setMenuToggle }) => {
-  const { search, setSearch } = useContext(MyContext);
+const Navbar = () => {
+  const { search, setSearch, menuToggle, setMenuToggle } =
+    useContext(MyContext);
 
   const navList = {
     Home: "/",

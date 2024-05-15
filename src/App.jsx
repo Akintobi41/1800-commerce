@@ -18,6 +18,7 @@ import Products from "./pages/products/Products";
 function App() {
   const [menuToggle, setMenuToggle] = useState(false);
   const [search, setSearch] = useState(false);
+  const [cart, setCart] = useState(0);
 
   useEffect(() => {
     menuToggle
@@ -38,6 +39,8 @@ function App() {
             setSearch,
             menuToggle,
             setMenuToggle,
+            cart,
+            setCart,
           }}
         >
           <Layout

@@ -4,7 +4,7 @@ import { useContext } from "react";
 import useResetSearchAndMenu from "../../hooks/useResetSearchAndMenu";
 
 const Cart = () => {
-  const { setSearch, setMenuToggle } =
+  const { setSearch, setMenuToggle, cart, setCart } =
     useContext(MyContext);
   useResetSearchAndMenu(setSearch, setMenuToggle);
 

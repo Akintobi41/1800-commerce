@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
-import s from "./s_Layout.module.css";
 import Footer from "../footer/Footer";
-import Navbar from "../navbar/Navbar";
 import HeaderText from "../headerText/HeaderText";
+import Navbar from "../navbar/Navbar";
+import s from "./s_Layout.module.css";
 
 const Layout = ({
   children,
