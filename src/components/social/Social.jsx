@@ -1,25 +1,29 @@
-import React from "react";
+import React, { Fragment } from "react";
 import s from "./s_Social.module.css";
+import FacebookIcon from "../../assets/Icons/FacebookIcon";
+import InstagramIcon from "../../assets/Icons/InstagramIcon";
+
 const Social = () => {
-  const socialImg = [
+  const socialIcon = [
     {
-      img: "/Images/icons8-facebook.svg",
-      alt: "facebook-link",
+      name: "facebook",
+      icon: <FacebookIcon />,
     },
     {
-      img: "/Images/icons8-instagram.svg",
-      alt: "instagram-link",
+      name: "instagram",
+      icon: <InstagramIcon />,
     },
     {
-      img: "/Images/icons8-instagram.svg",
-      alt: "instagram-link;,/",
+      name: "twitter",
+      icon: <FacebookIcon />,
     },
     {
-      img: "/Images/icons8-instagram.svg",
-      alt: "instagram-linknl",
+      name: "tiktok",
+      icon: <FacebookIcon />,
     },
   ];
   const footerSection = ["section1", "section2"];
+  const year = new Date().getFullYear();
 
   return (
     <section className={s["social-container"]}>
@@ -28,18 +32,20 @@ const Social = () => {
           <React.Fragment key={section}>
             {i === 0 ? (
               <section>
-                {socialImg.map((img) => (
-                  <img
-                    src={img.img}
-                    alt={img.alt}
-                    key={img.alt}
-                    className={s.img}
-                  />
+                {socialIcon.map((i) => (
+                  // <img
+                  //   src={img.img}
+                  //   alt={img.alt}
+                  //   key={img.alt}
+                  //   className={s.img}
+                  // />
+                  <Fragment key={i.name}>{i.icon}</Fragment>
                 ))}
               </section>
             ) : (
               <section className={s["link-copyright"]}>
-                © 2023 1800 Stores Ltd. All Rights Reserved
+                © {year} 1800 Stores Ltd. All Rights
+                Reserved
               </section>
             )}
           </React.Fragment>

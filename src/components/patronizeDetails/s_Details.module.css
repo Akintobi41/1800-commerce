@@ -38,7 +38,7 @@
 
 .accordion:after {
     content: '';
-    background: url('/public//Images/up-arrow.svg') no-repeat;
+    background: url('/src/assets/Icons/up-arrow.svg') no-repeat;
     width: 1.3rem;
     height: 1.3rem;
     font-size: 13px;

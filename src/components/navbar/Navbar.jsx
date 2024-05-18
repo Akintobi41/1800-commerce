@@ -4,16 +4,17 @@ import { Link } from "react-router-dom";
 import { MyContext } from "../../contexts/MyContext";
 import RenderNav from "./RenderNav";
 import s from "./s_Navbar.module.css";
+import SearchIcon from "./../../assets/Icons/SearchIcon";
 
 const Navbar = () => {
   const { search, setSearch, menuToggle, setMenuToggle } =
     useContext(MyContext);
-    const navMenu = useRef(null)
+  // const navMenu = useRef(null)
 
-    // document.addEventListener("mousedown", yi);
-    // function yi(e) {
-    //   console.log(e);
-    // }
+  // document.addEventListener("mousedown", yi);
+  // function yi(e) {
+  //   console.log(e);
+  // }
 
   const navList = {
     Home: "/",
@@ -39,14 +40,15 @@ const Navbar = () => {
           }`}
           placeholder="SEARCH"
         />
-        <img
+        {/* <img
           src="/Images/search-icon.svg"
           alt="search"
           className={`${s["search-icon-2"]} ${
             search ? s["show-icon-2"] : ""
           }`}
-          onClick={() => setSearch(!search)}
-        />
+          onClick={() => setSearch(!search)} */}
+        <SearchIcon click={()=> setSearch(!search)}/>
+        {/* /> */}
       </section>
       <nav
         className={`${

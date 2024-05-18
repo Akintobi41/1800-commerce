@@ -1,10 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import React, { useContext,useEffect,useRef } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useRef,
+} from "react";
 import s from "./s_Navbar.module.css";
 import Logo from ".//../logo/Logo";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../contexts/MyContext";
+import SearchIcon from "../../assets/Icons/SearchIcon";
+import CartIcon from './../../assets/Icons/CartIcon';
 
 const RenderNav = () => {
   const {
@@ -16,19 +22,18 @@ const RenderNav = () => {
     setCart,
   } = useContext(MyContext);
   const menu = ["menuToggle", "p", "cart-section"];
-  const navMenu = useRef(null)
+  const navMenu = useRef(null);
 
-  
-  useEffect(()=> { 
-    document.addEventListener('mousedown',(e)=> { 
-      if(menuToggle && !(navMenu.current?.contains(e.target))){
-        setMenuToggle(false)
-      } 
-    })
-  },[menuToggle])
-
-
-
+  useEffect(() => {
+    document.addEventListener("mousedown", (e) => {
+      if (
+        menuToggle &&
+        !navMenu.current?.contains(e.target)
+      ) {
+        setMenuToggle(false);
+      }
+    });
+  }, [menuToggle]);
 
   return (
     <section className={s["toggle-section"]}>
@@ -41,13 +46,11 @@ const RenderNav = () => {
               key={section}
               className={!i ? s.menu : s["search_cart"]}
               onClick={
-                !i
-                  ? () => setMenuToggle(!menuToggle)
-                  : null
+                !i ? () => setMenuToggle(!menuToggle) : null
               }
               ref={!i ? navMenu : null}
             >
-              {!i ? (  // if index is equals to zero this is for the navigation menu
+              {!i ? ( // if index is equals to zero this is for the navigation menu
                 <section
                   className={`${s["menu-toggle"]} ${
                     menuToggle ? s["active"] : ""
@@ -55,12 +58,19 @@ const RenderNav = () => {
                 ></section>
               ) : (
                 <>
-                  <img
+                  {/* <img
                     src="/Images/search-icon.svg"
                     alt="search"
                     className={s["search-icon"]}
                     onClick={() => setSearch(!search)}
-                  />
+                  /> */}
+                  {/* <Icons
+                    name={"search"}
+                    height="40"
+                    className={s["search-icon"]}
+                    onClick={() => setSearch(!search)}
+                  /> */}
+                  <SearchIcon click={()=> setSearch(!search)}/>
                   <input
                     name="search"
                     type="search"
@@ -70,11 +80,12 @@ const RenderNav = () => {
                     className={s["cart-section"]}
                     to={"/cart"}
                   >
-                    <img
+                    {/* <img
                       src="Images/cart-icon.svg"
                       alt="cart"
                       className={s.cart}
-                    />
+                    /> */}
+                    <CartIcon/>
                     <div className={s["cart-figure"]}>
                       <p className={s["cart-text"]}>
                         {cart}

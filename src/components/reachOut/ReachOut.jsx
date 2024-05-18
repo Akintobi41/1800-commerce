@@ -1,20 +1,22 @@
 import s from "./s_ReachOut.module.css";
 import { Link } from "react-router-dom";
 import React from "react";
-
-const textOptions = ["Happiness", "Guarantee"];
-const btnOptions = ["Contact Us", "FAQ"];
+import HundredIcon from "./../../assets/Icons/HundredIcon";
 
 const ReachOut = () => {
+  const textOptions = ["Happiness", "Guarantee"];
+  const btnOptions = ["Contact Us", "FAQ"];
+
   return (
     <section className={s["reach-out-container"]}>
       <section>
         <section className={s["guarantee"]}>
-          <img
+          {/* <img
             src="/Images/100-percent.svg"
             alt="100 percent"
             className={s.percent}
-          />
+          /> */}
+          {/* <HundredIcon/> */}
           <section className={s["reach-out-section"]}>
             {textOptions.map((el) => (
               <p
