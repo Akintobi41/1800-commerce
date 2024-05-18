@@ -1,19 +1,21 @@
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-} from "react-router-dom";
+// import {
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+// } from "react-router-dom";
+import { RouterProvider } from "react-router";
+import router from "./router/Router";
 import Layout from "./components/layout/Layout";
-import Home from "./pages/home/Home";
+import Home from "./components/pages/home/Home";
 import { useEffect, useState } from "react";
-import Contact from "./pages/contact/Contact";
-import Faqs from "./pages/faqs/Faqs";
+import Contact from "./components/pages/contact/Contact";
+import Faqs from "./components/pages/faqs/Faqs";
 import Scroll from "./components/scrollToTop/Scroll";
-import ReturnPolicy from "./pages/returnPolicy/ReturnPolicy";
-import Cart from "./pages/cart/Cart";
+import ReturnPolicy from "./components/pages/returnPolicy/ReturnPolicy";
+import Cart from "./components/pages/cart/Cart";
 import { MyContext } from "./contexts/MyContext";
-import Products from "./pages/products/Products";
+import Products from "./components/pages/products/Products";
 
 function App() {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -29,31 +31,33 @@ function App() {
           .querySelector("body")
           .classList.remove("overflow");
   }, [menuToggle]);
+
   return (
     <div>
-      <Router>
-        <Scroll />
-        <MyContext.Provider
-          value={{
-            search,
-            setSearch,
-            menuToggle,
-            setMenuToggle,
-            cart,
-            setCart,
-          }}
-        >
-          <Layout
-            menuToggle={menuToggle}
-            setMenuToggle={setMenuToggle}
-          >
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route
-                path="/contact"
-                element={<Contact />}
-              />{" "}
-              <Route
+      {/* <Router> */}
+      {/* <Scroll /> */}
+      <MyContext.Provider
+        value={{
+          search,
+          setSearch,
+          menuToggle,
+          setMenuToggle,
+          cart,
+          setCart,
+        }}
+      >
+        {/* <Layout
+          menuToggle={menuToggle}
+          setMenuToggle={setMenuToggle}
+        > */}
+        <RouterProvider router={router} />
+        {/* <Routes> */}
+        {/* <Route path="/" element={<Home />} /> */}
+        {/* <Route */}
+        {/* path="/contact" */}
+        {/* element={<Contact />} */}
+        {/* />{" "} */}
+        {/* <Route
                 path="/products"
                 element={<Products />}
               />
@@ -63,10 +67,10 @@ function App() {
                 element={<ReturnPolicy />}
               />
               <Route path="/cart" element={<Cart />} />
-            </Routes>
-          </Layout>
-        </MyContext.Provider>
-      </Router>
+            </Routes> */}
+        {/* </Layout> */}
+      </MyContext.Provider>
+      {/* </Router> */}
     </div>
   );
 }

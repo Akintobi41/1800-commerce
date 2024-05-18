@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useContext } from "react";
+import { useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../contexts/MyContext";
 import RenderNav from "./RenderNav";
@@ -8,6 +8,12 @@ import s from "./s_Navbar.module.css";
 const Navbar = () => {
   const { search, setSearch, menuToggle, setMenuToggle } =
     useContext(MyContext);
+    const navMenu = useRef(null)
+
+    // document.addEventListener("mousedown", yi);
+    // function yi(e) {
+    //   console.log(e);
+    // }
 
   const navList = {
     Home: "/",

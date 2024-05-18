@@ -3,6 +3,7 @@ import Footer from "../footer/Footer";
 import HeaderText from "../headerText/HeaderText";
 import Navbar from "../navbar/Navbar";
 import s from "./s_Layout.module.css";
+import { Outlet } from "react-router";
 
 const Layout = ({
   children,
@@ -17,7 +18,8 @@ const Layout = ({
         setMenuToggle={setMenuToggle}
       />
       <section className={s["main-container"]}>
-        {children}
+        {/* {children} */}
+        <Outlet />
       </section>
       <Footer />
     </main>

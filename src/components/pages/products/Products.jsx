@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { MyContext } from "../../contexts/MyContext";
-import useResetSearchAndMenu from "../../hooks/useResetSearchAndMenu";
+import { MyContext } from "../../../contexts/MyContext";
+import useResetSearchAndMenu from "../../../hooks/useResetSearchAndMenu";
 import { fetchContentfulData } from "./fetchContentfulData";
 import s from "./s_Products.module.css";
 
