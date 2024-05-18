@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import s from "./s_Contact.module.css";
 import { useContext } from "react";
-import { MyContext } from "../../contexts/MyContext";
-import useResetSearchAndMenu from "../../hooks/useResetSearchAndMenu";
+import { MyContext } from "../../../contexts/MyContext";
+import useResetSearchAndMenu from "../../../hooks/useResetSearchAndMenu";
 const Contact = () => {
   const { setSearch, setMenuToggle } =
     useContext(MyContext);

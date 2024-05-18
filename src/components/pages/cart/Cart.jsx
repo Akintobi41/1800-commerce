@@ -1,7 +1,7 @@
-import { MyContext } from "../../contexts/MyContext";
+import { MyContext } from "../../../contexts/MyContext";
 import s from "./s_Cart.module.css";
 import { useContext } from "react";
-import useResetSearchAndMenu from "../../hooks/useResetSearchAndMenu";
+import useResetSearchAndMenu from "../../../hooks/useResetSearchAndMenu";
 
 const Cart = () => {
   const { setSearch, setMenuToggle, cart, setCart } =

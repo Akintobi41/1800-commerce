@@ -1,12 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
-import React, { useContext } from "react";
+import React, { useContext,useEffect,useRef } from "react";
 import s from "./s_Navbar.module.css";
 import Logo from ".//../logo/Logo";
 import { Link } from "react-router-dom";
 import { MyContext } from "../../contexts/MyContext";
 
 const RenderNav = () => {
-  const menu = ["menuToggle", "p", "cart-section"];
   const {
     menuToggle,
     setMenuToggle,
@@ -15,6 +15,20 @@ const RenderNav = () => {
     cart,
     setCart,
   } = useContext(MyContext);
+  const menu = ["menuToggle", "p", "cart-section"];
+  const navMenu = useRef(null)
+
+  
+  useEffect(()=> { 
+    document.addEventListener('mousedown',(e)=> { 
+      if(menuToggle && !(navMenu.current?.contains(e.target))){
+        setMenuToggle(false)
+      } 
+    })
+  },[menuToggle])
+
+
+
 
   return (
     <section className={s["toggle-section"]}>
@@ -29,10 +43,11 @@ const RenderNav = () => {
               onClick={
                 !i
                   ? () => setMenuToggle(!menuToggle)
-                  : undefined
+                  : null
               }
+              ref={!i ? navMenu : null}
             >
-              {!i ? (
+              {!i ? (  // if index is equals to zero this is for the navigation menu
                 <section
                   className={`${s["menu-toggle"]} ${
                     menuToggle ? s["active"] : ""

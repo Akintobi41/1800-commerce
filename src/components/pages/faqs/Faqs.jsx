@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import s from "./s_Faqs.module.css";
 import "/styles/sharedStyles.css";
-import Details from "../../components/patronizeDetails/Details";
 import { faqContent } from "./u_Faqs";
-import { MyContext } from "../../contexts/MyContext";
+import { MyContext } from "../../../contexts/MyContext";
 import { useState, useContext } from "react";
-import useResetSearchAndMenu from "../../hooks/useResetSearchAndMenu";
+import useResetSearchAndMenu from "../../../hooks/useResetSearchAndMenu";
+import Details from "./../../patronizeDetails/Details";
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(0);

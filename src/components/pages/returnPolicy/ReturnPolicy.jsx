@@ -1,6 +1,6 @@
 import s from "./s_ReturnPolicy.module.css";
 import { policy } from "./u_ReturnPolicy";
-import { MyContext } from "../../contexts/MyContext";
+import { MyContext } from "../../../contexts/MyContext";
 import { useEffect, useContext } from "react";
 const ReturnPolicy = () => {
   const { setSearch } = useContext(MyContext);
