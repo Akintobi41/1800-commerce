@@ -1,5 +1,3 @@
-import s from "./s_ProductSlider.module.css";
-
 const ProductSlider = () => {
   const productSlider_items = [
     { id: 1, name: "Caps", img: "url('') no-repeat grey" },
@@ -11,11 +9,11 @@ const ProductSlider = () => {
     },
   ];
   return (
-    <section className={s["main-productSlider-container"]}>
+    <section className='m-6'>
       {productSlider_items.map((item) => (
         <section
           key={item.id}
-          className={s["productSlider-container"]}
+          className='p-6 my-[4.15rem] h-[18rem]'
           style={{ background: item.img }}
         ></section>
       ))}

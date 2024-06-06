@@ -5,6 +5,8 @@ import Contact from "../components/pages/contact/Contact";
 import Faqs from "../components/pages/faqs/Faqs";
 import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
 import Cart from "../components/pages/cart/Cart";
+import Products from "../components/pages/products/Products";
+import About from "../components/about/About";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +21,9 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      }, {
+        path: "/products",
+        element: <Products />,
       },
       {
         path: "/faqs",
@@ -31,6 +36,9 @@ const router = createBrowserRouter([
       {
         path: "/cart",
         element: <Cart />,
+      }, {
+        path: "/about",
+        element: <About />,
       },
     ],
   },

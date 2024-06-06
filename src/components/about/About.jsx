@@ -1,11 +1,9 @@
-import s from "./s_About.module.css";
 import Logo from "../logo/Logo";
-import "/styles/sharedStyles.css";
 
 const About = () => {
   return (
-    <aside className={s["about-container"]}>
-      <h2 className="shared-h2">About 1800 Store</h2>
+    <aside className='flex flex-col items-center m-6 p-6 gap-8 leading-[2] bg-[var(--white)]'>
+      <h2 className="text-bold-font font-[500] text-center">About 1800 Store</h2>
       <p>
         Welcome to 1800 Store, where tradition meets
         innovation. As a family-owned enterprise, we{`'`}ve
@@ -21,7 +19,6 @@ const About = () => {
         sense of responsibility to our community is
         unwavering.
       </p>
-
       <Logo />
     </aside>
   );

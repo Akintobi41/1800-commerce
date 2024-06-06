@@ -1,21 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import s from "./s_Faqs.module.css";
-import "/styles/sharedStyles.css";
 import { faqContent } from "./u_Faqs";
-import { MyContext } from "../../../contexts/MyContext";
-import { useState, useContext } from "react";
-import useResetSearchAndMenu from "../../../hooks/useResetSearchAndMenu";
+import { useState} from "react";
 import Details from "./../../patronizeDetails/Details";
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const { setSearch, setMenuToggle } =
-    useContext(MyContext);
-  useResetSearchAndMenu(setSearch, setMenuToggle);
 
   return (
-    <section className={s["faq-container"]}>
-      <h3 className={s.h3}>Frequently Asked Questions</h3>
+    <section className='bg-[var(--white)] m-6 p-6 flex flex-col gap-[.2rem]'>
+      <h3 className='text-center mb-2'>Frequently Asked Questions</h3>
       {faqContent.map((el) => (
         <Details
           key={el.title}

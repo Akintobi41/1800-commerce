@@ -1,82 +1,56 @@
 /* eslint-disable react/prop-types */
-import { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
-import { MyContext } from "../../contexts/MyContext";
-import RenderNav from "./RenderNav";
-import s from "./s_Navbar.module.css";
+
+import  { useState } from "react";
 import SearchIcon from "./../../assets/Icons/SearchIcon";
+import NavMenu from './NavMenu';
 
-const Navbar = () => {
-  const { search, setSearch, menuToggle, setMenuToggle } =
-    useContext(MyContext);
-  // const navMenu = useRef(null)
+const Navbar = ({Logo}) => {
 
-  // document.addEventListener("mousedown", yi);
-  // function yi(e) {
-  //   console.log(e);
-  // }
+  const [search,setSearch] = useState(false)
 
-  const navList = {
-    Home: "/",
-    Products: "/products",
-    About: "/about",
-    Contact: "/contact",
-    "Sign In": "/signin",
-    "Sign Up": "/signup",
-  };
 
+
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", (e) => {
+  //     if (
+  //       menuToggle &&
+  //       !navMenu.current?.contains(e.target)
+  //     ) {
+  //       setMenuToggle(false);
+  //     }
+  //   });
+    
+
+  //     menuToggle
+  //       ? document
+  //           .querySelector("body")
+  //           .classList.add("overflow")
+  //           : document
+  //           .querySelector("body")
+  //           .classList.remove("overflow");
+
+  // }, [menuToggle]);
+  
   return (
-    <header className={s.header}>
-      <section
-        className={`${s["show-search"]} ${
-          search ? s["show-search-active"] : ""
-        }`}
-      >
-        <input
-          type="search"
-          name="search"
-          className={`${
-            search ? s["open-search"] : s.searching
-          }`}
-          placeholder="SEARCH"
-        />
-        {/* <img
-          src="/Images/search-icon.svg"
-          alt="search"
-          className={`${s["search-icon-2"]} ${
-            search ? s["show-icon-2"] : ""
-          }`}
-          onClick={() => setSearch(!search)} */}
-        <SearchIcon click={()=> setSearch(!search)}/>
-        {/* /> */}
-      </section>
-      <nav
-        className={`${
-          menuToggle ? s["list-active"] : s["list-section"]
-        }`}
-      >
-        <ul className={s.ul}>
-          {Object.keys(navList).map((list, i) => (
-            <Link
-              to={`${navList[list]}`}
-              key={list}
-              className={`${s.list} ${
-                i === 4 ? s["lower-list"] : ""
-              }`}
-            >
-              {list}
-            </Link>
-          ))}
-        </ul>
-      </nav>
-      <section className={s["toggle-section"]}>
-        <RenderNav
-          setMenuToggle={setMenuToggle}
-          menuToggle={menuToggle}
-          search={search}
-          setSearch={setSearch}
-        />
-      </section>
+    <header className="flex relative bg-[var(--white)] p-4 h-16 border border-solid border-[grey]">
+    <>
+    <section
+    className={`w-full absolute left-0 mt-10 pt-2 px-6 pb-0 bg-[var(--white)] ${search ? "block opacity-100 z-10" : 'hidden opacity-0' }`}>
+    <input
+      type="search"
+      name="search" 
+      className={`${
+        search
+          ? "w-full transition-all duration-[.5s]  appearance-none border-0 pt-4 pr-0 pb-0 pl-16 border-b-[1px] border-[var(--black)] outline-none"
+          : "translate-y-[-400px]"
+      }`}
+      placeholder="SEARCH"
+    />
+    <SearchIcon search={search} setSearch={setSearch} top={'-top-[30px]'}/> 
+    
+    </section>
+    <NavMenu Logo={Logo} SearchIcon={<SearchIcon search={search} setSearch={setSearch}/>}/>
+    </>
     </header>
   );
 };

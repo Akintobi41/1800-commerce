@@ -1,25 +1,19 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Slider from "../../../components/slider/Slider";
+// import Slider from "../../../components/slider/Slider";
 import ProductSlider from "../../../components/productSlider/ProductSlider";
 import Trending from "../../../components/Trending/Trending";
 import About from "../../../components/about/About";
 import Patronize from "../../../components/patronize/Patronize";
 import Subscribe from "../../../components/subscribe/Subscribe";
 import ReachOut from "../../../components/reachOut/ReachOut";
-import { useContext } from "react";
-import { MyContext } from "../../../contexts/MyContext";
-import useResetSearchAndMenu from "../../../hooks/useResetSearchAndMenu";
-import { Outlet } from "react-router";
+import Slider from './../../slider/Slider';
 
 const Home = () => {
-  const { setSearch, setMenuToggle } =
-    useContext(MyContext);
-  useResetSearchAndMenu(setSearch, setMenuToggle);
-
+  
   return (
-    <section>
-      {/* <Outlet/> */}
-      <Slider />
+    <>
+    <Slider/>
+    <section className="max-w-[1500px] mx-auto w-full">
       <ProductSlider />
       <Trending />
       <About />
@@ -27,6 +21,8 @@ const Home = () => {
       <Subscribe />
       <ReachOut />
     </section>
+    </>
+    
   );
 };
 

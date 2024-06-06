@@ -1,8 +1,8 @@
-import s from "./s_Logo.module.css";
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
-const Logo = () => {
+const Logo = ({font = 'text-[3rem]'}) => {
   return (
-    <Link to={"/"} className={s.logo}>
+    <Link to={"/"} className={`${font} font-bold block text-center -tracking-[5px] no-underline w-full`}>
       1800Store
     </Link>
   );

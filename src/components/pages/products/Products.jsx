@@ -1,23 +1,16 @@
-import { useContext, useEffect, useState } from "react";
-import { MyContext } from "../../../contexts/MyContext";
-import useResetSearchAndMenu from "../../../hooks/useResetSearchAndMenu";
+import {useEffect, useState } from "react";
 import { fetchContentfulData } from "./fetchContentfulData";
-import s from "./s_Products.module.css";
 
 const Products = () => {
-  const { setSearch, setMenuToggle, setCart } =
-    useContext(MyContext);
-  useResetSearchAndMenu(setSearch, setMenuToggle);
+  // const { setSearch, setMenuToggle, setCart } =
+  //   useContext(MyContext);
+  // useResetSearchAndMenu(setSearch, setMenuToggle);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [inCart, setInCart] = useState([]);
   const [cartStatus, setCartStatus] = useState(false);
   const [quantity, setQuantity] = useState(0);
-  // const savedProduct = JSON.parse(
-  //   localStorage.getItem("product")
-  // );
-  // const [storedCartItems, setStoredCartItems] =
-  //   useState(savedProduct);
+  
 
   useEffect(() => {
     (async () => {
@@ -27,10 +20,6 @@ const Products = () => {
         );
         items.map((item) => (item.fields.quantity = 0));
         setProducts(items);
-        // localStorage.setItem(
-        //   "product",
-        //   JSON.stringify(data)
-        // );
         setLoading(true);
       } catch (error) {
         setLoading(false);
@@ -54,12 +43,17 @@ const Products = () => {
       (item) => item.name === product.fields.name
     );
     console.log(check);
-    // if (!check) {
-    //   console.log("!check");
-    //   setInCart([...inCart, product.fields]);
-    // } else {
-    //   console.log("false");
-    // }
+    if (!check) {
+      console.log("!check");
+      setInCart([...inCart, product.fields]);
+    } else {
+      console.log("false");
+      console.log(inCart)
+      const newCart = inCart.filter((i) => {
+        return i.name !== product.fields.name
+      })
+      setInCart(newCart)
+    }
     // console.log(inCart);
     // const updatedCart = inCart.map(
     //   (item) => ++item.quantity
@@ -67,31 +61,31 @@ const Products = () => {
     // // console.log(updatedCart);
     // setInCart(updatedCart);
   }
-  // console.log(inCart);
   useEffect(() => {
     console.log(inCart);
   }, [inCart]);
-  console.log(products);
+
+  console.log(products)
 
   return (
-    <section className={s["products-container"]}>
+    <section className='flex flex-col items-center gap-12'>
       {loading
         ? [...products].map((product) => (
             <section
               key={product.fields.name}
-              className={s["product"]}
+              className='flex relative w-48 h-64'
             >
               <p>{product.fields.type}</p>
-              <section className={s["product-img-section"]}>
+              <section className='relative'>
                 <img
                   src={
                     product.fields.images[0].fields.file.url
                   }
                   loading="lazy"
-                  className={s["product-img"]}
+                  className='w-full h-full bg-[var(--grey)]'
                 />
                 <button
-                  className={s["add-to-cart-btn"]}
+                  className='absolute right-0 top-0 w-28 h-8 bg-[var(--black)] text-[var(--white)] uppercase border-none outline-none cursor-pointer'
                   onClick={(e) => {
                     addToCart(product);
                     // checkproduct(product);
@@ -103,7 +97,7 @@ const Products = () => {
                     (item) =>
                       item.name === product.fields.name
                   )
-                    ? "Buy More"
+                    ? "Remove from Cart"
                     : "Add to Cart"}
                 </button>
               </section>
@@ -111,11 +105,11 @@ const Products = () => {
           ))
         : Skeleton.map((el, i) => (
             <section
-              className={s["product-fallback"]}
+              className='flex relative w-48 h-64'
               key={i}
             >
               <img
-                className={s["product-img-fallback"]}
+                className='w-full h-full bg-[var(--grey)]'
                 loading="lazy"
               />
             </section>

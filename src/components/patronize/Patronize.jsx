@@ -1,15 +1,13 @@
-import s from "./s_Patronize.module.css";
-import "/styles/sharedStyles.css";
+import { useState } from "react";
 import Details from "../patronizeDetails/Details";
 import { accordionContent } from "./u_Patronize";
-import { useState } from "react";
 
 const Patronize = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className={s["patronize-container"]}>
-      <h2 className={`shared-h2 ${s.h2}`}>
+    <section className='flex flex-col justify-center bg-[var(--white)] p-6 m-6 text-center'>
+      <h2 className='mb-4'>
         Why You Should Patronize Us
       </h2>
       {accordionContent.map((el) => (
