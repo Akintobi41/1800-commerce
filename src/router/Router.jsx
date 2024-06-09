@@ -7,6 +7,7 @@ import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
 import Cart from "../components/pages/cart/Cart";
 import Products from "../components/pages/products/Products";
 import About from "../components/about/About";
+import ProductDetail from "../components/pages/productDetail/ProductDetail";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,12 @@ const router = createBrowserRouter([
       }, {
         path: "/products",
         element: <Products />,
+        children: [
+          {
+            path: '/products/:id',
+            element: <ProductDetail/>
+          }
+        ]
       },
       {
         path: "/faqs",
@@ -40,6 +47,7 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+
     ],
   },
 ]);
