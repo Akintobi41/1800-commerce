@@ -1,24 +1,19 @@
-import {useEffect, useState } from "react";
-import { fetchContentfulData } from "./fetchContentfulData";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { fetchAllData } from "../../../contentful/contentful";
 import { modifyCart } from "../../../store/cartSlice";
-import { Link, useParams } from "react-router-dom";
 
 const Products = () => {
-  
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const val = useSelector((state) => state.cart);
+  const cart = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
-  const id = useParams();
-  console.log(id)
 
   useEffect(() => {
     (async () => {
       try {
-        const { items } = await fetchContentfulData(
-          "products"
-        );
+        const { items } = await fetchAllData("products");
         items.map((item) => (item.fields.quantity = 0));
         setProducts(items);
         setLoading(true);
@@ -29,61 +24,50 @@ const Products = () => {
     })();
   }, []);
 
-  let description, name, price, images;
-
-  const Skeleton = Array(5).fill(0);  // for skeleton
- 
-  [...products].map(
-    (item) =>
-      ({ description, name, price, images } = item.fields)
-  );
-
-
-  const cart = val.products;
-
+  const Skeleton = Array(5).fill(0); // for skeleton
 
   return (
-    <section className='flex flex-col items-center gap-12 mt-4'>
+    <section className="flex flex-col items-center gap-12 mt-4 px-8">
       {loading
         ? [...products].map((product) => (
-          <Link
-            to={'/products/id'}
+            <section
+              to={`/products/${product.sys.id}`}
               key={product.fields.name}
-              className='flex relative w-48 h-64'
+              className="flex relative w-full h-full"  //swap styles from w-48 h-64
             >
               <p>{product.fields.type}</p>
-              <section className='relative'>
+              <section className="relative">
                 <img
                   src={
                     product.fields.images[0].fields.file.url
                   }
                   loading="lazy"
-                  className='w-full h-full bg-[var(--grey)]'
+                  className="w-full h-full bg-[var(--grey)]"
                 />
                 <button
-                  className='absolute right-0 top-0 w-28 h-8 bg-[var(--black)] text-[var(--white)] uppercase border-none outline-none cursor-pointer'
+                  className="absolute right-0 top-0 w-28 h-8 bg-[var(--black)] text-[var(--white)] uppercase border-none outline-none cursor-pointer"
                 onClick={() => {
-                  dispatch(modifyCart(product.fields))
+                    dispatch(modifyCart(product.fields));
                   }}
                 >
                   {" "}
-                  {cart.some(
+                  {[...cart].some(
                     (item) =>
-                      item.data.name === product.fields.name
+                      item.name === product.fields.name
                   )
                     ? "Remove from Cart"
                     : "Add to Cart"}
                 </button>
               </section>
-            </Link>
+            </section>
           ))
         : Skeleton.map((el, i) => (
             <section
-              className='flex relative w-48 h-64'
+              className="flex relative w-48 h-64"
               key={i}
             >
               <img
-                className='w-full h-full bg-[var(--grey)]'
+                className="w-full h-full bg-[var(--grey)]"
                 loading="lazy"
               />
             </section>

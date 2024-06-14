@@ -1,13 +1,13 @@
 import { createBrowserRouter } from "react-router-dom";
+import About from "../components/about/About";
 import Layout from "../components/layout/Layout";
-import Home from "../components/pages/home/Home";
+import Cart from "../components/pages/cart/Cart";
 import Contact from "../components/pages/contact/Contact";
 import Faqs from "../components/pages/faqs/Faqs";
-import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
-import Cart from "../components/pages/cart/Cart";
-import Products from "../components/pages/products/Products";
-import About from "../components/about/About";
+import Home from "../components/pages/home/Home";
 import ProductDetail from "../components/pages/productDetail/ProductDetail";
+import Products from "../components/pages/products/Products";
+import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
 
 const router = createBrowserRouter([
   {
@@ -25,12 +25,6 @@ const router = createBrowserRouter([
       }, {
         path: "/products",
         element: <Products />,
-        children: [
-          {
-            path: '/products/:id',
-            element: <ProductDetail/>
-          }
-        ]
       },
       {
         path: "/faqs",
@@ -47,9 +41,12 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+      {
+        path: '/products/:id',
+        element: <ProductDetail/>
+      }
 
     ],
   },
 ]);
-
 export default router;
