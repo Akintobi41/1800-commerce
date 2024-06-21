@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     products: [],
@@ -12,7 +12,7 @@ const cartSlice = createSlice({
             const check = state.products.some((product) => {
                 return product.name === action.payload.name
             })
-            console.log(check)
+
             if (!check) {
                 // const cart = {
                 //     data: action.payload,
@@ -78,16 +78,20 @@ const cartSlice = createSlice({
         },
         reduceValue: (state, action) => { 
             const data = { ...action.payload }
-            
             state.products.map((item) => { 
                 if (item.name === data.name) { 
                     item.quantity -= 1
                 }
             })
+        },
+        removeFromCart: (state,action) => { 
+            state.products = state.products.filter((item) => { 
+               return item.name !== action.payload.name
+            })
         }
     }
 })
 
-export const { modifyCart, addValue,reduceValue } = cartSlice.actions
+export const { modifyCart, addValue,reduceValue,removeFromCart } = cartSlice.actions
 export default cartSlice.reducer;
 

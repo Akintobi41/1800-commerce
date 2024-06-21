@@ -9,20 +9,22 @@ import Scroll from "../scrollToTop/Scroll";
 
 const Layout = () => {
   return (
-    <main className="flex flex-col relative min-h-screen my-0 mx-auto bg-[var(--grey)] overflow-hidden w-full">
-      <section className="absolute top-0 left-0 bottom-1 right-0 overflow-x-hidden overflow-y-scroll">
-        <Header
-          HeaderText={<HeaderText />}
-          Navbar={<Navbar Logo={<Logo />} />}
-        />
-        <section className="flex flex-col mt-24">
-          <Scroll />
-          <Outlet />
+    <>
+      <Scroll />
+      <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto bg-[var(--grey)] overflow-scroll w-full">
+        <section>
+          <Header
+            HeaderText={<HeaderText />}
+            Navbar={<Navbar Logo={<Logo />} />}
+          />
+          <section className="flex flex-col mt-24">
+            <Outlet />
+          </section>
+          <Footer Logo={""} />
+          <Logo font_style={"text-[22vw] text-center"} />
         </section>
-        <Footer Logo={""} />
-        <Logo font_style={"text-[22vw] text-center"} />
-      </section>
-    </main>
+      </main>
+    </>
   );
 };
 export default Layout;

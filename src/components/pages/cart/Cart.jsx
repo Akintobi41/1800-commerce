@@ -1,72 +1,125 @@
-
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addValue,reduceValue } from '../../../store/cartSlice';
-
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import {
+  addValue,
+  reduceValue,
+  removeFromCart,
+} from "../../../store/cartSlice";
+import { format } from "../../../utils/format/format";
+import DeleteIcon from "./../../../assets/Icons/DeleteIcon";
+import EmptyCart from "./../../../assets/Images/EmptyCart";
+import Delivery from "./../../delivery/Delivery";
+import CartContent from "./CartContent";
 
 const Cart = () => {
-
-  const cart = useSelector((state) => state.cart.products)
-
+  const cart = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
   function cartDisplay() {
+    return cart?.length ? (
+      cart.map((data) => {
+        const { images, name, type, quantity, price } =
+          data;
+        const image = images[0].fields.file.url;
+        const totalPrice = price * quantity;
 
-    return cart?.length ? ( cart.map((data) => {
-      const image = data.images[0].fields.file.url
-      return (
-        <section key={data.name} className='flex gap-x-3 w-[100%] h-[100%] py-4 border-b border-solid border-[grey]'>
-          <section className='w-[33%] h-[33%] p-2 bg-[#9ca3af26]'>
-            <img src={image} alt="" loading='lazy' className='w-[100%] h-[100%]'/>
+        return (
+          <section
+            key={name}
+            className="flex gap-x-4 justify-between w-[100%] h-[100%] py-4 border-b border-solid border-[grey]"
+          >
+            <figure className="w-[35%] h-auto p-4 bg-[#9ca3af26]">
+              <img
+                src={image}
+                alt={type}
+                loading="lazy"
+                className="size-full"
+              />
+            </figure>
+            <section className=" flex flex-col justify-between w-[100px]">
+              <p className="text-[.8rem] font-medium">
+                {name}
+              </p>
+              <button className="text-[.8rem] font-medium bg-[#53caec4d] px-1 py-[.1rem] text-[#044b60] rounded w-14">
+                In Stock
+              </button>
+              <Link className="block text-[.8rem] font-medium">
+                {data.type}
+              </Link>
+              <p
+                className="flex items-center gap-x-1 text-[.8rem] font-medium mt-4 cursor-pointer"
+                onClick={() => {
+                  dispatch(removeFromCart(data));
+                }}
+              >
+                {" "}
+                <DeleteIcon /> Remove
+              </p>
+            </section>
+            <section className="flex flex-col justify-between w-[130px]">
+              <p className="ml-auto text-right text-[.65rem] font-medium">
+                &#8358; {format(totalPrice)}
+              </p>
+              <section className="flex justify-end">
+                <button
+                  className={`flex items-center justify-center border border-r-0 size-5 ${
+                    quantity <= 1 ? "opacity-40" : ""
+                  }`}
+                  onClick={() => {
+                    if (quantity > 1) {
+                      dispatch(reduceValue(data));
+                    }
+                  }}
+                >
+                  -
+                </button>
+                <p className="flex justify-center items-center text-center text-[.65rem]   border px-2 opacity-50 size-5">
+                  {quantity}
+                </p>
+                <button
+                  className="flex items-center justify-center border-l-0 border size-5"
+                  onClick={() => {
+                    dispatch(addValue(data));
+                  }}
+                >
+                  +
+                </button>
+              </section>
+            </section>
           </section>
-          <section className=''>
-          <p className='text-[.8rem] font-medium'>{data.name}</p>
-          <p className='text-[.8rem] font-medium'>{data.type}</p>
-          <p className='text-[.8rem] font-medium mt-4 ml-4'>Remove</p>
-            
-          
-          </section>
-          <section className='flex flex-1 flex-col'>
-            <p className='flex-1 text-right text-[.8rem] font-medium'>&#8358; {data.price.toLocaleString()}</p>
-            <section className='flex justify-end'>
-              <button className='border border-r-0 px-2' onClick={() => { 
-                if (data.quantity > 1) { 
-                  dispatch(reduceValue(data))
-                }
-            }}>-</button>
-              <p className='flex text-center border px-2 opacity-50'>{data.quantity}</p>
-              <button className='border-l-0 border px-2' onClick={() => { 
-                dispatch(addValue(data))
-            }}>+</button> 
-          </section>
-           
-          </section>
-        </section>
-      ) 
-    })) : <>
-          <aside  className='w-full border-t'>
-      Subtotal : 
-    </aside>
-    <p>Nothing in your cart yet</p>
-   <Link to='/products'><button> Start Shopping</button></Link> 
-    </>
+        );
+      })
+    ) : (
+      <aside className="flex flex-col items-center justify-center">
+        <EmptyCart size="size-[15em]" />
+        <p className="italic text-center">
+          You have no items in your shopping cart. <br />{" "}
+          Let&apos;s go buy something
+        </p>
+        <Link to="/products" className="mt-6">
+          <button className="w-36 h-9 bg-[var(--pry-col)] rounded-[8px]">
+            {" "}
+            Start Shopping
+          </button>
+        </Link>
+      </aside>
+    );
   }
 
-
-  return (<section className='flex flex-col items-center w-full px-4 py-2 mt-24 mx-auto bg-[var(--white)]'>
-        { cartDisplay() }
-  </section >
-  )
+  return (
+    <>
+      <div className="mt-4 mx-4">
+        <h2 className="font-bold p-4 text-[24px][">
+          {cart.length ? 'Your Basket' : null}
+        </h2>
+        <section className="flex flex-col w-full px-4 py-2  mx-auto bg-[var(--white)] min-h-[400px]">
+          {cartDisplay()}
+          <CartContent />
+        </section>
+      </div>
+      <Delivery />
+    </>
+  );
 };
 
 export default Cart;
-
-// What is needed to be done here?
-// Just work on the values , the images manipulation is for the product details component.
-
-
-
-//commit messages
-
-// updated redux reducers,cart functionality, add more products to cart, remove products from cart and aslo cart layout 

@@ -21,11 +21,17 @@
     box-sizing: border-box;
     color: var(--black);
   }
+  html{ 
+    height: 100%;
+    overflow: auto;
+
+  }
   
   body {
     position: relative;
     width: 100%;
-    min-height: 100vh;
+    /* min-height: 100vh; */ 
+    height: 100%;
     font-family: 'Plein', sans-serif;
   }
   
