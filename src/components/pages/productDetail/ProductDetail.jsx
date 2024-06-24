@@ -20,7 +20,7 @@ function ProductDetail() {
       }
     })();
   }, [id]);
-
+console.log(product)
   return <div>Product Details</div>;
 }
 

@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import { fetchAllData } from "../../../contentful/contentful";
 import { modifyCart } from "../../../store/cartSlice";
+import { Link, useNavigate } from "react-router-dom";
+import Select from "../../select/Select";
+
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -24,31 +26,47 @@ const Products = () => {
     })();
   }, []);
 
-  const Skeleton = Array(5).fill(0); // for skeleton
+  const Skeleton = Array(6).fill(0); // for skeleton
+  const navigate = useNavigate()
+
+  function handleClick(e,product) {
+    console.log(e.target.textContent)
+    const cartRedirect = e.target.textContent;
+
+    if (cartRedirect.endsWith('Cart')) { 
+      dispatch(modifyCart(product.fields));
+    }
+    else { 
+       navigate(`/products/${product.sys.id}`)
+    }
+  }
+  // Filter by Products, bag , shoes or belts
 
   return (
-    <section className="flex flex-col items-center gap-12 mt-4 px-8">
+    <section className="relative flex flex-col mt-24 p-4 min-h-[500px] bg-[var(--white)]">
+      {/* Shop
+      Need help deciding which product is the right size for you?
+      Check out our  <Link>size guide </Link>for smooth decision. */}
+      {/* <h2>Shop</h2> */}
+  <Select/>
+      <section className="flex flex-wrap gap-2">
       {loading
         ? [...products].map((product) => (
             <section
-              to={`/products/${product.sys.id}`}
               key={product.fields.name}
-              className="flex relative w-full h-full"  //swap styles from w-48 h-64
+            className="flex relative w-[48%] h-64 cursor-pointer border-none"  //swap styles from w-48 h-64
+            onClick={(e)=> handleClick(e,product)}
             >
-              <p>{product.fields.type}</p>
-              <section className="relative">
+              <section className="relative w-full ">
                 <img
                   src={
                     product.fields.images[0].fields.file.url
                   }
                   loading="lazy"
-                  className="w-full h-full bg-[var(--grey)]"
-                />
+                  className="h-[70%] w-[100%] bg-[#a8a29e1a] hover:object-cover hover:transition-all duration-300  border border-[#8080801c]"
+              />
                 <button
-                  className="absolute right-0 top-0 w-28 h-8 bg-[var(--black)] text-[var(--white)] uppercase border-none outline-none cursor-pointer"
-                onClick={() => {
-                    dispatch(modifyCart(product.fields));
-                  }}
+                  className="absolute right-0 top-0 w-full h-6 bg-[var(--black)] text-[var(--white)] text-[.8rem] border-none outline-none cursor-pointer"
                 >
                   {" "}
                   {[...cart].some(
@@ -58,20 +76,24 @@ const Products = () => {
                     ? "Remove from Cart"
                     : "Add to Cart"}
                 </button>
-              </section>
             </section>
-          ))
+            {/* <p>{ product.fields.name}</p> */}
+          </section>
+        ))
+          
         : Skeleton.map((el, i) => (
             <section
-              className="flex relative w-48 h-64"
+              className="flex w-[48%] relative h-64 bg-primary-500/50 border border-[#bcbcbc33]"
               key={i}
             >
-              <img
-                className="w-full h-full bg-[var(--grey)]"
+              {/* <img
+                className="w-full h-full bg-[rgba(211,211,211,0.05)]  border-none"
                 loading="lazy"
-              />
+              /> */}
             </section>
           ))}
+      </section>
+     
     </section>
   );
 };

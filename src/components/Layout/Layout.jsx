@@ -8,11 +8,13 @@ import Navbar from "../navbar/Navbar";
 import Scroll from "../scrollToTop/Scroll";
 
 const Layout = () => {
+
+// console.log('layout')   re-rendering issues
   return (
     <>
       <Scroll />
       <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto bg-[var(--grey)] overflow-scroll w-full">
-        <section>
+        <section className="">
           <Header
             HeaderText={<HeaderText />}
             Navbar={<Navbar Logo={<Logo />} />}

@@ -8,17 +8,10 @@ import {
 } from "react-router-dom";
 import CartIcon from "../../assets/Icons/CartIcon";
 import { useSelector } from "react-redux";
+import { navList } from "./navList";
 
-function NavMenu({ Logo, SearchIcon }) {
+function NavMenu({ Logo, SearchIcon,modal }) {
   const [menuToggle, setMenuToggle] = useState(false);
-  const navList = {
-    Home: "",
-    Products: "products",
-    About: "about",
-    Contact: "contact",
-    "Sign In": "signin",
-    "Sign Up": "signup",
-  };
   const menu = ["menuToggle", "p", "cart-section"];
   const navMenu = useRef(null);
   const { pathname } = useLocation();
@@ -27,10 +20,8 @@ function NavMenu({ Logo, SearchIcon }) {
     (state) => state.cart.products
   );
 
-
   const total = cart.map((item) => item.quantity).reduce((first,second)=> first + second,0)
-
-
+console.log(total)
   useEffect(() => {
     document.addEventListener("mousedown", clearMenu);
     menuToggle
@@ -56,7 +47,7 @@ function NavMenu({ Logo, SearchIcon }) {
       setMenuToggle(false);
     }
   }
-
+  
   return (
     <>
       <nav
@@ -71,9 +62,10 @@ function NavMenu({ Logo, SearchIcon }) {
             <Link
               to={`/${navList[list]}`}
               key={list}
-              className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-b-0 lg:p-0 lg:ml-[1.2rem] lg:hidden hover:bg-[var(--black)] hover:text-[var(--white)] ${
-                i === 4 && "mt-20 lg:hidden"
+              className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-b-0 lg:p-0 lg:ml-[1.2rem] hover:bg-[var(--black)] hover:text-[var(--white)] ${
+                i === 4 && "mt-20"
               }`}
+              
               onClick={() => {
                 navigate(`/${navList[list]}`);
               }}
@@ -114,14 +106,22 @@ function NavMenu({ Logo, SearchIcon }) {
                   ></section>
                 ) : (
                   <>
-                    {SearchIcon}
+                        {SearchIcon}
+                        
+                        {/* <AccountIcon styles={'hidden md:block ml-4 mr-2'} onClick={()=> setOverflow(!overflow)} /> */}
+                        {/* <OpenAccountModal /> */}
+                        {modal}
+                        {/* <div className={`${overflow ? 'opacity-100 transition-opacity duration-300' : 'opacity-0 transition-opacity duration-300'} flex flex-col absolute top-[61px] bg-[var(--white)] right-[50px] w-[135px] h-[135px] p-6 `}><p className='opacity-40'>Account</p>{Object.keys(navList).map((item, i) => ( 
+
+                          <Link key={item} to={`/${navList[item]}`} className={`${i > 3 ? '' : 'hidden'} mt-2`}> {i > 3 ? item : ''}</Link>
+                        ))}</div>     */}
                     <input
                       name="search"
                       type="search"
                       className="hidden"
                     />
                     <Link
-                      className="relative flex justify-center items-center cursor-pointer"
+                      className="relative flex justify-center items-center cursor-pointer ml-2"
                       to={"/cart"}
                     >
                       <CartIcon />
@@ -130,7 +130,7 @@ function NavMenu({ Logo, SearchIcon }) {
                           {total}
                         </p>
                       </div>
-                    </Link>{" "}
+                        </Link>{" "}
                   </>
                 )}
               </section>
