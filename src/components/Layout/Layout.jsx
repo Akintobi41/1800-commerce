@@ -8,8 +8,6 @@ import Navbar from "../navbar/Navbar";
 import Scroll from "../scrollToTop/Scroll";
 
 const Layout = () => {
-
-// console.log('layout')   re-rendering issues
   return (
     <>
       <Scroll />
