@@ -21,14 +21,16 @@ function NavMenu({ Logo, SearchIcon,modal }) {
   );
 
   const total = cart.map((item) => item.quantity).reduce((first,second)=> first + second,0)
-console.log(total)
+  console.log(total);
+
   useEffect(() => {
     document.addEventListener("mousedown", clearMenu);
+    console.log(menuToggle,'menuToggle')
     menuToggle
       ? document
           .querySelector("section").style.overflowY = 'hidden'
       : document
-          .querySelector("section").style.overflowY = 'scroll'
+          .querySelector("section").style.overflowY = 'clip'
     return () => {
       document.removeEventListener("mousedown", clearMenu);
     };
@@ -53,7 +55,7 @@ console.log(total)
       <nav
         className={`${
           menuToggle
-            ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full translate-y-[3rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
+            ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full translate-y-[2.6rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
             : "flex flex-col fixed left-0 items-start z-10 w-full h-full bg-[var(--pry-col)] lg:w-0 lg:h-0 translate-y-[-900px] transition-all duration-[1s] "
         }`}
       >
@@ -107,14 +109,7 @@ console.log(total)
                 ) : (
                   <>
                         {SearchIcon}
-                        
-                        {/* <AccountIcon styles={'hidden md:block ml-4 mr-2'} onClick={()=> setOverflow(!overflow)} /> */}
-                        {/* <OpenAccountModal /> */}
                         {modal}
-                        {/* <div className={`${overflow ? 'opacity-100 transition-opacity duration-300' : 'opacity-0 transition-opacity duration-300'} flex flex-col absolute top-[61px] bg-[var(--white)] right-[50px] w-[135px] h-[135px] p-6 `}><p className='opacity-40'>Account</p>{Object.keys(navList).map((item, i) => ( 
-
-                          <Link key={item} to={`/${navList[item]}`} className={`${i > 3 ? '' : 'hidden'} mt-2`}> {i > 3 ? item : ''}</Link>
-                        ))}</div>     */}
                     <input
                       name="search"
                       type="search"

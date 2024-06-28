@@ -3,8 +3,8 @@
 function Header({ HeaderText, Navbar }) {
 
   return (
-    <header className="fixed top-0 h-24 z-10 w-full">
-      {HeaderText}
+    <header className="sticky top-0 z-20 w-full">
+      {/* {HeaderText} */}
       {Navbar}
     </header>
   );

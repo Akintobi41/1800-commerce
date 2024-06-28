@@ -1,11 +1,11 @@
+import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import AccountIcon from "../../assets/Icons/AccountIcon";
 import { useOverflow } from "../../contexts";
-import { Link } from "react-router-dom";
 import { navList } from "../navbar/navList";
-import { useRef,useEffect } from "react";
 
 function OpenAccountModal() {
-  const { overflow, setOverflow } = useOverflow();
+  const { overflow, setOverflow } = useOverflow();  
   //   console.log(overflow, "b"); rerendering issues
   
   const navMenu = useRef()
@@ -36,8 +36,8 @@ function OpenAccountModal() {
       <div
         className={`${
           overflow
-            ? "opacity-100 transition-opacity duration-300"
-            : "opacity-0 transition-opacity duration-300"
+            ? "opacity-100 transition-opacity duration-300 visible"
+            : "opacity-0 transition-opacity duration-300 invisible"
         } flex flex-col absolute top-[61px] bg-[var(--white)] right-[50px] w-[135px] h-[135px] p-6 `}
       >
         <p className="opacity-40">Account</p>

@@ -15,16 +15,4 @@ const App = () => {
 };
 export default App;
 
-// const App = function App () {
-//       const [overflow, setOverflow] = useState(false);
-//     // console.log(overflow,'App') re-rendering issues
-
-//   return (
-//     <StoreProvider value={{ overflow, setOverflow }}>
-//       <RouterProvider router={router} />{" "}
-//     </StoreProvider>
-//   );
-// };
-
-// export default App;
 

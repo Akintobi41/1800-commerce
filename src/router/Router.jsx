@@ -8,6 +8,9 @@ import Home from "../components/pages/home/Home";
 import ProductDetail from "../components/pages/productDetail/ProductDetail";
 import Products from "../components/pages/products/Products";
 import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
+import SignOut from "../components/pages/signOut/SignOut";
+import SignUp from "../components/pages/signUp/SignUp";
+import SignIn from "./../components/pages/signIn/SignIn";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,14 @@ const router = createBrowserRouter([
       {
         path: "/products/:id",
         element: <ProductDetail />,
+      },
+      {
+        path: "/signin",
+        element: <SignIn />,
+      },
+      {
+        path: "signup",
+        element: <SignUp />,
       },
     ],
   },

@@ -11,16 +11,17 @@ const Layout = () => {
   return (
     <>
       <Scroll />
-      <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto bg-[var(--grey)] overflow-scroll w-full">
+      <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto bg-[var(--grey)] w-full">
         <section className="">
+          <HeaderText/>
           <Header
             HeaderText={<HeaderText />}
             Navbar={<Navbar Logo={<Logo />} />}
           />
-          <section className="flex flex-col mt-24">
+          <section className="flex flex-col">
             <Outlet />
           </section>
-          <Footer Logo={""} />
+          <Footer />
           <Logo font_style={"text-[22vw] text-center"} />
         </section>
       </main>
