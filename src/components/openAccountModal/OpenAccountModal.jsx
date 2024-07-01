@@ -25,7 +25,7 @@ function OpenAccountModal() {
 
 
   return (
-    <>
+    <div ref={navMenu}>
       <AccountIcon
         styles={`hidden md:block ml-4 mr-2`}
         onClick={() => setOverflow(!overflow)}
@@ -37,7 +37,7 @@ function OpenAccountModal() {
             : "opacity-0 transition-opacity duration-300 invisible"
           } flex flex-col absolute top-[61px] bg-[var(--white)] right-[50px] w-[135px] h-[135px] p-6 `}
         
-          ref={navMenu}
+          
         
       >
         <p className="opacity-40">Account</p>
@@ -55,7 +55,7 @@ function OpenAccountModal() {
           </section>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 export default OpenAccountModal;
