@@ -1,9 +1,7 @@
-import React from 'react'
 
 function SignIn() {
   return (
-    <div>SignIn</div>
+    <section className='bg-red-300 h-[65%] absolute bottom-0 w-full'>SignIn</section>
   )
 }
-
 export default SignIn

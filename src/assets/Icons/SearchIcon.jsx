@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 
-function SearchIcon({search,setSearch,top ='',refs}) {
+function SearchIcon({search,setSearch,top ='',refs,style}) {
   return (
     <svg
-      className={`feather feather-search cursor-pointer relative ${top}`}
+      className={`feather feather-search cursor-pointer relative ${top} ${style} stroke-[currentColor]`}
       onClick={() => setSearch(!search)}
       ref={refs}
       fill="none"
       height="24"
-      stroke="currentColor"
+      // stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"

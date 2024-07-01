@@ -3,7 +3,6 @@ import { useState } from "react";
 import SearchIcon from "./../../assets/Icons/SearchIcon";
 import NavMenu from './NavMenu';
 import OpenAccountModal from "../openAccountModal/OpenAccountModal";
-import { useEffect, useRef } from 'react';
 import useSearch from './../../hooks/useSearch';
 
 const Navbar = ({Logo}) => {
@@ -27,7 +26,7 @@ const Navbar = ({Logo}) => {
           />
     <SearchIcon search={search} setSearch={setSearch} top={'-top-[30px]'}/> 
     </section>
-    <NavMenu Logo={Logo} SearchIcon={<SearchIcon search={search} setSearch={setSearch} refs={navMenu} />} modal={<OpenAccountModal/>}/>
+    <NavMenu Logo={Logo} SearchIcon={<SearchIcon search={search} setSearch={setSearch} refs={navMenu} style={'hover:stroke-[var(--pry-col)]'} />} modal={<OpenAccountModal/>}/>
     </>
     </section>
   );

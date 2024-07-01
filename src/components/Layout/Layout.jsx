@@ -6,19 +6,17 @@ import HeaderText from "../headerText/HeaderText";
 import Logo from "../logo/Logo";
 import Navbar from "../navbar/Navbar";
 import Scroll from "../scrollToTop/Scroll";
+import Entry from "../entry/Entry";
 
 const Layout = () => {
   return (
     <>
       <Scroll />
       <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto bg-[var(--grey)] w-full">
-        <section className="">
-          <HeaderText/>
-          <Header
-            HeaderText={<HeaderText />}
-            Navbar={<Navbar Logo={<Logo />} />}
-          />
-          <section className="flex flex-col">
+        <section className="relative">
+          <Header Navbar={<Navbar Logo={<Logo />} />} Text={<HeaderText/>} />
+          <section className="flex flex-col relative">
+            <Entry/>
             <Outlet />
           </section>
           <Footer />
