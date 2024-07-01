@@ -2,14 +2,14 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllData } from "../../../contentful/contentful";
 import { modifyCart } from "../../../store/cartSlice";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Select from "../../select/Select";
 
 
 const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const cart = useSelector((state) => state.cart.products);
+  const cart = useSelector((state) => state.account.products);
   const dispatch = useDispatch();
 
   useEffect(() => {

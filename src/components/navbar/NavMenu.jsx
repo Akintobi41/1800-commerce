@@ -20,7 +20,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const cart = useSelector(
-    (state) => state.cart.products
+    (state) => state.account.products
   );
   const total = cart.map((item) => item.quantity).reduce((first, second) => first + second, 0)
   const { account, setAccount } = useOverflow();
@@ -51,7 +51,6 @@ function NavMenu({ Logo, SearchIcon,modal }) {
   //     setMenuToggle(false);
   //   }
   // }
-  console.log(account)
   
   return (
     <>
@@ -74,8 +73,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
                 if (i < 4) navigate(`/${navList[list]}`);
                 else { 
                   setMenuToggle(false);
-                  setAccount({ state: true, id: i })
-                  console.log('navMENUUU')
+                  setAccount({ state: true, id: i })  // open modal with either sign in or sign up
                 }
                 
               }}

@@ -3,7 +3,7 @@ import useCart from "../../../hooks/useCart";
 import { totalValues } from "./u_cart";
 
 function CartContent() {
-  const cart = useSelector((state) => state.cart.products);
+  const cart = useSelector((state) => state.account.products);
   const { cartText, total, VAT, shipFee, cartTotal } =
     useCart(cart);
 

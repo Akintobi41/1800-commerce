@@ -18,10 +18,7 @@ function Entry() {
   function closeMenu(e) {
     if (e.target.nodeName === "DIV")
       setAccount({ ...account, state: false });
-
-    console.log('DIVVVVV')
   }
-  console.log('njfg')
 
   return (
     <div
@@ -29,14 +26,14 @@ function Entry() {
         account.state
           ? "opacity-100 visible h-[100%] fixed w-full transition-all duration-[1s] bottom-0"
           : ""
-      } bg-[rgba(128,128,128,0.7)]`}
+      } bg-[rgba(128,128,128,0.9)]`}
       onClick={closeMenu}
       ref={entryMenu}
     >
       {account.id === 4 ? (
-        <SignIn />
+        <SignIn id={() => setAccount({...account,id:5})} />
       ) : account.id === 5 ? (
-        <SignUp />
+        <SignUp/>
       ) : null}
     </div>
   );

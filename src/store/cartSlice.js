@@ -4,7 +4,15 @@ const initialState = {
     products: [],
 }
 
-const cartSlice = createSlice({
+const authState = { 
+    status: false,
+    userData: null,
+    id: null,
+    active:false,
+    
+}
+
+const mySlice = createSlice({
     name: 'cart',
     initialState,
     reducers: {
@@ -90,8 +98,30 @@ const cartSlice = createSlice({
             })
         }
     }
-})
+}, {
+    name: 'auth',
+    initialState: authState,
+    reducers: {
+        signIn: (state, action) => { 
+            state.status = true;
+        },
+        signOut: (state, action) => { 
+            state.status = false;
+            
+        },
+        signUp: (state, action) => { 
+            
+        },
+        accessAccount: (state, action) => { 
+            console.log(action.payload)
+            state.active = true;
+            state.id = action.payload
+            
+        }
+    }
+}
+)
 
-export const { modifyCart, addValue,reduceValue,removeFromCart } = cartSlice.actions
-export default cartSlice.reducer;
+export const { modifyCart, addValue,reduceValue,removeFromCart,accessAccount } = mySlice.actions
+export default mySlice.reducer;
 

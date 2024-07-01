@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cartSlice from "./cartSlice";
+import mySlice from "./cartSlice";
 
 
 const store = configureStore({ 
     reducer: { 
-     cart: cartSlice
+        account: mySlice,    // i noticed that is there need to set the name of the reducer incase ut being used in different scenarios
     }
 })
 export default store;
