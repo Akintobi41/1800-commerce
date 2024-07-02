@@ -1,3 +1,5 @@
+import Button from "../../reusables/button/Button";
+import Input from "../../reusables/input/Input";
 
 function SignIn({id}) {
   return (
@@ -8,12 +10,12 @@ function SignIn({id}) {
       <form action="">
       <label htmlFor="">
           Email:  <br/>
-          <input type="email" className="w-full" />
+          <Input type="email" className="w-full" />
          </label> <label htmlFor="" className="block mt-4">
           Password:  <br/>
-          <input type="email" className="w-full" />
+          <Input type="email" className="w-full" />
         </label>   
-        <button className="text-[var(--white)] bg-[var(--black)] ">Sign In</button>
+        <Button styles={"text-[var(--white)] bg-[var(--black)]"}>Sign In</Button>
       </form>
      <p>Don&apos;t have an account? <small className="underline" onClick={id}>Create Account</small></p>
     </section>

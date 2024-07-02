@@ -1,16 +1,15 @@
 /* eslint-disable react/prop-types */
-import React from "react";
-import { useState, useRef, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import {
   Link,
   useLocation,
   useNavigate,
 } from "react-router-dom";
 import CartIcon from "../../assets/Icons/CartIcon";
-import { useSelector } from "react-redux";
-import { navList } from "./navList";
-import Entry from "../entry/Entry";
 import { useOverflow } from "../../contexts";
+import Input from './../reusables/input/Input';
+import { navList } from "./navList";
 
 
 function NavMenu({ Logo, SearchIcon,modal }) {
@@ -23,7 +22,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
     (state) => state.account.products
   );
   const total = cart.map((item) => item.quantity).reduce((first, second) => first + second, 0)
-  const { account, setAccount } = useOverflow();
+  const { account, setOverflow,setAccount } = useOverflow();
 
   // useEffect(() => {
   //   document.addEventListener("mousedown", clearMenu);
@@ -58,17 +57,16 @@ function NavMenu({ Logo, SearchIcon,modal }) {
         className={`${
           menuToggle
             ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full translate-y-[2.6rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
-            : "flex flex-col fixed left-0 items-start z-10 w-full h-full bg-[var(--pry-col)] lg:w-0 lg:h-0 translate-y-[-900px] transition-all duration-[1s] "
+            : "flex flex-col fixed left-0 items-start z-10 w-full h-full bg-[var(--pry-col)] lg:bg-transparent lg:h-40 translate-y-[-900px] lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"
         }`}
       >
-        <ul className="flex flex-col mt-10 w-full lg:mt-0 lg:h-0 lg:w-1/2 lg:flex-row">
+        <ul className="flex flex-col mt-10 w-full lg:mt-0 lg:h-0 lg:w-[30%] lg:flex-row z-30 lg:gap-8">
           {Object.keys(navList).map((list, i) => (
             <section
               key={list}
-              className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-b-0 lg:p-0 lg:ml-[1.2rem] hover:bg-[var(--black)] hover:text-[var(--white)] ${
+              className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none ${i > 0 &&  i < 4 ? '' : 'lg:hidden'} cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-b-0 lg:p-0 lg:ml-[1rem] hover:bg-[var(--black)] hover:text-[var(--white)] lg:hover:text-[var(--pry-col)] ${
                 i === 4 && "mt-20"
               }`}
-              
               onClick={() => {
                 if (i < 4) navigate(`/${navList[list]}`);
                 else { 
@@ -84,7 +82,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
         </ul>
       </nav>
 
-      <section className="flex w-full justify-between items-center lg:flex-[4.5]">
+      <section className="flex w-full lg:w-1/2 justify-between items-center lg:flex-[4.5]">
         {menu.map((section, i) => (
           <React.Fragment key={section}>
             {section === "p" ? (
@@ -94,7 +92,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
                 key={section}
                 className={
                   !i
-                    ? "flex relative w-8 items-center h-6 cursor-pointer lg:hidden"
+                    ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0"
                     : "flex items-center lg:mr-[1.2rem] justify-end"
                 }
                 onClick={
@@ -116,11 +114,9 @@ function NavMenu({ Logo, SearchIcon,modal }) {
                   <>
                         {SearchIcon}
                         {modal}
-                    <input
-                      name="search"
-                      type="search"
-                      className="hidden"
-                    />
+                        <Input name="search"
+                          type="search"
+                          styles={"hidden"} />
                     <Link
                       className="relative flex justify-center items-center cursor-pointer ml-2"
                       to={"/cart"}

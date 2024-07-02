@@ -5,7 +5,8 @@ import useMyContext from "./contexts/useMyContext";
 
 const App = () => {
   const { overflow, setOverflow,account,setAccount } = useMyContext();
-console.log('APP')
+  // console.log(overflow,'overflow')
+  // console.log(account,'account')
   return (
     <StoreProvider value={{overflow,setOverflow,account,setAccount}}>
       <RouterProvider router={router} />{" "}

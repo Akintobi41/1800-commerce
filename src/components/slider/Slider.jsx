@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Button from "../reusables/button/Button";
 
 const Slider = () => {
   const [activeSlideIndex, setActiveSlideIndex] =
     useState(0);
-
+const navigate = useNavigate()
   useEffect(() => {
     const slideInterval = setInterval(() => {
       setActiveSlideIndex(
@@ -32,6 +32,7 @@ const Slider = () => {
   const slideDescriptionArray = slideDescription.split(" ");
 
   function viewAll() {
+    navigate(('/products'))
     console.log(
       slideDescriptionArray[
         slideDescriptionArray.length - 1
@@ -51,11 +52,11 @@ const Slider = () => {
       <h1 className="text-[36px] font-medium">Be bright. Be bold.</h1>
       <p className="text-center">Meet our bright new mood-boosting colorway.</p>
       </section>
-      <Link to='/products' className="flex justify-center">
-      <button className='font-medium h-12 cursor-pointer py-0 px-[34px] border-b-[rgb(15,15,15)] rounded-[24px] text-[var(--white)] leading-[48px] bg-[var(--black)] hover:bg-[var(--pry-col)]' onClick={viewAll}>
+      <section className="flex justify-center">
+      <Button className='font-medium h-12 cursor-pointer py-0 px-[34px] border-b-[rgb(15,15,15)] rounded-[24px] text-[var(--white)] leading-[48px] bg-[var(--black)] hover:bg-[var(--pry-col)]' onClick={viewAll}>
           Shop - New Arrivals
-        </button>
-      </Link>
+        </Button>
+      </section>
       
     </>
   );

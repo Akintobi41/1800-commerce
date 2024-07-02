@@ -1,7 +1,7 @@
+import { useEffect, useRef } from "react";
+import { useOverflow } from "../../contexts";
 import SignIn from "../pages/signIn/SignIn";
 import SignUp from "../pages/signUp/SignUp";
-import { useOverflow } from "../../contexts";
-import { useEffect, useRef } from "react";
 
 function Entry() {
   const { account, setAccount } = useOverflow();
@@ -25,15 +25,17 @@ function Entry() {
       className={`z-40 ${
         account.state
           ? "opacity-100 visible h-[100%] fixed w-full transition-all duration-[1s] bottom-0"
-          : ""
+          : "opacity-0 invisible"
       } bg-[rgba(128,128,128,0.9)]`}
       onClick={closeMenu}
       ref={entryMenu}
     >
       {account.id === 4 ? (
-        <SignIn id={() => setAccount({...account,id:5})} />
+        <SignIn
+          id={() => setAccount({ ...account, id: 5 })}
+        />
       ) : account.id === 5 ? (
-        <SignUp/>
+        <SignUp />
       ) : null}
     </div>
   );

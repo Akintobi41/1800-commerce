@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { fetchAllData } from "../../../contentful/contentful";
 import { modifyCart } from "../../../store/cartSlice";
-import { useNavigate } from "react-router-dom";
+import Button from "../../reusables/button/Button";
 import Select from "../../select/Select";
 
 
@@ -65,9 +66,9 @@ const Products = () => {
                   loading="lazy"
                   className="h-[70%] w-[100%] bg-[#a8a29e1a] hover:object-cover hover:transition-all duration-300  border border-[#8080801c]"
               />
-                <button
-                  className="absolute right-0 top-0 w-full h-6 bg-[var(--black)] text-[var(--white)] text-[.8rem] border-none outline-none cursor-pointer"
-                >
+              <Button styles={"absolute right-0 top-0 w-full h-6 bg-[var(--black)] text-[var(--white)] text-[.8rem] border-none outline-none cursor-pointer"}>
+
+               
                   {" "}
                   {[...cart].some(
                     (item) =>
@@ -75,7 +76,8 @@ const Products = () => {
                   )
                     ? "Remove from Cart"
                     : "Add to Cart"}
-                </button>
+              </Button>
+
             </section>
             {/* <p>{ product.fields.name}</p> */}
           </section>
@@ -86,10 +88,6 @@ const Products = () => {
               className="flex w-[48%] relative h-64 bg-primary-500/50 border border-[#bcbcbc33]"
               key={i}
             >
-              {/* <img
-                className="w-full h-full bg-[rgba(211,211,211,0.05)]  border-none"
-                loading="lazy"
-              /> */}
             </section>
           ))}
       </section>

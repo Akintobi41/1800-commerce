@@ -22,7 +22,7 @@ function OpenAccountModal() {
       !navMenu.current?.contains(e.target)
     ) {
       setOverflow(false);
-    }
+    } 
   }
 
   return (
@@ -47,6 +47,7 @@ function OpenAccountModal() {
             } mt-2`}
             onClick={() => {
               setAccount({ state: true, id: i });
+              console.log("onclick");
             }}
           >
             {" "}

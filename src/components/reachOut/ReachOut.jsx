@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import HundredIcon from "./../../assets/Icons/HundredIcon";
+import Button from "../reusables/button/Button";
 
 const ReachOut = () => {
   const textOptions = ["Happiness", "Guarantee"];
@@ -13,7 +14,7 @@ const ReachOut = () => {
           {/* <img
             src="/Images/100-percent.svg"
             alt="100 percent"
-            className={s.percent} w-[6.5rem]
+            className={s.percent} w-[6.5rem]3
           /> */}
           {/* <HundredIcon/> */}
           <section className='flex leading-[1] w-full mr-1'>
@@ -45,9 +46,9 @@ const ReachOut = () => {
               }  `}
               key={btn}
             >
-              <button className='inline-flex items-center justify-center rounded-sm cursor-pointer no-underline border-none relative bg-[rgb(16,14,32)] text-[rgb(255,255,255)] font-bold leading-[1.25] tracking-[0.020625rem] min-h-[32px] min-w-[100px] py-0 px-4 mt-4 mr-4'>
+              <Button className='inline-flex items-center justify-center rounded-sm cursor-pointer no-underline border-none relative bg-[rgb(16,14,32)] text-[rgb(255,255,255)] font-bold leading-[1.25] tracking-[0.020625rem] min-h-[32px] min-w-[100px] py-0 px-4 mt-4 mr-4'>
                 {btn}
-              </button>
+              </Button>
             </Link>
           </React.Fragment>
         ))}

@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import useCart from "../../../hooks/useCart";
+import Button from "../../reusables/button/Button";
 import { totalValues } from "./u_cart";
 
 function CartContent() {
@@ -33,9 +34,9 @@ function CartContent() {
                 &#8358; {cartTotal}
               </p>
             </section>
-            <button className="mt-8 bg-[var(--pry-col)] rounded-[30px] p-[.6rem]">
-              Checkout
-            </button>
+            <Button styles={"mt-8 bg-[var(--pry-col)] rounded-[30px] p-[.6rem]"}>
+            Checkout
+            </Button>
             <p className="text-left leading-[1.5] mt-8">
               Please double check your delivery address
               details to ensure they are correct on the

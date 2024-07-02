@@ -96,12 +96,8 @@ const mySlice = createSlice({
             state.products = state.products.filter((item) => { 
                return item.name !== action.payload.name
             })
-        }
-    }
-}, {
-    name: 'auth',
-    initialState: authState,
-    reducers: {
+        },
+        
         signIn: (state, action) => { 
             state.status = true;
         },
@@ -118,10 +114,13 @@ const mySlice = createSlice({
             state.id = action.payload
             
         }
+              
+        }
     }
-}
 )
 
-export const { modifyCart, addValue,reduceValue,removeFromCart,accessAccount } = mySlice.actions
+
+
+export const { modifyCart, addValue, reduceValue, removeFromCart,accessAccount } = mySlice.actions
 export default mySlice.reducer;
 

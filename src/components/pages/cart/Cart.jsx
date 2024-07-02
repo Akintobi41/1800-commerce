@@ -6,6 +6,7 @@ import {
   removeFromCart,
 } from "../../../store/cartSlice";
 import { format } from "../../../utils/format/format";
+import Button from "../../reusables/button/Button";
 import DeleteIcon from "./../../../assets/Icons/DeleteIcon";
 import EmptyCart from "./../../../assets/Images/EmptyCart";
 import Delivery from "./../../delivery/Delivery";
@@ -40,9 +41,9 @@ const Cart = () => {
               <p className="text-[.8rem] font-medium">
                 {name}
               </p>
-              <button className="text-[.8rem] font-medium bg-[#53caec4d] px-1 py-[.1rem] text-[#044b60] rounded w-14">
-                In Stock
-              </button>
+                <Button styles={"text-[.8rem] font-medium bg-[#53caec4d] px-1 py-[.1rem] text-[#044b60] rounded w-14"}>
+                  In Stock
+                </Button>
               <Link className="block text-[.8rem] font-medium">
                 {data.type}
               </Link>
@@ -61,29 +62,25 @@ const Cart = () => {
                 &#8358; {format(totalPrice)}
               </p>
               <section className="flex justify-end">
-                <button
-                  className={`flex items-center justify-center border border-r-0 size-5 ${
+                <Button styles={`flex items-center justify-center border border-r-0 size-5 ${
                     quantity <= 1 ? "opacity-40" : ""
                   }`}
-                  onClick={() => {
+                  onClick={() => { 
                     if (quantity > 1) {
                       dispatch(reduceValue(data));
                     }
-                  }}
+                }}
                 >
-                  -
-                </button>
+          -
+                </Button>
                 <p className="flex justify-center items-center text-center text-[.65rem]   border px-2 opacity-50 size-5">
                   {quantity}
                 </p>
-                <button
-                  className="flex items-center justify-center border-l-0 border size-5"
-                  onClick={() => {
+                <Button styles={"flex items-center justify-center border-l-0 border size-5"}   onClick={() => {
                     dispatch(addValue(data));
-                  }}
-                >
+                  }}>
                   +
-                </button>
+                </Button>
               </section>
             </section>
           </section>
@@ -97,10 +94,9 @@ const Cart = () => {
           Let&apos;s go buy something
         </p>
         <Link to="/products" className="mt-6">
-          <button className="w-36 h-9 bg-[var(--pry-col)] rounded-[8px]">
-            {" "}
+            <Button styles={"w-36 h-9 bg-[var(--pry-col)] rounded-[8px]"} >
             Start Shopping
-          </button>
+            </Button>
         </Link>
       </aside>
     );
