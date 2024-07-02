@@ -23,6 +23,7 @@ const navigate = useNavigate()
     "Cargo Tailored Trousers": "url('')",
     "Sleek Fitted Caps": "url('')",
   };
+  
 
   const slideDescription =
     Object.keys(slideBackground)[activeSlideIndex];

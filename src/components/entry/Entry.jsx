@@ -35,7 +35,7 @@ function Entry() {
           id={() => setAccount({ ...account, id: 5 })}
         />
       ) : account.id === 5 ? (
-        <SignUp />
+        <SignUp id={() => setAccount({ ...account, id: 4 })}/>
       ) : null}
     </div>
   );
