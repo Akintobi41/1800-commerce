@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { fetchAllData } from "../../../contentful/contentful";
 import { modifyCart } from "../../../store/cartSlice";
 import Button from "../../reusables/button/Button";
-import Select from "../../select/Select";
-
+import Select from "../../reusables/select/Select";
+import { filter } from './../../../utils/filter/FilterOption';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -49,7 +49,7 @@ const Products = () => {
       Need help deciding which product is the right size for you?
       Check out our  <Link>size guide </Link>for smooth decision. */}
       {/* <h2>Shop</h2> */}
-  <Select/>
+      <Select options={filter} styles={"block self-start w-full h-10 outline-none bg-white mb-8 sticky left-0 top-16 px-2 z-10 cursor-pointer"} onChange={(e) => console.log(e.target.value)}/>
       <section className="flex flex-wrap gap-2">
       {loading
         ? [...products].map((product) => (

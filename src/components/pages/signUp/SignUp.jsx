@@ -2,6 +2,7 @@ import { useOverflow } from "../../../contexts"
 import { useForm } from "react-hook-form"
 import Button from "../../reusables/button/Button";
 import Input from "../../reusables/input/Input";
+import Select from './../../select/Select';
 
 
 function SignUp({ id }) {
@@ -33,7 +34,7 @@ function SignUp({ id }) {
           <Input label='Password' type="password" className="w-full" {...register('password')} />
           <Input label='Password' type="password" className="w-full" {...register('password')} />
           <Input type="radio" className="w-full" {...register('password')} />
-           
+           <Select/>
           <Button type='submit' styles={"text-[var(--white)] bg-[var(--black)]"}>Sign In</Button>
       </form>
      <p>Don&apos;t have an account? <small className="underline" onClick={id}>Create Account</small></p>
