@@ -2,10 +2,10 @@
 import React, { useId } from "react";
 
 const Select = React.forwardRef(function Select(
-  { options, label, styles, ...props },
+  { type,options, label, styles, ...props },
   ref,
 ) {
-  const id = useId();
+    const id = useId();
 
   return (
     <div className="w-full">
@@ -22,8 +22,8 @@ const Select = React.forwardRef(function Select(
         ref={ref}
       >
         {" "}
-        {options.map((option) => (
-          <option key={option} value={option}></option>
+        {options?.map((option) => (
+            <option key={option} value={option}>{ type === 'products' ? option : type === 'signup' ? option : ''}</option>
         ))}{" "}
       </select>
     </div>

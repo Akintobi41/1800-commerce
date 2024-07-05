@@ -29,16 +29,16 @@ const Cart = () => {
             key={name}
             className="flex gap-x-4 justify-between w-[100%] h-[100%] py-4 border-b border-solid border-[grey]"
           >
-            <figure className="w-[35%] h-auto p-4 bg-[#9ca3af26]">
+            <figure className="w-[40%] h-auto bg-[#9ca3af26]">
               <img
                 src={image}
                 alt={type}
                 loading="lazy"
-                className="size-full"
+                className="size-full object-contain"
               />
             </figure>
-            <section className=" flex flex-col justify-between w-[100px]">
-              <p className="text-[.8rem] font-medium">
+            <section className=" flex flex-col justify-between w-[100px] gap-y-1">
+              <p className="text-[.8rem] font-medium truncate">
                 {name}
               </p>
                 <Button styles={"text-[.8rem] font-medium bg-[#53caec4d] px-1 py-[.1rem] text-[#044b60] rounded w-14"}>
@@ -76,8 +76,14 @@ const Cart = () => {
                 <p className="flex justify-center items-center text-center text-[.65rem]   border px-2 opacity-50 size-5">
                   {quantity}
                 </p>
-                <Button styles={"flex items-center justify-center border-l-0 border size-5"}   onClick={() => {
-                    dispatch(addValue(data));
+                <Button styles={`flex items-center justify-center border-l-0 border size-5 ${quantity === 10 ? 'opacity-40' : ''}`}   onClick={() => {
+                  if (quantity < 10) { 
+                  dispatch(addValue(data));
+                  } else { 
+                    console.log('Out of Stock!')
+                    //notifications to let the  user know we are out of stock
+                  }
+                  
                   }}>
                   +
                 </Button>

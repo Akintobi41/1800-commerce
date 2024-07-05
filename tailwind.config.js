@@ -16,9 +16,13 @@ export default {
       },
       animation: {
         Shake: 'Shake .3s linear',
-      }
-      
+      },
+     
     },
   },
+  screens: {
+    'l-screen': '900px'
+    },
+
   plugins: [],
 };
