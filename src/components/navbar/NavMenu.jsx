@@ -57,7 +57,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
         className={`${
           menuToggle
             ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full translate-y-[2.6rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
-            : "flex flex-col fixed left-0 items-start z-10 w-full h-full bg-[var(--pry-col)] lg:bg-transparent lg:h-40 translate-y-[-900px] lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"
+            : "flex flex-col fixed left-0 items-start z-10 w-full h-full lg:bg-transparent lg:h-40 translate-y-[-900px] lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"
         }`}
       >
         <ul className="flex flex-col mt-10 w-full lg:mt-0 lg:h-0 lg:w-[30%] lg:flex-row z-30 lg:gap-8">

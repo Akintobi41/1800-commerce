@@ -22,8 +22,8 @@ const Select = React.forwardRef(function Select(
         ref={ref}
       >
         {" "}
-        {options?.map((option) => (
-            <option key={option} value={option}>{ type === 'products' ? option : type === 'signup' ? option : ''}</option>
+        {options?.map((option,i) => (
+            <option key={option} disabled={i === 0 ? 'disabled' : ''} value={option} className={`${i === 0  ? 'opacity-30 bg-slate-400' : ''}`}>{ type === 'products' ? option : type === 'signup' ? option : ''}</option>
         ))}{" "}
       </select>
     </div>

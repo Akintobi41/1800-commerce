@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form"
 import Button from "../../reusables/button/Button";
 import Input from "../../reusables/input/Input";
 import Select from "../../reusables/select/Select";
-import { shopFilter } from "../../../utils/filter/FilterOption";
-import { radioText } from "../../../utils/filter/FilterOption";
+import { shopFilter } from "../../../utils/text/text";
+import { radioText } from "../../../utils/text/text";
 
 
 function SignUp({ id }) {
