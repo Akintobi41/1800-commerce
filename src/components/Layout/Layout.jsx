@@ -25,6 +25,6 @@ function Layout() {
     </main>
   </>
   )
-}
+}  
 
 export default Layout
