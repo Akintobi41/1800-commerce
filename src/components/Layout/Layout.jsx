@@ -8,22 +8,23 @@ import Navbar from "../navbar/Navbar";
 import Scroll from "../scrollToTop/Scroll";
 import Entry from "../entry/Entry";
 
-const Layout = () => {
+function Layout() {
   return (
     <>
-      <Scroll />
-      <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto bg-[var(--grey)] w-full">
-        <section className="relative">
-          <Header Navbar={<Navbar Logo={<Logo />} />} Text={<HeaderText/>} />
-          <section className="flex flex-col relative">
-            <Entry/>
-            <Outlet />
-          </section>
-          <Footer />
-          <Logo font_style={"text-[22vw] text-center"} />
+    <Scroll />
+    <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto bg-[var(--grey)] w-full">
+      <section className="relative">
+        <Header Navbar={<Navbar Logo={<Logo />} />} Text={<HeaderText/>} />
+        <section className="flex flex-col relative">
+          <Entry/>
+          <Outlet />
         </section>
-      </main>
-    </>
-  );
-};
-export default Layout;
+        <Footer />
+        <Logo font_style={"text-[22vw] text-center"} />
+      </section>
+    </main>
+  </>
+  )
+}
+
+export default Layout
