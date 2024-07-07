@@ -1,9 +1,16 @@
 import { useState } from "react";
 import { sort } from "../../utils/text/text";
 import Select from "../reusables/select/Select";
+import { useDispatch } from "react-redux";
+import { useSelector } from 'react-redux';
+import { setProducts } from "../../store/productSlice";
 
-function Sort({ products, setProducts, list }) {
+function Sort({ list }) {
+
+  const products = useSelector((state) => state.products.products)
   const [val, setValue] = useState("");
+  const dispatch = useDispatch();
+  console.log(products)
 
   function Sort(e) {
     const val = e.target.value;
@@ -28,7 +35,9 @@ function Sort({ products, setProducts, list }) {
       "Price: Low to High": low,
       "Price: High to Low": high,
     }[val];
-    setProducts([...result]);
+    // setProducts([...result]);
+    console.log(result)
+    dispatch(setProducts(result))
   }
   return (
     <Select

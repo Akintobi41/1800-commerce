@@ -7,14 +7,16 @@ import { format } from "../../../utils/format/format";
 import Button from "../../reusables/button/Button";
 import Sort from "../../sort/Sort";
 import Filter from "../../filter/Filter";
+import { setProducts } from "../../../store/productSlice";
 
 const Products = () => {
-  console.log('products')
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const cart = useSelector(
     (state) => state.cart.products
   );
+  const products = useSelector((state) => state.products.products)
+  // console.log(products)  why does it show [object,object]
   const dispatch = useDispatch();
   const [list, setList] = useState([]);
   const [filterData, setFilterData] = useState([]);
@@ -25,16 +27,20 @@ const Products = () => {
       try {
         const { items } = await fetchAllData("products");
         items.map((item) => (item.fields.quantity = 0));
-        setProducts(items);
+        console.log(items)
+        
         setList(items);
         setFilterData(items);
         setLoading(true);
+       dispatch(setProducts(items)); 
       } catch (error) {
         setLoading(false);
         console.error("Failed to fetch");
       }
     })();
   }, []);
+
+
   const Skeleton = Array(6).fill(0); // for skeleton
   const navigate = useNavigate();
 
@@ -49,6 +55,7 @@ const Products = () => {
   }
 
   return (
+  //  <></>
     <section className="relative flex flex-col mt-24 p-4 min-h-[500px] bg-[var(--white)]">
       {/* Shop
       Need help deciding which product is the right size for you?
@@ -56,7 +63,7 @@ const Products = () => {
       {/* <h2>Shop</h2> */}
       <div className="border-t-[1px] border-gray-200 w-[120%] my-4 box-border relative right-[16px]"></div>
       <section className="flex ">
-      <Sort products={products} setProducts={setProducts} list={list}/>
+      <Sort list={list}/>
       <Filter filterData={filterData} setProducts={setProducts}/>
       </section>
       <section className="flex flex-wrap justify-center gap-y-2 gap-x-3">
