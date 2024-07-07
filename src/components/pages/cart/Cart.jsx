@@ -13,7 +13,7 @@ import Delivery from "./../../delivery/Delivery";
 import CartContent from "./CartContent";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.account.products);
+  const cart = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
   function cartDisplay() {

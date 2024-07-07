@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-// import Slider from "../../../components/slider/Slider";
 import ProductSlider from "../../../components/productSlider/ProductSlider";
 import Trending from "../../../components/Trending/Trending";
 import About from "../../../components/about/About";

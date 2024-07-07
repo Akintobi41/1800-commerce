@@ -13,7 +13,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const cart = useSelector(
-    (state) => state.account.products
+    (state) => state.cart.products
   );
   const dispatch = useDispatch();
   const [list, setList] = useState([]);

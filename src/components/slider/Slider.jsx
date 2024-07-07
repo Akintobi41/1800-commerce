@@ -20,8 +20,8 @@ const navigate = useNavigate()
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const slideBackground = {
     "Custom Corporate Bags": "url('')",
-    "Cargo Tailored Trousers": "url('')",
-    "Sleek Fitted Caps": "url('')",
+    "Fancy Exquisite Watches": "url('')",
+    "New Gen and Retro Shoes": "url('')",
   };
   
 
@@ -34,11 +34,11 @@ const navigate = useNavigate()
 
   function viewAll() {
     navigate(('/products'))
-    console.log(
-      slideDescriptionArray[
-        slideDescriptionArray.length - 1
-      ]
-    );
+    // console.log(
+    //   slideDescriptionArray[
+    //     slideDescriptionArray.length - 1
+    //   ]
+    // );
   }
 
   return (
@@ -46,7 +46,7 @@ const navigate = useNavigate()
       <section
         className={`relative flex center h-64 z-0 p-6 text-[var(--white)] bg-[${currentSlideBackground}] bg-no-repeat bg-[#53caec]`}
       >
-        <p className='font-semibold text-[1.5rem] mb-20 text-[var(--white)]'>{slideDescription}</p>
+        <p className='font-semibold text-[1.25rem] mb-20 text-[var(--white)]'>{slideDescription}</p>
         
       </section>
       <section className="flex flex-col items-center mb-6">

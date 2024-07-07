@@ -4,13 +4,7 @@ const initialState = {
     products: [],
 }
 
-const authState = { 
-    status: false,
-    userData: null,
-    id: null,
-    active:false,
-    
-}
+
 
 const mySlice = createSlice({
     name: 'cart',
@@ -121,6 +115,6 @@ const mySlice = createSlice({
 
 
 
-export const { modifyCart, addValue, reduceValue, removeFromCart,accessAccount } = mySlice.actions
+export const { modifyCart, addValue, reduceValue, removeFromCart} = mySlice.actions
 export default mySlice.reducer;
 

@@ -3,15 +3,17 @@ import { useParams } from "react-router";
 import { fetchData } from "../../../contentful/contentful";
 
 function ProductDetail() {
-  const id = useParams();
+  const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     (async function () {
       try {
-        await fetchData(id).then((data) =>
+        await fetchData(id).then((data) => { 
           setProduct(data)
+          console.log(data)
+        }
         );
         setLoading(true);
       } catch (error) {
@@ -20,7 +22,9 @@ function ProductDetail() {
       }
     })();
   }, [id]);
-console.log(product)
+
+  console.log(product)
+
   return <div>Product Details</div>;
 }
 

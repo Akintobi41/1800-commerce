@@ -4,7 +4,7 @@ import Button from "../../reusables/button/Button";
 import { totalValues } from "./u_cart";
 
 function CartContent() {
-  const cart = useSelector((state) => state.account.products);
+  const cart = useSelector((state) => state.cart.products);
   const { cartText, total, VAT, shipFee, cartTotal } =
     useCart(cart);
 

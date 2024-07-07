@@ -19,7 +19,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const cart = useSelector(
-    (state) => state.account.products
+    (state) => state.cart.products
   );
   const total = cart.map((item) => item.quantity).reduce((first, second) => first + second, 0)
   const { account, setOverflow,setAccount } = useOverflow();
