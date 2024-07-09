@@ -1,9 +1,13 @@
 import { filter } from "../../utils/text/text";
 import Select from "../reusables/select/Select";
 import { useState } from "react";
+import { filterProducts } from "../../store/productSlice";
+import { useDispatch } from "react-redux";
+
 
 function Filter({ setProducts, filterData }) {
   const [item, setItem] = useState("");
+  const dispatch = useDispatch()
 
     function Filter(e) {
         const val = e.target.value;
@@ -28,7 +32,9 @@ function Filter({ setProducts, filterData }) {
           Watch: watches,
           Bag: bags,
         }[val];
-        setProducts([...result]);
+      
+      setProducts([...result]);
+      dispatch(filterProducts(result))
       }
 
   return (

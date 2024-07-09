@@ -3,7 +3,7 @@ import { sort } from "../../utils/text/text";
 import Select from "../reusables/select/Select";
 import { useDispatch } from "react-redux";
 import { useSelector } from 'react-redux';
-import { setProducts } from "../../store/productSlice";
+import { sortProducts } from "../../store/productSlice";
 
 function Sort({ list }) {
 
@@ -36,8 +36,7 @@ function Sort({ list }) {
       "Price: High to Low": high,
     }[val];
     // setProducts([...result]);
-    console.log(result)
-    dispatch(setProducts(result))
+    dispatch(sortProducts(result))
   }
   return (
     <Select
