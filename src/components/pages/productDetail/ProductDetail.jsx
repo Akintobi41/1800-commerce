@@ -13,7 +13,6 @@ function ProductDetail() {
       try {
         await fetchData(id).then((data) => { 
           setProduct(data)
-          console.log(data)
         }
         );
         setLoading(true);
@@ -25,11 +24,14 @@ function ProductDetail() {
   }, [id]);
 
   console.log(product)
-  // const {fields} = product
+  // const {fields} = await product
   // console.log(fields)
 
   return (
+    <section>
     <ImageSwiper images={product?.fields.images} />
+    
+    </section>
   );
 }
 

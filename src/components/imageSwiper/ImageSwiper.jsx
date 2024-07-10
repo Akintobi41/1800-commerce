@@ -22,11 +22,13 @@ const ImageSwiper = ({ images }) => {
       grid-rows="3"
       mousewheel-force-to-axis="true"
     > 
-       {[...images].map((image, index) => (
+       { images ?  [...images]?.map((image, index) => (
         <swiper-slide key={index}>
           <img src={image?.fields.file.url} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto' }} />
         </swiper-slide>
-      ))}
+       )) : null}
+      
+      Error Message needed when images/product is loading
 
     </swiper-container>
   );
