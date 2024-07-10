@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { fetchData } from "../../../contentful/contentful";
+import ImageSwiper from "../../imageSwiper/ImageSwiper";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -24,8 +25,12 @@ function ProductDetail() {
   }, [id]);
 
   console.log(product)
+  // const {fields} = product
+  // console.log(fields)
 
-  return <div>Product Details</div>;
+  return (
+    <ImageSwiper images={product?.fields.images} />
+  );
 }
 
 export default ProductDetail;
