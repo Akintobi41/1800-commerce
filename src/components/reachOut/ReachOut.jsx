@@ -11,12 +11,6 @@ const ReachOut = () => {
     <section className='flex flex-col pt-6 px-6 pb-12'>
       <section>
         <section className='flex items-center'>
-          {/* <img
-            src="/Images/100-percent.svg"
-            alt="100 percent"
-            className={s.percent} w-[6.5rem]3
-          /> */}
-          {/* <HundredIcon/> */}
           <section className='flex leading-[1] w-full mr-1'>
             {textOptions.map((el) => (
               <p
@@ -39,11 +33,11 @@ const ReachOut = () => {
         {btnOptions.map((btn) => (
           <React.Fragment key={btn}>
             <Link
-              to={`${
+              to={`/${
                 btn.endsWith("Us")
                   ? "contact"
                   : btn.toLowerCase() + "s"
-              }  `}
+              }`}
               key={btn}
             >
               <Button className='inline-flex items-center justify-center rounded-sm cursor-pointer no-underline border-none relative bg-[rgb(16,14,32)] text-[rgb(255,255,255)] font-bold leading-[1.25] tracking-[0.020625rem] min-h-[32px] min-w-[100px] py-0 px-4 mt-4 mr-4'>

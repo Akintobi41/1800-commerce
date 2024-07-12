@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const CustomerService = () => {
   const list = ['My Account','Fabrics', 'Shops', 'Customer Service',"Faqs", "Return Policy", "Size Guide"];
   return (
-    <section className='my-6 mx-0'>
+    <section className='my-2 mx-0'>
       {list.map((list) => (
         <Link
           to={`/${list.split(" ").join("").toLowerCase()}`}

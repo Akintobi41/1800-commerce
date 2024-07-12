@@ -15,16 +15,6 @@ const Navbar = ({Logo}) => {
     <>
     <section
     className={`w-full absolute left-0 mt-10 pt-2 px-6 pb-0 bg-[var(--white)] ${search ? "block opacity-100 z-10" : 'hidden opacity-0' }`}>
-    {/* <input
-      type="search"
-      name="search" 
-      className={`${
-        search
-          ? "w-full transition-all duration-[.5s]  appearance-none border-0 pt-4 pr-0 pb-0 pl-16 border-b-[1px] border-[var(--black)] outline-none"
-          : "translate-y-[-400px]"
-      }`}
-      placeholder="SEARCH"
-          /> */}
           <Input type="search"
       name="search" 
       styles={`${

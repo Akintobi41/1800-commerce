@@ -1,5 +1,5 @@
 import { register } from "swiper/element";
-import { useEffect } from "react";
+import { useEffect} from "react";
 
 const ImageSwiper = ({ images }) => {
   register();
@@ -8,12 +8,14 @@ const ImageSwiper = ({ images }) => {
 
     swiperEl.addEventListener('swiperprogress', (event) => {
       const [swiper, progress] = event.detail;
+      // console.log(swiper)
+    
     });
 
     swiperEl.addEventListener('swiperslidechange', (event) => {
-      console.log('slide changed');
+      // console.log('slide changed');
     });
-    console.log(swiperEl)
+    // console.log(swiperEl)
   }, []);
 
   return (
@@ -23,12 +25,12 @@ const ImageSwiper = ({ images }) => {
       mousewheel-force-to-axis="true"
     > 
        { images ?  [...images]?.map((image, index) => (
-        <swiper-slide key={index}>
-          <img src={image?.fields.file.url} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto' }} />
+        <swiper-slide key={index} lazy='true'>
+          <img src={image?.fields.file.url} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto' }} loading="lazy"/>
         </swiper-slide>
        )) : null}
       
-      Error Message needed when images/product is loading
+      {/* Error Message needed when images/product is loading */}
 
     </swiper-container>
   );
