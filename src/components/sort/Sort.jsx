@@ -10,7 +10,7 @@ function Sort({ list }) {
   const products = useSelector((state) => state.products.products)
   const [val, setValue] = useState("");
   const dispatch = useDispatch();
-  console.log(products)
+  // console.log(products)
 
   function Sort(e) {
     const val = e.target.value;

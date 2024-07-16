@@ -4,11 +4,11 @@ import { StoreProvider } from "./contexts/MyContext";
 import useMyContext from "./contexts/useMyContext";
 
 const App = () => {
-  const { overflow, setOverflow,account,setAccount } = useMyContext();
+  const { overflow, setOverflow} = useMyContext();
   // console.log(overflow,'overflow')
-  // console.log(account,'account')
+ 
   return (
-    <StoreProvider value={{overflow,setOverflow,account,setAccount}}>
+    <StoreProvider value={{overflow,setOverflow}}>
       <RouterProvider router={router} />{" "}
     </StoreProvider>
   );

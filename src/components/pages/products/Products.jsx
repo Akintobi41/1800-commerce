@@ -27,8 +27,6 @@ const Products = () => {
       try {
         const { items } = await fetchAllData("products");
         items.map((item) => (item.fields.quantity = 0));
-        console.log(items)
-        
         setList(items);
         setFilterData(items);
         setLoading(true);
@@ -45,8 +43,9 @@ const Products = () => {
   const navigate = useNavigate();
 
   function handleClick(e, product) {
-    console.log(e.target.textContent);
+    // console.log(e.target.textContent);
     const cartRedirect = e.target.textContent;
+    
     if (cartRedirect.endsWith("Cart")) {
       dispatch(modifyCart(product.fields));
     } else {
@@ -56,7 +55,7 @@ const Products = () => {
 
   return (
   //  <></>
-    <section className="relative flex flex-col mt-24 p-4 min-h-[500px] bg-[var(--white)]">
+    <section className="relative flex flex-col mt-24 p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
       {/* Shop
       Need help deciding which product is the right size for you?
       Check out our  <Link>size guide </Link>for smooth decision. */}

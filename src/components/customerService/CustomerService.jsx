@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 
-
 const CustomerService = () => {
   const list = ['My Account','Fabrics', 'Shops', 'Customer Service',"Faqs", "Return Policy", "Size Guide"];
   return (

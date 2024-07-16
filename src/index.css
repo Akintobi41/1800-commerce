@@ -24,7 +24,6 @@
 
   html{ 
     height: 100%;
-    /* background-color:; */
   }
 
   body {
@@ -33,4 +32,3 @@
     min-height: 100vh; 
     font-family: 'Plein', sans-serif;
   }
-  ::-webkit-scrollbar {display:none;}

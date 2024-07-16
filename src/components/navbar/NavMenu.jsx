@@ -1,41 +1,40 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Link,
   useLocation,
   useNavigate,
 } from "react-router-dom";
 import CartIcon from "../../assets/Icons/CartIcon";
-import { useOverflow } from "../../contexts";
+import SignOutBtn from "../signOutBtn/SignOutBtn";
 import Input from './../reusables/input/Input';
 import { navList } from "./navList";
+import { showEntry } from "../../store/accountSlice";
 
 
-function NavMenu({ Logo, SearchIcon,modal }) {
+function NavMenu({ Logo, SearchIcon,modal }) {;
   const [menuToggle, setMenuToggle] = useState(false);
-  const menu = ["menuToggle", "p", "cart-section"];
   const navMenu = useRef(null);
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const entry = useSelector((state)=> state.access)
+  const loggedIn = useSelector((state) => state.auth.status)
+  const { name } = useSelector((state) => state.auth?.userData) || {};
   const cart = useSelector(
     (state) => state.cart.products
   );
   const total = cart.map((item) => item.quantity).reduce((first, second) => first + second, 0)
-  const { account, setOverflow,setAccount } = useOverflow();
-
-  // useEffect(() => {
-  //   document.addEventListener("mousedown", clearMenu);
-  //   console.log(menuToggle)
-  //   menuToggle
-  //     ? document
-  //         .querySelector("section").style.overflowY = 'hidden'
-  //     : document
-  //         .querySelector("section").style.overflowY = 'clip'
-  //   return () => {
-  //     document.removeEventListener("mousedown", clearMenu);
-  //   };
-  // }, [menuToggle]);
+  const menu = ["menuToggle", "p", "cart-section"];
+  const dispatch = useDispatch();
+  
+  useEffect(() => {
+    menuToggle
+      ? document
+          .querySelector("body").style.overflowY = 'hidden'
+      : document
+          .querySelector("body").style.overflowY = 'auto'
+  }, [menuToggle]);
 
   useEffect(() => {
     setMenuToggle(false);
@@ -50,7 +49,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
   //     setMenuToggle(false);
   //   }
   // }
-  console.log(menuToggle)
+  // console.log(menuToggle)
   return (
     <>
       <nav
@@ -60,25 +59,26 @@ function NavMenu({ Logo, SearchIcon,modal }) {
             : "hidden flex-col fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-40 translate-y-[-900px] lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
         }`}
       >
+        {loggedIn && <p className="p-4 italic">Hi, { name}</p>}
         <ul className="flex flex-col mt-10 w-full lg:mt-0 lg:h-0 lg:w-[30%] lg:flex-row z-30 lg:gap-8">
           {Object.keys(navList).map((list, i) => (
             <section
               key={list}
               className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none ${i > 0 &&  i < 4 ? '' : 'lg:hidden'} cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-b-0 lg:p-0 lg:ml-[1rem] hover:bg-[var(--black)] hover:text-[var(--white)] lg:hover:text-[var(--pry-col)] ${
                 i === 4 && "mt-20"
-              }`}
+              } ${i >= 4 && loggedIn ? 'hidden' : ''}`}
               onClick={() => {
                 if (i < 4) navigate(`/${navList[list]}`);
                 else { 
                   setMenuToggle(false);
-                  setAccount({ state: true, id: i })  // open modal with either sign in or sign up
+                  dispatch(showEntry(i)) // open modal with either sign in or sign up
                 }
-                
               }}
             >
               {list}
             </section>
           ))}
+          {loggedIn && <SignOutBtn/>}
         </ul>
       </nav>
 

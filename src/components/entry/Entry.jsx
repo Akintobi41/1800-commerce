@@ -2,43 +2,50 @@ import { useEffect, useRef } from "react";
 import { useOverflow } from "../../contexts";
 import SignIn from "../pages/signIn/SignIn";
 import SignUp from "../pages/signUp/SignUp";
+import { useSelector, useDispatch } from "react-redux";
+import { closeEntry } from "../../store/accountSlice";
 
 function Entry() {
-  const { account, setAccount } = useOverflow();
+  // const { account, setAccount } = useOverflow();
+  const access = useSelector((state) => state.access)
+  const { id, status } = access;
   const entryMenu = useRef();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    account.state
+    status
       ? (document.querySelector("body").style.overflow =
           "hidden")
       : (document.querySelector("body").style.overflow =
           "auto");
-  }, [account]);
+  }, [status]);
 
   function closeMenu(e) {
     if (e.target.nodeName === "DIV")
-      setAccount({ ...account, state: false });
+      // setAccount({ ...account, state: false });
+    dispatch(closeEntry())
+
   }
+  // console.log(account)
 
   return (
     <div
       className={`z-40 ${
-        account.state
+        access.status
           ? "opacity-100 visible h-[100%] fixed w-full transition-all duration-[1s] bottom-0"
           : "opacity-0 invisible"
       } bg-[rgba(128,128,128,0.9)]`}
       onClick={closeMenu}
       ref={entryMenu}
     >
-      {account.id === 4 ? (
+      {id === 4 ? (
         <SignIn
-          id={() => setAccount({ ...account, id: 5 })}
+          id={5}
         />
-      ) : account.id === 5 ? (
-        <SignUp id={() => setAccount({ ...account, id: 4 })}/>
+      ) : id === 5 ? (
+        <SignUp id={4}/>
       ) : null}
     </div>
   );
 }
-
 export default Entry;

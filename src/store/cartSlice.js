@@ -14,7 +14,7 @@ const mySlice = createSlice({
             const check = state.products.some((product) => {
                 return product.name === action.payload.name
             })
-
+console.log(state,'state')
             if (!check) {
                 // const cart = {
                 //     data: action.payload,
@@ -90,25 +90,7 @@ const mySlice = createSlice({
             state.products = state.products.filter((item) => { 
                return item.name !== action.payload.name
             })
-        },
-        
-        signIn: (state, action) => { 
-            state.status = true;
-        },
-        signOut: (state, action) => { 
-            state.status = false;
-            
-        },
-        signUp: (state, action) => { 
-            
-        },
-        accessAccount: (state, action) => { 
-            console.log(action.payload)
-            state.active = true;
-            state.id = action.payload
-            
-        }
-              
+        },    
         }
     }
 )

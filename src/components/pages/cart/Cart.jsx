@@ -44,7 +44,7 @@ const Cart = () => {
                 <Button styles={"text-[.8rem] font-medium bg-[#53caec4d] px-1 py-[.1rem] text-[#044b60] rounded w-14"}>
                   In Stock
                 </Button>
-              <Link className="block text-[.8rem] font-medium">
+              <Link className="block text-[.8rem] font-medium" to='/products'>
                 {data.type}
               </Link>
               <p
@@ -125,3 +125,6 @@ const Cart = () => {
 };
 
 export default Cart;
+
+
+// i was trying to impleme nt a feature wherby once you click on a product type in car it takes your back  to the products page with that vakue filtered out

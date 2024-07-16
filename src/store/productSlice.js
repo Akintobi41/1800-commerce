@@ -9,14 +9,9 @@ const productSlice = createSlice({
     initialState,
     reducers: { 
         setProducts: (state, action) => { 
-
             if (!state.products.length) { 
-                // return [...action.payload]
-                // state.products.push(...action.payload)   
                 state.products = [...state.products, ...action.payload]
-                console.log(state.products,'state.products')
             }
-              
         },
         sortProducts: (state, action) => { 
             state.products = action.payload

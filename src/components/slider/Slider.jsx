@@ -46,8 +46,9 @@ const navigate = useNavigate()
   return (
     <>
       <section
-        className={`relative flex center h-64 z-0 p-6 text-[var(--white)] bg-[${currentSlideBackground}] bg-no-repeat bg-[#53caec]`}
+        className={`relative flex center h-64 z-0 p-6 text-[var(--white)] bg-[url(/src/assets/Images/home-bg.jpg)] bg-no-repeat bg-[#53caec]`}
       >
+        <img src="" alt="" />
         <p className='font-semibold text-[1.25rem] mb-20 text-[var(--white)]'>{slideDescription}</p>
         
       </section>
