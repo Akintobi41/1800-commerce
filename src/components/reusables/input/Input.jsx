@@ -5,7 +5,7 @@ const Input = React.forwardRef(function Input({ label, type = 'text', name, styl
   return (
     <section>
       {label && (<label htmlFor={label}>{ label}</label>)}
-    <input type={type} name={name} className={styles} {...props} ref={ref} id={label} />
+    <input type={type} name={name} className={`w-full ${styles}`} {...props} ref={ref} id={label} />
     </section>
   );
 

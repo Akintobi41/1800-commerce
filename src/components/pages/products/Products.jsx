@@ -10,12 +10,11 @@ import Filter from "../../filter/Filter";
 import { setProducts } from "../../../store/productSlice";
 
 const Products = () => {
-  // const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-  const cart = useSelector(
-    (state) => state.cart.products
+  const cart = useSelector((state) => state.cart.products);
+  const products = useSelector(
+    (state) => state.products.products
   );
-  const products = useSelector((state) => state.products.products)
   // console.log(products)  why does it show [object,object]
   const dispatch = useDispatch();
   const [list, setList] = useState([]);
@@ -30,7 +29,7 @@ const Products = () => {
         setList(items);
         setFilterData(items);
         setLoading(true);
-       dispatch(setProducts(items)); 
+        dispatch(setProducts(items));
       } catch (error) {
         setLoading(false);
         console.error("Failed to fetch");
@@ -38,14 +37,12 @@ const Products = () => {
     })();
   }, []);
 
-
   const Skeleton = Array(6).fill(0); // for skeleton
   const navigate = useNavigate();
 
   function handleClick(e, product) {
-    // console.log(e.target.textContent);
     const cartRedirect = e.target.textContent;
-    
+
     if (cartRedirect.endsWith("Cart")) {
       dispatch(modifyCart(product.fields));
     } else {
@@ -54,7 +51,6 @@ const Products = () => {
   }
 
   return (
-  //  <></>
     <section className="relative flex flex-col mt-24 p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
       {/* Shop
       Need help deciding which product is the right size for you?
@@ -62,8 +58,11 @@ const Products = () => {
       {/* <h2>Shop</h2> */}
       <div className="border-t-[1px] border-gray-200 w-[120%] my-4 box-border relative right-[16px]"></div>
       <section className="flex ">
-      <Sort list={list}/>
-      <Filter filterData={filterData} setProducts={setProducts}/>
+        <Sort list={list} />
+        <Filter
+          filterData={filterData}
+          setProducts={setProducts}
+        />
       </section>
       <section className="flex flex-wrap justify-center gap-y-2 gap-x-3">
         {loading

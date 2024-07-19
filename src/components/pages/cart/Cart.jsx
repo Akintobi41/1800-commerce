@@ -12,9 +12,12 @@ import EmptyCart from "./../../../assets/Images/EmptyCart";
 import Delivery from "./../../delivery/Delivery";
 import CartContent from "./CartContent";
 
+
 const Cart = () => {
   const cart = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
+
+  
 
   function cartDisplay() {
     return cart?.length ? (

@@ -55,8 +55,8 @@ function NavMenu({ Logo, SearchIcon,modal }) {;
       <nav
         className={`${
           menuToggle
-            ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full translate-y-[2.6rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
-            : "hidden flex-col fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-40 translate-y-[-900px] lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
+            ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full top-[5.8rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
+            : "hidden flex-col fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-40 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
         }`}
       >
         {loggedIn && <p className="p-4 italic">Hi, { name}</p>}

@@ -32,7 +32,7 @@ function SignIn({ id }) {
 
 
   return (
-    <section className='bg-red-300 h-[65%] flex flex-col absolute bottom-0 w-full p-4'>
+    <section className='bg-[var(--pry-col)] h-[65%] flex flex-col absolute bottom-0 w-full p-4'>
       <p>Sign In</p>
       <p>Sign in to access your account or add items to your cart.</p>
 
@@ -46,7 +46,7 @@ function SignIn({ id }) {
         </label>   
         <Button type='submit' styles={"text-[var(--white)] bg-[var(--black)]"}>Sign In</Button>
       </form>
-     <p>Don&apos;t have an account? <small className="underline" onClick={()=> dispatch(showEntry(id))}>Create Account</small></p>
+     <p>Don&apos;t have an account? <small className="underline cursor-pointer" onClick={()=> dispatch(showEntry(id))}>Create Account</small></p>
     </section>
   )
 }

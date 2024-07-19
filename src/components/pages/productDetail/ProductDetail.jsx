@@ -13,18 +13,20 @@ import { useEffect,useState } from "react";
 function ProductDetail() {
   const { id } = useParams();
   const cart = useSelector((state) => state.cart.products);
+  const quantity = [...cart]?.every((item) => item.quantity > 6);
+  console.log (quantity)
   const getProduct = async function () {
     return await fetchData(id).then((data) => data);
   };
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  let delay = 2;
   const [route,setRoute] = useState(false)
 
   const { data, isLoading } = useQuery(
     "product",
     getProduct
   );
+  console.log(cart.quantity)
 
   function displayProduct() {
     if (data) {
@@ -33,6 +35,7 @@ function ProductDetail() {
       const checkProduct = [...cart].some(
         (item) => item.name === name
       );
+      console.log(checkProduct)
 
       return (
         <>
@@ -61,7 +64,9 @@ function ProductDetail() {
               Earn up to 64 points with 1800 Rewards
             </p>
           </section>
+          {quantity  ?  <p className="px-4">Low in Stock</p> : null}
           <section className="px-4 w-full">
+      
             <Button
               styles={`${
                 checkProduct
@@ -92,8 +97,6 @@ function ProductDetail() {
     }
   }
 
-  // console.log(data?.length)
-  // console.log(Object.keys(data || {}).length)
   useEffect(() => { 
     
     if (route) { 

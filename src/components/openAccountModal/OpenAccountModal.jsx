@@ -2,11 +2,14 @@ import { useEffect, useRef } from "react";
 import AccountIcon from "../../assets/Icons/AccountIcon";
 import { useOverflow } from "../../contexts";
 import { navList } from "../navbar/navList";
+import { useDispatch } from 'react-redux';
+import { showEntry } from "../../store/accountSlice";
 
 function OpenAccountModal() {
-  const { overflow, setOverflow, setAccount } =
+  const { overflow, setOverflow} =
     useOverflow();
   const navMenu = useRef();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     document.addEventListener("mousedown", clearMenu);
@@ -46,7 +49,7 @@ function OpenAccountModal() {
               i > 3 ? "" : "hidden"
             } mt-2`}
             onClick={() => {
-              setAccount({ state: true, id: i });
+              dispatch(showEntry(i))
               console.log("onclick");
             }}
           >

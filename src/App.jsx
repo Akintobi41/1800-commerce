@@ -5,7 +5,6 @@ import useMyContext from "./contexts/useMyContext";
 
 const App = () => {
   const { overflow, setOverflow} = useMyContext();
-  // console.log(overflow,'overflow')
  
   return (
     <StoreProvider value={{overflow,setOverflow}}>
