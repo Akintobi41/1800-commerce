@@ -1,4 +1,4 @@
-import { format } from "../utils/format/Format";
+import { format } from "../utils/format/format";
 
 const useCart = (cart) => {
     const cartText = ['Subtotal', 'Shipping', 'VAT(5%)'];
