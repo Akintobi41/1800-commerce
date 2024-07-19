@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "../reusables/button/Button";
 import productSlice from "../../store/productSlice";
-import { useSelector } from "react-redux";
 
 const Slider = () => {
   const [activeSlideIndex, setActiveSlideIndex] =

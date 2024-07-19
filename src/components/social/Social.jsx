@@ -1,7 +1,30 @@
 import React, { Fragment } from "react";
-import { footerSection, socialIcon, year } from "./social_utils";
+import FacebookIcon from '../../assets/Icons/FacebookIcon'
+import InstagramIcon from './../../assets/Icons/InstagramIcon';
 
 const Social = () => {
+
+ const socialIcon = [
+    {
+      name: "facebook",
+      icon: <FacebookIcon />,
+    },
+    {
+      name: "instagram",
+      icon: <InstagramIcon />,
+    },
+    {
+      name: "twitter",
+      icon: <FacebookIcon />,
+    },
+    {
+      name: "tiktok",
+      icon: <FacebookIcon />,
+    },
+  ];
+  const footerSection = ["section1", "section2"];
+  const year = new Date().getFullYear();
+  
   return (
     <section>
       <section>

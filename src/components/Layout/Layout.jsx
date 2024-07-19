@@ -9,6 +9,7 @@ import Scroll from "../scrollToTop/Scroll";
 import Entry from "../entry/Entry";
 
 function Layout() {
+
   return (
     <>
     <Scroll />
