@@ -9,7 +9,7 @@ const Select = React.forwardRef(function Select(
   // console.log(options)
 
   return (
-    <div className="w-full">
+    <section className="w-full">
       {" "}
       {label && (
         <label htmlFor={id} className="">
@@ -24,11 +24,13 @@ const Select = React.forwardRef(function Select(
       >
         {" "}
         {options?.map((option,i) => (
-            <option key={option} disabled={i === 0 && type !== 'birthday' ? 'disabled' : ''} value={option} className={`${i === 0  ? 'opacity-30 bg-slate-400' : ''}`}>{ type === 'products' ? option : type === 'signup' ? option : type === 'birthday' ? option : ''}</option>
+            <option key={option}  value={option} >{ type === 'products' ? option : type === 'signup' ? option : type === 'birthday' ? option : ''}</option>
         ))}{" "}
       </select>
-    </div>
+    </section>
   );
 });
 
 export default Select;
+// disabled={i === 0 && type !== 'birthday' ? 'disabled' : ''}
+// className={`${i === 0  ? 'opacity-30 bg-slate-400' : ''}`}

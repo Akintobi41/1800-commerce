@@ -20,12 +20,13 @@ function Entry() {
   }, [status]);
 
   function closeMenu(e) {
-    if (e.target.nodeName === "DIV")
-      // setAccount({ ...account, state: false });
+    if (e.target.nodeName === "DIV") {
+      console.log(e.target.nodeName)
     dispatch(closeEntry())
+    }
+      
 
   }
-  // console.log(account)
 
   return (
     <div

@@ -8,7 +8,6 @@ import ProductDetail from "../components/pages/productDetail/ProductDetail";
 import Products from "../components/pages/products/Products";
 import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
 import Layout from '../components/layout/Layout';
-import App from "../App";
 
 const router = createBrowserRouter([
   {
@@ -50,4 +49,5 @@ const router = createBrowserRouter([
     ],
   },
 ]);
+
 export default router;
