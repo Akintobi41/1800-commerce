@@ -2,7 +2,7 @@
 import React, { useId } from "react";
 
 const Select = React.forwardRef(function Select(
-  { type,options, label, styles, ...props },
+  { type,options, label,border = ' border-solid border-[1px]', styles, ...props },
   ref,
 ) {
   const id = useId();
@@ -17,7 +17,7 @@ const Select = React.forwardRef(function Select(
         </label>
       )}
       <select
-        className={styles}
+        className={`${styles} ${border}`}
         {...props}
         id={id}
         ref={ref}

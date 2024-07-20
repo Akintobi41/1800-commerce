@@ -91,32 +91,32 @@ function SignUp({ id }) {
       <section className='bg-[#fff] h-[80%] overflow-scroll flex flex-col absolute bottom-0 w-full p-4'>
       <p className="text-[2.35rem] font-bold mb-8">Join the Team</p>
       <p className="mt-2 leading-7">Create and account and never miss another <b>1800</b> event near you. Explore, make new friends, and start #DoingThings. We can’t wait to see you out there! </p>
-      <p className="my-4">Already have an account? <small className="underline cursor-pointer ml-1" onClick={()=> dispatch(showEntry(id))}>Sign In</small></p>  
+      <p className="my-5">Already have an account? <small className="underline cursor-pointer ml-1" onClick={()=> dispatch(showEntry(id))}>Sign In</small></p>  
       <p>{errorMsg}</p>
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-3">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-y-6 text-[.8rem]">
       
-          <Input label='First Name' type="text" styles={` ${fName ? 'rounded border-[1px] border-[red]' : ''}`} {...register('name', { required: true, maxLength: 20})} placeholder='name should not be more than 20 characters'/> 
-          <Input label='Last Name' type="text"styles={`${lName ? 'rounded border-[1px] border-[red]' : ''}`} {...register('lastName', { required: true, maxLength: 20 })} placeholder='name should not be more than 20 characters' />
-          <Input label='Email' type="email" {...register('email',{ required: true})} />
-          <Input label='Password' type="password" placeholder='Password must be at least 8 characters' {...register('password', { required: true })} />
+          <Input label='First Name' type="text" styles={`px-[12px] ${fName ? 'rounded border-[1px] border-[red]' : ''}`} {...register('name', { required: true, maxLength: 20})} placeholder='name should not be more than 20 characters'/> 
+          <Input label='Last Name' type="text"styles={`px-[12px] ${lName ? 'rounded border-[1px] border-[red]' : ''}`} {...register('lastName', { required: true, maxLength: 20 })} placeholder='name should not be more than 20 characters' />
+          <Input label='Email' type="email" styles='px-[12px]' {...register('email',{ required: true})} />
+          <Input label='Password' type="password" styles='px-[12px]' placeholder='Password must be at least 8 characters' {...register('password', { required: true })} />
           <p className="h-4">{pvalid}</p>
-          <Input label='Confirm Password' type="password"  {...register("cpassword", { required: true , validate: (val) => {
-    if (watch('password') != val) {
-      return "Your passwords do no match";
-    }
-  },})} />
+          <Input label='Confirm Password' styles='px-[12px]' type="password"  {...register("cpassword", { required: true , validate: (val) => {
+         if (watch('password') != val) {
+         return "Your passwords do no match";
+         }
+        },})} />
           {pword && <p className="-mt-2">Passwords do not match</p>}
-          <section className="flex">
-          <Input type="radio" className="w-28 h-8 self-center" {...register('radio')} /> <p className="m-1">{radioText}</p>
+          <section className="flex items-center">
+          <Input type="checkbox" className="relative flex justify-center items-center size-7 self-center rounded-[50%] appearance-none border-[2px] border-solid border-[var(--black)] checked:before:bg-[var(--pry-col)] before:transition-all before:duration-300  before:block before:absolute  before:content-[''] before:size-[1.15rem] before:rounded-[50%] " {...register('signUp',{required:true})} /> <p className="m-1">{radioText}</p>
           </section> 
-          <Select type='signup' options={shopFilter} label='Shopping For' styles={'w-full'}  />
+          <Select type='signup' options={shopFilter} label='Shopping For' styles={'w-full h-[48px]'}  />
           <section>
             <p>Birthday</p>
             <section className="flex w-full">  
-              <Select styles={'w-[95%]'} type='birthday' options={month} {...register('birthmonth',{ required: true })} /><Select type='birthday' styles={'w-[95%]'} options={day} {...register('birthdate',{ required: true })} />
+              <Select styles={'w-[95%] h-[48px]'} type='birthday' options={month} {...register('birthmonth',{ required: true })}/><Select type='birthday' styles={'w-[95%] h-[48px]'} options={day} {...register('birthdate',{ required: true })} />
             </section>
           </section>
-          <Button type='submit' styles={"font-medium text-[var(--white)] bg-[var(--black)] w-[65%] rounded-[24px] h-[48px] px-[36px] hover:bg-[var(--pry-col)] transition-all duration-300"}>Create Account</Button>
+          <Button type='submit' styles={"font-medium text-[var(--white)] bg-[var(--black)] w-[65%] rounded-[24px] h-[48px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300"}>Create Account</Button>
         </form>
         <p className="mt-4">By creating an account, I agree to the Terms of Use and acknowledge that I have read the  Privacy Policy.</p>
       </section>
