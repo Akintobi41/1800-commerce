@@ -14,7 +14,7 @@
   }
   
   .popup.visible {
-    right: 5px; /* Slide into the viewport */
+    right: 25px; /* Slide into the viewport */
     opacity: 1;
     transform: translateX(0);
   }
