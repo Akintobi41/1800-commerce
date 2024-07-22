@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import authService from "../../../appwrite/auth/auth";
 import { signIn } from "../../../store/loginSlice";
 import { useNavigate } from "react-router";
+import TextContainer from "../../textContainer/TextContainer";
 
 function SignIn({ id }) {
   const { register, handleSubmit, watch, formState } = useForm()
@@ -32,9 +33,9 @@ function SignIn({ id }) {
 
 
   return (
-    <section className='bg-[var(--pry-col)] h-[65%] flex flex-col absolute bottom-0 w-full p-4'>
-      <p>Sign In</p>
-      <p>Sign in to access your account or add items to your cart.</p>
+    <section className='bg-[var(--white)] h-[65%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s]'>
+      <TextContainer className={'text-center'}>Sign In</TextContainer>
+      <p className="text-center">Sign in to access your account or add items to your cart.</p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
       <label htmlFor="">

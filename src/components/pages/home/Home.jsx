@@ -15,7 +15,6 @@ const Home = () => {
     async function getUser() {
       try {
         const userData = await authService.getCurrentUser();
-        console.log(userData)
         if (userData) {
           dispatch(signIn({ userData }))
         }

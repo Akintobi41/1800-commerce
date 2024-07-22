@@ -3,43 +3,44 @@
 @tailwind utilities;
 
 #root {
-    --white: #fff;
-    --grey: #d3d3d366;
-    --secondary: #aadb1e;
-    --sec-col: #B9D6F2;
-    --pry-col: #53caec;
-    --black: #170c0c;
-    --heading-font: 27px;
-    --text-font: 13px;
-  }
-  
-  *,
-  ::before,
-  ::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    color: var(--black);
-  }
+  --white: #fff;
+  --grey: #d3d3d366;
+  --secondary: #aadb1e;
+  --sec-col: #B9D6F2;
+  --pry-col: #53caec;
+  --black: #170c0c;
+  --heading-font: 27px;
+  --text-font: 13px;
+  --red: #9e3131;
+}
 
-  html{ 
-    height: 100%;
-  }
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: var(--black);
+}
 
-  body {
-    position: relative;
-    width: 100%;
-    min-height: 100vh; 
-    font-family: 'Plein', sans-serif;
-  }
+html {
+  height: 100%;
+}
 
-  ::placeholder{ 
-    font-size: .75rem;
-  }
-  
-  input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+body {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Plein', sans-serif;
+}
+
+::placeholder {
+  font-size: .75rem;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
 }

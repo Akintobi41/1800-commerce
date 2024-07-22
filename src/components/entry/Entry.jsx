@@ -1,12 +1,11 @@
 import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { closeEntry } from "../../store/accountSlice";
 import SignIn from "../pages/signIn/SignIn";
 import SignUp from "../pages/signUp/SignUp";
-import { useSelector, useDispatch } from "react-redux";
-import { closeEntry } from "../../store/accountSlice";
 
 function Entry() {
-  // const { account, setAccount } = useOverflow();
-  const access = useSelector((state) => state.access)
+  const access = useSelector((state) => state.access);
   const { id, status } = access;
   const entryMenu = useRef();
   const dispatch = useDispatch();
@@ -20,9 +19,7 @@ function Entry() {
   }, [status]);
 
   function closeMenu(e) {
-    if (e.target.nodeName === "DIV") {
-    dispatch(closeEntry())
-    }
+    if (e.target.nodeName === "DIV") dispatch(closeEntry());
   }
 
   return (
@@ -36,11 +33,9 @@ function Entry() {
       ref={entryMenu}
     >
       {id === 4 ? (
-        <SignIn
-          id={5}
-        />
+        <SignIn id={5} />
       ) : id === 5 ? (
-        <SignUp id={4}/>
+        <SignUp id={4} />
       ) : null}
     </div>
   );

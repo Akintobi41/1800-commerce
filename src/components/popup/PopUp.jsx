@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import s from './s_popUp.module.css'
 
-const PopUp = ({ isVisible,setIsVisible}) => {
+const PopUp = ({ text,isVisible,setIsVisible}) => {
   useEffect(() => {
     if (isVisible) {
       const timer = setTimeout(() => {
           setIsVisible(false)
-      }, 800);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [isVisible]);
@@ -17,7 +17,7 @@ const PopUp = ({ isVisible,setIsVisible}) => {
       role="alert" 
       aria-live="assertive"
     >
-      <p>Some fields are still empty</p>
+      <p className={s.text}>{text}</p>
     </div>
   );
 };
