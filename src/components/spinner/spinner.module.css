@@ -1,0 +1,29 @@
+.spinner {
+    width: 24px;
+    height: 24px;
+    display: grid;
+    animation: spinner-plncf9 3.2s infinite;
+  }
+  
+  .spinner::before,
+  .spinner::after {
+    content: "";
+    grid-area: 1/1;
+    border: 3.8px solid;
+    border-radius: 50%;
+    border-color: var(--black) var(--black) transparent transparent;
+    mix-blend-mode: darken;
+    animation: spinner-plncf9 0.8s infinite linear;
+  }
+  
+  .spinner::after {
+    border-color: transparent transparent #dbdcef #dbdcef;
+    animation-direction: reverse;
+  }
+  
+  @keyframes spinner-plncf9 {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+  

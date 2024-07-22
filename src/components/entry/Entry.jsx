@@ -21,11 +21,8 @@ function Entry() {
 
   function closeMenu(e) {
     if (e.target.nodeName === "DIV") {
-      console.log(e.target.nodeName)
     dispatch(closeEntry())
     }
-      
-
   }
 
   return (

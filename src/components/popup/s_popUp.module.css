@@ -1,0 +1,26 @@
+.popup {
+    position: fixed;
+    top: 20px;
+    right: -300px; /* Start outside of the viewport */
+    width: 250px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    opacity: 1;
+    transform: translateX(100%);
+    transition: transform 0.75s ease-out, opacity 0.75s ease-out;
+    z-index: 1000;
+  }
+  
+  .popup.visible {
+    right: 5px; /* Slide into the viewport */
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+
+  p {
+    font-size: 12px;
+  }
+  

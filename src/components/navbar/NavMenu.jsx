@@ -100,11 +100,11 @@ function NavMenu({ Logo, SearchIcon,modal }) {;
                     ? () => setMenuToggle(!menuToggle)
                     : null
                 }
-                ref={!i ? navMenu : null}
+                ref={!i ? navMenu : null} 
               >
                 {!i ? ( // if index is equals to zero this is for the navigation menu
                   <section
-                    className={` border-l-indigo-400 relative w-4 h-[.115rem] transition-[transform] duration-700 before:content-[''] hover:bg-[var(--pry-col)] before:hover:bg-[var(--pry-col)] after:hover:bg-[var(--pry-col)] before:block before:w-[.7rem] before:h-[.11rem] before:transition-[rotate] before:duration-700 before:bg-black  before:absolute after:content-[''] after:block after:w-[.7rem] after:transition-[rotate] after:duration-700 after:h-[.115rem] after:bg-black ${
+                    className={` border-l-indigo-400  relative w-4 h-[.115rem] transition-[transform] duration-700 before:content-[''] hover:bg-[var(--pry-col)] before:hover:bg-[var(--pry-col)] after:hover:bg-[var(--pry-col)] before:block before:w-[.7rem] before:h-[.11rem] before:transition-[rotate] before:duration-700 before:bg-black  before:absolute after:content-[''] after:block after:w-[.7rem] after:transition-[rotate] after:duration-700 after:h-[.115rem] after:bg-black ${
                       menuToggle
                         ? "bg-[transparent] hover:bg-transparent before:translate-y-0 before:-rotate-45 after:w-4 after:translate-y-0 after:rotate-45"
                         : "bg-black  before:-translate-y-[5px] after:translate-y-[5px] hover:bg-[transparent]"
