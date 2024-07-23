@@ -1,10 +1,9 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import Slider from './../../slider/Slider';
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import authService from "../../../appwrite/auth/auth";
-import { useDispatch } from "react-redux";
 import { signIn } from "../../../store/loginSlice";
-import { useSelector } from "react-redux";
+import Slider from './../../slider/Slider';
 import HomeComponents from './HomeComponents';
 
 const Home = () => {
@@ -22,9 +21,9 @@ const Home = () => {
         console.log(error)
       }
     }
-    getUser()
+    getUser();
   }, [loggedIn])
-
+console.log('this is home')
 // added dependency because of getting the name of the user immediately you sign in
   
   return (

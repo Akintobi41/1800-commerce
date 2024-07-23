@@ -21,7 +21,6 @@ function Entry() {
   function closeMenu(e) {
     if (e.target.nodeName === "DIV") dispatch(closeEntry());
   }
-
   return (
     <div
       className={`z-40 ${
