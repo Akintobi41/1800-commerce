@@ -12,6 +12,7 @@ import DeleteIcon from "./../../../assets/Icons/DeleteIcon";
 import EmptyCart from "./../../../assets/Images/EmptyCart";
 import Delivery from "./../../delivery/Delivery";
 import CartContent from "./CartContent";
+import PopUp from './../../popup/PopUp';
 
 const cartLocalStorage = JSON.parse(localStorage.getItem("items") || '[]');
 const Cart = () => {
@@ -29,11 +30,11 @@ const Cart = () => {
         const totalPrice = price * quantity;
 
         return (
-          <section
+             <section
             key={name}
             className="flex gap-x-4 justify-between w-[100%] h-[100%] py-4 border-b border-solid border-[grey]"
           >
-            <figure className="w-[40%] h-auto bg-[#9ca3af26]">
+            <figure className="w-[40%] h-auto bg-[#9ca3af26] max-w-[95px]">
               <img
                 src={image}
                 alt={type}
@@ -93,11 +94,12 @@ const Cart = () => {
                 </Button>
               </section>
             </section>
-          </section>
+          </section>         
         );
       })
     ) : (
-      <aside className="flex flex-col items-center justify-center">
+        <aside className="flex flex-col items-center justify-center">
+         
         <EmptyCart size="size-[15em]" />
         <p className="italic text-center">
           You have no items in your shopping cart. <br />{" "}

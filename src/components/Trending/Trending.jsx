@@ -6,7 +6,7 @@ const Trending = () => {
   
   return (
     <section className='flex flex-col m-6 p-4 bg-[var(--white)]'>
-      <h2 className="text-center text-bold-font">2023 Trending Brands</h2>
+      <h2 className="text-center text-[1.5rem] font-medium">2023 Trending Brands</h2>
       <JordanIcon />
       <JdSportsIcon />
       <PumaIcon />

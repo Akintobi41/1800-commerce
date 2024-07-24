@@ -7,7 +7,7 @@ const Patronize = () => {
 
   return (
     <section className='flex flex-col justify-center bg-[var(--white)] p-6 m-6 text-center'>
-      <h2 className='mb-4'>
+      <h2 className='mb-4 font-medium text-[1.5rem]'>
         Why You Should Patronize Us
       </h2>
       {accordionContent.map((el) => (

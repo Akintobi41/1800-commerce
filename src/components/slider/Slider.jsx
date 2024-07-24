@@ -51,8 +51,8 @@ const navigate = useNavigate()
         <p className='font-semibold text-[1.25rem] mb-20 text-[var(--white)]'>{slideDescription}</p>
         
       </section>
-      <section className="flex flex-col items-center mb-6">
-      <h1 className="text-[36px] font-medium">Be bright. Be bold.</h1>
+      <section className="flex flex-col items-center mb-6 px-4">
+      <h1 className="text-[33px] font-medium">Be bright. Be bold.</h1>
       <p className="text-center">Meet our bright new mood-boosting colorway.</p>
       </section>
       <section className="flex justify-center">
