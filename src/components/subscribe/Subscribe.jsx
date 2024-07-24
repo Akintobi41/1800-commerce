@@ -23,7 +23,7 @@ const Subscribe = () => {
   }
   return (
     <section className={s["subscribe-container"]}>
-      <h2 className="shared-h2">Join The Team</h2>
+      <h2 className={s.h2}>Newsletter</h2>
       <p className={s["sign-up"]}>
         Sign up for exclusive 1800-only deals and early
         access to new products.
@@ -40,20 +40,20 @@ const Subscribe = () => {
               : s.shake
           }`}
         >
-          <label
+          <section
             htmlFor="email"
             className={s["email-label"]}
           >
-            Email
             <Input
               type="email"
+              label='Email'
               name="email"
               className={s.email}
               id="email"
               autoComplete="yes"
               defaultValue={val}
             />
-          </label>
+          </section>
           <p className={s["spam-message"]}>
             We promise not to spam you
           </p>

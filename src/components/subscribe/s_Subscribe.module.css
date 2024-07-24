@@ -4,7 +4,10 @@
     padding: 1.5rem 1.5rem 4rem;
     border-bottom: solid 0.5px rgb(23 12 12 / 25%);
 }
-
+.h2{ 
+    font-size: 1.5rem;
+    font-weight: 500;
+}
 
 .email {
     position: relative;
@@ -70,7 +73,6 @@
 
 .radio-btn {
     position: relative;
-    accent-color: var(--black);
     width: 28px;
     height: 28px;
     appearance: none;
@@ -89,7 +91,7 @@
 }
 
 .radio-btn::before {
-    background: var(--black);
+    background: var(--pry-col);
     border-radius: 50%;
     content: "";
     display: block;
@@ -124,6 +126,10 @@
     position: relative;
     transition: background .2s ease-in-out, color .2s ease-in-out;
     white-space: nowrap;
+}
+
+.btn:hover{ 
+    background: var(--pry-col);
 }
 
 .email-warning-text {

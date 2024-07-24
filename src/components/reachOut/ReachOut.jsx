@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import React from "react";
-import HundredIcon from "./../../assets/Icons/HundredIcon";
 import Button from "../reusables/button/Button";
 
 const ReachOut = () => {
-  const textOptions = ["Happiness", "Guarantee"];
+  const textOptions = ["Happiness Guarantee", ""];
   const btnOptions = ["Contact Us", "FAQ"];
 
   return (
@@ -15,15 +14,15 @@ const ReachOut = () => {
             {textOptions.map((el) => (
               <p
                 key={el}
-                className='font-semibold'
+                className='font-semibold '
               >
-                {el}
+                {el + ' '}
               </p>
             ))}
           </section>
         </section>
       </section>
-      <p className='text-[.875rem] leading-[1.5] tracking-[0.015625rem] max-w-[625px] mt-1'>
+      <p className='text-[.875rem] leading-[1.5] tracking-[0.015625rem] max-w-[625px] my-4'>
         The 1800 Customer Happiness Team is your go-to when
         you need a recommendation, a refund, or just a
         reason to smile. Seriously, reach out. Even just to
@@ -40,7 +39,7 @@ const ReachOut = () => {
               }`}
               key={btn}
             >
-              <Button className='inline-flex items-center justify-center rounded-sm cursor-pointer no-underline border-none relative bg-[rgb(16,14,32)] text-[rgb(255,255,255)] font-bold leading-[1.25] tracking-[0.020625rem] min-h-[32px] min-w-[100px] py-0 px-4 mt-4 mr-4'>
+              <Button className='inline-flex items-center justify-center rounded-sm cursor-pointer no-underline border-none relative bg-[rgb(16,14,32)] text-[rgb(255,255,255)] font-bold leading-[1.25] tracking-[0.020625rem] min-h-[32px] min-w-[100px] py-0 px-4 mt-4 mr-4 hover:bg-[var(--pry-col)]'>
                 {btn}
               </Button>
             </Link>

@@ -13,6 +13,7 @@ import Button from "../../reusables/button/Button";
 import Input from "../../reusables/input/Input";
 import TextContainer from "../../textContainer/TextContainer";
 import ViewPassword from "../../viewPassword/ViewPassword";
+import CloseIcon from "../../../assets/Icons/CloseIcon";
 
 function SignIn({ id }) {
   const { register, handleSubmit, watch, formState } =
@@ -50,6 +51,12 @@ function SignIn({ id }) {
         setIsVisible={setIsVisible}
       />
       <section className="bg-[var(--white)] h-[65%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s]">
+      <CloseIcon
+          className={
+            "absolute right-1 top-2 cursor-pointer"
+          }
+          onClick={() => dispatch(closeEntry())}
+        />
         <TextContainer className={"text-center"}>
           Sign In
         </TextContainer>
