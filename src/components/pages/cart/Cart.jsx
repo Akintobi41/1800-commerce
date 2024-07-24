@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -12,7 +13,7 @@ import EmptyCart from "./../../../assets/Images/EmptyCart";
 import Delivery from "./../../delivery/Delivery";
 import CartContent from "./CartContent";
 
-
+const cartLocalStorage = JSON.parse(localStorage.getItem("items") || '[]');
 const Cart = () => {
   const cart = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();

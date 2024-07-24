@@ -1,32 +1,31 @@
-import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router";
 import { fetchData } from "../../../contentful/contentful";
-import ImageSwiper from "../../imageSwiper/ImageSwiper";
-import { useQuery, useQueryClient } from "react-query";
-import Button from "../../reusables/button/Button";
-import LoadingAnimation from "../../loadingAnimation/Loader";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 import { modifyCart } from "../../../store/cartSlice";
-import { useNavigate } from "react-router";
-import { useEffect,useState } from "react";
+import ImageSwiper from "../../imageSwiper/ImageSwiper";
+import LoadingAnimation from "../../loadingAnimation/Loader";
+import Button from "../../reusables/button/Button";
 
 function ProductDetail() {
   const { id } = useParams();
   const cart = useSelector((state) => state.cart.products);
-  const quantity = [...cart]?.every((item) => item.quantity > 6);
-  console.log (quantity)
+  const quantity =
+    [...cart].length &&
+    [...cart].every((item) => item.quantity > 6);
   const getProduct = async function () {
     return await fetchData(id).then((data) => data);
   };
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [route,setRoute] = useState(false)
+  const [route, setRoute] = useState(false);
 
   const { data, isLoading } = useQuery(
     "product",
     getProduct
   );
-  console.log(cart.quantity)
+  console.log(cart);
 
   function displayProduct() {
     if (data) {
@@ -35,7 +34,6 @@ function ProductDetail() {
       const checkProduct = [...cart].some(
         (item) => item.name === name
       );
-      console.log(checkProduct)
 
       return (
         <>
@@ -64,9 +62,10 @@ function ProductDetail() {
               Earn up to 64 points with 1800 Rewards
             </p>
           </section>
-          {quantity  ?  <p className="px-4">Low in Stock</p> : null}
+          {quantity ? (
+            <p className="px-4">Low in Stock</p>
+          ) : null}
           <section className="px-4 w-full">
-      
             <Button
               styles={`${
                 checkProduct
@@ -97,22 +96,21 @@ function ProductDetail() {
     }
   }
 
-  useEffect(() => { 
-    
-    if (route) { 
-      let timer1 =  setTimeout(() => {
-        navigate('/cart')
+  useEffect(() => {
+    if (route) {
+      let timer1 = setTimeout(() => {
+        navigate("/cart"); //route to cart once the product is added to the cart
       }, 800);
 
       return () => {
         clearTimeout(timer1);
       };
-    }    
-  },[route])
+    }
+  }, [route]);
 
   function handleClick() {
     dispatch(modifyCart(data.fields));
-    setRoute(true)
+    setRoute(true);
   }
 
   return (

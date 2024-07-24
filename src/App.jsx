@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router";
-import router from "./router/Router";
 import { StoreProvider } from "./contexts/MyContext";
 import useMyContext from "./contexts/useMyContext";
+import router from "./router/Router";
 
 const App = () => {
   const { overflow, setOverflow} = useMyContext();

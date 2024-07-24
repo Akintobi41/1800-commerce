@@ -15,7 +15,8 @@ const Products = () => {
   const products = useSelector(
     (state) => state.products.products
   );
-  // console.log(products)  why does it show [object,object]
+  // console.log(products)  
+  // why does it show[object, object]
   const dispatch = useDispatch();
   const [list, setList] = useState([]);
   const [filterData, setFilterData] = useState([]);
@@ -51,10 +52,10 @@ const Products = () => {
   }
 
   return (
-    <section className="relative flex flex-col mt-24 p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
-      {/* Shop
-      Need help deciding which product is the right size for you?
-      Check out our  <Link>size guide </Link>for smooth decision. */}
+    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
+      
+     <p>Need help deciding which product is the right size for you?
+     Check out our  <span className="inline underline">size guide </span>for smooth decision. </p> 
       {/* <h2>Shop</h2> */}
       <div className="border-t-[1px] border-gray-200 w-[120%] my-4 box-border relative right-[16px]"></div>
       <section className="flex ">
@@ -73,10 +74,10 @@ const Products = () => {
               return (
                 <section
                   key={name}
-                  className="flex flex-col relative w-[45%] h-60 l-screen:h-64 cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
+                  className="flex flex-col relative w-[45%] h-[45%] l-screen:h-64 cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
                   onClick={(e) => handleClick(e, product)}
                 >
-                  <section className="relative w-full bg-[#fff]">
+                  <section className="relative w-full h-full bg-[#fff]">
                     <img
                       src={images[0].fields.file.url}
                       loading="lazy"
