@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Heading from "../heading/Heading";
 import Button from "../reusables/button/Button";
 import Input from "../reusables/input/Input";
 import s from "./s_Subscribe.module.css";
@@ -23,7 +24,7 @@ const Subscribe = () => {
   }
   return (
     <section className={s["subscribe-container"]}>
-      <h2 className={s.h2}>Newsletter</h2>
+      <Heading>Join Our Newsletter</Heading>
       <p className={s["sign-up"]}>
         Sign up for exclusive 1800-only deals and early
         access to new products.
@@ -40,20 +41,15 @@ const Subscribe = () => {
               : s.shake
           }`}
         >
-          <section
-            htmlFor="email"
-            className={s["email-label"]}
-          >
-            <Input
-              type="email"
-              label='Email'
-              name="email"
-              className={s.email}
-              id="email"
-              autoComplete="yes"
-              defaultValue={val}
-            />
-          </section>
+          <Input
+            type="email"
+            name="email"
+            className={s.email}
+            id="email"
+            autoComplete="yes"
+            defaultValue={val}
+            placeholder="name@example.com"
+          />
           <p className={s["spam-message"]}>
             We promise not to spam you
           </p>

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import React from "react";
 import Button from "../reusables/button/Button";
+import Heading from "../heading/Heading";
 
 const ReachOut = () => {
   const textOptions = ["Happiness Guarantee", ""];
@@ -12,12 +13,7 @@ const ReachOut = () => {
         <section className='flex items-center'>
           <section className='flex leading-[1] w-full mr-1'>
             {textOptions.map((el) => (
-              <p
-                key={el}
-                className='font-semibold '
-              >
-                {el + ' '}
-              </p>
+              <Heading key={el} className='font-semibold'> {el + ' '}</Heading>
             ))}
           </section>
         </section>
@@ -52,33 +48,3 @@ const ReachOut = () => {
 
 export default ReachOut;
 
-// .reach-out-btn {
-//   display: inline-flex;
-//   align-items: center;
-//   -webkit-box-pack: center;
-//   justify-content: center;
-//   border-radius: 1px;
-//   cursor: pointer;
-//   text-decoration: none;
-//   border-style: none;
-//   user-select: none;
-//   position: relative;
-//   text-transform: none;
-//   background-color: rgb(16, 14, 32);
-//   color: rgb(255, 255, 255);
-//   font-size: 0.875rem;
-//   font-weight: 700;
-//   line-height: 1.25;
-//   letter-spacing: 0.020625rem;
-//   min-height: 32px;
-//   min-width: 100px;
-//   padding: 0px 16px;
-//   margin-right: 1rem;
-//   margin-top: 1rem;
-// }
-
-// .reach-out-container {
-//   display: flex;
-//   flex-direction: column;
-//   padding: 1.5rem 1.5rem 3rem;
-// }

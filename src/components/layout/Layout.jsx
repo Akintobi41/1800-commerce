@@ -13,7 +13,7 @@ function Layout() {
   return (
     <>
     <Scroll />
-    <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto bg-[var(--grey)] w-full">
+    <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto w-full overflow-hidden">
       <section className="relative">
         <Header Navbar={<Navbar Logo={<Logo />} />} Text={<HeaderText/>} />
         <section className="flex flex-col relative">

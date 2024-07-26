@@ -13,6 +13,7 @@ import EmptyCart from "./../../../assets/Images/EmptyCart";
 import Delivery from "./../../delivery/Delivery";
 import CartContent from "./CartContent";
 import PopUp from './../../popup/PopUp';
+import LeftArrow from './../../../assets/Icons/LeftArrow';
 
 const cartLocalStorage = JSON.parse(localStorage.getItem("items") || '[]');
 const Cart = () => {
@@ -42,12 +43,12 @@ const Cart = () => {
                 className="size-full object-contain"
               />
             </figure>
-            <section className=" flex flex-col justify-between w-[100px] gap-y-1">
+            <section className=" flex flex-col justify-between w-[100px] gap-y-1" >
               <p className="text-[.8rem] font-medium truncate">
                 {name}
               </p>
-                <Button styles={"text-[.8rem] font-medium bg-[#53caec4d] px-1 py-[.1rem] text-[#044b60] rounded w-14"}>
-                  In Stock
+                <Button styles={`text-[.8rem] font-medium ${quantity > 6 ? 'bg-red-500 text-[var(--white)]' : 'bg-[#53caec4d] text-[#044b60]'}  px-1 py-[.1rem]  rounded w-[4.5rem]`}>
+                  {quantity > 6 ? 'Low Stock'  : 'Available'}
                 </Button>
               <Link className="block text-[.8rem] font-medium" to='/products'>
                 {data.type}
@@ -117,6 +118,7 @@ const Cart = () => {
   return (
     <>
       <div className="mt-4 mx-4">
+        <Link to='/products' className="flex items-center gap-x-1 cursor-pointer"> <LeftArrow size='size-4'/><section className="text-[.8rem] font-medium">Continue Shopping</section></Link>
         <h2 className="font-bold p-4 text-[24px][">
           {cart.length ? 'Your Basket' : null}
         </h2>

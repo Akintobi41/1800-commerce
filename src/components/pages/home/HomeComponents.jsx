@@ -7,11 +7,19 @@ import ReachOut from "../../../components/reachOut/ReachOut";
 
 function HomeComponents() {
   return (
-      <>
+    <>
        <ProductSlider />
+       <hr className="section" />
+
       <Trending />
+      <hr className="section" />
+
       <About />
+      <hr className="section" />
+
       <Patronize />
+      <hr className="section" />
+
       <Subscribe />
       <ReachOut />
       </>

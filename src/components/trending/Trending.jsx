@@ -1,16 +1,20 @@
-import JordanIcon from "../../assets/Icons/JordanIcon";
 import JdSportsIcon from "../../assets/Icons/JdSportsIcon";
+import JordanIcon from "../../assets/Icons/JordanIcon";
 import PumaIcon from "../../assets/Icons/PumaIcon";
+import Heading from "../heading/Heading";
 
 const Trending = () => {
   
   return (
-    <section className='flex flex-col m-6 p-4 bg-[var(--white)]'>
-      <h2 className="text-center text-[1.5rem] font-medium">2023 Trending Brands</h2>
+    <>
+      <section className='flex flex-col m-6 p-6 bg-[var(--white)]'>
+        <Heading>2023 Trending Brands </Heading>
       <JordanIcon />
       <JdSportsIcon />
       <PumaIcon />
     </section>
+    </>
+  
   );
 };
 

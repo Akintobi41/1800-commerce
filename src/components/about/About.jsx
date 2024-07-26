@@ -1,9 +1,10 @@
 import Logo from "../logo/Logo";
+import Heading from "../heading/Heading";
 
 const About = () => {
   return (
-    <aside className='flex flex-col items-center m-6 p-6 gap-8 leading-[2] bg-[var(--white)]'>
-      <h2 className="text-bold-font font-[500] text-center">About 1800 Store</h2>
+    <aside className='flex flex-col items-center p-6 gap-8 leading-[2] bg-[var(--white)]'>
+      <Heading> About 1800 Store</Heading>
       <p>
         Welcome to 1800 Store, where tradition meets
         innovation. As a family-owned enterprise, we{`'`}ve
