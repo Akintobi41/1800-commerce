@@ -3,11 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchAllData } from "../../../contentful/contentful";
 import { modifyCart } from "../../../store/cartSlice";
+import { setProducts } from "../../../store/productSlice";
 import { format } from "../../../utils/format/format";
+import Filter from "../../filter/Filter";
 import Button from "../../reusables/button/Button";
 import Sort from "../../sort/Sort";
-import Filter from "../../filter/Filter";
-import { setProducts } from "../../../store/productSlice";
+import Heading from "./../../heading/Heading";
 
 const Products = () => {
   const [loading, setLoading] = useState(false);
@@ -15,21 +16,19 @@ const Products = () => {
   const products = useSelector(
     (state) => state.products.products
   );
-  // console.log(products)  
-  // why does it show[object, object]
+
   const dispatch = useDispatch();
   const [list, setList] = useState([]);
   const [filterData, setFilterData] = useState([]);
-  const [val, setValue] = useState("");
 
   useEffect(() => {
     (async () => {
       try {
         const { items } = await fetchAllData("products");
         items.map((item) => (item.fields.quantity = 0));
+        if (items) setLoading(true);
         setList(items);
         setFilterData(items);
-        setLoading(true);
         dispatch(setProducts(items));
       } catch (error) {
         setLoading(false);
@@ -53,19 +52,24 @@ const Products = () => {
 
   return (
     <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
-      
-     <p>Need help deciding which product is the right size for you?
-     Check out our  <span className="inline underline">size guide </span>for smooth decision. </p> 
-      {/* <h2>Shop</h2> */}
+      <Heading> All Products</Heading>
+      <p className="text-[.8rem]">
+        Need help deciding which product is the right size
+        for you? Check out our{" "}
+        <span className="inline underline">
+          size guide{" "}
+        </span>
+        for a smooth decision.{" "}
+      </p>
       <div className="border-t-[1px] border-gray-200 w-[120%] my-4 box-border relative right-[16px]"></div>
-      <section className="flex ">
+      <section className="flex justify-between gap-x-2">
         <Sort list={list} />
         <Filter
           filterData={filterData}
           setProducts={setProducts}
         />
       </section>
-      <section className="flex flex-wrap justify-center gap-y-2 gap-x-3">
+      <section className="flex flex-wrap justify-between gap-y-2">
         {loading
           ? [...products].map((product) => {
               const { name, images, type, price } =
@@ -74,14 +78,14 @@ const Products = () => {
               return (
                 <section
                   key={name}
-                  className="flex flex-col relative w-[45%] h-[45%] l-screen:h-64 cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
+                  className="flex flex-col relative w-[47%] h-64 cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
                   onClick={(e) => handleClick(e, product)}
                 >
-                  <section className="relative w-full h-full bg-[#fff]">
+                  <section className="relative w-full bg-[#fff]">
                     <img
                       src={images[0].fields.file.url}
                       loading="lazy"
-                      className="size-full bg-[#a8a29e1a] object-cover hover:transition-all duration-300  border border-[#8080801c]"
+                      className="w-full h-36 bg-[#a8a29e1a] object-cover hover:transition-all duration-300  border border-[#8080801c]"
                     />
                     <Button
                       styles={
@@ -115,7 +119,7 @@ const Products = () => {
             })
           : Skeleton.map((el, i) => (
               <section
-                className="flex w-[45%] relative h-64 bg-primary-500/50 border border-[#bcbcbc33]"
+                className="flex w-[45%] relative h-52 bg-primary-500/50 border border-[#bcbcbc33]"
                 key={i}
               ></section>
             ))}

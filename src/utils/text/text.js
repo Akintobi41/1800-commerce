@@ -1,12 +1,11 @@
 export const sort = [
-   ' ',
     "None",
     "Alphabetically: A-Z",
     "Alphabetically: Z-A",
     "Price: Low to High",
     "Price: High to Low",
 ];
-export const filter = [' ','None', 'Shoes', 'Fragrance', 'Watch', 'Bag'];
+export const filter = ['None', 'Shoes', 'Fragrance', 'Watch', 'Bag'];
 export const shopFilter = ['Women', 'Men', 'Both']
 export const radioText = 'Sign up for exclusive Team 1800-only deals and receive a special offer on your birthday and early access to new product.';
 export const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']

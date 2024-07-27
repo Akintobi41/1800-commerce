@@ -15,14 +15,12 @@ import CartContent from "./CartContent";
 import PopUp from './../../popup/PopUp';
 import LeftArrow from './../../../assets/Icons/LeftArrow';
 
-const cartLocalStorage = JSON.parse(localStorage.getItem("items") || '[]');
 const Cart = () => {
   const cart = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
-  
-
   function cartDisplay() {
+
     return cart?.length ? (
       cart.map((data) => {
         const { images, name, type, quantity, price } =
@@ -47,8 +45,8 @@ const Cart = () => {
               <p className="text-[.8rem] font-medium truncate">
                 {name}
               </p>
-                <Button styles={`text-[.8rem] font-medium ${quantity > 6 ? 'bg-red-500 text-[var(--white)]' : 'bg-[#53caec4d] text-[#044b60]'}  px-1 py-[.1rem]  rounded w-[4.5rem]`}>
-                  {quantity > 6 ? 'Low Stock'  : 'Available'}
+                <Button styles={`text-[.8rem] font-medium ${quantity > 6 ? 'bg-red-500 text-[var(--white)]' : 'bg-[#53caec4d] text-[#044b60]'} ${quantity > 9 ? 'opacity-40' : ''}  px-1 py-[.1rem]  rounded w-[5rem]`}>
+                  {quantity > 9 ? 'Out of Stock'  : quantity > 6 ? 'Low Stock' : 'Available'}
                 </Button>
               <Link className="block text-[.8rem] font-medium" to='/products'>
                 {data.type}
@@ -85,11 +83,7 @@ const Cart = () => {
                 <Button styles={`flex items-center justify-center border-l-0 border size-5 ${quantity === 10 ? 'opacity-40' : ''}`}   onClick={() => {
                   if (quantity < 10) { 
                   dispatch(addValue(data));
-                  } else { 
-                    console.log('Out of Stock!')
-                    //notifications to let the  user know we are out of stock
-                  }
-                  
+                  } 
                   }}>
                   +
                 </Button>
@@ -123,6 +117,7 @@ const Cart = () => {
           {cart.length ? 'Your Basket' : null}
         </h2>
         <section className="flex flex-col w-full px-4 py-2  mx-auto bg-[var(--white)] min-h-[400px]">
+          <PopUp />
           {cartDisplay()}
           <CartContent />
         </section>
@@ -133,6 +128,3 @@ const Cart = () => {
 };
 
 export default Cart;
-
-
-// i was trying to impleme nt a feature wherby once you click on a product type in car it takes your back  to the products page with that vakue filtered out

@@ -1,8 +1,8 @@
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { filterProducts } from "../../store/productSlice";
 import { filter } from "../../utils/text/text";
 import Select from "../reusables/select/Select";
-import { useState } from "react";
-import { filterProducts } from "../../store/productSlice";
-import { useDispatch } from "react-redux";
 
 
 function Filter({ setProducts, filterData }) {
@@ -39,10 +39,13 @@ function Filter({ setProducts, filterData }) {
 
   return (
       <Select
-          type="products"
-          options={filter}
+      type="products"
+      border='none'
+      label='Filter'
+      options={filter}
+      width='w-[8.2rem]'
           styles={
-            "block self-start w-full h-10 outline-none bg-white mb-8 sticky left-0 top-16 px-2 z-10 cursor-pointer"
+            "block self-start w-full h-10 text-[.8rem] text-right border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
           }
           onChange={Filter}
         />

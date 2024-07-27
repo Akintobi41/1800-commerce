@@ -2,20 +2,19 @@
 import React, { useId } from "react";
 
 const Select = React.forwardRef(function Select(
-  { type,options, label,border = ' border-solid border-[1px]', styles, ...props },
+  { type,options, label,border = ' border-solid border-[1px]', width, styles, ...props },
   ref,
 ) {
   const id = useId();
-  // console.log(options)
 
   return (
-    <section className="w-full">
+    <section className={`${width} flex flex-col`}>
       {" "}
-      {label && (
-        <label htmlFor={id} className="">
+      {/* {label && (
+        <label htmlFor={id} className="text-[.75rem] font-bold">
           {label}{" "}
         </label>
-      )}
+      )} */}
       <select
         className={`${styles} ${border}`}
         {...props}
@@ -23,8 +22,8 @@ const Select = React.forwardRef(function Select(
         ref={ref}
       >
         {" "}
-        {options?.map((option,i) => (
-            <option key={option}  value={option} >{ type === 'products' ? option : type === 'signup' ? option : type === 'birthday' ? option : ''}</option>
+        {options?.map((option) => (
+            <option key={option}  value={option} className="text-left" >{ type === 'products' ? option : type === 'signup' ? option : type === 'birthday' ? option : ''}</option>
         ))}{" "}
       </select>
     </section>
@@ -32,5 +31,3 @@ const Select = React.forwardRef(function Select(
 });
 
 export default Select;
-// disabled={i === 0 && type !== 'birthday' ? 'disabled' : ''}
-// className={`${i === 0  ? 'opacity-30 bg-slate-400' : ''}`}
