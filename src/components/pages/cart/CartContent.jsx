@@ -3,19 +3,18 @@ import useCart from "../../../hooks/useCart";
 import Button from "../../reusables/button/Button";
 import { totalValues } from "./u_cart";
 import { showEntry } from "../../../store/accountSlice";
+import { useNavigate } from "react-router";
 
 function CartContent() {
   const dispatch = useDispatch()
   const cart = useSelector((state) => state.cart.products);
   const { cartText, total, VAT, shipFee, cartTotal } =
     useCart(cart);
-    
+  const navigate = useNavigate();
   const loggedIn = useSelector((state) => state.auth.status)
-
   
   function handleCheckout() { 
-  console.log(loggedIn)
-  return loggedIn ? 'navigate to new page' : dispatch(showEntry(4))   
+  return loggedIn ? navigate('/cart/shipping') : dispatch(showEntry(4))   
   }
   
   return (
@@ -44,7 +43,7 @@ function CartContent() {
                 &#8358; {cartTotal}
               </p>
             </section>
-            <Button styles={"mt-8 bg-[var(--pry-col)] rounded-[30px] p-[.6rem]"} onClick={handleCheckout}>
+            <Button styles={"mt-8 bg-[var(--black)] text-[var(--white)] active:opacity-50 hover:bg-[var(--pry-col)] rounded-[30px] p-[.6rem]"} onClick={handleCheckout}>
             Checkout
             </Button>
             <p className="text-left leading-[1.5] mt-8">

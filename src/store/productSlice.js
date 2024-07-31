@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = { 
-    products:[]
+    products: [],
+    myProducts:[],
     
 }
 const productSlice = createSlice({ 
@@ -9,8 +10,9 @@ const productSlice = createSlice({
     initialState,
     reducers: { 
         setProducts: (state, action) => { 
-            if (!state.products.length) { 
-                state.products = [...state.products, ...action.payload]
+            if (!state.products.length && !state.myProducts.length ) { 
+                state.products = [...state.products, ...action.payload],
+                state.myProducts = state.products
             }
         },
         sortProducts: (state, action) => { 

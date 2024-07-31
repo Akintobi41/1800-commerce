@@ -1,55 +1,68 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useRef, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { filterProducts } from "../../store/productSlice";
 import { filter } from "../../utils/text/text";
 import Select from "../reusables/select/Select";
+import { setProducts } from "../../store/productSlice";
 
+const filterType = localStorage.getItem("value");
+function Filter() {
+  const dispatch = useDispatch();
+  const optionRef = useRef();
+  const myProducts = useSelector(
+    (state) => state.products.myProducts
+  );
+  const [value, setValue] = useState(filterType);
 
-function Filter({ setProducts, filterData }) {
-  const [item, setItem] = useState("");
-  const dispatch = useDispatch()
+  useEffect(() => {
+    Filter();
+  }, [myProducts]);
 
-    function Filter(e) {
-        const val = e.target.value;
-        setItem(val);
-        const fragrance = [...filterData].filter(
-          (items) => items.fields.type === "Fragrance"
-        );
-        const shoes = [...filterData].filter(
-          (items) => items.fields.type === "Shoe"
-        );
-        const watches = [...filterData].filter(
-          (items) => items.fields.type === "Watch"
-        );
-        const bags = [...filterData].filter(
-          (items) => items.fields.type === "Bag"
-        );
-    
-        const result = {
-          None: [...filterData],
-          Fragrance: fragrance,
-          Shoes: shoes,
-          Watch: watches,
-          Bag: bags,
-        }[val];
-      
-      setProducts([...result]);
-      dispatch(filterProducts(result))
-      }
+  useEffect(() => {
+    localStorage.setItem("value", value);
+  }, [value]);
+
+  function Filter(e) {
+    const val = e?.target.value || optionRef.current?.value;
+    setValue(val);
+    const fragrance = [...myProducts].filter(
+      (items) => items.fields.type === "Fragrance"
+    );
+    const shoes = [...myProducts].filter(
+      (items) => items.fields.type === "Shoe"
+    );
+    const watches = [...myProducts].filter(
+      (items) => items.fields.type === "Watch"
+    );
+    const bags = [...myProducts].filter(
+      (items) => items.fields.type === "Bag"
+    );
+    const result = {
+      "": [...myProducts],
+      None: [...myProducts],
+      Fragrance: fragrance,
+      Shoe: shoes,
+      Watch: watches,
+      Bag: bags,
+    }[val];
+    setProducts([...result]);
+    dispatch(filterProducts(result));
+  }
 
   return (
-      <Select
+    <Select
       type="products"
-      border='none'
-      label='Filter'
+      text={value}
+      border="none"
+      label="Filter"
       options={filter}
-      width='w-[8.2rem]'
-          styles={
-            "block self-start w-full h-10 text-[.8rem] text-right border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
-          }
-          onChange={Filter}
-        />
-  )
+      width="w-[8.2rem]"
+      styles={
+        "block self-start w-full h-10 text-[.8rem] text-right border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
+      }
+      onChange={Filter}
+      ref={optionRef}
+    />
+  );
 }
-
-export default Filter
+export default Filter;

@@ -16,7 +16,7 @@ import ViewPassword from "../../viewPassword/ViewPassword";
 import CloseIcon from "../../../assets/Icons/CloseIcon";
 
 function SignIn({ id }) {
-  const { register, handleSubmit, watch, formState } =
+  const { register, handleSubmit, formState } =
     useForm();
   const { isValid } = formState;
   const dispatch = useDispatch();

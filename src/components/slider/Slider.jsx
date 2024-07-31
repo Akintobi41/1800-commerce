@@ -39,16 +39,19 @@ const navigate = useNavigate()
     //   slideDescriptionArray[
     //     slideDescriptionArray.length - 1
     //   ]
-    // );
+    // )
   }
-
+const images = ['/src/assets/Images/bg-1.jpg','/src/assets/Images/bg-1c.jpg', '/src/assets/Images/bg-1b.jpg' ]
   return (
     <>
       <section
-        className={`relative flex center h-64 z-0 p-6 text-[var(--white)] bg-[url(/src/assets/Images/home-bg.jpg)] bg-no-repeat bg-[#53caec]`}
+        className={`relative flex center h-[70%] max-h-[30rem] lg:max-h-[30rem] z-0 mt-4 bg-[#fff] justify-between w-full max-w-[1500px] mx-auto`}
       >
-        <img src="" alt="" />
-        <p className='font-semibold text-[1.25rem] mb-20 text-[var(--white)]'>{slideDescription}</p>
+        {images.map((img,i) => ( 
+          <div key={img} className={`w-full ${i> 0 ? 'ml-2' : ''}  ${i === 1 ? 'hidden lg:block' : ''} bg-gray-400`}>
+          <img src={img} alt="background-image" loading="lazy" className="object-cover size-full" />
+          </div>
+        ))}
         
       </section>
       <section className="flex flex-col items-center mb-6 px-4">

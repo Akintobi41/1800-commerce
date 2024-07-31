@@ -1,53 +1,44 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchAllData } from "../../../contentful/contentful";
 import { modifyCart } from "../../../store/cartSlice";
 import { setProducts } from "../../../store/productSlice";
 import { format } from "../../../utils/format/format";
-import Filter from "../../filter/Filter";
 import Button from "../../reusables/button/Button";
-import Sort from "../../sort/Sort";
 import Heading from "./../../heading/Heading";
 
-const Products = () => {
-  const [loading, setLoading] = useState(false);
+const Products = ({ Sort, Filter }) => {
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart.products);
   const products = useSelector(
     (state) => state.products.products
   );
-
   const dispatch = useDispatch();
-  const [list, setList] = useState([]);
-  const [filterData, setFilterData] = useState([]);
+  const productsPerSlide = 10;
+  const [next, setNext] = useState(productsPerSlide);
 
-  useEffect(() => {
-    (async () => {
-      try {
-        const { items } = await fetchAllData("products");
-        items.map((item) => (item.fields.quantity = 0));
-        if (items) setLoading(true);
-        setList(items);
-        setFilterData(items);
-        dispatch(setProducts(items));
-      } catch (error) {
-        setLoading(false);
-        console.error("Failed to fetch");
-      }
-    })();
-  }, []);
-
+  const loadData = async function () {
+    const { items } = await fetchAllData("products");
+    items.map((item) => (item.fields.quantity = 0));
+    dispatch(setProducts(items));
+    return items;
+  };
+  const { isLoading } = useQuery("load", loadData);
   const Skeleton = Array(6).fill(0); // for skeleton
-  const navigate = useNavigate();
 
   function handleClick(e, product) {
     const cartRedirect = e.target.textContent;
-
     if (cartRedirect.endsWith("Cart")) {
       dispatch(modifyCart(product.fields));
     } else {
       navigate(`/products/${product.sys.id}`);
     }
+  }
+
+  function handleMoreProducts() {
+    setNext(next + productsPerSlide);
   }
 
   return (
@@ -63,15 +54,12 @@ const Products = () => {
       </p>
       <div className="border-t-[1px] border-gray-200 w-[120%] my-4 box-border relative right-[16px]"></div>
       <section className="flex justify-between gap-x-2">
-        <Sort list={list} />
-        <Filter
-          filterData={filterData}
-          setProducts={setProducts}
-        />
+        {Sort}
+        {Filter}
       </section>
       <section className="flex flex-wrap justify-between gap-y-2">
-        {loading
-          ? [...products].map((product) => {
+        {!isLoading
+          ? [...products.slice(0, next)]?.map((product) => {
               const { name, images, type, price } =
                 product.fields;
 
@@ -124,6 +112,14 @@ const Products = () => {
               ></section>
             ))}
       </section>
+      {next < products?.length ? (
+        <p
+          className="text-center font-bold cursor-pointer"
+          onClick={handleMoreProducts}
+        >
+          Load More
+        </p>
+      ) : null}
     </section>
   );
 };

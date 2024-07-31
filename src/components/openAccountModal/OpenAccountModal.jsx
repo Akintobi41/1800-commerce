@@ -30,10 +30,11 @@ function OpenAccountModal() {
 
   return (
     <div ref={navMenu}>
-      <AccountIcon
-        styles={`hidden md:block ml-4 mr-2`}
+      <div className="flex items-center justify-center"><p className="ml-2 text-[.75rem] font-medium hidden lg:block">Hi, Moyinoluwa</p> <AccountIcon
+        styles={`hidden md:block ml-4 lg:mx-0 mr-2`}
         onClick={() => setOverflow(!overflow)}
-      />
+      /></div>
+      
       <div
         className={`${
           overflow

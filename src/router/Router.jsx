@@ -7,7 +7,10 @@ import Home from "../components/pages/home/Home";
 import ProductDetail from "../components/pages/productDetail/ProductDetail";
 import Products from "../components/pages/products/Products";
 import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
-import Layout from '../components/layout/Layout';
+import Layout from "../components/layout/Layout";
+import Filter from "../components/filter/Filter";
+import Sort from "../components/sort/Sort";
+import Shipping from "../components/pages/shipping/Shipping";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/contact",
@@ -24,7 +27,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/products",
-        element: <Products />,
+        element: (
+          <Products Filter={<Filter />} Sort={<Sort />} />
+        ),
       },
       {
         path: "/faqs",
@@ -46,6 +51,10 @@ const router = createBrowserRouter([
         path: "/products/:id",
         element: <ProductDetail />,
       },
+      {
+        path: '/cart/shipping',
+        element: <Shipping/>,
+      }
     ],
   },
 ]);

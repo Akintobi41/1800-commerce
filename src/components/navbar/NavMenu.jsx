@@ -7,13 +7,13 @@ import {
   useNavigate,
 } from "react-router-dom";
 import CartIcon from "../../assets/Icons/CartIcon";
+import { showEntry } from "../../store/accountSlice";
 import SignOutBtn from "../signOutBtn/SignOutBtn";
 import Input from './../reusables/input/Input';
 import { navList } from "./navList";
-import { showEntry } from "../../store/accountSlice";
 
 
-function NavMenu({ Logo, SearchIcon,modal }) {;
+function NavMenu({ Logo, SearchIcon,modal }) {
   const [menuToggle, setMenuToggle] = useState(false);
   const navMenu = useRef(null);
   const { pathname } = useLocation();
@@ -56,10 +56,10 @@ function NavMenu({ Logo, SearchIcon,modal }) {;
         className={`${
           menuToggle
             ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full top-[5.8rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
-            : "hidden flex-col fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-40 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
+            : "hidden lg:flex flex-col fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-40 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
         }`}
       >
-        {loggedIn && <p className="p-4 italic">Hi, { name}</p>}
+        {loggedIn && <p className="p-4 italic lg:hidden">Hi, { name}</p>}
         <ul className="flex flex-col mt-10 w-full lg:mt-0 lg:h-0 lg:w-[30%] lg:flex-row z-30 lg:gap-8">
           {Object.keys(navList).map((list, i) => (
             <section

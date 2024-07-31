@@ -45,17 +45,12 @@ input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
-@layer components {
-  .section {
-    /* -webkit-box-shadow: 22.5px 22.5px 8.5px -17px #dddddd, 14.5px 22.5px 8.5px -17px #dddddd;
-    -moz-box-shadow: 22.5px 22.5px 8.5px -17px #dddddd, 14.5px 22.5px 8.5px -17px #dddddd;
-    box-shadow: 22.5px 22.5px 8.5px -17px #dddddd ,14.5px 22.5px 8.5px -17px #dddddd; */
-    border-top: solid 1px grey;
-  }
+input {
+  -webkit-border-radius: 0;
+  border-radius: 0;
 }
 
-/* option{ 
-  background-color: red;
-  width:400px;
-  position: absolute;
-} */
+input {
+  -webkit-border-radius: 0;
+  border-radius: 0;
+}

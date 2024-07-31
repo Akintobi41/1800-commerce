@@ -7,7 +7,7 @@ import ReachOut from "../../../components/reachOut/ReachOut";
 
 function HomeComponents() {
   return (
-    <>
+    <div className="flex flex-col">
        <ProductSlider />
        <hr className="section" />
 
@@ -22,7 +22,7 @@ function HomeComponents() {
 
       <Subscribe />
       <ReachOut />
-      </>
+      </div>
 )
 }
 

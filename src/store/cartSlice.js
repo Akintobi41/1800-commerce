@@ -17,7 +17,7 @@ const mySlice = createSlice({
             if (!check) {
                 const data = { ...action.payload };
                 data.quantity = 1;
-                 
+
                 state.products.push(data)
             }
             else {
@@ -26,34 +26,36 @@ const mySlice = createSlice({
                 })
 
             }
-            localStorage.setItem('cartItems',JSON.stringify(state.products.map((item)=>item)))
+            localStorage.setItem('cartItems', JSON.stringify(state.products.map((item) => item)))
         },
-        addValue: (state,action) => {
-            const data = {...action.payload};
-            state.products.map((item) => { 
-                if (item.name === data.name) { 
+        addValue: (state, action) => {
+            const data = { ...action.payload };
+            state.products.map((item) => {
+                if (item.name === data.name) {
                     item.quantity += 1
                 }
             })
-            localStorage.setItem('cartItems',JSON.stringify(state.products.map((item)=>item)))
+            localStorage.setItem('cartItems', JSON.stringify(state.products.map((item) => item)))
         },
-        reduceValue: (state, action) => { 
+        reduceValue: (state, action) => {
             const data = { ...action.payload }
-            state.products.map((item) => { 
-                if (item.name === data.name) { 
+            state.products.map((item) => {
+                if (item.name === data.name) {
                     item.quantity -= 1
                 }
             })
-            localStorage.setItem('cartItems',JSON.stringify(state.products.map((item)=>item)))
+            localStorage.setItem('cartItems', JSON.stringify(state.products.map((item) => item)))
         },
-        removeFromCart: (state,action) => { 
-            state.products = state.products.filter((item) => { 
-               return item.name !== action.payload.name
+        removeFromCart: (state, action) => {
+            state.products = state.products.filter((item) => {
+                return item.name !== action.payload.name
             })
-        },    
-        }
+            localStorage.setItem('cartItems', JSON.stringify(state.products.map((item) => item)))
+
+        },
     }
+}
 )
-export const { modifyCart, addValue, reduceValue, removeFromCart} = mySlice.actions
+export const { modifyCart, addValue, reduceValue, removeFromCart } = mySlice.actions
 export default mySlice.reducer;
 

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import {
@@ -9,18 +8,17 @@ import {
 import { format } from "../../../utils/format/format";
 import Button from "../../reusables/button/Button";
 import DeleteIcon from "./../../../assets/Icons/DeleteIcon";
+import LeftArrow from "./../../../assets/Icons/LeftArrow";
 import EmptyCart from "./../../../assets/Images/EmptyCart";
 import Delivery from "./../../delivery/Delivery";
+import PopUp from "./../../popup/PopUp";
 import CartContent from "./CartContent";
-import PopUp from './../../popup/PopUp';
-import LeftArrow from './../../../assets/Icons/LeftArrow';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
   function cartDisplay() {
-
     return cart?.length ? (
       cart.map((data) => {
         const { images, name, type, quantity, price } =
@@ -29,7 +27,7 @@ const Cart = () => {
         const totalPrice = price * quantity;
 
         return (
-             <section
+          <section
             key={name}
             className="flex gap-x-4 justify-between w-[100%] h-[100%] py-4 border-b border-solid border-[grey]"
           >
@@ -41,16 +39,25 @@ const Cart = () => {
                 className="size-full object-contain"
               />
             </figure>
-            <section className=" flex flex-col justify-between w-[100px] gap-y-1" >
+            <section className=" flex flex-col justify-between w-[100px] gap-y-1">
               <p className="text-[.8rem] font-medium truncate">
                 {name}
               </p>
-                <Button styles={`text-[.8rem] font-medium ${quantity > 6 ? 'bg-red-500 text-[var(--white)]' : 'bg-[#53caec4d] text-[#044b60]'} ${quantity > 9 ? 'opacity-40' : ''}  px-1 py-[.1rem]  rounded w-[5rem]`}>
-                  {quantity > 9 ? 'Out of Stock'  : quantity > 6 ? 'Low Stock' : 'Available'}
-                </Button>
-              <Link className="block text-[.8rem] font-medium" to='/products'>
-                {data.type}
-              </Link>
+              <Button
+                styles={`text-[.8rem] font-medium ${
+                  quantity > 6
+                    ? "bg-red-500 text-[var(--white)]"
+                    : "bg-[#53caec4d] text-[#044b60]"
+                } ${
+                  quantity > 9 ? "opacity-40" : ""
+                }  px-1 py-[.1rem]  rounded w-[5rem]`}
+              >
+                {quantity > 9
+                  ? "Out of Stock"
+                  : quantity > 6
+                  ? "Low Stock"
+                  : "Available"}
+              </Button>
               <p
                 className="flex items-center gap-x-1 text-[.8rem] font-medium mt-4 cursor-pointer"
                 onClick={() => {
@@ -66,44 +73,53 @@ const Cart = () => {
                 &#8358; {format(totalPrice)}
               </p>
               <section className="flex justify-end">
-                <Button styles={`flex items-center justify-center border border-r-0 size-5 ${
+                <Button
+                  styles={`flex items-center justify-center border border-r-0 size-5 ${
                     quantity <= 1 ? "opacity-40" : ""
                   }`}
-                  onClick={() => { 
+                  onClick={() => {
                     if (quantity > 1) {
                       dispatch(reduceValue(data));
                     }
-                }}
+                  }}
                 >
-          -
+                  -
                 </Button>
                 <p className="flex justify-center items-center text-center text-[.65rem]   border px-2 opacity-50 size-5">
                   {quantity}
                 </p>
-                <Button styles={`flex items-center justify-center border-l-0 border size-5 ${quantity === 10 ? 'opacity-40' : ''}`}   onClick={() => {
-                  if (quantity < 10) { 
-                  dispatch(addValue(data));
-                  } 
-                  }}>
+                <Button
+                  styles={`flex items-center justify-center border-l-0 border size-5 ${
+                    quantity === 10 ? "opacity-40" : ""
+                  }`}
+                  onClick={() => {
+                    if (quantity < 10) {
+                      dispatch(addValue(data));
+                    }
+                  }}
+                >
                   +
                 </Button>
               </section>
             </section>
-          </section>         
+          </section>
         );
       })
     ) : (
-        <aside className="flex flex-col items-center justify-center">
-         
+      <aside className="flex flex-col items-center justify-center">
         <EmptyCart size="size-[15em]" />
         <p className="italic text-center">
           You have no items in your shopping cart. <br />{" "}
           Let&apos;s go buy something
         </p>
         <Link to="/products" className="mt-6">
-            <Button styles={"w-36 h-9 bg-[var(--pry-col)] rounded-[8px]"} >
+          <Button
+            styles={
+              "w-36 h-9 bg-[var(--pry-col)] rounded-[8px]"
+            }
+          >
             Start Shopping
-            </Button>
+          </Button>
         </Link>
       </aside>
     );
@@ -112,9 +128,18 @@ const Cart = () => {
   return (
     <>
       <div className="mt-4 mx-4">
-        <Link to='/products' className="flex items-center gap-x-1 cursor-pointer"> <LeftArrow size='size-4'/><section className="text-[.8rem] font-medium">Continue Shopping</section></Link>
+        <Link
+          to="/products"
+          className="flex items-center gap-x-1 cursor-pointer"
+        >
+          {" "}
+          <LeftArrow size="size-4" />
+          <section className="text-[.8rem] font-medium">
+            Continue Shopping
+          </section>
+        </Link>
         <h2 className="font-bold p-4 text-[24px][">
-          {cart.length ? 'Your Basket' : null}
+          {cart.length ? "Your Basket" : null}
         </h2>
         <section className="flex flex-col w-full px-4 py-2  mx-auto bg-[var(--white)] min-h-[400px]">
           <PopUp />
