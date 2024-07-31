@@ -51,12 +51,12 @@ function NavMenu({ Logo, SearchIcon,modal }) {
   // }
   // console.log(menuToggle)
   return (
-    <>
+    <section className='flex w-full justify-around'>
       <nav
         className={`${
           menuToggle
             ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full top-[5.8rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
-            : "hidden lg:flex flex-col fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-40 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
+            : "hidden lg:flex flex-col lg:relative fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-40 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
         }`}
       >
         {loggedIn && <p className="p-4 italic lg:hidden">Hi, { name}</p>}
@@ -80,9 +80,9 @@ function NavMenu({ Logo, SearchIcon,modal }) {
           ))}
           {loggedIn && <SignOutBtn/>}
         </ul>
+        
       </nav>
-
-      <section className="flex w-full lg:w-1/2 justify-between items-center lg:flex-[4.5]">
+      <section className="flex w-full lg:w-1/2 justify-between items-center">
         {menu.map((section, i) => (
           <React.Fragment key={section}>
             {section === "p" ? (
@@ -92,7 +92,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
                 key={section}
                 className={
                   !i
-                    ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0"
+                    ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden"
                     : "flex items-center lg:mr-[1.2rem] justify-end"
                 }
                 onClick={
@@ -135,7 +135,9 @@ function NavMenu({ Logo, SearchIcon,modal }) {
           </React.Fragment>
         ))}
       </section>
-    </>
+
+     
+    </section>
   );
 }
 export default NavMenu;

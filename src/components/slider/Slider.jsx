@@ -45,7 +45,7 @@ const images = ['/src/assets/Images/bg-1.jpg','/src/assets/Images/bg-1c.jpg', '/
   return (
     <>
       <section
-        className={`relative flex center h-[70%] max-h-[30rem] lg:max-h-[30rem] z-0 mt-4 bg-[#fff] justify-between w-full max-w-[1500px] mx-auto`}
+        className={`relative flex center h-[70%] min-h-[14rem] lg:min-h-[25rem] max-h-[30rem] lg:max-h-[30rem] z-0 bg-[#fff] justify-between w-full max-w-[1500px] mx-auto mt-24`}
       >
         {images.map((img,i) => ( 
           <div key={img} className={`w-full ${i> 0 ? 'ml-2' : ''}  ${i === 1 ? 'hidden lg:block' : ''} bg-gray-400`}>
