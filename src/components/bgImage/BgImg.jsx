@@ -1,5 +1,5 @@
 
-function BgImg({img,i}) {
+function BgImg({ img, i }) {
   return (
       <div
       key={img}
@@ -16,5 +16,4 @@ function BgImg({img,i}) {
     </div>
   )
 }
-
 export default BgImg
