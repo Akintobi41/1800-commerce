@@ -41,7 +41,7 @@ const navigate = useNavigate()
     //   ]
     // )
   }
-const images = ['/src/assets/Images/bg-1.jpg','/src/assets/Images/bg-1c.jpg', '/src/assets/Images/bg-1b.jpg' ]
+const images = ['src/assets/Images/bg-1.jpg','src/assets/Images/bg-1c.jpg', 'src/assets/Images/bg-1b.jpg' ]
   return (
     <>
       <section
