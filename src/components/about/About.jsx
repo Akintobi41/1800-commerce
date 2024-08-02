@@ -3,9 +3,9 @@ import Heading from "../heading/Heading";
 
 const About = () => {
   return (
-    <aside className='flex flex-col items-center p-6 gap-8 leading-[2] bg-[var(--white)]'>
+    <aside className='flex flex-col items-center p-6 gap-8 leading-[2] bg-[var(--white)] mt-28'>
       <Heading> About 1800 Store</Heading>
-      <p>
+      <p className="max-w-lg mx-auto">
         Welcome to 1800 Store, where tradition meets
         innovation. As a family-owned enterprise, we{`'`}ve
         weathered the e-commerce landscape{`'`}s

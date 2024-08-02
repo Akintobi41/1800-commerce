@@ -41,8 +41,9 @@ const Products = ({ Sort, Filter }) => {
     setNext(next + productsPerSlide);
   }
 
+  
   return (
-    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
+    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden mt-28">
       <Heading> All Products</Heading>
       <p className="text-[.8rem]">
         Need help deciding which product is the right size

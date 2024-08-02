@@ -6,11 +6,6 @@ const FeatureBanner = () => {
   const navigate = useNavigate();
   function viewAll() {
     navigate("/products");
-    // console.log(
-    //   slideDescriptionArray[
-    //     slideDescriptionArray.length - 1
-    //   ]
-    // )
   }
   return (
     <>
