@@ -8,6 +8,7 @@ import { setProducts } from "../../../store/productSlice";
 import { format } from "../../../utils/format/format";
 import Button from "../../reusables/button/Button";
 import Heading from "./../../heading/Heading";
+import LoadingAnimation from "../../loadingAnimation/Loader";
 
 const Products = ({ Sort, Filter }) => {
   const navigate = useNavigate();
@@ -43,8 +44,8 @@ const Products = ({ Sort, Filter }) => {
 
   
   return (
-    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden mt-28">
-      <Heading> All Products</Heading>
+    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden mt-28 max-w-[1500px] min-[1500px]:mx-auto">
+      {!isLoading ?  <><Heading> All Products</Heading>
       <p className="text-[.8rem]">
         Need help deciding which product is the right size
         for you? Check out our{" "}
@@ -57,8 +58,8 @@ const Products = ({ Sort, Filter }) => {
       <section className="flex justify-between gap-x-2">
         {Sort}
         {Filter}
-      </section>
-      <section className="flex flex-wrap justify-between gap-y-2">
+      </section> </> : null}
+      <section className="flex flex-wrap gap-2 justify-center lg:gap-x-10">
         {!isLoading
           ? [...products.slice(0, next)]?.map((product) => {
               const { name, images, type, price } =
@@ -67,14 +68,14 @@ const Products = ({ Sort, Filter }) => {
               return (
                 <section
                   key={name}
-                  className="flex flex-col relative w-[47%] h-64 cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
+                  className="flex flex-col relative w-[47%] sm:w-[30%] md:w-[23%] lg:w-[30%] h-[18rem] sm:h-[36em] max-h-[700px] cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
                   onClick={(e) => handleClick(e, product)}
                 >
-                  <section className="relative w-full bg-[#fff]">
+                  <section className="relative w-full bg-[#fff] h-[60%] lg:-h-[700px]">
                     <img
                       src={images[0].fields.file.url}
                       loading="lazy"
-                      className="w-full h-36 bg-[#a8a29e1a] object-cover hover:transition-all duration-300  border border-[#8080801c]"
+                      className="w-full h-full bg-[#a8a29e1a] object-cover hover:transition-all duration-300  border border-[#8080801c]"
                     />
                     <Button
                       styles={
@@ -106,16 +107,14 @@ const Products = ({ Sort, Filter }) => {
                 </section>
               );
             })
-          : Skeleton.map((el, i) => (
-              <section
-                className="flex w-[45%] relative h-52 bg-primary-500/50 border border-[#bcbcbc33]"
-                key={i}
-              ></section>
-            ))}
+          :  <section className="w-full h-[80vh] flex items-center justify-center">
+          <LoadingAnimation />
+          </section>
+        }
       </section>
-      {next < products?.length ? (
+      {!isLoading && next < products?.length ? (
         <p
-          className="text-center font-bold cursor-pointer"
+          className="text-center font-bold cursor-pointer mt-6"
           onClick={handleMoreProducts}
         >
           Load More

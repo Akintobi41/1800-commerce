@@ -1,8 +1,8 @@
 
-function Heading({ children }) {
+function Heading({ children ,className }) {
     
   return (
-      <section className='text-[25px] font-[700] text-center'>{ children }</section>
+      <section className={`text-[25px] font-[700] text-center ${className}`}>{ children }</section>
       
   )
 }

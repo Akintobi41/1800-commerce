@@ -13,9 +13,9 @@ function Layout() {
   return (
     <>
     <Scroll />
-    <main className="flex flex-col relative h-full min-h-screen my-0 mx-auto w-full overflow-hidden">
+    <main className="flex flex-col relative h-full min-h-screen my-0 w-full overflow-hidden">
       <section className="relative">
-        <Header Navbar={<Navbar Logo={<Logo />} />} Text={<HeaderText/>} />
+        <Header Navbar={<Navbar Logo={<Logo font_style={'md:ml-10 text-[3rem] text-center'} />} />} Text={<HeaderText/>} />
         <section className="flex flex-col relative">
           <Entry/>
           <Outlet />

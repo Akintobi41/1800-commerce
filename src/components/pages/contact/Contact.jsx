@@ -5,12 +5,10 @@ import PopUp from './../../popup/PopUp';
 import { useState } from 'react';
 
 const Contact = () => {
-  const [isVisible,setIsVisible] = useState(true)
-
+  const [isVisible,setIsVisible] = useState(false)
   const { register,handleSubmit,reset } = useForm();
 
   const sendMessage = () => { 
-     console.log('submitted')
     reset();
     setIsVisible(true)
   }
@@ -18,7 +16,7 @@ const Contact = () => {
   return (
 
     <>
-      <PopUp text={"Thank you for reaching out, we'll be in touch soon!"} isVisible={isVisible} className={'relative top-[150px]'} />
+      <PopUp text={"Thank you for reaching out, we'll be in touch soon!"} isVisible={isVisible} setIsVisible={setIsVisible} />
       <section className='p-4 mt-28 max-w-[1500px] mx-auto'>
       <h3 className='font-medium'>Let{`'`}s talk about everything </h3>
       <p className='text-[.85rem]'>

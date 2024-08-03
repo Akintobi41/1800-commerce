@@ -5,7 +5,7 @@ function Delivery() {
   return (
     <>
       {cart.length ? (
-        <section className=" bg-[var(--white)] m-4 p-4">
+        <section className=" bg-[var(--white)] m-4 py-4 max-w-[1500px] min-[1500px]:mx-auto">
           <h2 className="font-bold">
             Delivery Information
           </h2>
@@ -32,7 +32,7 @@ function Delivery() {
           day, excluding Public Holidays.
           <br />
           <br />
-          FREE returns to any 1800 Superstore near you.
+          FREE returns to any <b> 1800 Superstore</b> near you.
           <br />
           <br />
           Please note, some large items (such as bikes, doll

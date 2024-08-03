@@ -112,7 +112,7 @@ function SignUp({ id }) {
         isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
-      <section className="bg-[var(--white)] h-[80%] overflow-scroll flex flex-col absolute bottom-0 w-full p-4">
+      <section className="bg-[var(--white)] h-[65%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s] lg:w-2/3 top-1/2 left-1/2 lg:[transform:translate(-50%,-50%)] lg:mx-auto lg:my-0 lg:overflow-auto max-w-[500px] mx:auto">
         <CloseIcon
           className={
             "absolute right-1 top-2 cursor-pointer"
@@ -137,7 +137,7 @@ function SignUp({ id }) {
         </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-y-6 text-[.8rem]"
+          className="flex flex-col gap-y-6 text-[.8rem] "
         >
           <Input
             label="First Name"
@@ -254,7 +254,7 @@ function SignUp({ id }) {
           <Button
             type="submit"
             onClick={() => setIsVisible(!isValid)}
-            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[65%] rounded-[24px] h-[48px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
+            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[30%] sm:w-[35%] rounded-[24px] h-[48px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
               loading ? "opacity-70 " : "opacity-100"
             }`}
             disabled={loading}

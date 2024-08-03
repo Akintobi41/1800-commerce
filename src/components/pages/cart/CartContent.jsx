@@ -21,7 +21,8 @@ function CartContent() {
     <>
       {cart.length ? (
         <>
-          <div className="w-full flex flex-col mt-4 gap-y-2 border-[#808080] border-b-[1px] pb-4">
+          <div className="w-full flex flex-col gap-y-2 border-[#808080] border-b-[1px] pb-4">
+            <p className="hidden md:block text-[2rem] font-semibold"> Order Summary</p>
             {cartText.map((item) => (
               <section
                 key={item}
@@ -43,7 +44,7 @@ function CartContent() {
                 &#8358; {cartTotal}
               </p>
             </section>
-            <Button styles={"mt-8 bg-[var(--black)] text-[var(--white)] active:opacity-50 hover:bg-[var(--pry-col)] rounded-[30px] p-[.6rem]"} onClick={handleCheckout}>
+            <Button styles={"mt-8 bg-[var(--black)] text-[var(--white)] active:opacity-50 hover:bg-[var(--pry-col)] rounded-[30px] py-2 px-[2rem]"} onClick={handleCheckout}>
             Checkout
             </Button>
             <p className="text-left leading-[1.5] mt-8">

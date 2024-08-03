@@ -50,7 +50,7 @@ function SignIn({ id }) {
         isVisible={isVisible}
         setIsVisible={setIsVisible}
       />
-      <section className="bg-[var(--white)] h-[65%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s]">
+      <section className="bg-[var(--white)] max-w-[500px] h-[65%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s] md:w-[45%] top-1/2 left-1/2 md:[transform:translate(-50%,-50%)] md:mx-auto md:my-0">
       <CloseIcon
           className={
             "absolute right-1 top-2 cursor-pointer"
@@ -67,7 +67,7 @@ function SignIn({ id }) {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-y-6 text-[.8rem]"
+          className="flex flex-col gap-y-6 text-[.8rem] max-w-[500px] mx:auto"
         >
           <Input
             label="Email"
@@ -93,7 +93,7 @@ function SignIn({ id }) {
           </p>
           <Button
             type="submit"
-            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[65%] rounded-[24px] h-[48px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
+            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[30%] rounded-[24px] h-[48px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
               loading ? "opacity-70 " : "opacity-100"
             }`}
             onClick={() => setIsVisible(!isValid)}

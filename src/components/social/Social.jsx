@@ -31,7 +31,7 @@ const Social = () => {
         {footerSection.map((section, i) => (
           <React.Fragment key={section}>
             {i === 0 ? (
-              <section className="flex  w-[80%] justify-between">
+              <section className="flex  w-[10rem] justify-between items-center">
                 {socialIcon.map((i) => (
                   <Fragment key={i.name}>
                     <div className="">{i.icon}</div>
@@ -39,9 +39,9 @@ const Social = () => {
                 ))}
               </section>
             ) : (
-              <section className="text-[.8rem] font-normal mt-2">
-                © {year} 1800 Stores Ltd. All Rights
-                Reserved.
+              <section className=" font-normal mt-2">
+                © {year} 1800 Stores Ltd. <span className="italic">All Rights
+                Reserved.</span>
               </section>
             )}
           </React.Fragment>

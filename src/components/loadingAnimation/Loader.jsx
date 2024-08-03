@@ -40,8 +40,8 @@ const loadingCircleVariants = {
 
 const loadingCircleTransition = {
   duration: 0.4,
-  repeat: Infinity,  // Ensure the animation repeats infinitely
-  repeatType: "mirror",  // To simulate yoyo effect
+  repeat: Infinity,  
+  repeatType: "mirror",  
   ease: 'easeInOut',
 };
 

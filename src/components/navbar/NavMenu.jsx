@@ -51,20 +51,20 @@ function NavMenu({ Logo, SearchIcon,modal }) {
   // }
   // console.log(menuToggle)
   return (
-    <section className='flex w-full justify-around'>
+    <section className='flex w-full justify-between'>
       <nav
         className={`${
           menuToggle
             ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full top-[5.8rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
-            : "hidden lg:flex flex-col lg:relative fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-40 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
+            : "hidden lg:flex flex-col lg:relative fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-0 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
         }`}
       >
         {loggedIn && <p className="p-4 italic lg:hidden">Hi, { name}</p>}
-        <ul className="flex flex-col mt-10 w-full lg:mt-0 lg:h-0 lg:w-[30%] lg:flex-row z-30 lg:gap-8">
+        <ul className="flex flex-col mt-10 w-full lg:mt-0 lg:h-0 lg:w-[30%] lg:flex-row  z-30 lg:gap-8">
           {Object.keys(navList).map((list, i) => (
             <section
               key={list}
-              className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none ${i > 0 &&  i < 4 ? '' : 'lg:hidden'} cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-b-0 lg:p-0 lg:ml-[1rem] hover:bg-[var(--black)] hover:text-[var(--white)] lg:hover:text-[var(--pry-col)] ${
+              className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none ${i > 0 &&  i < 4 ? '' : 'lg:hidden'} cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-0 lg:p-0 lg:ml-[1rem] hover:bg-[var(--black)] hover:text-[var(--white)] lg:hover:text-[var(--pry-col)] ${
                 i === 4 && "mt-20"
               } ${i >= 4 && loggedIn ? 'hidden' : ''}`}
               onClick={() => {
@@ -82,7 +82,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
         </ul>
         
       </nav>
-      <section className="flex w-full lg:w-1/2 justify-between items-center">
+      <section className="flex w-full lg:w-[63%] justify-between items-center">
         {menu.map((section, i) => (
           <React.Fragment key={section}>
             {section === "p" ? (
@@ -92,8 +92,8 @@ function NavMenu({ Logo, SearchIcon,modal }) {
                 key={section}
                 className={
                   !i
-                    ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden"
-                    : "flex items-center lg:mr-[1.2rem] justify-end"
+                    ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden justify-end"
+                    : "flex items-center justify-end"
                 }
                 onClick={
                   !i

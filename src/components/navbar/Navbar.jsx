@@ -11,7 +11,7 @@ const Navbar = ({Logo}) => {
   const { navMenu } = useSearch(search, setSearch);
   
   return (
-    <section className="flex relative bg-[var(--white)] p-4 h-16 border-t-[1px] border-[grey]">
+    <section className="flex relative bg-[var(--white)] p-4 md:pl-0 h-16 border-t-[1px] max-w-[1500px] mx-auto">
     <>
     <section
     className={`w-full absolute left-0 mt-10 pt-2 px-6 pb-0 bg-[var(--white)] ${search ? "block opacity-100 z-10" : 'hidden opacity-0' }`}>

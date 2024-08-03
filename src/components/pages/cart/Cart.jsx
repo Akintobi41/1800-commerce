@@ -29,17 +29,18 @@ const Cart = () => {
         return (
           <section
             key={name}
-            className="flex gap-x-4 justify-between w-[100%] h-[100%] py-4 border-b border-solid border-[grey]"
+            className="flex gap-x-2 justify-between w-[100%] h-[100%] py-4 border-b border-solid border-[grey]"
           >
+            <>
             <figure className="w-[40%] h-auto bg-[#9ca3af26] max-w-[95px]">
               <img
                 src={image}
                 alt={type}
                 loading="lazy"
-                className="size-full object-contain"
+                className="size-full object-cover"
               />
             </figure>
-            <section className=" flex flex-col justify-between w-[100px] gap-y-1">
+            <section className=" flex flex-col justify-between w-[60px] min-[400px]:w-[200px]  md:w-[200px] gap-y-1">
               <p className="text-[.8rem] font-medium truncate">
                 {name}
               </p>
@@ -57,17 +58,22 @@ const Cart = () => {
                   : quantity > 6
                   ? "Low Stock"
                   : "Available"}
-              </Button>
+                </Button>
+                <div className="flex items-center">
+                <DeleteIcon /> 
               <p
-                className="flex items-center gap-x-1 text-[.8rem] font-medium mt-4 cursor-pointer"
+                className="flex items-center gap-x-1 text-[.8rem] font-medium cursor-pointer"
                 onClick={() => {
                   dispatch(removeFromCart(data));
                 }}
               >
                 {" "}
-                <DeleteIcon /> Remove
+                Remove
               </p>
+                </div>
+             
             </section>
+            </>
             <section className="flex flex-col justify-between w-[130px]">
               <p className="ml-auto text-right text-[.65rem] font-medium">
                 &#8358; {format(totalPrice)}
@@ -127,27 +133,29 @@ const Cart = () => {
 
   return (
     <>
-      <div className="mt-4 mx-4">
+      <div className="mt-28 px-4 max-w-[1500px] md:mx-auto w-full">
         <Link
           to="/products"
-          className="flex items-center gap-x-1 cursor-pointer"
+          className="flex items-center gap-x-1 cursor-pointer mx-4"
         >
           {" "}
           <LeftArrow size="size-4" />
-          <section className="text-[.8rem] font-medium">
+          <section className="text-[.8rem] font-medium px-1">
             Continue Shopping
           </section>
         </Link>
         <h2 className="font-bold p-4 text-[24px][">
           {cart.length ? "Your Basket" : null}
         </h2>
-        <section className="flex flex-col w-full px-4 py-2  mx-auto bg-[var(--white)] min-h-[400px]">
+        <section className="flex flex-col w-full md:px-4 py-2 md:gap-x-10 md:mx-auto bg-[var(--white)] min-h-[400px] md:flex-row">
           <PopUp />
-          {cartDisplay()}
-          <CartContent />
+          <section className="md:h-[65%] md:w-[55%] max-h-[500px] md:p-2 overflow-y-auto p-1">{cartDisplay()} </section>
+          
+         <section className="md:w-[47%] px-0"><CartContent /> </section> 
         </section>
+        <Delivery />
       </div>
-      <Delivery />
+    
     </>
   );
 };
