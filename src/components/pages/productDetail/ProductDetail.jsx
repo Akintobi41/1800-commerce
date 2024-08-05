@@ -37,7 +37,7 @@ function ProductDetail() {
 
       return (
         <>
-          <section>
+          <section className="mt-28 max-w-[1500px] min-[1500px]:mx-auto">
             <ImageSwiper images={images} />
             <section className="flex w-full h-full justify-around px-4">
               {images.map((img) => (

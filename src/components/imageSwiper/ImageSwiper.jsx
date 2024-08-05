@@ -23,10 +23,11 @@ const ImageSwiper = ({ images }) => {
       slides-per-view="1"
       grid-rows="3"
       mousewheel-force-to-axis="true"
+      max-width='500'
     > 
        { images ?  [...images]?.map((image, index) => (
         <swiper-slide key={index} lazy='true'>
-          <img src={image?.fields.file.url} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto' }} loading="lazy"/>
+          <img src={image?.fields.file.url} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto' }} className="max-w-[800px] mx-auto" loading="lazy"/>
         </swiper-slide>
        )) : null}
       

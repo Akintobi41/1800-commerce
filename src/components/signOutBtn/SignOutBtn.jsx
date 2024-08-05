@@ -37,7 +37,7 @@ function SignOutBtn() {
         <p className="text-center text-[1.5rem] transition-all duration-500"> Signing Out...</p>
       </div>
         <Button
-      styles="mt-3 rounded p-2 text-[2rem] font-semibold lg:text-left lg:text-[1rem] lg:font-normal lg:p-0 "
+      styles="mt-3 rounded p-2 text-[2rem] lg:hidden font-semibold lg:text-left lg:text-[1rem] lg:font-normal lg:p-0 "
       onClick={deleteUser}
     >
       {" "}

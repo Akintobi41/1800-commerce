@@ -11,7 +11,7 @@ const ReachOut = () => {
     <section className='flex flex-col pt-6 px-6 pb-12'>
       <section>
         <section className='flex items-center'>
-          <section className='flex leading-[1] w-full mr-1'>
+          <section className='flex justify-center leading-[1] w-full mr-1'>
             {textOptions.map((el) => (
               <Heading key={el} className='font-semibold'> {el + ' '}</Heading>
             ))}

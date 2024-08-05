@@ -82,7 +82,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
         </ul>
         
       </nav>
-      <section className="flex w-full lg:w-[63%] justify-between items-center">
+      <section className="flex w-full lg:w-[60%] justify-between items-center">
         {menu.map((section, i) => (
           <React.Fragment key={section}>
             {section === "p" ? (
