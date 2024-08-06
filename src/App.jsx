@@ -4,8 +4,8 @@ import useMyContext from "./contexts/useMyContext";
 import router from "./router/Router";
 
 const App = () => {
-  const { overflow, setOverflow} = useMyContext();
- 
+  const { overflow, setOverflow } = useMyContext();
+
   return (
     <StoreProvider value={{overflow,setOverflow}}>
       <RouterProvider router={router} />{" "}

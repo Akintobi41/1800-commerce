@@ -8,11 +8,11 @@ import { useOverflow } from "../../../contexts";
 import FeatureBanner from './../../banner/FeatureBanner';
 
 const Home = () => {
+  const { overflow } = useOverflow();
   const dispatch = useDispatch();
   const loggedIn = useSelector(
     (state) => state.auth.status
   );
-  const { overflow } = useOverflow();
 
   useEffect(() => {
     async function getUser() {
@@ -26,16 +26,11 @@ const Home = () => {
       }
     }
     getUser();
-  }, [loggedIn]);
-  console.log("this is home");
-  // added dependency because of getting the name of the user immediately you sign in
-  console.log(overflow);
+  }, [loggedIn]);// added dependency because of getting the name of the user immediately you sign in
 
   return (
     <section
-      className={`flex  flex-col ${
-        overflow ? "bg-[#0000001a] pointer-events-none" : ""
-      }`}
+      className={`flex flex-col`}
     >
       <FeatureBanner />
       <section className="max-w-[1500px] mx-auto w-full">

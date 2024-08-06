@@ -4,6 +4,7 @@ import Button from "../../reusables/button/Button";
 import { totalValues } from "./u_cart";
 import { showEntry } from "../../../store/accountSlice";
 import { useNavigate } from "react-router";
+import { format } from "../../../utils/format/format";
 
 function CartContent() {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ function CartContent() {
   const loggedIn = useSelector((state) => state.auth.status)
   
   function handleCheckout() { 
-  return loggedIn ? navigate('/cart/shipping') : dispatch(showEntry(4))   
+  return loggedIn ? navigate('/cart/checkout') : dispatch(showEntry(4))   
   }
   
   return (
@@ -41,7 +42,7 @@ function CartContent() {
             <section className="w-full flex justify-between mt-4 border-[#808080] border-b-[1px] pb-4">
               <p className="font-medium">Total</p>
               <p className="font-medium">
-                &#8358; {cartTotal}
+                &#8358; {format(cartTotal)}
               </p>
             </section>
             <Button styles={"mt-8 bg-[var(--black)] text-[var(--white)] active:opacity-50 hover:bg-[var(--pry-col)] rounded-[30px] py-2 px-[2rem]"} onClick={handleCheckout}>

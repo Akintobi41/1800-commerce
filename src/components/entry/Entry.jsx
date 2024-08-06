@@ -23,7 +23,7 @@ function Entry() {
   }
   return (
     <div
-      className={`z-40 ${
+      className={`z-40 overflow-hidden ${
         access.status
           ? "opacity-100 visible h-[100%] fixed w-full transition-all duration-[1s] bottom-0"
           : "opacity-0 invisible"

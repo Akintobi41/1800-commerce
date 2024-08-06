@@ -1,14 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { faqContent } from "./u_Faqs";
-import { useState} from "react";
+import { useState } from "react";
 import Details from "./../../patronizeDetails/Details";
+import { faqContent } from "./u_Faqs";
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className='bg-[var(--white)] m-6 p-6 flex flex-col gap-[.2rem]'>
-      <h3 className='text-center mb-2'>Frequently Asked Questions</h3>
+    <section className="bg-[var(--white)] m-6 p-6 flex flex-col gap-[.2rem] mt-28 max-w-[700px] mx-auto">
+      <h3 className="text-center mb-2 font-bold text-[25px]">
+        Frequently Asked Questions
+      </h3>
       {faqContent.map((el) => (
         <Details
           key={el.title}

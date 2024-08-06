@@ -10,7 +10,9 @@ import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
 import Layout from "../components/layout/Layout";
 import Filter from "../components/filter/Filter";
 import Sort from "../components/sort/Sort";
-import Shipping from "../components/pages/shipping/Shipping";
+import Checkout from "../components/pages/checkout/Checkout";
+import Protected from "../components/protected/Protected";
+
 
 const router = createBrowserRouter([
   {
@@ -52,8 +54,8 @@ const router = createBrowserRouter([
         element: <ProductDetail />,
       },
       {
-        path: '/cart/shipping',
-        element: <Shipping/>,
+        path: '/cart/checkout',
+        element: <Protected authentication><Checkout authentication/></Protected> ,
       }
     ],
   },

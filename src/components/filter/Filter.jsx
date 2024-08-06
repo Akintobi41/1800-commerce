@@ -5,6 +5,7 @@ import { filter } from "../../utils/text/text";
 import Select from "../reusables/select/Select";
 import { setProducts } from "../../store/productSlice";
 
+
 const filterType = localStorage.getItem("value");
 function Filter() {
   const dispatch = useDispatch();

@@ -37,7 +37,6 @@ function Sort() {
     const high = [...products].sort((a, b) =>
       a.fields.price < b.fields.price ? 1 : -1
     );
-    console.log(products);
 
     const result = {
       None: [...products],

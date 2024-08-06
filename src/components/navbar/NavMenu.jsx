@@ -78,7 +78,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
               {list}
             </section>
           ))}
-          {loggedIn && <SignOutBtn/>}
+          {loggedIn && <SignOutBtn className='lg:hidden'/>}
         </ul>
         
       </nav>
@@ -92,7 +92,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
                 key={section}
                 className={
                   !i
-                    ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden justify-end"
+                    ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden md:justify-end"
                     : "flex items-center justify-end"
                 }
                 onClick={

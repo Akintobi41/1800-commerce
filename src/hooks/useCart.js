@@ -1,4 +1,3 @@
-import { format } from "../utils/format/format";
 
 const useCart = (cart) => {
     const cartText = ['Subtotal', 'Shipping', 'VAT(5%)'];
@@ -6,7 +5,7 @@ const useCart = (cart) => {
     const VAT = ((total * 5) / 100);
     const checkShipping = total > 1000000;
     const shipFee = checkShipping ? 0 : 3000;
-    const cartTotal = format(total + shipFee + VAT);
+    const cartTotal = total + shipFee + VAT;
 
     return { cartText, total, VAT, checkShipping, shipFee, cartTotal }
 }

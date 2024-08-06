@@ -2,7 +2,7 @@ import React from 'react'
 
 function Shipping() {
   return (
-    <div>Shipping</div>
+    <section className='mt-28 p-4'>Shipping</section>
   )
 }
 

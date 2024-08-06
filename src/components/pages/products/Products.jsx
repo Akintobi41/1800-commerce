@@ -44,8 +44,8 @@ const Products = ({ Sort, Filter }) => {
 
   
   return (
-    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden mt-28 max-w-[1500px] min-[1500px]:mx-auto">
-      {!isLoading ?  <><Heading> All Products</Heading>
+    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden max-w-[1500px] min-[1500px]:mx-auto">
+      {!isLoading ?  <><Heading className='mt-28'> All Products</Heading>
       <p className="text-[.8rem]">
         Need help deciding which product is the right size
         for you? Check out our{" "}
@@ -61,7 +61,7 @@ const Products = ({ Sort, Filter }) => {
       </section> </> : null}
       <section className="flex flex-wrap gap-2 justify-center lg:gap-x-10">
         {!isLoading
-          ? [...products.slice(0, next)]?.map((product) => {
+          ? [...products?.slice(0, next)]?.map((product) => {
               const { name, images, type, price } =
                 product.fields;
 

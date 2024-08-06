@@ -46,7 +46,7 @@ function OpenAccountModal() {
           overflow
             ? "opacity-100 transition-opacity duration-300 visible"
             : "opacity-0 transition-opacity duration-300 invisible"
-        } flex flex-col absolute top-[61px] bg-[var(--white)] right-[50px] w-[135px] h-[135px] p-6 `}
+        } flex flex-col absolute top-[61px] bg-[var(--white)] right-[50px] w-[135px] h-[110px] p-6 text-[.8rem] `}
       >
         <p className="opacity-40">Account</p>
         {!loggedIn ? Object.keys(navList).map((item, i) => (

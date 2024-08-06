@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from 'react';
 
-function SignOutBtn() {
+function SignOutBtn({className}) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
@@ -33,11 +33,11 @@ function SignOutBtn() {
 
   return (
     <>
-      <div className={`${modal ? ' w-full flex fixed justify-center items-center top-0 left -0 min-h-screen bg-[var(--white)]' : 'hidden'}`}>
+      <div className={`${modal ? ' w-full flex fixed justify-center items-center top-0 left-0 min-h-screen bg-[var(--white)]' : 'hidden'}`}>
         <p className="text-center text-[1.5rem] transition-all duration-500"> Signing Out...</p>
       </div>
         <Button
-      styles="mt-3 rounded p-2 text-[2rem] lg:hidden font-semibold lg:text-left lg:text-[1rem] lg:font-normal lg:p-0 "
+      styles={`mt-3 rounded p-2 text-[2rem] ${className} font-semibold lg:text-left lg:text-[1rem] lg:font-normal lg:p-0 `}
       onClick={deleteUser}
     >
       {" "}
