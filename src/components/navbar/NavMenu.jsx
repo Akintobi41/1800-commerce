@@ -13,7 +13,7 @@ import Input from './../reusables/input/Input';
 import { navList } from "./navList";
 
 
-function NavMenu({ Logo, SearchIcon,modal }) {
+function NavMenu({ Logo, modal }) {
   const [menuToggle, setMenuToggle] = useState(false);
   const navMenu = useRef(null);
   const { pathname } = useLocation();
@@ -40,16 +40,7 @@ function NavMenu({ Logo, SearchIcon,modal }) {
     setMenuToggle(false);
   }, [pathname]);
 
-  // function clearMenu(e) {
-  //   if (
-  //     menuToggle &&
-  //     !Object.keys(navList).includes(e.target.textContent) &&
-  //     !navMenu.current?.contains(e.target)
-  //   ) {
-  //     setMenuToggle(false);
-  //   }
-  // }
-  // console.log(menuToggle)
+ 
   return (
     <section className='flex w-full justify-between'>
       <nav
@@ -112,7 +103,6 @@ function NavMenu({ Logo, SearchIcon,modal }) {
                   ></section>
                 ) : (
                   <>
-                        {SearchIcon}
                         {modal}
                         <Input name="search"
                           type="search"

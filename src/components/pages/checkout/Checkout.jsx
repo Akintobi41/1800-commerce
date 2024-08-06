@@ -23,7 +23,7 @@ function Checkout() {
   const [name, setName] = useState("")
   const [phone, setPhone] = useState("")
   const amount = cartTotal * 100;
-  const { register, handleSubmit, watch, formState } =
+  const { register, handleSubmit, formState } =
     useForm();
   const dispatch = useDispatch();
   const [submit, setSubmit] = useState(false);
@@ -155,23 +155,20 @@ function Checkout() {
           <div> 
 
           <div className="App">
-  <div className="container">
+  <div className="max-w-[1500px] mx-auto">
     <div className="item">
                   <div className="overlay-effect"></div>
                   <p className="text-[.8rem] cursor-pointer" onClick={()=> setNext(false)}> Back to Shipping</p>
-                  
-      <img
-        className="item-image"
-        src="https://images.unsplash.com/photo-1526947425960-945c6e72858f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-        alt="product"
-      />
+                  <p className='font-bold my-4'>Order Deatails</p>
+      {cart.map((item)=>  (
+       <section className='flex gap-x-2'><p>{item.name + ' ' + item.type} </p> <p className='font-semibold'>X{item.quantity}</p></section> 
+      ))}
                   <div className="flex flex-col gap-2">
-        <p className="font-bold text-[1.25rem]">Coconut Oil</p>
-        <p className="">NGN {format(amount / 100)}</p>
       </div>
     </div>
-    <div className="checkout">
+    <div className="mt-4">
       <div className="checkout-form">
+        p
         <div className="checkout-field">
                       <p>{ name}</p>
         </div>
@@ -181,6 +178,8 @@ function Checkout() {
         <div className="checkout-field">
                       <label>{phone}</label>
         </div>
+        <p className="mb-4">NGN {format(amount / 100)}</p>
+
       </div>
                 </div>
          <PaystackButton {...componentProps} className="mt-4 w-[7rem] rounded bg-[var(--black)] text-[var(--white)] hover:bg-[var(--pry-col)]" />

@@ -23,9 +23,8 @@ const Navbar = ({Logo}) => {
           : "translate-y-[-400px]"
       }`}
       placeholder="SEARCH" />
-    <SearchIcon search={search} setSearch={setSearch} top={'-top-[30px]'}/> 
     </section>
-    <NavMenu Logo={Logo} SearchIcon={<SearchIcon search={search} setSearch={setSearch} refs={navMenu} style={'hover:stroke-[var(--pry-col)]'} />} modal={<OpenAccountModal/>}/>
+    <NavMenu Logo={Logo} modal={<OpenAccountModal/>}/>
     </>
     </section>
   );

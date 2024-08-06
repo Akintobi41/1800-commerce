@@ -8,7 +8,6 @@ function SearchIcon({search,setSearch,top ='',refs,style}) {
       ref={refs}
       fill="none"
       height="24"
-      // stroke="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
       strokeWidth="2"

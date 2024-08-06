@@ -19,15 +19,13 @@ const Products = ({ Sort, Filter }) => {
   const dispatch = useDispatch();
   const productsPerSlide = 10;
   const [next, setNext] = useState(productsPerSlide);
-
-  const loadData = async function () {
+ const loadData = async function () {
     const { items } = await fetchAllData("products");
     items.map((item) => (item.fields.quantity = 0));
     dispatch(setProducts(items));
     return items;
   };
   const { isLoading } = useQuery("load", loadData);
-  const Skeleton = Array(6).fill(0); // for skeleton
 
   function handleClick(e, product) {
     const cartRedirect = e.target.textContent;
