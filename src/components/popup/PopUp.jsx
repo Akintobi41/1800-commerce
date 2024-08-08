@@ -13,9 +13,7 @@ const PopUp = ({ text,isVisible,setIsVisible,className}) => {
 
   return (
     <div 
-      className={`${s.popup} ${isVisible ? s.visible : ''} ${className}`} 
-
-    >
+      className={`${s.popup} ${isVisible ? s.visible : ''} ${className}`}>
       <p className={s.text}>{text}</p>
     </div>
   );
