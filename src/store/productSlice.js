@@ -12,7 +12,7 @@ const productSlice = createSlice({
         setProducts: (state, action) => { 
             if (!state.products.length && !state.myProducts.length ) { 
                 state.products = [...state.products, ...action.payload],
-                state.myProducts = state.products
+                state.myProducts = [...state.products]
             }
         },
         sortProducts: (state, action) => { 

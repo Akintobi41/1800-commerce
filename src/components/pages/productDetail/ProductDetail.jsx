@@ -25,7 +25,6 @@ function ProductDetail() {
     "product",
     getProduct
   );
-  console.log(cart);
 
   function displayProduct() {
     if (data) {
@@ -39,7 +38,7 @@ function ProductDetail() {
         <>
           <section className="mt-28 max-w-[1500px] min-[1500px]:mx-auto">
             <ImageSwiper images={images} />
-            <section className="flex w-full h-full justify-around px-4">
+            <section className="flex w-full h-full justify-around px-4 max-w-[400px]">
               {images.map((img) => (
                 <img
                   src={img.fields.file.url}
@@ -57,7 +56,7 @@ function ProductDetail() {
                 {description}{" "}
               </p>
             </details>
-            <p className="p-4 text-center text-[.8rem] text-[#737373] tracking-[-.653px]">
+            <p className="p-4 text-[.8rem] text-[#737373] tracking-[-.653px]">
               {" "}
               Earn up to 64 points with 1800 Rewards
             </p>
@@ -65,13 +64,13 @@ function ProductDetail() {
           {quantity ? (
             <p className="px-4">Low in Stock</p>
           ) : null}
-          <section className="px-4 w-full">
+          <section className="px-4 w-full max-w-[1500px] mx-auto">
             <Button
               styles={`${
                 checkProduct
                   ? "opacity-10 cursor-not-allowed pointer-events-none"
                   : ""
-              } w-full bg-[var(--black)] text-[var(--white)] hover:bg-[var(--pry-col)] h-[3rem] rounded-[24px] font-medium cursor-pointer px-6 transition-[background] duration-[.25s]`}
+              } w-full max-w-[400px] bg-[var(--black)] text-[var(--white)] hover:bg-[var(--pry-col)] h-[3rem] rounded-[24px] font-medium cursor-pointer px-6 transition-[background] duration-[.25s]`}
               disabled={checkProduct}
               {...(!checkProduct && {
                 onClick: handleClick,

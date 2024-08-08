@@ -1,9 +1,8 @@
-import { useRef, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterProducts } from "../../store/productSlice";
+import { filterProducts, setProducts } from "../../store/productSlice";
 import { filter } from "../../utils/text/text";
 import Select from "../reusables/select/Select";
-import { setProducts } from "../../store/productSlice";
 
 
 const filterType = localStorage.getItem("value");
