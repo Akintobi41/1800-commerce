@@ -50,21 +50,18 @@ function SignUp({ id }) {
 
   const onSubmit = async (data) => {
     setLoading(true);
-    console.log(data);
     try {
       const userData = await authService.createAccount(
         data
       );
       if (userData) {
         const userData = await authService.getCurrentUser();
-        console.log(userData);
         if (userData) dispatch(signIn({ userData }));
         dispatch(closeEntry());
         navigate("/");
         setLoading(false);
       }
     } catch (error) {
-      console.log(error.message);
       setErrorMsg(error.message);
       setLoading(false);
     }

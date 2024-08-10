@@ -7,28 +7,27 @@ import { format } from "../../../utils/format/format";
 import Button from "../../reusables/button/Button";
 import PopUp from "./../../popup/PopUp";
 import CheckoutForm from "./CheckoutForm";
+import LeftArrow from './../../../assets/Icons/LeftArrow';
 
 function Checkout() {
   const cart = useSelector((state) => state.cart.products);
   const [next, setNext] = useState(false);
   const [errors, setErrors] = useState(false);
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
+  const [userDetails,setUserDetails] = useState({name:'',email:'',phone:''})
   const [submit, setSubmit] = useState(false);
-  const [phone, setPhone] = useState("");
   const { cartTotal } = useCart(cart);
   const amount = cartTotal * 100;
 
-  const shipProduct = ({ name, email, phoneNumber }) => {
+  const handleFormSubmit = ({ name, email, phoneNumber }) => {
     setErrors(false);
     setSubmit(false);
-    setName(name);
-    setEmail(email);
-    setPhone(phoneNumber);
+    setUserDetails({name,email,phone:phoneNumber})
     setNext(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const { approved, publicKey } = usePaystack();
+  const { name, email, phone } = userDetails;
 
   const componentProps = {
     email,
@@ -40,7 +39,6 @@ function Checkout() {
     publicKey,
     text: "Pay Now",
     onSuccess: () => approved(),
-    onClose: () => close(),
   };
 
   return (
@@ -57,7 +55,7 @@ function Checkout() {
           </p>
 
           <CheckoutForm
-            shipProduct={shipProduct}
+            handleFormSubmit={handleFormSubmit}
             Button={
               <Button
                 styles={`bg-[var(--black)] text-[var(--white)] w-[8rem] rounded hover:bg-[var(--pry-col)] transition-colors duration-500 ${
@@ -76,13 +74,14 @@ function Checkout() {
             <div className="max-w-[1500px] mx-auto">
               <div className>
                 <p
-                  className="text-[.8rem] cursor-pointer"
+                  className="text-[.8rem] cursor-pointer flex items-center"
                   onClick={() => setNext(false)}
                 >
-                  {" "}
-                  Back to Shipping
+                    {" "}
+                    <LeftArrow size="size-4"/>
+                 <span className="ml-1">Back to Shipping</span> 
                 </p>
-                <p className="font-bold my-4">
+                <p className="font-bold mt-4">
                   Order Details
                 </p>
                 {cart.map((item) => (
@@ -98,7 +97,8 @@ function Checkout() {
                 ))}
                 <div className="flex flex-col gap-2"></div>
               </div>
-              <div className="mt-4">
+                <div className="mt-4">
+                  <p className="font-bold">Customer Details</p>
                 <div className="checkout-field">
                   <p>{name}</p>
                 </div>

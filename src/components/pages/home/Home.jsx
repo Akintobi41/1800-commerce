@@ -3,12 +3,10 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import authService from "../../../appwrite/auth/auth";
 import { signIn } from "../../../store/loginSlice";
+import FeatureBanner from "./../../banner/FeatureBanner";
 import HomeComponents from "./HomeComponents";
-import { useOverflow } from "../../../contexts";
-import FeatureBanner from './../../banner/FeatureBanner';
 
 const Home = () => {
-  const { overflow } = useOverflow();
   const dispatch = useDispatch();
   const loggedIn = useSelector(
     (state) => state.auth.status
@@ -26,14 +24,10 @@ const Home = () => {
       }
     }
     getUser();
-  }, [loggedIn]);// added dependency because of getting the name of the user immediately you sign in
+  }, [loggedIn]); // added dependency because of getting the name of the user immediately you sign in
 
-
-  console.log('HOME')
   return (
-    <section
-      className={`flex flex-col`}
-    >
+    <section className={`flex flex-col`}>
       <FeatureBanner />
       <section className="max-w-[1500px] mx-auto w-full">
         <HomeComponents />

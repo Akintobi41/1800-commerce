@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 import Input from "../../reusables/input/Input";
 
-function CheckoutForm({ shipProduct, Button }) {
+function CheckoutForm({ handleFormSubmit, Button }) {
   const { register, handleSubmit } = useForm();
   return (
     <form
       action=""
-      onSubmit={handleSubmit(shipProduct)}
+      onSubmit={handleSubmit(handleFormSubmit)}
       className="flex flex-col gap-y-4 max-w-[700px] mx-auto"
     >
       <Input

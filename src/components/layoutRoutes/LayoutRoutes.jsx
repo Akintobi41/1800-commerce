@@ -7,7 +7,6 @@ import { useOverflow } from "../../contexts"
 function LayoutRoutes() {
   const { overflow } = useOverflow();
 
-  console.log('layout routes')
 
     return (
         <section className={`flex flex-col relative transition-colors duration-500`}>
