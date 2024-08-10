@@ -8,6 +8,7 @@ import Scroll from "../scrollToTop/Scroll";
 import LayoutRoutes from './../layoutRoutes/LayoutRoutes';
 
 function Layout() {
+  console.log('layout')
   return (
     <>
     <Scroll />

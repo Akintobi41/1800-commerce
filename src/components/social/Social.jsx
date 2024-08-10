@@ -1,25 +1,27 @@
 import React, { Fragment } from "react";
 import FacebookIcon from '../../assets/Icons/FacebookIcon'
 import InstagramIcon from './../../assets/Icons/InstagramIcon';
+import TiktokIcon from "../../assets/Icons/TiktokIcon";
+import PinterestIcon from "../../assets/Icons/PinterestIcon";
 
 const Social = () => {
 
  const socialIcon = [
     {
       name: "facebook",
-      icon: <FacebookIcon />,
+      icon: <FacebookIcon size={'size-[25px]'} />,
     },
     {
       name: "instagram",
-      icon: <InstagramIcon />,
+      icon: <InstagramIcon size={'size-[25px]'} />,
     },
     {
-      name: "twitter",
-      icon: <FacebookIcon />,
+      name: "pinterest",
+      icon: <PinterestIcon size={'size-[25px]'} />,
     },
     {
       name: "tiktok",
-      icon: <FacebookIcon />,
+      icon: <TiktokIcon  size={'size-[25px]'}/>,
     },
   ];
   const footerSection = ["section1", "section2"];

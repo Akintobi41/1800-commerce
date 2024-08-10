@@ -11,9 +11,6 @@ import Button from "../../reusables/button/Button";
 function ProductDetail() {
   const { id } = useParams();
   const cart = useSelector((state) => state.cart.products);
-  const quantity =
-    [...cart].length &&
-    [...cart].every((item) => item.quantity > 6);
   const getProduct = async function () {
     return await fetchData(id).then((data) => data);
   };
@@ -61,9 +58,6 @@ function ProductDetail() {
               Earn up to 64 points with 1800 Rewards
             </p>
           </section>
-          {quantity ? (
-            <p className="px-4">Low in Stock</p>
-          ) : null}
           <section className="px-4 w-full max-w-[1500px] mx-auto">
             <Button
               styles={`${

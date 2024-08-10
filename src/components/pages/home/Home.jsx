@@ -28,6 +28,8 @@ const Home = () => {
     getUser();
   }, [loggedIn]);// added dependency because of getting the name of the user immediately you sign in
 
+
+  console.log('HOME')
   return (
     <section
       className={`flex flex-col`}

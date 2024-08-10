@@ -1,39 +1,44 @@
-import { register } from "swiper/element";
-import { useEffect} from "react";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import './s_imageSwiper.css'
+import LoadingAnimation from './../loadingAnimation/Loader';
 
 const ImageSwiper = ({ images }) => {
-  register();
-  useEffect(() => {
-    const swiperEl = document.querySelector('swiper-container');
-
-    swiperEl.addEventListener('swiperprogress', (event) => {
-      const [swiper, progress] = event.detail;
-      // console.log(swiper)
-    
-    });
-
-    swiperEl.addEventListener('swiperslidechange', (event) => {
-      // console.log('slide changed');
-    });
-    // console.log(swiperEl)
-  }, []);
-
+  console.log(images)
   return (
-    <swiper-container
-      slides-per-view="1"
-      grid-rows="3"
-      mousewheel-force-to-axis="true"
-      max-width='500'
-    > 
-       { images ?  [...images]?.map((image, index) => (
-        <swiper-slide key={index} lazy='true'>
-          <img src={image?.fields.file.url} alt={`Slide ${index}`} style={{ width: '100%', height: 'auto' }} className="max-w-[800px] mx-auto" loading="lazy"/>
-        </swiper-slide>
-       )) : null}
-      
-      {/* Error Message needed when images/product is loading */}
+    <>
+      {images.length > 0 ?
+        (<Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        autoplay={{
+          delay: 1500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, Pagination, Navigation]}
+        className="mySwiper"
+      >
+        <>
+          {[...images]?.map((image, index) => (
+            <SwiperSlide key={index}>
+              <div className='bg-[#f3f4f64f]'>
+                <img src={image?.fields.file.url} alt={`Slide ${index}`} style={{ width: '100%', height: '100%' }} className="max-w-[800px] mx-auto" loading="lazy" />
+              </div>
+       
+            </SwiperSlide>
+          ))}
+        </>
+      </Swiper>)
+      : <LoadingAnimation/>}
+</>
 
-    </swiper-container>
   );
 };
 

@@ -6,9 +6,9 @@ import { fetchAllData } from "../../../contentful/contentful";
 import { modifyCart } from "../../../store/cartSlice";
 import { setProducts } from "../../../store/productSlice";
 import { format } from "../../../utils/format/format";
+import LoadingAnimation from "../../loadingAnimation/Loader";
 import Button from "../../reusables/button/Button";
 import Heading from "./../../heading/Heading";
-import LoadingAnimation from "../../loadingAnimation/Loader";
 
 const Products = ({ Sort, Filter }) => {
   const navigate = useNavigate();
@@ -58,8 +58,8 @@ const Products = ({ Sort, Filter }) => {
         {Filter}
       </section> </> : null}
       <section className="flex flex-wrap gap-2 justify-center lg:gap-x-10">
-        {!isLoading
-          ? [...products?.slice(0, next)]?.map((product) => {
+        {!isLoading && products.length  > 0
+          ? [...products.slice(0, next)].map((product) => {
               const { name, images, type, price } =
                 product.fields;
 
