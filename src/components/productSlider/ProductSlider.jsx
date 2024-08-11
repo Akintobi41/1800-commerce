@@ -14,7 +14,6 @@ const ProductSlider = () => {
       img: bgImage2,
     },
   ];
-  console.log(productSlider_items.img);
   return (
     <>
       <p className="lg:text-[2rem] text-center font-bold mt-6 mb-2">

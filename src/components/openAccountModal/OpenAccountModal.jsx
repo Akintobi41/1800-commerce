@@ -1,10 +1,9 @@
 import { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import AccountIcon from "../../assets/Icons/AccountIcon";
 import { useOverflow } from "../../contexts";
-import { navList } from "../navbar/navList";
-import { useDispatch } from 'react-redux';
 import { showEntry } from "../../store/accountSlice";
-import { useSelector } from "react-redux";
+import { navList } from "../navbar/navList";
 import SignOutBtn from './../signOutBtn/SignOutBtn';
 
 function OpenAccountModal() {
@@ -57,7 +56,6 @@ function OpenAccountModal() {
             } mt-2`}
             onClick={() => {
               dispatch(showEntry(i))
-              console.log("onclick");
             }}
           >
             {" "}

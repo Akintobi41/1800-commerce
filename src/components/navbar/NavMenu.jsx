@@ -18,7 +18,6 @@ function NavMenu({ Logo, modal }) {
   const navMenu = useRef(null);
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const entry = useSelector((state)=> state.access)
   const loggedIn = useSelector((state) => state.auth.status)
   const { name } = useSelector((state) => state.auth?.userData) || {};
   const cart = useSelector(
