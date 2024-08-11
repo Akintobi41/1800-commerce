@@ -214,7 +214,7 @@ function SignUp({ id }) {
             <Input
               type="checkbox"
               className="relative cursor-pointer flex justify-center items-center size-7 self-center rounded-[50%] appearance-none border-[2px] border-solid border-[var(--black)] checked:before:bg-[var(--pry-col)] before:transition-all before:duration-300  before:block before:absolute  before:content-[''] before:size-[1.15rem] before:rounded-[50%] "
-              {...register("signUp", { required: true })}
+              {...register("signUp")}
             />{" "}
             <p className="m-1">{radioText}</p>
           </section>
