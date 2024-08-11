@@ -1,7 +1,7 @@
-import BgImg from '../bgImage/BgImg'
 import logo1 from '../../assets/Images/bg-1A.jpg'
 import logo2 from '../../assets/Images/bg-1B.jpg'
 import logo3 from '../../assets/Images/bg-1C.jpg'
+import BgImg from '../bgImage/BgImg'
 
 function HomeBg() {
     
