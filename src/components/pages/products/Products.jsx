@@ -15,7 +15,7 @@ const Products = ({ Sort, Filter }) => {
   const cart = useSelector((state) => state.cart.products);
   const products = useSelector(
     (state) => state.products.products
-  );
+  ) || [];
   const dispatch = useDispatch();
   const productsPerSlide = 10;
   const [next, setNext] = useState(productsPerSlide);
@@ -39,7 +39,6 @@ const Products = ({ Sort, Filter }) => {
   function handleMoreProducts() {
     setNext(next + productsPerSlide);
   }
-
   
   return (
     <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden max-w-[1500px] min-[1500px]:mx-auto">

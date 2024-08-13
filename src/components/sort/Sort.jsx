@@ -8,7 +8,7 @@ const sortType = localStorage.getItem("sortValue");
 
 function Sort() {
   const products = useSelector(
-    (state) => state.products.myProducts
+    (state) => state.products.products
   );
   const optionRef = useRef();
   const [value, setValue] = useState(sortType);
@@ -16,7 +16,7 @@ function Sort() {
 
   useEffect(() => {
     Sort();
-  }, [products]);
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("sortValue", value);

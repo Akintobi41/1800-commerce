@@ -20,9 +20,8 @@ const ProductSlider = () => {
         Doing Things look good on you.
       </p>
       <section className="mx-4 h-full flex flex-col lg:flex-row lg:justify-between">
-        {productSlider_items.map((item) => {
-          console.log(item.img);
-          return (
+        {productSlider_items.map((item) => 
+          (
             <section
               key={item.id}
               className={`mb-[4.15rem] h-[20rem] md:h-[24rem] lg:h-[30rem] lg:w-[48%] bg-center bg-no-repeat`}
@@ -30,8 +29,8 @@ const ProductSlider = () => {
                 backgroundImage: `url(${item.img})`,
               }}
             ></section>
-          );
-        })}
+          )
+        )}
       </section>
     </>
   );
