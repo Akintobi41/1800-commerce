@@ -36,7 +36,7 @@ function OpenAccountModal() {
   return (
     <div ref={navMenu}>
       <div className="flex items-center justify-center"> {loggedIn ? <p className="ml-2 text-[.75rem] font-medium hidden lg:block">Hi,{name}</p> : null}<AccountIcon
-        styles={`hidden md:block ml-4 mr-2 ${!loggedIn ? '' : null}`}
+        styles={`hidden lg:block ml-4 mr-2 ${!loggedIn ? '' : null}`}
         onClick={() => setOverflow(!overflow)}
       /></div>
       

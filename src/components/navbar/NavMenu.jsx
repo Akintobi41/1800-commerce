@@ -103,9 +103,6 @@ function NavMenu({ Logo, modal }) {
                 ) : (
                   <>
                         {modal}
-                        <Input name="search"
-                          type="search"
-                          styles={"hidden"} />
                     <Link
                       className="relative flex justify-center items-center cursor-pointer ml-2"
                       to={"/cart"}
