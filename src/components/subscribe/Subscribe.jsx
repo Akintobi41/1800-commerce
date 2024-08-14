@@ -34,7 +34,7 @@ const Subscribe = () => {
         <form
           action=""
           onSubmit={handleSubmit}
-          className={`${
+          className={`w-full max-w-[700px] mx-auto ${
             shakeForm === undefined ||
             (shakeForm === null && !shakeForm)
               ? s.form
@@ -54,8 +54,9 @@ const Subscribe = () => {
             We promise not to spam you
           </p>
           <p className={s["email-preference"]}>
-            Email preference:
+            Email preference: <span>personalize your newsletter (select gender below)</span>
           </p>
+          
           <section className={s["radio-options"]}>
             {radioOptions.map((radio) => (
               <section
@@ -73,8 +74,18 @@ const Subscribe = () => {
                 </p>
               </section>
             ))}
-            <Button styles={s.btn}>Sign Up Now</Button>
           </section>
+
+          <div className="w-full h-6">
+          {shakeForm === false ? (
+            <small className={s["email-warning-text"]}>
+          Please enter a valid email/ select preference
+        </small>
+      ) : null}
+          </div>
+         
+          <Button styles={s.btn}>Sign Up Now</Button>
+
         </form>
       ) : (
         <>
@@ -86,11 +97,7 @@ const Subscribe = () => {
         </>
       )}
 
-      {shakeForm === false ? (
-        <small className={s["email-warning-text"]}>
-          Please enter a valid email/ select preference
-        </small>
-      ) : null}
+     
     </section>
   );
 };

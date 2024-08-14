@@ -41,22 +41,22 @@ const Products = ({ Sort, Filter }) => {
   }
   
   return (
-    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden max-w-[1500px] min-[1500px]:mx-auto">
+    <section className="relative flex flex-col p-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden ">
       {!isLoading ?  <><Heading className='mt-28'> All Products</Heading>
-      <p className="text-[.8rem]">
+      <p className="text-[.8rem] max-w-[1500px] min-[1500px]:mx-auto">
         Need help deciding which product is the right size
         for you? Check out our{" "}
-        <span className="inline underline">
+        <span className="inline underline cursor-pointer">
           size guide{" "}
         </span>
         for a smooth decision.{" "}
       </p>
-      <div className="border-t-[1px] border-gray-200 w-[120%] my-4 box-border relative right-[16px]"></div>
-      <section className="flex justify-between gap-x-2">
+      <div className="border-t-[1px] border-[160%] border-gray-200 w-[180%] my-4 box-border relative right-[16px]"></div>
+      <section className="flex justify-between gap-x-2 max-w-[1450px] w-full  min-[1500px]:mx-auto">
         {Sort}
         {Filter}
       </section> </> : null}
-      <section className="flex flex-wrap gap-2 justify-center lg:gap-x-10">
+      <section className="flex flex-wrap gap-2 justify-center lg:gap-x-10 max-w-[1500px] min-[1500px]:mx-auto">
         {!isLoading && products.length  > 0
           ? [...products.slice(0, next)].map((product) => {
               const { name, images, type, price } =
@@ -65,7 +65,7 @@ const Products = ({ Sort, Filter }) => {
               return (
                 <section
                   key={name}
-                  className="flex flex-col relative w-[47%] sm:w-[30%] md:w-[23%] lg:w-[30%] h-[18rem] sm:h-[36em] max-h-[700px] cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
+                  className="flex flex-col relative w-[47%] sm:w-[30%] md:w-[23%] lg:w-[30%] h-[18rem] sm:h-[24em] max-h-[700px] cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
                   onClick={(e) => handleClick(e, product)}
                 >
                   <section className="relative w-full bg-[#fff] h-[60%] lg:-h-[700px]">

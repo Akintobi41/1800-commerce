@@ -10,7 +10,7 @@ const FeatureBanner = () => {
   return (
     <>
       <section
-        className={`relative flex center h-[15rem] lg:h-[25rem] lg:min-h-[25rem] max-h-[30rem] z-0 bg-[#fff] justify-between w-full max-w-[1500px] mx-auto mt-24`}
+        className={`relative flex center h-[18rem] lg:h-[25rem] lg:min-h-[25rem] z-0 bg-[#fff] justify-between w-full max-w-[1500px] mx-auto mt-24`}
       >
         <HomeBg />
       </section>

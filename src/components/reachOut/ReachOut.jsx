@@ -8,7 +8,7 @@ const ReachOut = () => {
   const btnOptions = ["Contact Us", "FAQ"];
 
   return (
-    <section className='flex flex-col pt-6 px-6 pb-12'>
+    <section className='flex flex-col pt-6 px-6 pb-12 w-full max-w-[700px] mx-auto'>
       <section>
         <section className='flex items-center'>
           <section className='flex justify-center leading-[1] w-full mr-1'>

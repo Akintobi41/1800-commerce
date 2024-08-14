@@ -9,14 +9,13 @@ import HeaderText from "../headerText/HeaderText";
 import Logo from "../logo/Logo";
 import Navbar from "../navbar/Navbar";
 import Scroll from "../scrollToTop/Scroll";
-import LayoutRoutes from './../layoutRoutes/LayoutRoutes';
+import LayoutRoutes from "./../layoutRoutes/LayoutRoutes";
 
 function Layout() {
   const loggedIn = useSelector(
     (state) => state.auth.status
   );
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     async function getUser() {
@@ -34,17 +33,28 @@ function Layout() {
 
   return (
     <>
-    <Scroll />
-    <main className="flex flex-col relative h-full min-h-screen my-0 w-full overflow-hidden">
-      <section className="relative">
-        <Header Navbar={<Navbar Logo={<Logo font_style={'md:ml-10 text-[3rem] text-center'} />} />} Text={<HeaderText/>} />
-        <LayoutRoutes/>
-        <Footer />
-        <Logo font_style={"text-[22vw] text-center"} />
-      </section>
-    </main>
-  </>
-  )
-}  
+      <Scroll />
+      <main className="flex flex-col relative h-full min-h-screen my-0 w-full overflow-hidden">
+        <section className="relative min-h-screen">
+          <Header
+            Navbar={
+              <Navbar
+                Logo={
+                  <Logo
+                    font_style={
+                      "md:ml-10 text-[3rem] text-center lg:w-[20%] hover:text-[var(--pry-col)]"
+                    }
+                  />
+                }
+              />
+            }
+            Text={<HeaderText />}
+          />
+          <LayoutRoutes />
+        </section>
+      </main>
+    </>
+  );
+}
 
-export default Layout
+export default Layout;

@@ -23,14 +23,13 @@
   color: var(--black);
 }
 
-html {
+html,body {
   height: 100%;
 }
 
 body {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   font-family: 'Plein', sans-serif;
 }
 

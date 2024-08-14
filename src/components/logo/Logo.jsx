@@ -6,7 +6,7 @@ const Logo = ({
   return (
     <Link
       to={"/"}
-      className={`${font_style} font-bold block -tracking-[5px] no-underline w-full  lg:w-[20%] hover:text-[var(--pry-col)]`}
+      className={`${font_style} font-bold block -tracking-[5px] no-underline w-full `}
     >
       1800Store
     </Link>

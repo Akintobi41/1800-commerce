@@ -2,6 +2,7 @@
 import Entry from "../entry/Entry"
 import { Outlet } from "react-router"
 import { useOverflow } from "../../contexts"
+import Footer from "../footer/Footer";
 
 
 function LayoutRoutes() {
@@ -9,10 +10,12 @@ function LayoutRoutes() {
 
 
     return (
-        <section className={`flex flex-col relative transition-colors duration-500`}>
+        <section className={`flex flex-col relative justify-between transition-colors duration-500 bottom-0 min-h-screen`}>
             {overflow && <div className="bg-[#0000001a] h-screen top-[6rem] fixed left-0 w-full transition-colors duration-500"></div>}
       <Entry/>
-      <Outlet />
+        <Outlet />
+        <Footer />
+        
     </section>
   )
 }
