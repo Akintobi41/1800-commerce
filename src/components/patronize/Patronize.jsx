@@ -7,7 +7,7 @@ const Patronize = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <section className='flex flex-col justify-center bg-[var(--white)] p-4 my-2 text-center'>
+    <section className='flex flex-col justify-center bg-[var(--white)] p-4 my-2 text-center max-w-[700px] mx-auto'>
       <Heading>  Why You Should Patronize Us </Heading>
       {accordionContent.map((el) => (
         <Details

@@ -7,7 +7,7 @@ const Trending = () => {
   
   return (
     <>
-      <section className='flex flex-col m-6 p-6 bg-[var(--white)]'>
+      <section className='flex flex-col bg-[var(--white)]'>
         <Heading>2023 Trending Brands </Heading>
       <JordanIcon />
       <JdSportsIcon />

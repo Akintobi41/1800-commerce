@@ -16,15 +16,16 @@ const ProductSlider = () => {
   ];
   return (
     <>
-      <p className="lg:text-[2rem] text-center font-bold mt-6 mb-2">
+      {/* <hr /> */}
+      <p className="text-[33px] text-center font-medium">
         Doing Things look good on you.
       </p>
-      <section className="mx-4 h-full flex flex-col lg:flex-row lg:justify-between">
+      <section className="mx-4 h-full flex gap-y-4 flex-col lg:flex-row lg:justify-between">
         {productSlider_items.map((item) => 
           (
             <section
               key={item.id}
-              className={`mb-[4.15rem] h-[20rem] md:h-[24rem] lg:h-[30rem] lg:w-[48%] bg-center bg-no-repeat`}
+              className={`h-[20rem] md:h-[24rem] lg:h-[30rem] lg:w-[48%] bg-center bg-no-repeat`}
               style={{
                 backgroundImage: `url(${item.img})`,
               }}

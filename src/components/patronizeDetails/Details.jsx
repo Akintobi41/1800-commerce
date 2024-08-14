@@ -11,7 +11,7 @@ const Details = ({ el, activeIndex, setActiveIndex }) => {
   return (
     <>
       <Button
-        styles={`flex items-center relative bg-[var(--white)] text-[#444] p-[1.1rem] w-full text-left cursor-pointer border-none outline-none duration-500 shadow-[0px_1px_2px_#cecece] after:content-[''] after:bg-[url('/src/assets/Icons/up-arrow.svg')] after:w-[1.3rem] after:h-[1.3rem] after:text-text after:text-[#777] after:ml-[5px] after:absolute after:right-[15px] after:translate-[translateX(0px)] after:transition-[transform] after:duration-300  ${
+        styles={`flex items-center relative bg-[var(--white)] text-[#444] p-[1.1rem] w-full text-left cursor-pointer border-none outline-none duration-500 shadow-[1px_6px_15px_#cecece] after:content-[''] after:bg-[url('/src/assets/Icons/up-arrow.svg')] after:w-[1.3rem] after:h-[1.3rem] after:text-text after:text-[#777] after:ml-[5px] after:absolute after:right-[15px] after:translate-[translateX(0px)] after:transition-[transform] after:duration-300  ${
           activeIndex ? `after:translate-x-[5px] after:rotate-[180deg]` : ""
         }`}
         onClick={handleClick}   
