@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Heading from "../heading/Heading";
 import Button from "../reusables/button/Button";
 import Input from "../reusables/input/Input";
@@ -8,6 +8,7 @@ const Subscribe = () => {
   const [val, setVal] = useState("");
   const radioOptions = ["Men", "Women", "Both"];
   const [shakeForm, setShakeForm] = useState(null);
+  const [input, setInput] = useState(false);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,6 +19,9 @@ const Subscribe = () => {
     const pattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
     const result = pattern.test(email) && radio;
 
+    if (!email.length) {
+      setInput(true);
+    }
     return result
       ? setShakeForm(true)
       : setShakeForm(false);
@@ -34,7 +38,7 @@ const Subscribe = () => {
         <form
           action=""
           onSubmit={handleSubmit}
-          className={`w-full max-w-[700px] mx-auto ${
+          className={`w-full max-w-[700px] min-[700px]:mx-auto ${
             shakeForm === undefined ||
             (shakeForm === null && !shakeForm)
               ? s.form
@@ -48,15 +52,20 @@ const Subscribe = () => {
             id="email"
             autoComplete="yes"
             defaultValue={val}
+            onChange={() => setInput(false)}
             placeholder="name@example.com"
           />
           <p className={s["spam-message"]}>
             We promise not to spam you
           </p>
           <p className={s["email-preference"]}>
-            Email preference: <span>personalize your newsletter (select gender below)</span>
+            Email preference:{" "}
+            <span>
+              personalize your newsletter (select gender
+              below)
+            </span>
           </p>
-          
+
           <section className={s["radio-options"]}>
             {radioOptions.map((radio) => (
               <section
@@ -67,6 +76,7 @@ const Subscribe = () => {
                   type="radio"
                   name="radio"
                   value={radio}
+                  onChange={() => setInput(false)}
                   className={s["radio-btn"]}
                 />
                 <p className={s["email-type-text"]}>
@@ -77,15 +87,15 @@ const Subscribe = () => {
           </section>
 
           <div className="w-full h-6">
-          {shakeForm === false ? (
-            <small className={s["email-warning-text"]}>
-          Please enter a valid email/ select preference
-        </small>
-      ) : null}
+            {shakeForm === false && input ? (
+              <small className={s["email-warning-text"]}>
+                Please enter a valid email/ select
+                preference
+              </small>
+            ) : null}
           </div>
-         
-          <Button styles={s.btn}>Sign Up Now</Button>
 
+          <Button styles={s.btn}>Sign Up Now</Button>
         </form>
       ) : (
         <>
@@ -96,8 +106,6 @@ const Subscribe = () => {
           </section>
         </>
       )}
-
-     
     </section>
   );
 };

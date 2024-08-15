@@ -19,13 +19,13 @@ import {
   radioText,
   shopFilter,
 } from "../../../utils/text/text";
-import PopUp from "../../popup/PopUp";
 import Button from "../../reusables/button/Button";
 import Input from "../../reusables/input/Input";
 import Select from "../../reusables/select/Select";
 import ViewPassword from "../../viewPassword/ViewPassword";
 import CloseIcon from "./../../../assets/Icons/CloseIcon";
 import TextContainer from './../../textContainer/TextContainer';
+import { validateEmail } from "../../../utils/validate/emailValidate";
 
 function SignUp({ id }) {
   const [birthday, setBirthday] = useState({
@@ -49,6 +49,8 @@ function SignUp({ id }) {
   const [view2, setView2] = useState(false);
 
   const onSubmit = async (data) => {
+    const checkMail = validateEmail(data.email)
+    if (!checkMail) return setErrorMsg('Email address is invalid')
     setLoading(true);
     try {
       const userData = await authService.createAccount(
@@ -86,6 +88,9 @@ function SignUp({ id }) {
       //Name Validation
       setFName(name.length && name.length > 20);
       setLName(lastName.length && lastName.length > 20);
+      
+      //Reset Form Error when you edit the form
+      setErrorMsg('')
 
       //Password Validation
       const focusPassword = password.length;
@@ -98,17 +103,14 @@ function SignUp({ id }) {
       } else {
         setPValid(" ");
       }
+      console.log(errors)
+
     });
     return () => subscription.unsubscribe();
   }, [watch]);
 
   return (
     <>
-      <PopUp
-        text={"Some fields are still empty/incorrect"}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-      />
       <section className="bg-[var(--white)] h-[65%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s] lg:w-2/3 md:top-1/2 md:left-1/2 lg:[transform:translate(-50%,-50%)] lg:mx-auto lg:my-0 overflow-auto max-w-[500px] mx:auto">
         <CloseIcon
           className={
@@ -185,7 +187,7 @@ function SignUp({ id }) {
               }
             />
           </section>
-          <p className="h-2 -mt-6">{pvalid}</p>
+          <p className="h-2 -mt-6 text-red-600">{pvalid}</p>
           <Input
             label="Confirm Password"
             styles="px-[12px]"
@@ -206,14 +208,14 @@ function SignUp({ id }) {
             }
           />
           {
-            <p className="-mt-6 h-2">
+            <p className="-mt-6 h-2 text-red-600">
               {pword && "Passwords do not match"}
             </p>
           }
           <section className="flex items-center">
             <Input
               type="checkbox"
-              className="relative cursor-pointer flex justify-center items-center size-7 self-center rounded-[50%] appearance-none border-[2px] border-solid border-[var(--black)] checked:before:bg-[var(--pry-col)] before:transition-all before:duration-300  before:block before:absolute  before:content-[''] before:size-[1.15rem] before:rounded-[50%] "
+              className="relative cursor-pointer flex justify-center items-center size-5 self-center rounded-[50%] appearance-none border-[2px] border-solid border-[var(--black)] checked:before:bg-[var(--pry-col)] before:transition-all before:duration-300  before:block before:absolute  before:content-[''] before:size-[.8rem] before:rounded-[50%] "
               {...register("signUp")}
             />{" "}
             <p className="m-1">{radioText}</p>
@@ -222,13 +224,13 @@ function SignUp({ id }) {
             type="signup"
             options={shopFilter}
             label="Shopping For"
-            styles={"w-full h-[48px]"}
+            styles={"w-1/2 h-[25px]"}
           />
           <section>
             <p>Birthday</p>
             <section className="flex w-full">
               <Select
-                styles={"w-[95%] h-[48px]"}
+                styles={"w-full h-[25px]"}
                 type="birthday"
                 width='w-[50%]'
                 options={month}
@@ -238,7 +240,7 @@ function SignUp({ id }) {
               />
               <Select
                 type="birthday"
-                styles={"w-[95%] h-[48px]"}
+                styles={"w-full ml-2 h-[25px]"}
                 width='w-[50%]'
                 options={day}
                 {...register("birthdate", {

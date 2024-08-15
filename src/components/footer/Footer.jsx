@@ -1,6 +1,6 @@
 import CustomerService from "../customerService/CustomerService";
-import Social from "../social/Social";
 import Logo from "../logo/Logo";
+import Social from "../social/Social";
 const Footer = () => {
   return (
     <>
@@ -8,9 +8,12 @@ const Footer = () => {
       <footer className=" w-full flex flex-col px-4 pb-2 my-0 min-[1500px]:mx-auto max-w-[1500px]">
         <CustomerService />
         <Social />
-        <Logo font_style={"text-[15rem] -mb-16 w-[100%] text-center"} />
       </footer>
-
+      <Logo
+        font_style={
+          "text-[7vh] sm:text-[10vh] md:text-[12vh] lg:text-[15vh] w-[100%] text-center"
+        }
+      />
     </>
   );
 };

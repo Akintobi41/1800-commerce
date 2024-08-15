@@ -32,47 +32,46 @@ const Cart = () => {
             className="flex gap-x-2 justify-between w-[100%] h-[100%] py-4 border-b border-solid border-[grey]"
           >
             <>
-            <figure className="w-[40%] h-auto bg-[#9ca3af26] max-w-[95px]">
-              <img
-                src={image}
-                alt={type}
-                loading="lazy"
-                className="size-full object-cover"
-              />
-            </figure>
-            <section className=" flex flex-col justify-between w-[60px] min-[400px]:w-[200px]  md:w-[200px] gap-y-1">
-              <p className="text-[.8rem] font-medium truncate">
-                {name}
-              </p>
-              <Button
-                styles={`text-[.8rem] font-medium ${
-                  quantity > 6
-                    ? "bg-red-500 text-[var(--white)]"
-                    : "bg-[#53caec4d] text-[#044b60]"
-                } ${
-                  quantity > 9 ? "opacity-40" : ""
-                }  px-1 py-[.1rem]  rounded w-[5rem]`}
-              >
-                {quantity > 9
-                  ? "Out of Stock"
-                  : quantity > 6
-                  ? "Low Stock"
-                  : "Available"}
+              <figure className="w-[40%] h-auto bg-[#9ca3af26] max-w-[95px]">
+                <img
+                  src={image}
+                  alt={type}
+                  loading="lazy"
+                  className="size-full object-cover"
+                />
+              </figure>
+              <section className=" flex flex-col justify-between w-[60px] min-[400px]:w-[200px]  md:w-[200px] gap-y-1">
+                <p className="text-[.8rem] font-medium truncate">
+                  {name}
+                </p>
+                <Button
+                  styles={`text-[.8rem] font-medium ${
+                    quantity > 6
+                      ? "bg-red-500 text-[var(--white)]"
+                      : "bg-[#53caec4d] text-[#044b60]"
+                  } ${
+                    quantity > 9 ? "opacity-40" : ""
+                  }  px-1 py-[.1rem]  rounded w-[5rem]`}
+                >
+                  {quantity > 9
+                    ? "Out of Stock"
+                    : quantity > 6
+                    ? "Low Stock"
+                    : "Available"}
                 </Button>
                 <div className="flex items-center">
-                <DeleteIcon /> 
-              <p
-                className="flex items-center gap-x-1 text-[.8rem] font-medium cursor-pointer"
-                onClick={() => {
-                  dispatch(removeFromCart(data));
-                }}
-              >
-                {" "}
-                Remove
-              </p>
+                  <DeleteIcon />
+                  <p
+                    className="flex items-center gap-x-1 text-[.8rem] font-medium cursor-pointer"
+                    onClick={() => {
+                      dispatch(removeFromCart(data));
+                    }}
+                  >
+                    {" "}
+                    Remove
+                  </p>
                 </div>
-             
-            </section>
+              </section>
             </>
             <section className="flex flex-col justify-between w-[130px]">
               <p className="ml-auto text-right text-[.65rem] font-medium">
@@ -133,7 +132,7 @@ const Cart = () => {
 
   return (
     <>
-      <div className="mt-28 px-4 max-w-[1500px] md:mx-auto w-full">
+      <div className="mt-24 px-4 max-w-[1500px] md:mx-auto w-full">
         <Link
           to="/products"
           className="flex items-center gap-x-1 cursor-pointer mx-4"
@@ -149,13 +148,22 @@ const Cart = () => {
         </h2>
         <section className="flex flex-col w-full md:px-4 py-2 md:gap-x-10 md:mx-auto bg-[var(--white)] min-h-[400px] md:flex-row">
           <PopUp />
-          <section className={`md:h-[65%] ${cart.length ? 'md:w-[55%]' : 'md:w-full'} max-h-[500px] overflow-y-auto p-1`}>{cartDisplay()} </section>
-          
-          { cart.length ? <section className="md:w-[47%] px-0"><CartContent /> </section> : null} 
+          <section
+            className={`md:h-[65%] ${
+              cart.length ? "md:w-[55%]" : "md:w-full"
+            } max-h-[500px] overflow-y-auto p-1`}
+          >
+            {cartDisplay()}{" "}
+          </section>
+
+          {cart.length ? (
+            <section className="md:w-[47%] px-0">
+              <CartContent />{" "}
+            </section>
+          ) : null}
         </section>
         <Delivery />
       </div>
-    
     </>
   );
 };

@@ -14,6 +14,7 @@ import Input from "../../reusables/input/Input";
 import TextContainer from "../../textContainer/TextContainer";
 import ViewPassword from "../../viewPassword/ViewPassword";
 import CloseIcon from "../../../assets/Icons/CloseIcon";
+import { validateEmail } from "../../../utils/validate/emailValidate";
 
 function SignIn({ id }) {
   const { register, handleSubmit, formState } =
@@ -27,6 +28,8 @@ function SignIn({ id }) {
   const [isVisible, setIsVisible] = useState(false);
 
   const onSubmit = async (data) => {
+    const checkMail = validateEmail(data.email)
+  if(!checkMail)return setErrors('Email address is invalid')
     setLoading(true);
     const userData = data;
     try {
@@ -39,6 +42,9 @@ function SignIn({ id }) {
       }
     } catch (error) {
       setLoading(false);
+      console.log(error)
+      const y = error.message.split(':');
+      console.log(y)
       setErrors(error.message);
     }
   };
@@ -74,6 +80,7 @@ function SignIn({ id }) {
             styles="px-[12px]"
             type="email"
             {...register("email", { required: true })}
+            onChange={()=> setErrors('')}
           />
           <Input
             label="Password"
@@ -86,6 +93,7 @@ function SignIn({ id }) {
                 view={view}
               />
             }
+            onChange={()=> setErrors('')}
           />
 
           <p className="text-[.8rem] text-[var(--red)] h-1 -mt-5 mb-3">

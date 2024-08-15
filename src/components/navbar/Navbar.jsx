@@ -2,13 +2,17 @@
 import NavMenu from "./NavMenu";
 import OpenAccountModal from "../openAccountModal/OpenAccountModal";
 
-const Navbar = ({ Logo }) => {
+const Navbar = ({ Logo,Text }) => {
   return (
-    <section className="flex relative bg-[var(--white)] p-4 md:pl-0 h-16 border-t-[1px] max-w-[1500px] mx-auto">
+    <>
+      {Text}
+       <section className="flex items-end relative bg-[var(--white)] px-4 md:pl-0 h-[6rem] max-w-[1500px] mx-auto">
       <>
-        <NavMenu Logo={Logo} modal={<OpenAccountModal />} />
+        <NavMenu Logo={Logo} modal={<OpenAccountModal />}  />
       </>
     </section>
+    </>
+   
   );
 };
 

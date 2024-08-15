@@ -7,23 +7,31 @@ import { format } from "../../../utils/format/format";
 import Button from "../../reusables/button/Button";
 import PopUp from "./../../popup/PopUp";
 import CheckoutForm from "./CheckoutForm";
-import LeftArrow from './../../../assets/Icons/LeftArrow';
+import LeftArrow from "./../../../assets/Icons/LeftArrow";
 
 function Checkout() {
   const cart = useSelector((state) => state.cart.products);
   const [next, setNext] = useState(false);
   const [errors, setErrors] = useState(false);
-  const [userDetails,setUserDetails] = useState({name:'',email:'',phone:''})
+  const [userDetails, setUserDetails] = useState({
+    name: "",
+    email: "",
+    phone: "",
+  });
   const [submit, setSubmit] = useState(false);
   const { cartTotal } = useCart(cart);
   const amount = cartTotal * 100;
 
-  const handleFormSubmit = ({ name, email, phoneNumber }) => {
+  const handleFormSubmit = ({
+    name,
+    email,
+    phoneNumber,
+  }) => {
     setErrors(false);
     setSubmit(false);
-    setUserDetails({name,email,phone:phoneNumber})
+    setUserDetails({ name, email, phone: phoneNumber });
     setNext(true);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const { approved, publicKey } = usePaystack();
@@ -42,7 +50,7 @@ function Checkout() {
   };
 
   return (
-    <section className="mt-28 p-4 min-h-[500px]">
+    <section className="mt-24 p-4 min-h-[500px]">
       <PopUp
         text="Some fields are empty/ incorrect"
         isVisible={errors}
@@ -77,9 +85,11 @@ function Checkout() {
                   className="text-[.8rem] cursor-pointer flex items-center"
                   onClick={() => setNext(false)}
                 >
-                    {" "}
-                    <LeftArrow size="size-4"/>
-                 <span className="ml-1">Back to Shipping</span> 
+                  {" "}
+                  <LeftArrow size="size-4" />
+                  <span className="ml-1">
+                    Back to Shipping
+                  </span>
                 </p>
                 <p className="font-bold mt-4">
                   Order Details
@@ -97,8 +107,10 @@ function Checkout() {
                 ))}
                 <div className="flex flex-col gap-2"></div>
               </div>
-                <div className="mt-4">
-                  <p className="font-bold">Customer Details</p>
+              <div className="mt-4">
+                <p className="font-bold">
+                  Customer Details
+                </p>
                 <div className="checkout-field">
                   <p>{name}</p>
                 </div>

@@ -44,11 +44,13 @@ function Layout() {
                     font_style={
                       "md:ml-10 text-[3rem] text-center lg:w-[20%] hover:text-[var(--pry-col)]"
                     }
+
                   />
                 }
+                Text={<HeaderText />}
               />
             }
-            Text={<HeaderText />}
+            
           />
           <LayoutRoutes />
         </section>

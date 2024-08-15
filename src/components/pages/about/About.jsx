@@ -1,7 +1,7 @@
 import { aboutText } from "../../../utils/text/text";
 import Heading from "../../heading/Heading";
 
-const About = ({ className = "mt-28" }) => {
+const About = ({ className = "mt-24" }) => {
   return (
     <>
       <aside

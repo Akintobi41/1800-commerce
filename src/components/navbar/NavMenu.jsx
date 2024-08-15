@@ -9,68 +9,71 @@ import {
 import CartIcon from "../../assets/Icons/CartIcon";
 import { showEntry } from "../../store/accountSlice";
 import SignOutBtn from "../signOutBtn/SignOutBtn";
-import Input from './../reusables/input/Input';
 import { navList } from "./navList";
-
 
 function NavMenu({ Logo, modal }) {
   const [menuToggle, setMenuToggle] = useState(false);
   const navMenu = useRef(null);
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const loggedIn = useSelector((state) => state.auth.status)
-  const { name } = useSelector((state) => state.auth?.userData) || {};
-  const cart = useSelector(
-    (state) => state.cart.products
+  const loggedIn = useSelector(
+    (state) => state.auth.status
   );
-  const total = cart.map((item) => item.quantity).reduce((first, second) => first + second, 0)
+  const { name } =
+    useSelector((state) => state.auth?.userData) || {};
+  const cart = useSelector((state) => state.cart.products);
+  const total = cart
+    .map((item) => item.quantity)
+    .reduce((first, second) => first + second, 0);
   const menu = ["menuToggle", "p", "cart-section"];
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     menuToggle
-      ? document
-          .querySelector("body").style.overflowY = 'hidden'
-      : document
-          .querySelector("body").style.overflowY = 'auto'
+      ? (document.querySelector("body").style.overflowY =
+          "hidden")
+      : (document.querySelector("body").style.overflowY =
+          "auto");
   }, [menuToggle]);
 
   useEffect(() => {
     setMenuToggle(false);
   }, [pathname]);
 
- 
   return (
-    <section className='flex w-full justify-between'>
+    <section className="flex w-full justify-between">
       <nav
         className={`${
           menuToggle
             ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full top-[5.8rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"
-            : "hidden lg:flex flex-col lg:relative fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-0 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto"   //i removed z-10 from here , added it back and remove display of flex instead
+            : "hidden lg:flex flex-col lg:relative fixed left-0 items-start w-full h-full lg:bg-transparent lg:h-0 lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto" //i removed z-10 from here , added it back and remove display of flex instead
         }`}
       >
-        {loggedIn && <p className="p-4 italic lg:hidden">Hi, { name}</p>}
+        {loggedIn && (
+          <p className="p-4 italic lg:hidden">Hi, {name}</p>
+        )}
         <ul className="flex flex-col mt-10 w-full lg:mt-0 lg:h-0 lg:w-[30%] lg:flex-row  z-30 lg:gap-8">
           {Object.keys(navList).map((list, i) => (
             <section
               key={list}
-              className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none ${i > 0 &&  i < 4 ? '' : 'lg:hidden'} cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-0 lg:p-0 lg:ml-[1rem] hover:bg-[var(--black)] hover:text-[var(--white)] lg:hover:text-[var(--pry-col)] ${
+              className={`flex w-full lg:mt-6 decoration-[none] text-[1.5rem] font-medium list-none ${
+                i > 0 && i < 4 ? "" : "lg:hidden"
+              } cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-0 lg:p-0 lg:ml-[1rem] hover:bg-[var(--black)] hover:text-[var(--white)] lg:hover:text-[var(--pry-col)] ${
                 i === 4 && "mt-20"
-              } ${i >= 4 && loggedIn ? 'hidden' : ''}`}
+              } ${i >= 4 && loggedIn ? "hidden" : ""}`}
               onClick={() => {
                 if (i < 4) navigate(`/${navList[list]}`);
-                else { 
+                else {
                   setMenuToggle(false);
-                  dispatch(showEntry(i)) // open modal with either sign in or sign up
+                  dispatch(showEntry(i)); // open modal with either sign in or sign up
                 }
               }}
             >
               {list}
             </section>
           ))}
-          {loggedIn && <SignOutBtn className='lg:hidden'/>}
+          {loggedIn && <SignOutBtn className="lg:hidden" />}
         </ul>
-        
       </nav>
       <section className="flex w-full lg:w-[60%] justify-between items-center">
         {menu.map((section, i) => (
@@ -90,7 +93,7 @@ function NavMenu({ Logo, modal }) {
                     ? () => setMenuToggle(!menuToggle)
                     : null
                 }
-                ref={!i ? navMenu : null} 
+                ref={!i ? navMenu : null}
               >
                 {!i ? ( // if index is equals to zero this is for the navigation menu
                   <section
@@ -102,7 +105,7 @@ function NavMenu({ Logo, modal }) {
                   ></section>
                 ) : (
                   <>
-                        {modal}
+                    {modal}
                     <Link
                       className="relative flex justify-center items-center cursor-pointer ml-2"
                       to={"/cart"}
@@ -113,7 +116,7 @@ function NavMenu({ Logo, modal }) {
                           {total}
                         </p>
                       </div>
-                        </Link>{" "}
+                    </Link>{" "}
                   </>
                 )}
               </section>
@@ -121,8 +124,6 @@ function NavMenu({ Logo, modal }) {
           </React.Fragment>
         ))}
       </section>
-
-     
     </section>
   );
 }
