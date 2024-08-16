@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { fetchAllData } from "../../../contentful/contentful";
+import useScroll from "../../../hooks/useScroll";
 import { modifyCart } from "../../../store/cartSlice";
 import { setProducts } from "../../../store/productSlice";
 import { format } from "../../../utils/format/format";
@@ -25,6 +26,7 @@ const Products = ({ Sort, Filter }) => {
     return items;
   };
   const { isLoading } = useQuery("load", loadData);
+  const { backToTopButton, Scroll } = useScroll();
 
   function handleClick(e, product) {
     const cartRedirect = e.target.textContent;
@@ -40,7 +42,7 @@ const Products = ({ Sort, Filter }) => {
   }
 
   return (
-    <section className="relative flex flex-col px-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden ">
+    <section className="relative flex flex-col px-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
       {!isLoading ? (
         <>
           <Heading className="mt-24"> All Products</Heading>
@@ -59,7 +61,7 @@ const Products = ({ Sort, Filter }) => {
           </section>{" "}
         </>
       ) : null}
-      <section className="flex flex-wrap gap-2 justify-center lg:gap-x-10 max-w-[1500px] min-[1500px]:mx-auto">
+      <section className=" relative flex flex-wrap gap-2 justify-center lg:gap-x-10 max-w-[1500px] min-[1500px]:mx-auto">
         {!isLoading && products.length > 0 ? (
           [...products.slice(0, next)].map((product) => {
             const { name, images, type, price } =
@@ -111,6 +113,17 @@ const Products = ({ Sort, Filter }) => {
           <section className="w-full h-[80vh] flex items-center justify-center">
             <LoadingAnimation />
           </section>
+        )}
+        {backToTopButton && (
+          <Button
+            styles={
+              "fixed bottom-[3rem] right-[.5rem] rounded-[50%] flex justify-center items-center cursor-pointer bg-[var(--pry-col)] size-[3rem]"
+            }
+            onClick={() => Scroll()}
+          >
+            {" "}
+            <img src="/src/assets/Icons/up-arrow.svg" />
+          </Button>
         )}
       </section>
       {!isLoading && next < products?.length ? (

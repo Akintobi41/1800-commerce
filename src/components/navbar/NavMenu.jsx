@@ -67,7 +67,6 @@ function NavMenu({ Logo, modal }) {
                   setMenuToggle(false);
                   if (i === 4) { 
                     dispatch(showEntry(i)); // open modal with either sign in or sign up
-                  console.log('jhsf')  
                   }
                   else { 
                     navigate('/signup')

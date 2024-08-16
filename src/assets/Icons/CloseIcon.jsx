@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
-function CloseIcon({ size = "size-6", className ,...props}) {
+function CloseIcon({ size = "size-6" ,strokeWidth = '1.5', className ,...props}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={1.5}
+      strokeWidth={strokeWidth}
       stroke="currentColor"
       className={`${size} ${className}`}
       {...props}

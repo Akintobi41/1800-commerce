@@ -11,7 +11,6 @@ import DeleteIcon from "./../../../assets/Icons/DeleteIcon";
 import LeftArrow from "./../../../assets/Icons/LeftArrow";
 import EmptyCart from "./../../../assets/Images/EmptyCart";
 import Delivery from "./../../delivery/Delivery";
-import PopUp from "./../../popup/PopUp";
 import CartContent from "./CartContent";
 
 const Cart = () => {
