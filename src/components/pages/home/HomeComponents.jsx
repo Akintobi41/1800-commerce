@@ -5,26 +5,23 @@ import Subscribe from "../../../components/subscribe/Subscribe";
 import ReachOut from "../../../components/reachOut/ReachOut";
 import AboutSection from "../../aboutSection/AboutSection";
 
-
+const line = (
+  <hr className="section my-10 w-[140%] ml-[-20%]" />
+);
 function HomeComponents() {
   return (
     <div className="flex flex-col  gap-y-4">
-      <hr className="section mt-6 w-[140%] ml-[-20%]" />
-
+      {line}
       <ProductSlider />
-      <hr className="section mt-6 w-[140%] ml-[-20%]" />
-
+      {line}
       <Trending />
-
-      <hr className="section mt-6 w-[140%] ml-[-20%]" />
+      {line}
       <AboutSection />
-      <hr className="section mt-6 w-[140%] ml-[-20%]" />
-      
+      {line}
       <Patronize />
-      <hr className="section mt-6 w-[140%] ml-[-20%]" />
-   
+      {line}
       <Subscribe />
-      <hr className="section mt-6 w-[140%] ml-[-20%]" />
+      {line}
       <ReachOut />
     </div>
   );
