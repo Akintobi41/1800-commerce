@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import Heading from "../heading/Heading";
 import Button from "../reusables/button/Button";
 import Input from "../reusables/input/Input";

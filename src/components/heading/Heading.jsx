@@ -2,7 +2,7 @@
 function Heading({ children ,className }) {
     
   return (
-      <section className={`text-[25px] font-[700] text-center ${className}`}>{ children }</section>
+      <section className={`text-[25px] mb-4 font-[700] text-center ${className}`}>{ children }</section>
       
   )
 }

@@ -16,8 +16,7 @@ const ProductSlider = () => {
   ];
   return (
     <>
-      {/* <hr /> */}
-      <p className="text-[33px] text-center font-medium">
+      <p className="text-[33px] px-4 text-center font-medium">
         Doing Things look good on you.
       </p>
       <section className="mx-4 h-full flex gap-y-4 flex-col lg:flex-row lg:justify-between">
