@@ -9,7 +9,7 @@ const About = ({ className = "mt-24" }) => {
       >
         <Heading> What do you know about us?</Heading>
 
-        <p className="px-4 text-left mx-auto lg:leading-[2.5] text-ellipsis overflow-hidden ...">
+        <p className="px-4 text-left mt-8 mx-auto lg:leading-[2.5] text-ellipsis overflow-hidden ...">
           {aboutText}
         </p>
       </aside>

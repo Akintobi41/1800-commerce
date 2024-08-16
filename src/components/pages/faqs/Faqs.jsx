@@ -8,7 +8,7 @@ const Faqs = () => {
 
   return (
     <section className="bg-[var(--white)] m-6 p-6 flex flex-col gap-[.2rem] mt-24 max-w-[700px] mx-auto">
-      <h3 className="text-center mb-2 font-bold text-[25px]">
+      <h3 className="text-center mb-8 font-bold text-[25px]">
         Frequently Asked Questions
       </h3>
       {faqContent.map((el) => (

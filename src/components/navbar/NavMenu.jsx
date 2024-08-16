@@ -65,7 +65,13 @@ function NavMenu({ Logo, modal }) {
                 if (i < 4) navigate(`/${navList[list]}`);
                 else {
                   setMenuToggle(false);
-                  dispatch(showEntry(i)); // open modal with either sign in or sign up
+                  if (i === 4) { 
+                    dispatch(showEntry(i)); // open modal with either sign in or sign up
+                  console.log('jhsf')  
+                  }
+                  else { 
+                    navigate('/signup')
+                  }
                 }
               }}
             >

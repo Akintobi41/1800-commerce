@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { closeEntry } from "../../store/accountSlice";
 import SignIn from "../pages/signIn/SignIn";
 import SignUp from "../pages/signUp/SignUp";
+import { Link } from "react-router-dom";
 
 function Entry() {
   const access = useSelector((state) => state.access);
@@ -33,9 +34,7 @@ function Entry() {
     >
       {id === 4 ? (
         <SignIn id={5} />
-      ) : id === 5 ? (
-        <SignUp id={4} />
-      ) : null}
+      ) :null}
     </div>
   );
 }

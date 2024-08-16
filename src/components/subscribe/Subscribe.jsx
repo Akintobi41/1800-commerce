@@ -60,7 +60,7 @@ const Subscribe = () => {
           </p>
           <p className={s["email-preference"]}>
             Email preference:{" "}
-            <span>
+            <span className="text-[.8rem]">
               personalize your newsletter (select gender
               below)
             </span>

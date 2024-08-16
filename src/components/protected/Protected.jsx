@@ -8,14 +8,16 @@ function Protected({ authentication = true, children }) {
   const loggedIn = useSelector(
     (state) => state.auth.status
   );
-
+console.log(authentication)
   useEffect(() => {
     if (authentication && !loggedIn) {
       navigate("/");
+    }
+    if (!authentication && !loggedIn) { 
+      navigate('/signup')
     }
   }, [loggedIn, authentication]);
 
   return <div>{children}</div>;
 }
-
 export default Protected;

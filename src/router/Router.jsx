@@ -12,6 +12,7 @@ import Filter from "../components/filter/Filter";
 import Sort from "../components/sort/Sort";
 import Checkout from "../components/pages/checkout/Checkout";
 import Protected from "../components/protected/Protected";
+import SignUp from "../components/pages/signUp/SignUp";
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: '/cart/checkout',
         element: <Protected authentication><Checkout authentication/></Protected> ,
+      },
+      {
+        path: 'signup',
+        element: <Protected authentication={false}><SignUp/></Protected> ,
       }
     ],
   },

@@ -111,7 +111,7 @@ function SignUp({ id }) {
 
   return (
     <>
-      <section className="bg-[var(--white)] h-[65%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s] lg:w-2/3 md:top-1/2 md:left-1/2 lg:[transform:translate(-50%,-50%)] lg:mx-auto lg:my-0 overflow-auto max-w-[500px] mx:auto">
+      <section className="bg-[var(--white)] h-full mt-24 flex flex-col w-full p-4 transition-all duration-[1s] lg:w-2/3 lg:mx-auto overflow-auto max-w-[500px] mx:auto">
         <CloseIcon
           className={
             "absolute right-1 top-2 cursor-pointer"
@@ -120,7 +120,7 @@ function SignUp({ id }) {
         />
         <TextContainer className={'mb-8'}> Join the Team</TextContainer>
         <p className="mt-2 leading-7">
-          Create and account and never miss another{" "}
+          Create an account and never miss another{" "}
           <b>1800</b> event near you. Explore, make new
           friends, and start #DoingThings. We can’t wait to
           see you out there!{" "}
@@ -129,14 +129,14 @@ function SignUp({ id }) {
           Already have an account?{" "}
           <small
             className="underline cursor-pointer ml-1"
-            onClick={() => dispatch(showEntry(id))}
+            onClick={() => dispatch(showEntry(4))}
           >
             Sign In
           </small>
         </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-y-6 text-[.8rem] "
+          className="flex flex-col gap-y-6 text-[.8rem] mt-8"
         >
           <Input
             label="First Name"
@@ -255,7 +255,7 @@ function SignUp({ id }) {
           <Button
             type="submit"
             onClick={() => setIsVisible(!isValid)}
-            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[10rem] sm:w-[35%] rounded-[24px] h-[48px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
+            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[8.5rem] sm:w-[35%] rounded-[24px] h-[30px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
               loading ? "opacity-70 " : "opacity-100"
             }`}
             disabled={loading}

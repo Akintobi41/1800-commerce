@@ -146,8 +146,7 @@ const Cart = () => {
         <h2 className="font-bold p-4 text-[24px][">
           {cart.length ? "Your Basket" : null}
         </h2>
-        <section className="flex flex-col w-full md:px-4 py-2 md:gap-x-10 md:mx-auto bg-[var(--white)] min-h-[400px] md:flex-row">
-          <PopUp />
+        <section className="flex flex-col w-full max-w-[1150px] md:px-4 py-2 md:gap-x-10 md:mx-auto bg-[var(--white)] min-h-[400px] md:flex-row">
           <section
             className={`md:h-[65%] ${
               cart.length ? "md:w-[55%]" : "md:w-full"

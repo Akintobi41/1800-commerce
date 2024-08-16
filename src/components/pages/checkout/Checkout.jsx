@@ -5,14 +5,16 @@ import useCart from "../../../hooks/useCart";
 import usePaystack from "../../../hooks/usePaystack";
 import { format } from "../../../utils/format/format";
 import Button from "../../reusables/button/Button";
-import PopUp from "./../../popup/PopUp";
 import CheckoutForm from "./CheckoutForm";
 import LeftArrow from "./../../../assets/Icons/LeftArrow";
+import { validateEmail } from "../../../utils/validate/emailValidate";
 
 function Checkout() {
+  const userData = useSelector((state) => state.auth.userData)
   const cart = useSelector((state) => state.cart.products);
   const [next, setNext] = useState(false);
   const [errors, setErrors] = useState(false);
+  const [successful, setSuccessfulText] = useState('');
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
@@ -30,6 +32,9 @@ function Checkout() {
     setErrors(false);
     setSubmit(false);
     setUserDetails({ name, email, phone: phoneNumber });
+    if ((/[^\d]/g).test(phoneNumber)) return setSuccessfulText('Phone Number is invalid')
+    const checkMail = validateEmail(email)
+    if (!checkMail) return setSuccessfulText('Email address is invalid')
     setNext(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -51,11 +56,6 @@ function Checkout() {
 
   return (
     <section className="mt-24 p-4 min-h-[500px]">
-      <PopUp
-        text="Some fields are empty/ incorrect"
-        isVisible={errors}
-        setIsVisible={setErrors}
-      />
       {!next ? (
         <>
           <p className="font-bold text-center lg:text-[25px] mb-4">
@@ -74,6 +74,9 @@ function Checkout() {
                 {!submit ? "Submit" : "Doing Things"}{" "}
               </Button>
             }
+            data={userData}
+            successful={successful}
+            setSuccessfulText={setSuccessfulText}
           />
         </>
       ) : (

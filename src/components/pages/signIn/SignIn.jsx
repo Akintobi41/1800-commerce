@@ -3,33 +3,31 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import authService from "../../../appwrite/auth/auth";
+import CloseIcon from "../../../assets/Icons/CloseIcon";
 import {
-  closeEntry,
-  showEntry,
+  closeEntry
 } from "../../../store/accountSlice";
 import { signIn } from "../../../store/loginSlice";
-import PopUp from "../../popup/PopUp";
+import { validateEmail } from "../../../utils/validate/emailValidate";
 import Button from "../../reusables/button/Button";
 import Input from "../../reusables/input/Input";
 import TextContainer from "../../textContainer/TextContainer";
 import ViewPassword from "../../viewPassword/ViewPassword";
-import CloseIcon from "../../../assets/Icons/CloseIcon";
-import { validateEmail } from "../../../utils/validate/emailValidate";
 
 function SignIn({ id }) {
-  const { register, handleSubmit, formState } =
-    useForm();
+  const { register, handleSubmit, formState } = useForm();
   const { isValid } = formState;
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [errors, setErrors] = useState("");
   const [loading, setLoading] = useState(false);
   const [view, setView] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [success, setIsSuccessful] = useState(false);
 
   const onSubmit = async (data) => {
-    const checkMail = validateEmail(data.email)
-  if(!checkMail)return setErrors('Email address is invalid')
+    const checkMail = validateEmail(data.email);
+    if (!checkMail)
+      return setErrors("Email address is invalid");
     setLoading(true);
     const userData = data;
     try {
@@ -42,22 +40,13 @@ function SignIn({ id }) {
       }
     } catch (error) {
       setLoading(false);
-      console.log(error)
-      const y = error.message.split(':');
-      console.log(y)
       setErrors(error.message);
     }
   };
-
   return (
     <>
-      <PopUp
-        text={"Some fields are still empty/incorrect"}
-        isVisible={isVisible}
-        setIsVisible={setIsVisible}
-      />
-      <section className="bg-[var(--white)] lg:max-w-[500px] lg:mx-auto h-[65%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s] md:w-[45%] md:top-1/2 md:left-1/2 md:[transform:translate(-50%,-50%)] md:mx-auto md:my-0">
-      <CloseIcon
+      <section className="bg-[var(--white)] lg:max-w-[500px] lg:mx-auto h-[60%] flex flex-col absolute bottom-0 w-full p-4 transition-all duration-[1s] md:w-[45%] md:top-1/2 md:left-1/2 md:[transform:translate(-50%,-50%)] md:mx-auto md:my-0">
+        <CloseIcon
           className={
             "absolute right-1 top-2 cursor-pointer"
           }
@@ -73,19 +62,25 @@ function SignIn({ id }) {
 
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-y-6 text-[.8rem] max-w-[500px] mx:auto"
+          onChange={() => {
+            setIsSuccessful(false);
+            setErrors("");
+          }}
+          className="flex flex-col gap-y-6 text-[.8rem] max-w-[500px] mx:auto mt-8"
         >
           <Input
             label="Email"
             styles="px-[12px]"
             type="email"
             {...register("email", { required: true })}
-            onChange={()=> setErrors('')}
           />
           <Input
             label="Password"
             styles="px-[12px]"
             type={view ? "text" : "password"}
+            placeholder="minimu of 8 characters please"
+            minLength="8"
+            maxLength="256"
             {...register("password", { required: true })}
             icon={
               <ViewPassword
@@ -93,28 +88,35 @@ function SignIn({ id }) {
                 view={view}
               />
             }
-            onChange={()=> setErrors('')}
           />
 
           <p className="text-[.8rem] text-[var(--red)] h-1 -mt-5 mb-3">
-            {errors}
+            {success
+              ? "Some fields are still empty/incorrect"
+              : errors}
           </p>
           <Button
             type="submit"
-            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[10rem] rounded-[24px] h-[48px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
+            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[8.5rem] rounded-[24px] h-[28px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
               loading ? "opacity-70 " : "opacity-100"
             }`}
-            onClick={() => setIsVisible(!isValid)}
+            onClick={() =>
+              !isValid ? setIsSuccessful(true) : null
+            }
           >
             {" "}
-            {loading ? "Doing Things" : "Create Account"}
+            {loading ? "Doing Things" : "Sign In"}
           </Button>
         </form>
         <p className="text-[.8rem] mt-4">
           Don&apos;t have an account?{" "}
           <small
             className="underline cursor-pointer"
-            onClick={() => dispatch(showEntry(id))}
+            onClick={() => {
+              dispatch(closeEntry());
+
+              navigate("/signup");
+            }}
           >
             Create Account
           </small>

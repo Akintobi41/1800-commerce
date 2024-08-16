@@ -35,21 +35,23 @@ function ProductDetail() {
         <>
           <section className="mt-24 max-w-[1500px] min-[1500px]:mx-auto">
             <ImageSwiper images={images} />
-            <section className="flex w-full h-full justify-around px-4 max-w-[400px]">
+            <section className="flex w-full h-full justify-center px-4">
               {images.map((img) => (
                 <img
                   src={img.fields.file.url}
                   alt=""
-                  className="w-[24%] h-[4.5rem] cursor-pointer bg-[#cbd5e140] mr-[.25rem]"
+                  className="size-[4rem] sm:size-24 cursor-pointer bg-[#cbd5e140] mr-[.5rem]"
                   key={img.fields.file.url}
                 />
               ))}
             </section>
+            <section className="flex flex-col items-center">
             <p className="text-[1.25rem] font-bold p-4">
               {name}{" "}
             </p>
-            <details className="mx-4 cursor-pointer transition-all duration-500">
-              <p className="px-4 text-[.8rem]">
+              <details className="cursor-pointer transition-all duration-500 text-center">
+                <summary className="text-[.8rem] underline">read more about this product</summary>
+              <p className="px-4 text-[.8rem] max-w-[700px] mx-auto">
                 {description}{" "}
               </p>
             </details>
@@ -57,8 +59,10 @@ function ProductDetail() {
               {" "}
               Earn up to 64 points with 1800 Rewards
             </p>
+            </section>
+          
           </section>
-          <section className="px-4 w-full max-w-[1500px] mx-auto">
+          <section className="px-4 w-full flex justify-center">
             <Button
               styles={`${
                 checkProduct

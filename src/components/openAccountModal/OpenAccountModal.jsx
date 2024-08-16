@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from "react-router";
 import AccountIcon from "../../assets/Icons/AccountIcon";
 import { useOverflow } from "../../contexts";
 import { showEntry } from "../../store/accountSlice";
@@ -13,9 +14,9 @@ function OpenAccountModal() {
   const dispatch = useDispatch();
   const { name } = useSelector((state) => state.auth?.userData) || {};
   const loggedIn = useSelector((state) => state.auth.status)
+  const navigate = useNavigate();
 
-
-
+ 
   useEffect(() => {
     document.addEventListener("mousedown", clearMenu);
     return () => {
@@ -55,7 +56,13 @@ function OpenAccountModal() {
               i > 3 ? "" : "hidden"
             } mt-2`}
             onClick={() => {
-              dispatch(showEntry(i))
+              setOverflow(false)
+              if (i === 4) { 
+                dispatch(showEntry(i)); // open modal with either sign in or sign up                    
+                }
+                else { 
+                  navigate('/signup')
+                }
             }}
           >
             {" "}
