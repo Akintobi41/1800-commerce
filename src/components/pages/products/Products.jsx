@@ -122,7 +122,7 @@ const Products = ({ Sort, Filter }) => {
             onClick={() => Scroll()}
           >
             {" "}
-            <img src="/src/assets/Icons/up-arrow.svg" />
+            <img src="/src/assets/Icons/up-arrow.svg" className="size-[60%] stroke-slate-950" />
           </Button>
         )}
       </section>

@@ -80,11 +80,8 @@ function Checkout() {
           />
         </>
       ) : (
-        <section>
-          <div>
-            <div className="max-w-[1500px] mx-auto">
-              <div className>
-                <p
+          <section>
+             <p
                   className="text-[.8rem] cursor-pointer flex items-center"
                   onClick={() => setNext(false)}
                 >
@@ -93,13 +90,20 @@ function Checkout() {
                   <span className="ml-1">
                     Back to Shipping
                   </span>
-                </p>
+                  </p>
+          <div>
+            <div className="max-w-[700px] mx-auto">
+              <div className>
+               
+                  <section>
+                    {/*  */}
+                  </section>
                 <p className="font-bold mt-4">
                   Order Details
                 </p>
                 {cart.map((item) => (
                   <section
-                    className="flex gap-x-2"
+                    className="flex gap-x-2 text-[.8rem]"
                     key={item.name}
                   >
                     <p>{item.name + " " + item.type} </p>{" "}
@@ -115,15 +119,15 @@ function Checkout() {
                   Customer Details
                 </p>
                 <div className="checkout-field">
-                  <p>{name}</p>
+                  <p className="text-[.8rem]">{name}</p>
                 </div>
                 <div className="checkout-field">
-                  <p>{email}</p>
+                  <p className="text-[.8rem]">{email}</p>
                 </div>
                 <div className="checkout-field">
-                  <label>{phone}</label>
+                  <p className="text-[.8rem]">{phone}</p>
                 </div>
-                <p className="mb-4">
+                <p className="my-4 font-semibold text-[.8rem]">
                   NGN {format(amount / 100)}
                 </p>
               </div>
