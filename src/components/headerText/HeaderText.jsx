@@ -1,5 +1,5 @@
-import CloseIcon from './../../assets/Icons/CloseIcon';
 import { useState } from 'react';
+import CloseIcon from './../../assets/Icons/CloseIcon';
 
 const HeaderText = () => {
   const [close, setClose] = useState(false)
