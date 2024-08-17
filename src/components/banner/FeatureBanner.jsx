@@ -24,6 +24,8 @@ const FeatureBanner = () => {
       </section>
       <section className="flex justify-center">
         <Button
+          data-testid='product-btn'
+          aria-label = 'navigate to products page'
           className="font-medium h-12 cursor-pointer py-0 px-[34px] border-b-[rgb(15,15,15)] rounded-[24px] text-[var(--white)] leading-[48px] bg-[var(--black)] hover:bg-[var(--pry-col)]"
           onClick={viewAll}
         >

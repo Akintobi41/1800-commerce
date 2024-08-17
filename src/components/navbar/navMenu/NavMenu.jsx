@@ -38,9 +38,11 @@ function NavMenu({ Logo, modal, cartIcon }) {
               {section === "p" ? (
                 <> {Logo} </>
               ) : (
-                <section
-                  key={section}
-                  className={
+                <button
+                    key={section}
+                    aria-label= 'hamburger-icon'
+                    data-testid = 'hamburger-icon'
+                    className={
                     !i
                       ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden md:justify-end"
                       : "flex items-center justify-end"
@@ -63,7 +65,8 @@ function NavMenu({ Logo, modal, cartIcon }) {
                   ) : (
                     <>
                       {modal}
-                      <Link
+                          <Link
+                            data-testid = 'cart-icon'
                         className="relative flex justify-center items-center cursor-pointer ml-2"
                         to={"/cart"}
                       >
@@ -76,7 +79,7 @@ function NavMenu({ Logo, modal, cartIcon }) {
                       </Link>{" "}
                     </>
                   )}
-                </section>
+                </button>
               )}
             </section>
           ))}

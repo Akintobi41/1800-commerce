@@ -130,8 +130,7 @@ const Cart = () => {
   }
 
   return (
-    <>
-      <div className="mt-24 px-4 max-w-[1500px] md:mx-auto w-full">
+      <div data-testid='cart' className="mt-24 px-4 max-w-[1500px] md:mx-auto w-full">
         <Link
           to="/products"
           className="flex items-center gap-x-1 cursor-pointer mx-4"
@@ -162,7 +161,6 @@ const Cart = () => {
         </section>
         <Delivery />
       </div>
-    </>
   );
 };
 

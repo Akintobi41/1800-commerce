@@ -9,9 +9,12 @@ const Trending = () => {
     <>
       <section className='flex flex-col bg-[var(--white)] px-4'>
         <Heading>2023 Trending Brands </Heading>
-      <JordanIcon />
+        <div data-testid='trending-images'>
+        <JordanIcon />
       <JdSportsIcon />
-      <PumaIcon />
+      <PumaIcon /> 
+     </div>
+      
     </section>
     </>
   

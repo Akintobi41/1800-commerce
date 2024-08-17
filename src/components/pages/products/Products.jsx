@@ -42,7 +42,7 @@ const Products = ({ Sort, Filter }) => {
   }
 
   return (
-    <section className="relative flex flex-col px-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
+    <section data-testid='products' className="relative flex flex-col px-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden">
       {!isLoading ? (
         <>
           <Heading className="mt-24"> All Products</Heading>

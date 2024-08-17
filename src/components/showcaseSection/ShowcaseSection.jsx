@@ -1,8 +1,8 @@
 import bgImage1 from "/src/assets/Images/bg-3.jpg";
 import bgImage2 from "/src/assets/Images/bg-female.jpg";
 
-const ProductSlider = () => {
-  const productSlider_items = [
+const ShowcaseSection = () => {
+  const items = [
     {
       id: 1,
       name: "Caps",
@@ -20,9 +20,10 @@ const ProductSlider = () => {
         Doing Things look good on you.
       </p>
       <section className="mx-4 h-full flex gap-y-4 flex-col lg:flex-row lg:justify-between">
-        {productSlider_items.map((item) => 
+        {items.map((item) => 
           (
-            <section
+          <section
+            data-testid='showcase-images'
               key={item.id}
               className={`h-[20rem] md:h-[24rem] lg:h-[30rem] lg:w-[48%] bg-center bg-no-repeat`}
               style={{
@@ -36,4 +37,4 @@ const ProductSlider = () => {
   );
 };
 
-export default ProductSlider;
+export default ShowcaseSection;

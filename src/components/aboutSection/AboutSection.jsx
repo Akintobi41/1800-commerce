@@ -6,7 +6,7 @@ function AboutSection() {
   return (
       <section className="max-w-[700px] mx-auto px-4">
       <Heading> What do you know about us?</Heading>
-      <p className=" pt-4">{aboutText.slice(0, 149)}...<Link to='/about' className="underline italic ml-1">continue reading</Link></p>
+      <p className="pt-4">{aboutText.slice(0, 149)}...<Link data-testid='about-section' to='/about' className="underline italic ml-1">continue reading</Link></p>
       </section>
   )
 }

@@ -21,7 +21,7 @@ function NavSection({ setMenuToggle }) {
   }
 
   return (
-    <div>
+    <div className="lg:flex">
       {Object.keys(navList).map((list, i) => (
         <section
           key={list}

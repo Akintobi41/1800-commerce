@@ -13,6 +13,7 @@ function TopNav({ menuToggle, section }) {
 
   return (
     <nav
+      data-testid = 'nav'
       className={`${
         menuToggle
           ? "flex flex-col fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full top-[5.8rem] bg-[var(--pry-col)] lg:w-0 lg:h-0"

@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import authService from "../../appwrite/auth/auth";
 import { signIn } from "../../store/loginSlice";
-import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import HeaderText from "../headerText/HeaderText";
 import Logo from "../logo/Logo";
@@ -42,7 +41,7 @@ function Layout() {
                 Logo={
                   <Logo
                     font_style={
-                      "md:ml-10 text-[3rem] text-center lg:w-[20%]"
+                      "lg:-ml-[100%] min-[1500px]:-ml-[120%] text-[3rem] text-center lg:w-[20%]"
                     }
 
                   />
