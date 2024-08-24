@@ -7,7 +7,6 @@ const Details = ({ el, activeIndex, setActiveIndex }) => {
       prevIndex === el.id ? null : el.id
     );
   }
-
   return (
     <>
       <Button

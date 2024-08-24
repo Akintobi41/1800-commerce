@@ -10,12 +10,14 @@ function Sort() {
   const products = useSelector(
     (state) => state.products.products
   );
+  const [data,setData] = useState([])
   const optionRef = useRef();
   const [value, setValue] = useState(sortType);
   const dispatch = useDispatch();
 
   useEffect(() => {
     Sort();
+    setData([...products])
   }, []);
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function Sort() {
     );
 
     const result = {
-      None: [...products],
+      None: [...data],
       "Alphabetically: A-Z": a_z,
       "Alphabetically: Z-A": z_a,
       "Price: Low to High": low,
@@ -49,6 +51,7 @@ function Sort() {
   }
   return (
     <Select
+      data-testid = 'sort'
       type="products"
       text={value}
       label="Sort"

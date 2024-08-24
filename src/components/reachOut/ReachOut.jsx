@@ -35,7 +35,7 @@ const ReachOut = () => {
               }`}
               key={btn}
             >
-              <Button className='inline-flex items-center justify-center rounded-sm cursor-pointer no-underline border-none relative bg-[rgb(16,14,32)] text-[rgb(255,255,255)] font-bold leading-[1.25] tracking-[0.020625rem] min-h-[32px] min-w-[100px] py-0 px-4 mt-4 mr-4 hover:bg-[var(--pry-col)]'>
+              <Button data-testid={btn} className='inline-flex items-center justify-center rounded-sm cursor-pointer no-underline border-none relative bg-[rgb(16,14,32)] text-[rgb(255,255,255)] font-bold leading-[1.25] tracking-[0.020625rem] min-h-[32px] min-w-[100px] py-0 px-4 mt-4 mr-4 hover:bg-[var(--pry-col)]'>
                 {btn}
               </Button>
             </Link>

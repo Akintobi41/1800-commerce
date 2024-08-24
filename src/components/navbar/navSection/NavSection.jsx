@@ -21,13 +21,13 @@ function NavSection({ setMenuToggle }) {
   }
 
   return (
-    <div className="lg:flex">
+    <div className="lg:flex gap-x-4 lg:h-[85%] items-end">
       {Object.keys(navList).map((list, i) => (
         <section
           key={list}
-          className={`flex w-full lg:mt-6 decoration-[none] text-[1.5rem] font-medium list-none ${
+          className={`flex w-full decoration-[none] text-[1.5rem] font-medium list-none ${
             i > 0 && i < 4 ? "" : "lg:hidden"
-          } cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-0 lg:p-0 lg:ml-[1rem] hover:bg-[var(--black)] hover:text-[var(--white)] lg:hover:text-[var(--pry-col)] ${
+          } cursor-pointer py-2 px-4 decoration-none border-b border-solid border-[#061A40] lg:text-[1.2rem] lg:border-0 lg:p-0 lg:ml-[1rem] hover:bg-[var(--black)] lg:hover:bg-[unset]  hover:text-[var(--white)] lg:hover:text-[var(--pry-col)] ${
             i === 4 && "mt-20"
           } ${i >= 4 && loggedIn ? "hidden" : ""}`}
           onClick={() => {

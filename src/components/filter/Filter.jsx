@@ -51,6 +51,7 @@ function Filter() {
 
   return (
     <Select
+      data-testid = 'filter'
       type="products"
       text={value}
       border="none"

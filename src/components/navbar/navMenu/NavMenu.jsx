@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import { lazy, useRef, useState } from "react";
+import { lazy, Suspense, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import LoadingAnimation from "../../loadingAnimation/Loader";
 const NavBodyOverflow = lazy(() =>
   import("../navBody/NavBodyOverflow")
 );
@@ -21,11 +22,12 @@ function NavMenu({ Logo, modal, cartIcon }) {
 
   return (
     <>
+   <Suspense fallback={<LoadingAnimation/>}>
       <NavBodyOverflow
         menuToggle={menuToggle}
         setMenuToggle={setMenuToggle}
       />
-      <section className="flex w-full justify-between">
+      <div data-testid='section' className="flex size-full items-end justify-between">
         <TopNav
           menuToggle={menuToggle}
           section={
@@ -41,7 +43,7 @@ function NavMenu({ Logo, modal, cartIcon }) {
                 <button
                     key={section}
                     aria-label= 'hamburger-icon'
-                    data-testid = 'hamburger-icon'
+                    data-testid = 'nav-icon'
                     className={
                     !i
                       ? "flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden md:justify-end"
@@ -66,7 +68,7 @@ function NavMenu({ Logo, modal, cartIcon }) {
                     <>
                       {modal}
                           <Link
-                            data-testid = 'cart-icon'
+                            data-testid = 'cart-link'
                         className="relative flex justify-center items-center cursor-pointer ml-2"
                         to={"/cart"}
                       >
@@ -84,8 +86,9 @@ function NavMenu({ Logo, modal, cartIcon }) {
             </section>
           ))}
         </section>
-      </section>
-    </>
+      </div>
+    </Suspense>
+    </> 
   );
 }
 export default NavMenu;

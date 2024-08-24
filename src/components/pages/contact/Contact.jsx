@@ -24,7 +24,7 @@ const Contact = () => {
 
   return (
     <>
-      <section className="px-4 mt-24 max-w-[1500px] mx-auto">
+      <section data-testid='contact' className="px-4 mt-24 max-w-[1500px] mx-auto">
         <Heading className="text-center">
           Let{`'`}s talk about everything{" "}
         </Heading>

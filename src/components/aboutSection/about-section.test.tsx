@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react"
-import React from "react"
+import React, { act } from "react"
 import About from './../pages/about/About';
 import { BrowserRouter } from "react-router-dom";
 import AboutSection from "./AboutSection";
@@ -10,7 +10,13 @@ describe('testing about links', (() => {
         render(<BrowserRouter><About /></BrowserRouter>);
         render(<BrowserRouter> <AboutSection /></BrowserRouter>);
         const btn = screen.getByTestId('about-section')
-        btn.click();
+        act(() => { 
+            btn.click();
+        })
+        screen.debug();
         expect(screen.getByTestId('about-main')).toBeInTheDocument();
+        screen.debug();
+
+
    })
 }))

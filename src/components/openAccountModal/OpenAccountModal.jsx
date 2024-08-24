@@ -46,13 +46,13 @@ function OpenAccountModal() {
           overflow
             ? "opacity-100 transition-opacity duration-300 visible"
             : "opacity-0 transition-opacity duration-300 invisible"
-        } flex flex-col absolute top-[70%] bg-[var(--white)] right-[50px] w-[135px] h-[110px] p-6 text-[.8rem] `}
+        } flex flex-col absolute top-full bg-[var(--white)] right-[50px] w-[120px] h-[110px] p-6 text-[.8rem] `}
       >
-        <p className="opacity-40">Account</p>
+        <p className="opacity-40 text-left">Account</p>
         {!loggedIn ? Object.keys(navList).map((item, i) => (
           <section
             key={item}
-            className={`cursor-pointer w-[63%] ${
+            className={`cursor-pointer text-left w-[63%] ${
               i > 3 ? "" : "hidden"
             } mt-2`}
             onClick={() => {

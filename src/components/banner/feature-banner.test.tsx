@@ -4,7 +4,7 @@ import FeatureBanner from "./FeatureBanner"
 import { QueryClient ,QueryClientProvider} from "react-query"
 import { Provider } from "react-redux"
 import store from "../../store/store"
-import React from "react"
+import React, { act } from "react"
 import { screen } from "@testing-library/react"
 import Products from "../pages/products/Products"
 
@@ -16,7 +16,9 @@ describe('', (() => {
         render( <BrowserRouter><FeatureBanner/></BrowserRouter> )
         render(<QueryClientProvider client={queryClient}><Provider store={store}> <BrowserRouter><Products Sort={undefined} Filter={undefined}/></BrowserRouter></Provider></QueryClientProvider>  )
         const btn = screen.getByTestId('product-btn')
+        act(() => { 
         btn.click();
+        })
         expect(screen.getByTestId('products')).toBeInTheDocument();
     }) 
 }))

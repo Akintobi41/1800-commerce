@@ -36,7 +36,6 @@ const Subscribe = () => {
 
       {!shakeForm ? (
         <form
-          action=""
           onSubmit={handleSubmit}
           className={`w-full max-w-[700px] min-[700px]:mx-auto ${
             shakeForm === undefined ||
@@ -48,6 +47,7 @@ const Subscribe = () => {
           <Input
             type="email"
             name="email"
+            aria-label = 'email'
             className={s.email}
             id="email"
             autoComplete="yes"
@@ -73,6 +73,7 @@ const Subscribe = () => {
                 className={s["email-type"]}
               >
                 <input
+                  data-testid='radio'
                   type="radio"
                   name="radio"
                   value={radio}
@@ -88,14 +89,14 @@ const Subscribe = () => {
 
           <div className="w-full h-6">
             {shakeForm === false && input ? (
-              <small className={s["email-warning-text"]}>
+              <small data-testid='error' className={s["email-warning-text"]}>
                 Please enter a valid email/ select
                 preference
               </small>
             ) : null}
           </div>
 
-          <Button styles={s.btn}>Sign Up Now</Button>
+          <Button data-testid ='btn' styles={s.btn}>Sign Up Now</Button>
         </form>
       ) : (
         <>
