@@ -1,16 +1,15 @@
 import { useSelector } from "react-redux";
-import { format } from "../../../utils/format/format";
-import Button from "../../reusables/button/Button";
-    
+import { format } from "../../../../utils/format/format";
+import Button from "../../../reusables/button/Button";
 
-function RenderProducts({next,handleClick}) {
+function RenderProducts({ next, handleClick }) {
   const cart = useSelector((state) => state.cart.products);
   const products =
     useSelector((state) => state.products.products) || [];
-  
+
   return (
-    <>{
-      [...products.slice(0, next)].map((product) => {
+    <>
+      {[...products.slice(0, next)].map((product) => {
         const { name, images, type, price } =
           product.fields;
 
@@ -42,11 +41,13 @@ function RenderProducts({next,handleClick}) {
             {[name, type, price].map((item, i) => (
               <p
                 key={item}
-                className={`text-[.8rem] mt-1 ${i > 1 ? "font-medium" : ""
-                  } ${i === 1
+                className={`text-[.8rem] mt-1 ${
+                  i > 1 ? "font-medium" : ""
+                } ${
+                  i === 1
                     ? "text-[#737373] text-[11px]"
                     : ""
-                  } `}
+                } `}
               >
                 {i > 1 ? format(price) : item}
               </p>
@@ -55,7 +56,7 @@ function RenderProducts({next,handleClick}) {
         );
       })}
     </>
-  )
+  );
 }
 
-export default RenderProducts
+export default RenderProducts;

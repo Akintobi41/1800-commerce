@@ -8,8 +8,6 @@ import ProductDetail from "../components/pages/productDetail/ProductDetail";
 import Products from "../components/pages/products/Products";
 import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
 import Layout from "../components/layout/Layout";
-import Filter from "../components/filter/Filter";
-import Sort from "../components/sort/Sort";
 import Checkout from "../components/pages/checkout/Checkout";
 import Protected from "../components/protected/Protected";
 import SignUp from "../components/pages/signUp/SignUp";
@@ -31,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/products",
         element: (
-          <Products Filter={<Filter />} Sort={<Sort />} />
+          <Products/>
         ),
       },
       {
