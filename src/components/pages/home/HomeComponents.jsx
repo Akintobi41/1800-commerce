@@ -3,7 +3,7 @@ import Patronize from "../../../components/patronize/Patronize";
 import Subscribe from "../../../components/subscribe/Subscribe";
 import ReachOut from "../../../components/reachOut/ReachOut";
 import AboutSection from "../../aboutSection/AboutSection";
-import ShowcaseSection from "../../showcaseSection/showcaseSection";
+import ShowcaseSection from "../../showcaseSection/ShowcaseSection";
 
 const line = (
   <hr className="section my-10 w-[140%] ml-[-20%]" />
