@@ -1,10 +1,7 @@
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import {  useSelector } from "react-redux";
 import useScroll from "../../../hooks/useScroll";
-import { modifyCart } from "../../../store/cartSlice";
 import LoadingAnimation from "../../loadingAnimation/Loader";
-import Heading from "./../../heading/Heading";
 import { useFetchProducts } from "./useFetchProducts";
 import RenderProducts from "./renderProducts/RenderProducts";
 import Sort from "../../sort/Sort";
@@ -14,22 +11,13 @@ import LoadMoreProducts from "./loadMoreProducts/LoadMoreProducts";
 import ProductHeader from './productHeader.jsx/ProductHeader';
 
 const Products = () => {
-  const navigate = useNavigate();
   const products =
     useSelector((state) => state.products.products) || [];
-  const dispatch = useDispatch();
   const productsPerSlide = 10;
   const [next, setNext] = useState(productsPerSlide);
   const { isLoading } = useFetchProducts();
   const { backToTopButton, Scroll } = useScroll();
-  function handleClick(e, product) {
-    const cartRedirect = e.target.textContent;
-    if (cartRedirect.endsWith("Cart")) {
-      dispatch(modifyCart(product.fields));
-    } else {
-      navigate(`/products/${product.sys.id}`);
-    }
-  }
+
 
   function handleMoreProducts() {
     setNext(next + productsPerSlide);
@@ -54,7 +42,6 @@ const Products = () => {
             </section>{" "}
             <RenderProducts
               next={next}
-              handleClick={handleClick}
             />
           </>
         ) : (

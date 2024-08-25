@@ -1,5 +1,6 @@
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
+import LoadingAnimation from "../../loadingAnimation/Loader";
 const SignOutBtn = lazy(() =>
   import("../../signOutBtn/SignOutBtn")
 );
@@ -25,7 +26,7 @@ function TopNav({ menuToggle, section }) {
       )}
       <ul className="flex flex-col mt-10 w-full lg:mt-0 h-full lg:w-[30%] lg:flex-row z-30 lg:gap-8">
         {section}
-        {loggedIn && <SignOutBtn className="lg:hidden" />}
+        {loggedIn && <Suspense fallback={<LoadingAnimation/>}> <SignOutBtn className="lg:hidden" /></Suspense> }
       </ul>
     </nav>
   );

@@ -72,13 +72,14 @@ function SignIn({ id }) {
             label="Email"
             styles="px-[12px]"
             type="email"
+            placeholder="name@example.com"
             {...register("email", { required: true })}
           />
           <Input
             label="Password"
             styles="px-[12px]"
             type={view ? "text" : "password"}
-            placeholder="minimu of 8 characters please"
+            placeholder="minimum of 8 characters please"
             minLength="8"
             maxLength="256"
             {...register("password", { required: true })}

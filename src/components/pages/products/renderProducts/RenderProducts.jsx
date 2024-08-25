@@ -1,12 +1,27 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { modifyCart } from "../../../../store/cartSlice";
 import { format } from "../../../../utils/format/format";
 import Button from "../../../reusables/button/Button";
 
-function RenderProducts({ next, handleClick }) {
+
+function RenderProducts({ next}) {
   const cart = useSelector((state) => state.cart.products);
   const products =
     useSelector((state) => state.products.products) || [];
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  
+  
+    function handleClick(e, product) {
+      const cartRedirect = e.target.textContent;
+      if (cartRedirect.endsWith("Cart")) {
+        dispatch(modifyCart(product.fields));
+      } else {
+        navigate(`/products/${product.sys.id}`);
+      }
+    }
+  
   return (
     <>
       {[...products.slice(0, next)].map((product) => {

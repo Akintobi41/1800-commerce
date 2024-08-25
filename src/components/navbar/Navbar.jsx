@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { lazy } from "react";
+import { lazy, Suspense } from "react";
+import LoadingAnimation from "../loadingAnimation/Loader";
 import NavMenu from "./navMenu/NavMenu";
 const CartIcon = lazy(() =>
   import("./../../assets/Icons/CartIcon")
@@ -11,6 +12,7 @@ const OpenAccountModal = lazy(() =>
 const Navbar = ({ Logo, Text }) => {
   return (
     <>
+      <Suspense fallback={<LoadingAnimation/>}>
       {Text}
       <section className="flex items-end relative bg-[var(--white)] px-4 md:pl-0 h-[6rem] max-w-[1500px] mx-auto">
         <>
@@ -20,7 +22,8 @@ const Navbar = ({ Logo, Text }) => {
             cartIcon={<CartIcon />}
           />
         </>
-      </section>
+        </section>
+        </Suspense>
     </>
   );
 };

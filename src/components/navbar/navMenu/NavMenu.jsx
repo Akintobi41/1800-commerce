@@ -34,13 +34,13 @@ function NavMenu({ Logo, modal, cartIcon }) {
             <NavSection setMenuToggle={setMenuToggle} />
           }
         />
-        <section className="flex w-full lg:w-[60%] justify-between items-center">
+        <section className="flex w-full lg:w-[45%] xl:w-[60%] justify-between items-center">
           {menu.map((section, i) => (
             <section key={section}>
               {section === "p" ? (
                 <> {Logo} </>
               ) : (
-                <button
+                <section
                     key={section}
                     aria-label= 'hamburger-icon'
                     data-testid = 'nav-icon'
@@ -81,7 +81,7 @@ function NavMenu({ Logo, modal, cartIcon }) {
                       </Link>{" "}
                     </>
                   )}
-                </button>
+                </section>
               )}
             </section>
           ))}
