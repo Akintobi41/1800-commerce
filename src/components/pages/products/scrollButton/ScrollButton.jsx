@@ -1,4 +1,5 @@
 import Button from "../../../reusables/button/Button";
+import ArrowImg from '../../../../assets/Icons/up-arrow.svg'
 
 function ScrollButton({ btn, scroll }) {
   return (
@@ -12,7 +13,7 @@ function ScrollButton({ btn, scroll }) {
         >
           {" "}
           <img
-            src="/src/assets/Icons/up-arrow.svg"
+            src={ArrowImg}
             className="size-[60%] stroke-slate-950"
           />
         </Button>
@@ -20,5 +21,4 @@ function ScrollButton({ btn, scroll }) {
     </>
   );
 }
-
 export default ScrollButton;

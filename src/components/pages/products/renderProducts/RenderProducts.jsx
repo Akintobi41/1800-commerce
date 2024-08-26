@@ -4,24 +4,22 @@ import { modifyCart } from "../../../../store/cartSlice";
 import { format } from "../../../../utils/format/format";
 import Button from "../../../reusables/button/Button";
 
-
-function RenderProducts({ next}) {
+function RenderProducts({ next }) {
   const cart = useSelector((state) => state.cart.products);
   const products =
     useSelector((state) => state.products.products) || [];
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
-  
-    function handleClick(e, product) {
-      const cartRedirect = e.target.textContent;
-      if (cartRedirect.endsWith("Cart")) {
-        dispatch(modifyCart(product.fields));
-      } else {
-        navigate(`/products/${product.sys.id}`);
-      }
+
+  function handleClick(e, product) {
+    const cartRedirect = e.target.textContent;
+    if (cartRedirect.endsWith("Cart")) {
+      dispatch(modifyCart(product.fields));
+    } else {
+      navigate(`/products/${product.sys.id}`);
     }
-  
+  }
+
   return (
     <>
       {[...products.slice(0, next)].map((product) => {
@@ -42,7 +40,7 @@ function RenderProducts({ next}) {
               />
               <Button
                 styles={
-                  "absolute right-0 top-0 w-full h-6 bg-[var(--black)] text-[var(--white)] text-[.8rem] border-none outline-none cursor-pointer"
+                  "absolute right-0 top-0 w-full h-6 bg-[var(--black)] text-[var(--white)] text-sm border-none outline-none cursor-pointer"
                 }
               >
                 {" "}
@@ -56,7 +54,7 @@ function RenderProducts({ next}) {
             {[name, type, price].map((item, i) => (
               <p
                 key={item}
-                className={`text-[.8rem] mt-1 ${
+                className={`text-sm mt-1 ${
                   i > 1 ? "font-medium" : ""
                 } ${
                   i === 1

@@ -46,21 +46,22 @@ function ProductDetail() {
               ))}
             </section>
             <section className="flex flex-col items-center">
-            <p className="text-[1.25rem] font-bold p-4">
-              {name}{" "}
-            </p>
-              <details className="cursor-pointer transition-all duration-500 text-center">
-                <summary className="text-[.8rem] underline">read more about this product</summary>
-              <p className="px-4 text-[.8rem] max-w-[700px] mx-auto">
-                {description}{" "}
+              <p className="text-[1.25rem] font-bold p-4">
+                {name}{" "}
               </p>
-            </details>
-            <p className="p-4 text-[.8rem] text-[#737373] tracking-[-.653px]">
-              {" "}
-              Earn up to 64 points with 1800 Rewards
-            </p>
+              <details className="cursor-pointer transition-all duration-500 text-center">
+                <summary className="text-sm underline">
+                  read more about this product
+                </summary>
+                <p className="px-4 text-sm max-w-[700px] mx-auto">
+                  {description}{" "}
+                </p>
+              </details>
+              <p className="p-4 text-sm text-[#737373] tracking-[-.653px]">
+                {" "}
+                Earn up to 64 points with 1800 Rewards
+              </p>
             </section>
-          
           </section>
           <section className="px-4 w-full flex justify-center">
             <Button

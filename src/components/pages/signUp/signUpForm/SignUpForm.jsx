@@ -51,8 +51,7 @@ function SignUpForm({ formProp }) {
       }
     } catch (error) {
       const { message } = error;
-      const errorText = message === msg;
-      setErrorMsg(errorText ? userMsg : message);
+      setErrorMsg(message === msg ? userMsg : message);
       setLoading(false);
     }
   };
@@ -60,7 +59,7 @@ function SignUpForm({ formProp }) {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-y-6 text-[.8rem] mt-8"
+      className="flex flex-col gap-y-6 text-sm mt-8"
     >
       <SignUpInputs formProp={formProp} />
       <section className="flex items-center">
@@ -72,7 +71,7 @@ function SignUpForm({ formProp }) {
         <p className="m-1">{radioText}</p>
       </section>
       <SignUpSelect formProp={{ register, day, month }} />
-      <p className="text-[.8rem] text-[var(--red)] h-1 -mt-5 mb-4">
+      <p className="text-sm text-[var(--red)] h-1 -mt-5 mb-4">
         {errorMsg}
       </p>
       <Button

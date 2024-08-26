@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import Heading from "../heading/Heading";
 import Button from "../reusables/button/Button";
 import Input from "../reusables/input/Input";
@@ -47,7 +47,7 @@ const Subscribe = () => {
           <Input
             type="email"
             name="email"
-            aria-label = 'email'
+            aria-label="email"
             className={s.email}
             id="email"
             autoComplete="yes"
@@ -60,7 +60,7 @@ const Subscribe = () => {
           </p>
           <p className={s["email-preference"]}>
             Email preference:{" "}
-            <span className="text-[.8rem]">
+            <span className="text-sm">
               personalize your newsletter (select gender
               below)
             </span>
@@ -73,7 +73,7 @@ const Subscribe = () => {
                 className={s["email-type"]}
               >
                 <input
-                  data-testid='radio'
+                  data-testid="radio"
                   type="radio"
                   name="radio"
                   value={radio}
@@ -89,14 +89,19 @@ const Subscribe = () => {
 
           <div className="w-full h-6">
             {shakeForm === false && input ? (
-              <small data-testid='error' className={s["email-warning-text"]}>
+              <small
+                data-testid="error"
+                className={s["email-warning-text"]}
+              >
                 Please enter a valid email/ select
                 preference
               </small>
             ) : null}
           </div>
 
-          <Button data-testid ='btn' styles={s.btn}>Sign Up Now</Button>
+          <Button data-testid="btn" styles={s.btn}>
+            Sign Up Now
+          </Button>
         </form>
       ) : (
         <>

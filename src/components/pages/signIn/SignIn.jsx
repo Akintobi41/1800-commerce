@@ -4,9 +4,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import authService from "../../../appwrite/auth/auth";
 import CloseIcon from "../../../assets/Icons/CloseIcon";
-import {
-  closeEntry
-} from "../../../store/accountSlice";
+import { closeEntry } from "../../../store/accountSlice";
 import { signIn } from "../../../store/loginSlice";
 import { validateEmail } from "../../../utils/validate/emailValidate";
 import Button from "../../reusables/button/Button";
@@ -66,7 +64,7 @@ function SignIn({ id }) {
             setIsSuccessful(false);
             setErrors("");
           }}
-          className="flex flex-col gap-y-6 text-[.8rem] max-w-[500px] mx:auto mt-8"
+          className="flex flex-col gap-y-6 text-sm max-w-[500px] mx:auto mt-8"
         >
           <Input
             label="Email"
@@ -91,7 +89,7 @@ function SignIn({ id }) {
             }
           />
 
-          <p className="text-[.8rem] text-[var(--red)] h-1 -mt-5 mb-3">
+          <p className="text-sm text-[var(--red)] h-1 -mt-5 mb-3">
             {success
               ? "Some fields are still empty/incorrect"
               : errors}
@@ -109,7 +107,7 @@ function SignIn({ id }) {
             {loading ? "Doing Things" : "Sign In"}
           </Button>
         </form>
-        <p className="text-[.8rem] mt-4">
+        <p className="text-sm mt-4">
           Don&apos;t have an account?{" "}
           <small
             className="underline cursor-pointer"

@@ -36,7 +36,7 @@ function CheckoutForm({
         minLength="3"
         border="border-b-[1px]"
         height="h-8"
-        styles="text-[.8rem] px-2"
+        styles="text-sm px-2"
         maxLength="30"
         placeholder="30 characters max -"
       />
@@ -44,14 +44,14 @@ function CheckoutForm({
         label="Email"
         {...register("email", { required: true })}
         border="border-b-[1px]"
-        styles="text-[.8rem] px-2"
+        styles="text-sm px-2"
         height="h-8"
       />
       <Input
         label="Home Address"
         {...register("address", { required: true })}
         border="border-b-[1px]"
-        styles="text-[.8rem] px-2"
+        styles="text-sm px-2"
         height="h-8"
         maxLength="30"
         placeholder="30 characters max -"
@@ -64,7 +64,7 @@ function CheckoutForm({
         })}
         minLength="3"
         border="border-b-[1px]"
-        styles="text-[.8rem] px-2"
+        styles="text-sm px-2"
         height="h-8"
         placeholder="15 characters max -"
         maxLength="15"
@@ -77,7 +77,7 @@ function CheckoutForm({
         })}
         minLength="3"
         border="border-b-[1px]"
-        styles="text-[.8rem] px-2"
+        styles="text-sm px-2"
         height="h-8"
         maxLength="15"
         placeholder="15 characters max -"
@@ -91,7 +91,7 @@ function CheckoutForm({
         })}
         minLength="3"
         border="border-b-[1px]"
-        styles="text-[.8rem] px-2"
+        styles="text-sm px-2"
         height="h-8"
         maxLength="15"
         placeholder="15 characters max -"
@@ -111,11 +111,11 @@ function CheckoutForm({
         minLength="10"
         maxLength="15"
         border="border-b-[1px]"
-        styles="text-[.8rem] px-2"
+        styles="text-sm px-2"
         height="h-8"
         placeholder="123-456-789 "
       />
-      <p className="text-[.8rem] text-[var(--red)] h-2 -mt-3 mb-3">
+      <p className="text-sm text-[var(--red)] h-2 -mt-3 mb-3">
         {success || successful
           ? "Some fields are still empty/incorrect"
           : null}

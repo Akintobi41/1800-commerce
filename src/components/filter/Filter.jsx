@@ -1,9 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { filterProducts, setProducts } from "../../store/productSlice";
+import {
+  filterProducts,
+  setProducts,
+} from "../../store/productSlice";
 import { filter } from "../../utils/constants/constants";
 import Select from "../reusables/select/Select";
-
 
 const filterType = localStorage.getItem("value");
 function Filter() {
@@ -51,7 +53,7 @@ function Filter() {
 
   return (
     <Select
-      data-testid = 'filter'
+      data-testid="filter"
       type="products"
       text={value}
       border="none"
@@ -59,7 +61,7 @@ function Filter() {
       options={filter}
       width="w-[8.2rem]"
       styles={
-        "block self-start w-full h-10 text-[.8rem] text-right border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
+        "block self-start w-full h-10 text-sm text-right border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
       }
       onChange={Filter}
       ref={optionRef}

@@ -10,11 +10,13 @@ import LeftArrow from "./../../../assets/Icons/LeftArrow";
 import { validateEmail } from "../../../utils/validate/emailValidate";
 
 function Checkout() {
-  const userData = useSelector((state) => state.auth.userData)
+  const userData = useSelector(
+    (state) => state.auth.userData
+  );
   const cart = useSelector((state) => state.cart.products);
   const [next, setNext] = useState(false);
   const [errors, setErrors] = useState(false);
-  const [successful, setSuccessfulText] = useState('');
+  const [successful, setSuccessfulText] = useState("");
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
@@ -32,9 +34,11 @@ function Checkout() {
     setErrors(false);
     setSubmit(false);
     setUserDetails({ name, email, phone: phoneNumber });
-    if ((/[^\d]/g).test(phoneNumber)) return setSuccessfulText('Phone Number is invalid')
-    const checkMail = validateEmail(email)
-    if (!checkMail) return setSuccessfulText('Email address is invalid')
+    if (/[^\d]/g.test(phoneNumber))
+      return setSuccessfulText("Phone Number is invalid");
+    const checkMail = validateEmail(email);
+    if (!checkMail)
+      return setSuccessfulText("Email address is invalid");
     setNext(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -80,30 +84,25 @@ function Checkout() {
           />
         </>
       ) : (
-          <section>
-             <p
-                  className="text-[.8rem] cursor-pointer flex items-center"
-                  onClick={() => setNext(false)}
-                >
-                  {" "}
-                  <LeftArrow size="size-4" />
-                  <span className="ml-1">
-                    Back to Shipping
-                  </span>
-                  </p>
+        <section>
+          <p
+            className="text-sm cursor-pointer flex items-center"
+            onClick={() => setNext(false)}
+          >
+            {" "}
+            <LeftArrow size="size-4" />
+            <span className="ml-1">Back to Shipping</span>
+          </p>
           <div>
             <div className="max-w-[700px] mx-auto">
               <div className>
-               
-                  <section>
-                    {/*  */}
-                  </section>
+                <section>{/*  */}</section>
                 <p className="font-bold mt-4">
                   Order Details
                 </p>
                 {cart.map((item) => (
                   <section
-                    className="flex gap-x-2 text-[.8rem]"
+                    className="flex gap-x-2 text-sm"
                     key={item.name}
                   >
                     <p>{item.name + " " + item.type} </p>{" "}
@@ -119,15 +118,15 @@ function Checkout() {
                   Customer Details
                 </p>
                 <div className="checkout-field">
-                  <p className="text-[.8rem]">{name}</p>
+                  <p className="text-sm">{name}</p>
                 </div>
                 <div className="checkout-field">
-                  <p className="text-[.8rem]">{email}</p>
+                  <p className="text-sm">{email}</p>
                 </div>
                 <div className="checkout-field">
-                  <p className="text-[.8rem]">{phone}</p>
+                  <p className="text-sm">{phone}</p>
                 </div>
-                <p className="my-4 font-semibold text-[.8rem]">
+                <p className="my-4 font-semibold text-sm">
                   NGN {format(amount / 100)}
                 </p>
               </div>

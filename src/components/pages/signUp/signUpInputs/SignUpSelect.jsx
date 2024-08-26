@@ -40,5 +40,4 @@ function SignUpSelect({ formProp }) {
     </>
   );
 }
-
 export default SignUpSelect;

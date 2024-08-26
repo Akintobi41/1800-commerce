@@ -1,14 +1,14 @@
 import { useState } from "react";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import useScroll from "../../../hooks/useScroll";
-import LoadingAnimation from "../../loadingAnimation/Loader";
-import { useFetchProducts } from "./useFetchProducts";
-import RenderProducts from "./renderProducts/RenderProducts";
-import Sort from "../../sort/Sort";
 import Filter from "../../filter/Filter";
-import ScrollButton from "./scrollButton/ScrollButton";
+import LoadingAnimation from "../../loadingAnimation/Loader";
+import Sort from "../../sort/Sort";
 import LoadMoreProducts from "./loadMoreProducts/LoadMoreProducts";
 import ProductHeader from './productHeader.jsx/ProductHeader';
+import RenderProducts from "./renderProducts/RenderProducts";
+import ScrollButton from "./scrollButton/ScrollButton";
+import { useFetchProducts } from "./useFetchProducts";
 
 const Products = () => {
   const products =

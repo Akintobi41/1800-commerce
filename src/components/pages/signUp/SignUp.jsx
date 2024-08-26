@@ -14,7 +14,7 @@ function SignUp() {
         formProp={data}
       />
 
-      <p className="mt-4 text-[.8rem]">
+      <p className="mt-4 text-sm">
         By creating an account, I agree to the{" "}
         <span className="underline">Terms of Use</span> and
         acknowledge that I have read the{" "}

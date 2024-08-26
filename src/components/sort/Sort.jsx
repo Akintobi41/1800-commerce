@@ -10,14 +10,14 @@ function Sort() {
   const products = useSelector(
     (state) => state.products.products
   );
-  const [data,setData] = useState([])
+  const [data, setData] = useState([]);
   const optionRef = useRef();
   const [value, setValue] = useState(sortType);
   const dispatch = useDispatch();
 
   useEffect(() => {
     Sort();
-    setData([...products])
+    setData([...products]);
   }, []);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function Sort() {
   }
   return (
     <Select
-      data-testid = 'sort'
+      data-testid="sort"
       type="products"
       text={value}
       label="Sort"
@@ -59,7 +59,7 @@ function Sort() {
       border="none"
       width="w-[8.2rem]"
       styles={
-        "block self-start w-full h-10 text-[.8rem] border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
+        "block self-start w-full h-10 text-sm border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
       }
       onChange={Sort}
     />

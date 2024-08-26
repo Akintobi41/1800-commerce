@@ -25,6 +25,7 @@ const useForms = () => {
         cpassword,
         password,
         birthmonth,
+        birthdate,
         name,
         lastName,
       } = value;
