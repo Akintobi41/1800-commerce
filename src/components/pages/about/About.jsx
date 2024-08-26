@@ -1,4 +1,4 @@
-import { aboutText } from "../../../utils/text/text";
+import { aboutText } from "../../../utils/constants/constants";
 import Heading from "../../heading/Heading";
 
 const About = ({ className = "mt-24" }) => {

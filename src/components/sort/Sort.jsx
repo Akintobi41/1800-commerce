@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { sortProducts } from "../../store/productSlice";
-import { sort } from "../../utils/text/text";
+import { sort } from "../../utils/constants/constants";
 import Select from "../reusables/select/Select";
 
 const sortType = localStorage.getItem("sortValue");

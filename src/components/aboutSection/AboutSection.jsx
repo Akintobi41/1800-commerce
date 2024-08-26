@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { aboutText } from "../../utils/text/text"
+import { aboutText } from "../../utils/constants/constants"
 import Heading from "../heading/Heading"
 
 function AboutSection() {

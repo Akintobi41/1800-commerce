@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { filterProducts, setProducts } from "../../store/productSlice";
-import { filter } from "../../utils/text/text";
+import { filter } from "../../utils/constants/constants";
 import Select from "../reusables/select/Select";
 
 

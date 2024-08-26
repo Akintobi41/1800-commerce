@@ -1,7 +1,7 @@
 import Trending from "../../../components/Trending/Trending";
 import Patronize from "../../../components/patronize/Patronize";
-import Subscribe from "../../../components/subscribe/Subscribe";
 import ReachOut from "../../../components/reachOut/ReachOut";
+import Subscribe from "../../../components/subscribe/Subscribe";
 import AboutSection from "../../aboutSection/AboutSection";
 import ShowcaseSection from "../../showcaseSection/ShowcaseSection";
 
