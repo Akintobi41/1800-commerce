@@ -1,17 +1,20 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import authService from "../../../../appwrite/auth/auth";
 import { closeEntry } from "../../../../store/accountSlice";
 import { signIn } from "../../../../store/loginSlice";
-import { msg, radioText, userMsg } from "../../../../utils/constants/constants";
+import {
+  msg,
+  radioText,
+  userMsg,
+} from "../../../../utils/constants/constants";
 import { validateEmail } from "../../../../utils/validate/emailValidate";
 import Button from "../../../reusables/button/Button";
 import Input from "../../../reusables/input/Input";
 import SignUpInputs from "../signUpInputs/SignUpInputs";
 import SignUpSelect from "../signUpInputs/SignUpSelect";
-
 
 function SignUpForm({ formProp }) {
   const {
@@ -19,13 +22,14 @@ function SignUpForm({ formProp }) {
     errorMsg,
     setErrorMsg,
     register,
-    formState,handleSubmit
+    formState,
+    handleSubmit,
   } = formProp;
-    
-    const { month, day } = birthday;
-    const { isValid } = formState;
-    const dispatch = useDispatch();
-    const navigate = useNavigate();
+
+  const { month, day } = birthday;
+  const { isValid } = formState;
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -58,9 +62,7 @@ function SignUpForm({ formProp }) {
       onSubmit={handleSubmit(onSubmit)}
       className="flex flex-col gap-y-6 text-[.8rem] mt-8"
     >
-      <SignUpInputs
-        formProp={formProp}
-      />
+      <SignUpInputs formProp={formProp} />
       <section className="flex items-center">
         <Input
           type="checkbox"
