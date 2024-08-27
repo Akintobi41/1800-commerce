@@ -1,3 +1,5 @@
 import { http } from 'msw'
 
-export const handlers = []
+export const handlers = [
+    http.get('/')
+]

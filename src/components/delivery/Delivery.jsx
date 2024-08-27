@@ -5,8 +5,8 @@ function Delivery() {
   return (
     <>
       {cart.length ? (
-        <section className=" bg-[var(--white)] m-4 py-4 max-w-[700px] min-[700px]:mx-auto">
-          <h2 className="font-bold text-[1.5rem]">
+        <section className=" bg-[var(--white)] m-4 py-4 max-w-[400px] lg:max-w-[700px] mx-auto leading-8">
+          <h2 className="font-bold text-[1.5rem] mb-6">
             Delivery Information
           </h2>
           Standard Delivery is{" "}

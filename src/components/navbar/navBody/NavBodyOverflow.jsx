@@ -6,10 +6,10 @@ function NavBodyOverflow({ menuToggle, setMenuToggle }) {
 
   useEffect(() => {
     menuToggle
-      ? (document.querySelector("body").style.overflowY =
-          "hidden")
-      : (document.querySelector("body").style.overflowY =
-          "auto");
+      ? (document.querySelector("body").style.position =
+          "fixed")
+      : (document.querySelector("body").style.position =
+          "relative");
   }, [menuToggle]);
 
   useEffect(() => {

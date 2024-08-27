@@ -34,20 +34,10 @@ function Layout() {
     <>
       <Scroll />
       <main className="flex flex-col relative h-full min-h-screen my-0 w-full overflow-hidden">
-        <section className="relative min-h-screen">
+        <section className="relative">
           <Header
             Navbar={
-              <Navbar
-                Logo={
-                  <Logo
-                    font_style={
-                      "lg:-ml-[100%] min-[1500px]:-ml-[120%] text-[3rem] text-center lg:w-[20%]"
-                    }
-
-                  />
-                }
-                Text={<HeaderText />}
-              />
+              <Navbar/>
             }
             
           />

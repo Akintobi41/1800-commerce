@@ -57,9 +57,9 @@ function Sort() {
       label="Sort"
       options={sort}
       border="none"
-      width="w-[8.2rem]"
+      width="w-[9rem]"
       styles={
-        "block self-start w-full h-10 text-sm border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
+        "block self-start w-full h-10 text-sm border-b rounded-none shadow-none outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
       }
       onChange={Sort}
     />

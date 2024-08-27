@@ -6,7 +6,7 @@ const Select = React.forwardRef(function Select(
     type,
     options,
     label,
-    border = " border-solid border-[1px]",
+    border = "border-solid border-[1px]",
     width,
     styles,
     text,

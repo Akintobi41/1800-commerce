@@ -100,7 +100,7 @@ const Subscribe = () => {
           </div>
 
           <Button data-testid="btn" styles={s.btn}>
-            Sign Up Now
+            Subscribe
           </Button>
         </form>
       ) : (

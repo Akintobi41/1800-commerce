@@ -29,7 +29,7 @@ function RenderProducts({ next }) {
         return (
           <section
             key={name}
-            className="flex flex-col relative w-[47%] sm:w-[30%] md:w-[23%] lg:w-[30%] h-[18rem] sm:h-[24em] max-h-[700px] cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
+            className="flex flex-col relative w-[46%] sm:w-[30%] md:w-[23%] lg:w-[30%] h-[18rem] sm:h-[24em] max-h-[700px] cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
             onClick={(e) => handleClick(e, product)}
           >
             <section className="relative w-full bg-[#fff] h-[60%] lg:-h-[700px]">
@@ -54,7 +54,7 @@ function RenderProducts({ next }) {
             {[name, type, price].map((item, i) => (
               <p
                 key={item}
-                className={`text-sm mt-1 ${
+                className={`text-sm mt-1 w-full truncate text-ellipsis overflow-hidden ${
                   i > 1 ? "font-medium" : ""
                 } ${
                   i === 1

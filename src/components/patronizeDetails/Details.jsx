@@ -21,7 +21,7 @@ const Details = ({ el, activeIndex, setActiveIndex }) => {
         }
         aria-controls={`panel-${el.id}`}
       >
-        <p className='w-11/12 leading-[1.5 ]'>{el.title}</p>
+        <p className='w-11/12 leading-[1.5]'>{el.title}</p>
       </Button>
       <div
       data-testid = 'summary-section'  

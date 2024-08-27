@@ -1,17 +1,13 @@
 /* eslint-disable react/prop-types */
-import OpenAccountModal from "../openAccountModal/OpenAccountModal";
-import CartIcon from './../../assets/Icons/CartIcon';
+import HeaderText from "../headerText/HeaderText";
 import NavMenu from "./navMenu/NavMenu";
 
-const Navbar = ({ Logo, Text }) => {
+const Navbar = () => {
   return (
     <>
-      {Text}
-      <section className="flex items-end relative bg-[var(--white)] px-4 md:pl-0 h-[6rem] max-w-[1500px] mx-auto">
+      <HeaderText/>
+      <section className="flex items-end relative bg-[var(--white)] px-4 h-[6rem] min-[1500px]:px-0 max-w-[1500px] mx-auto">
           <NavMenu
-            Logo={Logo}
-            modal={<OpenAccountModal />}
-            cartIcon={<CartIcon />}
           />
         </section>
     </>

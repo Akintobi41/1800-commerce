@@ -117,7 +117,7 @@ function CheckoutForm({
       />
       <p className="text-sm text-[var(--red)] h-2 -mt-3 mb-3">
         {success || successful
-          ? "Some fields are still empty/incorrect"
+          ? "Phone number is invalid"
           : null}
       </p>
       {Button}

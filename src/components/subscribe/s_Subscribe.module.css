@@ -48,7 +48,7 @@
 
 .sign-up{
     margin: 0 0 2rem .4rem;
-    line-height: 1;
+    line-height: 1.75;
 }
 .spam-message {
     font-size: 0.75rem;
@@ -126,12 +126,12 @@
     border-radius: 18px;
     color: #fff;
     cursor: pointer;
-    font-size: 16px;
-    height: 36px;
-    padding: 0 17px;
+    height: 32px;
+    width: 150px;
     position: relative;
     transition: background .2s ease-in-out, color .2s ease-in-out;
     white-space: nowrap;
+    letter-spacing: 1px;
 }
 
 .btn:hover{ 
@@ -180,5 +180,11 @@
 
     100% {
         transform: rotate(3deg);
+    }
+}
+
+@media (min-width:640px) {
+    .btn { 
+        min-width:150px
     }
 }

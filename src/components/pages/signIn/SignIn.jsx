@@ -12,7 +12,7 @@ import Input from "../../reusables/input/Input";
 import TextContainer from "../../textContainer/TextContainer";
 import ViewPassword from "../../viewPassword/ViewPassword";
 
-function SignIn({ id }) {
+function SignIn() {
   const { register, handleSubmit, formState } = useForm();
   const { isValid } = formState;
   const dispatch = useDispatch();
@@ -43,7 +43,7 @@ function SignIn({ id }) {
   };
   return (
     <>
-      <section className="bg-[var(--white)] lg:max-w-[500px] lg:mx-auto h-[60%] flex flex-col absolute bottom-0 w-full p-6 transition-all duration-[1s] md:w-[45%] md:top-1/2 md:left-1/2 md:[transform:translate(-50%,-50%)] md:mx-auto md:my-0">
+      <section className="bg-[var(--white)] lg:max-w-[500px] lg:mx-auto h-[70%] md:h-[62%] flex flex-col absolute bottom-0  w-full p-6 transition-all duration-[1s] md:w-[55%] md:top-1/2 md:left-1/2 md:[transform:translate(-50%,-50%)] md:mx-auto md:my-0">
         <CloseIcon
           className={
             "absolute right-1 top-2 cursor-pointer"
@@ -53,7 +53,7 @@ function SignIn({ id }) {
         <TextContainer className={"text-center"}>
           Sign In
         </TextContainer>
-        <p className="text-center">
+        <p className="text-center my-5">
           Sign in to access your account or add items to
           your cart.
         </p>
@@ -64,7 +64,7 @@ function SignIn({ id }) {
             setIsSuccessful(false);
             setErrors("");
           }}
-          className="flex flex-col gap-y-6 text-sm max-w-[500px] mx:auto mt-8"
+          className="flex flex-col gap-y-6 text-sm max-w-lg mt-8 mx-auto w-full"
         >
           <Input
             label="Email"
@@ -96,7 +96,7 @@ function SignIn({ id }) {
           </p>
           <Button
             type="submit"
-            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[8.5rem] rounded-[24px] h-[28px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
+            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[8.5rem] rounded-[24px] h-[32px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
               loading ? "opacity-70 " : "opacity-100"
             }`}
             onClick={() =>
@@ -106,20 +106,20 @@ function SignIn({ id }) {
             {" "}
             {loading ? "Doing Things" : "Sign In"}
           </Button>
-        </form>
-        <p className="text-sm mt-4">
+          <p className="text-sm">
           Don&apos;t have an account?{" "}
           <small
             className="underline cursor-pointer"
             onClick={() => {
               dispatch(closeEntry());
-
               navigate("/signup");
             }}
           >
             Create Account
           </small>
         </p>
+        </form>
+      
       </section>
     </>
   );

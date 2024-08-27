@@ -28,7 +28,7 @@ const Products = () => {
       data-testid="products"
       className="relative flex flex-col px-4 min-h-[500px] bg-[var(--white)] overflow-x-hidden"
     >
-      <section className=" relative flex  flex-wrap gap-2 justify-center mt-24 lg:gap-x-10 max-w-[1500px] min-[1500px]:mx-auto">
+      <section className=" relative flex  flex-wrap gap-4 sm:gap-x-6 justify-center mt-24 lg:gap-x-10 max-w-[1500px] min-[1500px]:mx-auto">
         {!isLoading && products.length > 0 ? (
           <>
            <ProductHeader/>

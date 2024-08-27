@@ -59,9 +59,9 @@ function Filter() {
       border="none"
       label="Filter"
       options={filter}
-      width="w-[8.2rem]"
+      width="w-[9rem]"
       styles={
-        "block self-start w-full h-10 text-sm text-right border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
+        "block self-start w-full h-10 text-sm text-right rounded-none border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
       }
       onChange={Filter}
       ref={optionRef}

@@ -70,7 +70,7 @@ function Checkout() {
             handleFormSubmit={handleFormSubmit}
             Button={
               <Button
-                styles={`bg-[var(--black)] text-[var(--white)] w-[8rem] rounded hover:bg-[var(--pry-col)] transition-colors duration-500 ${
+                styles={`bg-[var(--black)] text-[var(--white)] w-[8rem] h-[32px] rounded hover:bg-[var(--pry-col)] transition-colors duration-500 ${
                   submit ? "opacity-40" : ""
                 }`}
                 onClick={() => setErrors(true)}
@@ -117,15 +117,9 @@ function Checkout() {
                 <p className="font-bold">
                   Customer Details
                 </p>
-                <div className="checkout-field">
-                  <p className="text-sm">{name}</p>
-                </div>
-                <div className="checkout-field">
-                  <p className="text-sm">{email}</p>
-                </div>
-                <div className="checkout-field">
-                  <p className="text-sm">{phone}</p>
-                </div>
+                  {[name, emailamount].map((item) => ( 
+                  <p key={item} className="text-sm">{item}</p>
+                  ))}
                 <p className="my-4 font-semibold text-sm">
                   NGN {format(amount / 100)}
                 </p>

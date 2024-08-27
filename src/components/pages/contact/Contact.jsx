@@ -43,7 +43,7 @@ const Contact = () => {
           className="mt-8 flex flex-col gap-y-2 mx-auto max-w-xl"
           onSubmit={handleSubmit(sendMessage)}
         >
-          <h3 className="text-center font-medium mb-8">
+          <h3 className="text-center font-medium my-8">
             Contact Form
           </h3>
           <Input

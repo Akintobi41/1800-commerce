@@ -8,7 +8,7 @@ const Trending = () => {
   return (
     <>
       <section className='flex flex-col bg-[var(--white)] px-4'>
-        <Heading>2023 Trending Brands </Heading>
+        <Heading>2024 Trending Brands </Heading>
         <div data-testid='trending-images'>
         <JordanIcon />
       <JdSportsIcon />

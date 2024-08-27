@@ -12,7 +12,7 @@ import "./s_imageSwiper.css";
 
 const ImageSwiper = ({ images }) => {
   return (
-    <>
+    <div className="min-h-[500px]">
       {images.length > 0 ? (
         <Swiper
           spaceBetween={30}
@@ -26,7 +26,7 @@ const ImageSwiper = ({ images }) => {
           }}
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
-          className="mySwiper"
+          className="max-w-[700px] mx-auto min-h-[500px] bg-gray-100 mb-8"
         >
           <>
             {[...images]?.map((image, index) => (
@@ -50,7 +50,7 @@ const ImageSwiper = ({ images }) => {
       ) : (
         <LoadingAnimation />
       )}
-    </>
+    </div>
   );
 };
 

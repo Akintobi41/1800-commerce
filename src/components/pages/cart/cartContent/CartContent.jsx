@@ -1,29 +1,36 @@
-import { useSelector,useDispatch } from "react-redux";
-import useCart from "../../../hooks/useCart";
-import Button from "../../reusables/button/Button";
-import { totalValues } from "./u_cart";
-import { showEntry } from "../../../store/accountSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { format } from "../../../utils/format/format";
+import useCart from "../../../../hooks/useCart";
+import { showEntry } from "../../../../store/accountSlice";
+import { format } from "../../../../utils/format/format";
+import Button from "../../../reusables/button/Button";
+import { totalValues } from "../u_cart";
 
 function CartContent() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.products);
   const { cartText, total, VAT, shipFee, cartTotal } =
     useCart(cart);
   const navigate = useNavigate();
-  const loggedIn = useSelector((state) => state.auth.status)
-  
-  function handleCheckout() { 
-  return loggedIn ? navigate('/cart/checkout') : dispatch(showEntry(4))   
+  const loggedIn = useSelector(
+    (state) => state.auth.status
+  );
+
+  function handleCheckout() {
+    return loggedIn
+      ? navigate("/cart/checkout")
+      : dispatch(showEntry(4));
   }
-  
+
   return (
     <>
       {cart.length ? (
         <>
           <div className="w-full flex flex-col gap-y-2 border-[#808080] border-b-[1px] pb-4">
-            <p className="hidden md:block text-[2rem] font-semibold"> Order Summary</p>
+            <p className="hidden md:block text-[2rem] font-semibold">
+              {" "}
+              Order Summary
+            </p>
             {cartText.map((item) => (
               <section
                 key={item}
@@ -45,8 +52,13 @@ function CartContent() {
                 &#8358; {format(cartTotal)}
               </p>
             </section>
-            <Button styles={"mt-8 bg-[var(--black)] text-[var(--white)] active:opacity-50 hover:bg-[var(--pry-col)] rounded-[30px] py-2 px-[2rem]"} onClick={handleCheckout}>
-            Checkout
+            <Button
+              styles={
+                "mt-8 bg-[var(--black)] text-[var(--white)] active:opacity-50 hover:bg-[var(--pry-col)] rounded-[30px] h-[32px] px-[2rem]"
+              }
+              onClick={handleCheckout}
+            >
+              Checkout
             </Button>
             <p className="text-left leading-[1.5] mt-8">
               Please double check your delivery address

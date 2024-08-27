@@ -42,18 +42,19 @@ function ProductDetail() {
                   alt=""
                   className="size-[4rem] sm:size-24 cursor-pointer bg-[#cbd5e140] mr-[.5rem]"
                   key={img.fields.file.url}
+                  loading="lazy"
                 />
               ))}
             </section>
             <section className="flex flex-col items-center">
-              <p className="text-[1.25rem] font-bold p-4">
+              <p className="text-[1.25rem] font-bold p-4 text-center">
                 {name}{" "}
               </p>
               <details className="cursor-pointer transition-all duration-500 text-center">
                 <summary className="text-sm underline">
                   read more about this product
                 </summary>
-                <p className="px-4 text-sm max-w-[700px] mx-auto">
+                <p className="px-4 text-sm max-w-[500px] mx-auto">
                   {description}{" "}
                 </p>
               </details>
@@ -63,7 +64,7 @@ function ProductDetail() {
               </p>
             </section>
           </section>
-          <section className="px-4 w-full flex justify-center">
+          <section className="p-6 w-full flex justify-center">
             <Button
               styles={`${
                 checkProduct

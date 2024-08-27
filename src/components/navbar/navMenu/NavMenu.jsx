@@ -3,15 +3,18 @@ import { lazy, Suspense, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import LoadingAnimation from "../../loadingAnimation/Loader";
+import Logo from "../../logo/Logo";
+import CartIcon from "../../../assets/Icons/CartIcon";
 const NavBodyOverflow = lazy(() =>
   import("../navBody/NavBodyOverflow")
 );
 const TopNav = lazy(() => import("./../topNav/TopNav"));
 const NavSection = lazy(() =>
   import("../navSection/NavSection")
-);
+);import OpenAccountModal from './../../openAccountModal/OpenAccountModal';
 
-function NavMenu({ Logo, modal, cartIcon }) {
+
+function NavMenu() {
   const [menuToggle, setMenuToggle] = useState(false);
   const navMenu = useRef(null);
   const cart = useSelector((state) => state.cart.products);
@@ -36,16 +39,16 @@ function NavMenu({ Logo, modal, cartIcon }) {
               <NavSection setMenuToggle={setMenuToggle} />
             }
           />
-          <section className="flex w-full lg:w-[45%] justify-between items-center">
+          <section className="flex w-full lg:w-[58%] justify-between items-center">
             <section
               aria-label="hamburger-icon"
               data-testid="nav-icon"
-              className="flex relative w-8 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden md:justify-end"
+              className="flex relative w-8 mt-2 items-center h-6 cursor-pointer lg:invisible lg:opacity-0 lg:hidden"
               onClick={() => setMenuToggle(!menuToggle)}
               ref={navMenu}
             >
               <div
-                className={`border-l-indigo-400 relative w-3 h-[.115rem] transition-[transform] duration-700 before:content-[''] hover:bg-[var(--pry-col)] before:hover:bg-[var(--pry-col)] after:hover:bg-[var(--pry-col)] before:block before:w-[1rem] before:h-[.11rem] before:transition-[rotate] before:duration-700 before:bg-black before:absolute after:content-[''] after:block after:w-[1rem] after:transition-[rotate] after:duration-700 after:h-[.115rem] after:bg-black ${
+                className={`border-l-indigo-400 relative w-5 h-[.18rem] transition-[transform] duration-700 before:content-[''] hover:bg-[var(--pry-col)] before:hover:bg-[var(--pry-col)] after:hover:bg-[var(--pry-col)] before:block before:w-[1.5rem] before:h-[.18rem] before:transition-[rotate] before:duration-700 before:bg-black before:absolute after:content-[''] after:block after:w-[1.5rem] after:transition-[rotate] after:duration-700 after:h-[.18rem] after:bg-black ${
                   menuToggle
                     ? "bg-[transparent] hover:bg-transparent before:translate-y-0 before:-rotate-45 after:w-4 after:translate-y-0 after:rotate-45"
                     : "bg-black before:-translate-y-[5px] after:translate-y-[5px] hover:bg-[transparent]"
@@ -53,20 +56,20 @@ function NavMenu({ Logo, modal, cartIcon }) {
               ></div>
             </section>
             <section>
-              <div>{Logo}</div>
+              <Logo/>
             </section>
             <section
               aria-label="hamburger-icon"
               data-testid="nav-icon"
               className="flex items-center justify-end"
             >
-              <div>{modal}</div>
+              <div><OpenAccountModal/> </div>
               <Link
                 data-testid="cart-link"
                 className="relative flex justify-center items-center cursor-pointer ml-2"
                 to={"/cart"}
               >
-                <div>{cartIcon}</div>
+                <div><CartIcon/></div>
                 <div className="absolute -right-[5px] -top-[3px] bg-[var(--black)] text-[var(--white)] w-5 h-5 flex justify-center items-center rounded-[50%] hover:bg-[var(--pry-col)]">
                   <p className="text-[var(--white)]">
                     {total}

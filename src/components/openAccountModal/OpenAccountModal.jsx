@@ -32,6 +32,7 @@ function OpenAccountModal() {
       !navMenu.current?.contains(e.target)
     ) {
       setOverflow(false);
+      console.log()
     }
   }
 
