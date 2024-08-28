@@ -4,8 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 import authService from "../../appwrite/auth/auth";
 import { signIn } from "../../store/loginSlice";
 import Header from "../header/Header";
-import HeaderText from "../headerText/HeaderText";
-import Logo from "../logo/Logo";
 import Navbar from "../navbar/Navbar";
 import Scroll from "../scrollToTop/Scroll";
 import LayoutRoutes from "./../layoutRoutes/LayoutRoutes";

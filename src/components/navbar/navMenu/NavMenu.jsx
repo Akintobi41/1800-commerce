@@ -1,18 +1,13 @@
 /* eslint-disable react/prop-types */
-import { lazy, Suspense, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import LoadingAnimation from "../../loadingAnimation/Loader";
-import Logo from "../../logo/Logo";
 import CartIcon from "../../../assets/Icons/CartIcon";
-const NavBodyOverflow = lazy(() =>
-  import("../navBody/NavBodyOverflow")
-);
-const TopNav = lazy(() => import("./../topNav/TopNav"));
-const NavSection = lazy(() =>
-  import("../navSection/NavSection")
-);import OpenAccountModal from './../../openAccountModal/OpenAccountModal';
-
+import Logo from "../../logo/Logo";
+import NavSection from "../navSection/NavSection";
+import OpenAccountModal from './../../openAccountModal/OpenAccountModal';
+import NavBodyOverflow from './../navBody/NavBodyOverflow';
+import TopNav from "./../topNav/TopNav";
 
 function NavMenu() {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -24,7 +19,6 @@ function NavMenu() {
 
   return (
     <>
-      <Suspense fallback={<LoadingAnimation />}>
         <NavBodyOverflow
           menuToggle={menuToggle}
           setMenuToggle={setMenuToggle}
@@ -79,7 +73,6 @@ function NavMenu() {
             </section>
           </section>
         </div>
-      </Suspense>
     </>
   );
 }

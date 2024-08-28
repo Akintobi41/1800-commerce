@@ -77,7 +77,7 @@ function SignUpForm({ formProp }) {
       <Button
         type="submit"
         onClick={() => setIsVisible(!isValid)}
-        styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[8.5rem] sm:w-[35%] rounded-[24px] h-[32px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
+        styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[9rem] sm:w-[35%] rounded-[24px] h-[32px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
           loading ? "opacity-70 " : "opacity-100"
         }`}
         disabled={loading}

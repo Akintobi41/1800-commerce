@@ -17,6 +17,7 @@ export async function fetchAllData(type) { //fetch all content
             content_type: type,
         })
         if (!res) throw Error();
+        console.log(JSON.stringify(res.items[0]))
         return res;
     } catch (error) {
         if (numTimes < 4) {

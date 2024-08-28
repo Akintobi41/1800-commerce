@@ -5,7 +5,7 @@ import Filter from "../../filter/Filter";
 import LoadingAnimation from "../../loadingAnimation/Loader";
 import Sort from "../../sort/Sort";
 import LoadMoreProducts from "./loadMoreProducts/LoadMoreProducts";
-import ProductHeader from './productHeader.jsx/ProductHeader';
+import ProductHeader from "./productHeader.jsx/ProductHeader";
 import RenderProducts from "./renderProducts/RenderProducts";
 import ScrollButton from "./scrollButton/ScrollButton";
 import { useFetchProducts } from "./useFetchProducts";
@@ -17,7 +17,6 @@ const Products = () => {
   const [next, setNext] = useState(productsPerSlide);
   const { isLoading } = useFetchProducts();
   const { backToTopButton, Scroll } = useScroll();
-
 
   function handleMoreProducts() {
     setNext(next + productsPerSlide);
@@ -31,7 +30,7 @@ const Products = () => {
       <section className=" relative flex  flex-wrap gap-4 sm:gap-x-6 justify-center mt-24 lg:gap-x-10 max-w-[1500px] min-[1500px]:mx-auto">
         {!isLoading && products.length > 0 ? (
           <>
-           <ProductHeader/>
+            <ProductHeader />
             <div className="border-t-[1px] border-gray-200 w-[180%] my-4 box-border relative right-[16px]"></div>
             <section
               data-testid="sort-section"
@@ -40,9 +39,7 @@ const Products = () => {
               <Sort />
               <Filter />
             </section>{" "}
-            <RenderProducts
-              next={next}
-            />
+            <RenderProducts next={next} />
           </>
         ) : (
           <section className="w-full h-[80vh] flex items-center justify-center">

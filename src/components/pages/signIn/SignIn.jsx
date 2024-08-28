@@ -96,7 +96,7 @@ function SignIn() {
           </p>
           <Button
             type="submit"
-            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[8.5rem] rounded-[24px] h-[32px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
+            styles={`font-medium text-[var(--white)] bg-[var(--black)] w-[9rem] rounded-[24px] h-[32px] px-[24px] hover:bg-[var(--pry-col)] transition-all duration-300 ${
               loading ? "opacity-70 " : "opacity-100"
             }`}
             onClick={() =>
@@ -107,19 +107,18 @@ function SignIn() {
             {loading ? "Doing Things" : "Sign In"}
           </Button>
           <p className="text-sm">
-          Don&apos;t have an account?{" "}
-          <small
-            className="underline cursor-pointer"
-            onClick={() => {
-              dispatch(closeEntry());
-              navigate("/signup");
-            }}
-          >
-            Create Account
-          </small>
-        </p>
+            Don&apos;t have an account?{" "}
+            <small
+              className="underline cursor-pointer"
+              onClick={() => {
+                dispatch(closeEntry());
+                navigate("/signup");
+              }}
+            >
+              Create Account
+            </small>
+          </p>
         </form>
-      
       </section>
     </>
   );

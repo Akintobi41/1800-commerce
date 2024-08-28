@@ -6,7 +6,6 @@ const { endpoint, projectId } = AppwriteConfig;
 export class AuthService {
     client = new Client();
     account;
-    // why is account initialized here;
 
     constructor() {
         this.client.setEndpoint(endpoint).setProject(projectId);
