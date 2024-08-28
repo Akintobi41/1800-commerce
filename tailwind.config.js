@@ -2,11 +2,6 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    // fontSize: {
-    //   "bold-font": "27px",
-    //   // text: "13px",
-    //   // sm: '0.1rem',
-    // },
     extend: {
       keyframes: {
         Shake: {
