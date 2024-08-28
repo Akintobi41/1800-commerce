@@ -43,7 +43,7 @@ function SignIn() {
   };
   return (
     <>
-      <section className="bg-[var(--white)] lg:max-w-[500px] lg:mx-auto h-[70%] md:h-[62%] flex flex-col absolute bottom-0  w-full p-6 transition-all duration-[1s] md:w-[55%] md:top-1/2 md:left-1/2 md:[transform:translate(-50%,-50%)] md:mx-auto md:my-0">
+      <section className="bg-[var(--white)] lg:max-w-[500px] lg:mx-auto h-[500px] md:h-[62%] flex flex-col absolute bottom-0  w-full p-6 transition-all duration-[1s] md:w-[55%] md:top-1/2 md:left-1/2 md:[transform:translate(-50%,-50%)] md:mx-auto md:my-0">
         <CloseIcon
           className={
             "absolute right-1 top-2 cursor-pointer"
