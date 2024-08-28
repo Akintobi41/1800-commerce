@@ -25,7 +25,7 @@ const ShowcaseSection = () => {
           <section
             data-testid='showcase-images'
               key={item.id}
-              className={`h-[20rem] md:h-[24rem] lg:h-[30rem] lg:w-[48%] bg-center bg-no-repeat`}
+              className={`h-[20rem] md:h-[24rem] lg:h-[30rem] lg:w-[48%] bg-center bg-no-repeat bg-gray-400`}
               style={{
                 backgroundImage: `url(${item.img})`,
               }}
