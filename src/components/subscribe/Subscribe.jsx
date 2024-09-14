@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Heading from "../heading/Heading";
-import Button from "../reusables/button/Button";
-import Input from "../reusables/input/Input";
+import Heading from "@components/heading/Heading";
+import Button from "@reusables/button/Button";
+import Input from "@reusables/input/Input";
 import s from "./s_Subscribe.module.css";
 
 const Subscribe = () => {

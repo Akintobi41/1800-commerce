@@ -13,9 +13,7 @@ describe('testing about links', (() => {
         act(() => { 
             btn.click();
         })
-        screen.debug();
         expect(screen.getByTestId('about-main')).toBeInTheDocument();
-        screen.debug();
 
 
    })

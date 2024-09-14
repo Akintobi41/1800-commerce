@@ -1,8 +1,10 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+
 const Logo = ({
   font_style = "text-[3rem] text-center",
 }) => {
+  
   return (
     <Link
       to={"/"}

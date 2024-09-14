@@ -1,7 +1,7 @@
-import { Link } from "react-router-dom";
+import Heading from "@components/heading/Heading";
+import Button from "@reusables/button/Button";
 import React from "react";
-import Button from "../reusables/button/Button";
-import Heading from "../heading/Heading";
+import { Link } from "react-router-dom";
 
 const ReachOut = () => {
   const textOptions = ["Happiness Guarantee", ""];

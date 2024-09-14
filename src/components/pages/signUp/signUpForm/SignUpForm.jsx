@@ -1,18 +1,17 @@
 /* eslint-disable react/prop-types */
+import authService from "@appwrite/auth/auth";
+import Button from "@reusables/button/Button";
+import Input from "@reusables/input/Input";
+import { closeEntry } from "@store/accountSlice";
+import { signIn } from "@store/loginSlice";
+import {
+  messageMap,
+  radioText
+} from "@utils/constants/constants";
+import { validateEmail } from "@utils/validate/emailValidate";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import authService from "../../../../appwrite/auth/auth";
-import { closeEntry } from "../../../../store/accountSlice";
-import { signIn } from "../../../../store/loginSlice";
-import {
-  msg,
-  radioText,
-  userMsg,
-} from "../../../../utils/constants/constants";
-import { validateEmail } from "../../../../utils/validate/emailValidate";
-import Button from "../../../reusables/button/Button";
-import Input from "../../../reusables/input/Input";
 import SignUpInputs from "../signUpInputs/SignUpInputs";
 import SignUpSelect from "../signUpInputs/SignUpSelect";
 
@@ -35,13 +34,17 @@ function SignUpForm({ formProp }) {
 
   const onSubmit = async (data) => {
     const checkMail = validateEmail(data.email);
+
     if (!checkMail)
       return setErrorMsg("Email address is invalid");
+
     setLoading(true);
+
     try {
       const userData = await authService.createAccount(
         data
       );
+
       if (userData) {
         const userData = await authService.getCurrentUser();
         if (userData) dispatch(signIn({ userData }));
@@ -51,10 +54,11 @@ function SignUpForm({ formProp }) {
       }
     } catch (error) {
       const { message } = error;
-      setErrorMsg(message === msg ? userMsg : message);
+      setErrorMsg(messageMap[message] || message);
       setLoading(false);
     }
   };
+
 
   return (
     <form

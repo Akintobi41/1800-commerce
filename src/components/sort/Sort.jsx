@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sortProducts } from "../../store/productSlice";
-import { sort } from "../../utils/constants/constants";
-import Select from "../reusables/select/Select";
+import { sortProducts } from "@store/productSlice";
+import { sort } from "@utils/constants/constants";
+import Select from "@reusables/select/Select";
 
 const sortType = localStorage.getItem("sortValue");
+
 
 function Sort() {
   const products = useSelector(
@@ -16,15 +17,17 @@ function Sort() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    Sort();
+    sortItems();
     setData([...products]);
   }, []);
+  
 
   useEffect(() => {
     localStorage.setItem("sortValue", value);
   }, [value]);
 
-  function Sort(e) {
+
+  function sortItems(e) {
     const val = e?.target.value || optionRef.current?.value;
     setValue(val);
     const z_a = [...products].sort((a, b) =>
@@ -49,6 +52,8 @@ function Sort() {
     }[val];
     dispatch(sortProducts(result));
   }
+
+
   return (
     <Select
       data-testid="sort"
@@ -61,7 +66,8 @@ function Sort() {
       styles={
         "block self-start w-full h-10 text-sm border-b rounded-none shadow-none outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
       }
-      onChange={Sort}
+      onChange={sortItems}
+      ref={optionRef}
     />
   );
 }

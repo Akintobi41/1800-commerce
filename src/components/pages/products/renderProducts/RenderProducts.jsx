@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { modifyCart } from "../../../../store/cartSlice";
-import { format } from "../../../../utils/format/format";
-import Button from "../../../reusables/button/Button";
+import { modifyCart } from "@store/cartSlice";
+import { format } from "@utils/format/format";
+import Button from "@reusables/button/Button";
 
 function RenderProducts({ next }) {
   const cart = useSelector((state) => state.cart.products);
@@ -25,9 +25,10 @@ function RenderProducts({ next }) {
       {[...products.slice(0, next)].map((product) => {
         const { name, images, type, price } =
           product.fields;
-
+       
         return (
           <section
+            data-testid = 'product'
             key={name}
             className="flex flex-col relative w-[46%] sm:w-[30%] md:w-[23%] lg:w-[30%] h-[18rem] sm:h-[24em] max-h-[700px] cursor-pointer border-none" //swap styles from w-48 h-64  make this responsive
             onClick={(e) => handleClick(e, product)}

@@ -1,9 +1,8 @@
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { closeEntry } from "../../store/accountSlice";
-import SignIn from "../pages/signIn/SignIn";
-import SignUp from "../pages/signUp/SignUp";
-import { Link } from "react-router-dom";
+import { closeEntry } from "@store/accountSlice";
+import SignIn from "@components/pages/signIn/SignIn";
+
 
 function Entry() {
   const access = useSelector((state) => state.access);
@@ -19,11 +18,15 @@ function Entry() {
           "auto");
   }, [status]);
 
+
   function closeMenu(e) {
     if (e.target.nodeName === "DIV") dispatch(closeEntry());
   }
+  
+  
   return (
     <div
+      data-testid= 'access'
       className={`z-40 overflow-hidden ${
         access.status
           ? "opacity-100 visible h-[100%] fixed w-full transition-all duration-[1s] bottom-0"

@@ -1,5 +1,5 @@
-import { shopFilter } from "../../../../utils/constants/constants";
-import Select from "../../../reusables/select/Select";
+import { shopFilter } from "@utils/constants/constants";
+import Select from "@reusables/select/Select";
 
 function SignUpSelect({ formProp }) {
   const { register, day, month } = formProp;

@@ -1,9 +1,8 @@
-import { useState } from "react";
+import Heading from "@components/heading/Heading";
+import Button from "@reusables/button/Button";
+import Input from "@reusables/input/Input";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import Heading from "../../heading/Heading";
-import Button from "../../reusables/button/Button";
-import Input from "./../../reusables/input/Input";
-import { useEffect } from "react";
 
 const Contact = () => {
   const [successText, setSuccessText] = useState("");
@@ -15,6 +14,8 @@ const Contact = () => {
       "Thank you for reaching out, we'll be in touch soon!"
     );
   };
+  
+
   useEffect(() => {
     if (successText.length) {
       const timer = setTimeout(() => {
@@ -23,6 +24,7 @@ const Contact = () => {
       return () => clearTimeout(timer);
     }
   }, [successText]);
+  
 
   return (
     <>
@@ -49,6 +51,8 @@ const Contact = () => {
           <Input
             border="border-0 border-b-[1px]"
             placeholder="your name"
+            aria-label='name'
+            data-testid= 'name'
             styles="text-sm"
             height="h-[35px]"
             {...register("name", { required: true })}
@@ -56,6 +60,7 @@ const Contact = () => {
           <Input
             border="border-0 border-b-[1px]"
             placeholder="your email"
+            data-testid= 'email'
             styles="text-sm"
             height="h-[35px]"
             {...register("email", { required: true })}
@@ -63,6 +68,7 @@ const Contact = () => {
           <Input
             border="border-0 border-b-[1px]"
             placeholder="say something"
+            data-testid= 'message'
             styles="text-sm"
             height="h-[35px]"
             {...register("password", { required: true })}
@@ -71,6 +77,7 @@ const Contact = () => {
             {successText}
           </small>
           <Button
+          aria-label= 'button'
             styles={
               "mt-4 bg-[var(--black)] text-[var(--white)] w-[5rem] text-[.85rem] py-1 rounded hover:bg-[var(--pry-col)] transition-all duration-300"
             }

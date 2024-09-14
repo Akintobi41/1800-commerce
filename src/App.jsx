@@ -4,10 +4,10 @@ import {
 } from "react-query";
 import { Provider } from "react-redux";
 import { RouterProvider } from "react-router";
-import { StoreProvider } from "./contexts/MyContext";
-import useMyContext from "./contexts/useMyContext";
+import { StoreProvider } from "@contexts/MyContext";
+import useMyContext from "@contexts/useMyContext";
 import router from "./router/Router";
-import store from "./store/store";
+import store from "@store/store";
 
 const App = () => {
   const { overflow, setOverflow } = useMyContext();

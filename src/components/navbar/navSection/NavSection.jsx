@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
-import { showEntry } from "../../../store/accountSlice";
+import { showEntry } from "@store/accountSlice";
 import { navList } from "../navList";
 
 function NavSection({ setMenuToggle }) {

@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import authService from "../../appwrite/auth/auth";
-import { useOverflow } from "../../contexts";
-import { signOut } from "../../store/loginSlice";
-import Button from "./../reusables/button/Button";
+import authService from "@appwrite/auth/auth";
+import { useOverflow } from "@contexts";
+import { signOut } from "@store/loginSlice";
+import Button from "@reusables/button/Button";
 
 function SignOutBtn({ className }) {
   const dispatch = useDispatch();
@@ -13,25 +13,19 @@ function SignOutBtn({ className }) {
   const { setOverflow } = useOverflow();
 
   async function deleteUser() {
+    setModal(true);
     try {
       await authService.logout().then(() => {
-        setModal(true);
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-
-  useEffect(() => {
-    if (modal) {
-      setTimeout(() => {
         dispatch(signOut());
         setModal(false);
         setOverflow(false);
         navigate("/");
-      }, 3000);
+      });
+    } catch (error) {
+      setModal(false);
+      throw new Error(error)
     }
-  }, [modal]);
+  }
 
   return (
     <>
@@ -48,6 +42,7 @@ function SignOutBtn({ className }) {
         </p>
       </div>
       <Button
+        aria-label="sign-out-button"
         styles={`mt-3 rounded p-2 text-[2rem] ${className} font-semibold lg:text-left lg:text-[1rem] lg:font-normal lg:p-0 `}
         onClick={deleteUser}
       >

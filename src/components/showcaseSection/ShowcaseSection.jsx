@@ -1,5 +1,5 @@
-import bgImage1 from "/src/assets/Images/bg-3.jpg";
-import bgImage2 from "/src/assets/Images/bg-female.jpg";
+import bgImage1 from "@images/bg-3.jpg";
+import bgImage2 from "@images/bg-female.jpg";
 
 const ShowcaseSection = () => {
   const items = [

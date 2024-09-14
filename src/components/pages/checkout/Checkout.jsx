@@ -1,26 +1,30 @@
 import { useState } from "react";
 import { PaystackButton } from "react-paystack";
 import { useSelector } from "react-redux";
-import useCart from "../../../hooks/useCart";
-import usePaystack from "../../../hooks/usePaystack";
-import { format } from "../../../utils/format/format";
-import Button from "../../reusables/button/Button";
-import CheckoutForm from "./CheckoutForm";
-import LeftArrow from "./../../../assets/Icons/LeftArrow";
-import { validateEmail } from "../../../utils/validate/emailValidate";
+import useCart from "@hooks/useCart";
+import usePaystack from "@hooks/usePaystack";
+import { format } from "@utils/format/format";
+import { validateEmail } from "@utils/validate/emailValidate";
+import LeftArrow from "@icons/LeftArrow";
+import CheckoutForm from "./checkoutForm/CheckoutForm";
+import CheckoutItems from "./checkoutItems/CheckoutItems";
 
 function Checkout() {
+
   const userData = useSelector(
     (state) => state.auth.userData
   );
   const cart = useSelector((state) => state.cart.products);
   const [next, setNext] = useState(false);
   const [errors, setErrors] = useState(false);
-  const [successful, setSuccessfulText] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   const [userDetails, setUserDetails] = useState({
     name: "",
     email: "",
     phone: "",
+    address: "",
+    country: "",
+    city: "",
   });
   const [submit, setSubmit] = useState(false);
   const { cartTotal } = useCart(cart);
@@ -30,21 +34,36 @@ function Checkout() {
     name,
     email,
     phoneNumber,
+    address,
+    city,
+    country,
   }) => {
     setErrors(false);
     setSubmit(false);
-    setUserDetails({ name, email, phone: phoneNumber });
+    setUserDetails({
+      name,
+      email,
+      phone: phoneNumber,
+      city,
+      country,
+      address,
+    });
+
     if (/[^\d]/g.test(phoneNumber))
-      return setSuccessfulText("Phone Number is invalid");
+      return setErrorMessage("Phone Number is invalid");
+
     const checkMail = validateEmail(email);
+
     if (!checkMail)
-      return setSuccessfulText("Email address is invalid");
+      return setErrorMessage("Email address is invalid");
+
     setNext(true);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const { approved, publicKey } = usePaystack();
-  const { name, email, phone } = userDetails;
+  const { name, email, phone, city, country, address } =
+    userDetails;
 
   const componentProps = {
     email,
@@ -62,25 +81,19 @@ function Checkout() {
     <section className="mt-24 p-4 min-h-[500px]">
       {!next ? (
         <>
-          <p className="font-bold text-center lg:text-[25px] mb-4">
+          <p className="font-bold text-center lg:text-[25px] mb-20 mt-8">
             Shipping Address
           </p>
 
           <CheckoutForm
-            handleFormSubmit={handleFormSubmit}
-            Button={
-              <Button
-                styles={`bg-[var(--black)] text-[var(--white)] w-[8rem] h-[32px] rounded hover:bg-[var(--pry-col)] transition-colors duration-500 ${
-                  submit ? "opacity-40" : ""
-                }`}
-                onClick={() => setErrors(true)}
-              >
-                {!submit ? "Submit" : "Doing Things"}{" "}
-              </Button>
-            }
-            data={userData}
-            successful={successful}
-            setSuccessfulText={setSuccessfulText}
+            formProps={{
+              handleFormSubmit,
+              submit,
+              setErrors,
+              userData,
+              errorMessage,
+              setErrorMessage,
+            }}
           />
         </>
       ) : (
@@ -94,34 +107,31 @@ function Checkout() {
             <span className="ml-1">Back to Shipping</span>
           </p>
           <div>
-            <div className="max-w-[700px] mx-auto">
-              <div className>
-                <section>{/*  */}</section>
-                <p className="font-bold mt-4">
+            <div className="flex flex-col items-center max-w-[500px] mx-auto">
+              <div className="w-full my-8">
+                <p className="font-bold my-4">
                   Order Details
                 </p>
-                {cart.map((item) => (
-                  <section
-                    className="flex gap-x-2 text-sm"
-                    key={item.name}
-                  >
-                    <p>{item.name + " " + item.type} </p>{" "}
-                    <p className="font-semibold">
-                      X{item.quantity}
-                    </p>
-                  </section>
-                ))}
+                <CheckoutItems />
                 <div className="flex flex-col gap-2"></div>
               </div>
-              <div className="mt-4">
-                <p className="font-bold">
+              <div className="mt-20 mb-8 max-w-[500px] mx-auto w-full">
+                <p className="font-bold my-4">
                   Customer Details
                 </p>
-                  {[name, emailamount].map((item) => ( 
-                  <p key={item} className="text-sm">{item}</p>
-                  ))}
+                {[
+                  ["Name", name],
+                  ["Email", email],
+                  ["Address", address],
+                  ["City", city],
+                  ["Country", country],
+                ].map(([label, item]) => (
+                  <p key={item} className="text-sm my-2">
+                    {`${[label]} : ${item}`}
+                  </p>
+                ))}
                 <p className="my-4 font-semibold text-sm">
-                  NGN {format(amount / 100)}
+                  Total cost: NGN {format(amount / 100)}
                 </p>
               </div>
               <PaystackButton

@@ -27,7 +27,7 @@ describe('testing the subscribe form', (() => {
             expect(radio.value).toBe('Men')
         }),
 
-        test('check error element is rendered in the DOM', () => {
+        test('check error element is not rendered in the DOM', () => {
             render(<Subscribe />)
             expect(screen.queryByTestId('error')).not.toBeInTheDocument();
         }),

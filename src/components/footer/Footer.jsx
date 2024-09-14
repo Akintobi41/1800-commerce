@@ -1,12 +1,14 @@
-import CustomerService from "../customerService/CustomerService";
-import Logo from "../logo/Logo";
-import Social from "../social/Social";
+import HelpAndSupportLinks from "@components/help/HelpAndSupportLinks";
+import Logo from "@components/logo/Logo";
+import Social from "@components/social/Social";
+
+
 const Footer = () => {
   return (
     <>
       <hr className="section mt-6 w-[140%] ml-[-20%]" />
       <footer className=" w-full flex flex-col px-4 pb-2 my-0 min-[1500px]:mx-auto max-w-[1500px]">
-        <CustomerService />
+        <HelpAndSupportLinks />
         <Social />
       </footer>
       <Logo

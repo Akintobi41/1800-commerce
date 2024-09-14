@@ -1,9 +1,9 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import LeftArrow from "./../../../assets/Icons/LeftArrow";
+import LeftArrow from "@icons/LeftArrow";
+import Delivery from "@components/delivery/Delivery";
 import CartContent from "./cartContent/CartContent";
 import CartDisplay from "./CartDisplay/CartDisplay";
-import Delivery from './../../delivery/Delivery';
 
 const Cart = () => {
   const cart = useSelector((state) => state.cart.products);
@@ -19,7 +19,7 @@ const Cart = () => {
       >
         {" "}
         <LeftArrow size="size-4" />
-        <section className="text-sm font-medium px-1">
+        <section className="text-sm font-medium px-1 py-6">
           Continue Shopping
         </section>
       </Link>

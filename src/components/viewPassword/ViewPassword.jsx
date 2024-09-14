@@ -1,13 +1,24 @@
-import EyeSlashIcon from './../../assets/Icons/EyeSlashIcon';
-import EyeIcon from '../../assets/Icons/EyeIcon';
+import EyeSlashIcon from "@icons/EyeSlashIcon";
+import EyeIcon from "@icons/EyeIcon";
 
-function ViewPassword({view,...props}) {
+function ViewPassword({ view, ...props }) {
   return (
-      <section {...props}>
-      {view ? <EyeIcon className={'absolute top-9 right-2 cursor-pointer'} /> : <EyeSlashIcon className={'absolute top-9 right-2 cursor-pointer'}/>}
-      </section>
-      
-  )
+    <section {...props}>
+      {view ? (
+        <EyeIcon
+          className={
+            "absolute top-9 right-2 cursor-pointer"
+          }
+        />
+      ) : (
+        <EyeSlashIcon
+          className={
+            "absolute top-9 right-2 cursor-pointer"
+          }
+        />
+      )}
+    </section>
+  );
 }
 
-export default ViewPassword
+export default ViewPassword;

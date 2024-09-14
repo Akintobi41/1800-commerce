@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
 
 function Delivery() {
+
   const cart = useSelector((state) => state.cart.products);
+  
   return (
     <>
       {cart.length ? (

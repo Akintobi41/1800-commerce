@@ -2,12 +2,13 @@
 import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import CartIcon from "../../../assets/Icons/CartIcon";
-import Logo from "../../logo/Logo";
+import CartIcon from "@icons/CartIcon";
+import Logo from "@components/logo/Logo";
 import NavSection from "../navSection/NavSection";
-import OpenAccountModal from './../../openAccountModal/OpenAccountModal';
-import NavBodyOverflow from './../navBody/NavBodyOverflow';
-import TopNav from "./../topNav/TopNav";
+import OpenAccountModal from '@components/openAccountModal/OpenAccountModal';
+import NavBodyOverflow from '@components/navbar/navBody/NavBodyOverflow';
+import TopNav from "@components/navbar/topNav/TopNav";
+
 
 function NavMenu() {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -17,6 +18,7 @@ function NavMenu() {
     .map((item) => item.quantity)
     .reduce((first, second) => first + second, 0);
 
+  
   return (
     <>
         <NavBodyOverflow
@@ -65,7 +67,7 @@ function NavMenu() {
               >
                 <div><CartIcon/></div>
                 <div className="absolute -right-[5px] -top-[3px] bg-[var(--black)] text-[var(--white)] w-5 h-5 flex justify-center items-center rounded-[50%] hover:bg-[var(--pry-col)]">
-                  <p className="text-[var(--white)]">
+                  <p data-testid= 'total' className="text-[var(--white)]">
                     {total}
                   </p>
                 </div>

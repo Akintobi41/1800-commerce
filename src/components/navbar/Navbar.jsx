@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import HeaderText from "../headerText/HeaderText";
+import HeaderText from "@components/headerText/HeaderText";
 import NavMenu from "./navMenu/NavMenu";
 
 const Navbar = () => {

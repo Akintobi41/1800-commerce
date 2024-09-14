@@ -1,11 +1,13 @@
 import { lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
-import LoadingAnimation from "../../loadingAnimation/Loader";
+import LoadingAnimation from "@components/loadingAnimation/Loader";
+
 const SignOutBtn = lazy(() =>
-  import("../../signOutBtn/SignOutBtn")
+  import("@components/signOutBtn/SignOutBtn")
 );
 
 function TopNav({ menuToggle, section }) {
+  
   const loggedIn = useSelector(
     (state) => state.auth.status
   );

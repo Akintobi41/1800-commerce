@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
+import authService from "@appwrite/auth/auth";
+import Header from "@components/header/Header";
+import LayoutRoutes from "@components/layoutRoutes/LayoutRoutes";
+import Scroll from "@components/scrollToTop/Scroll";
+import { signIn } from "@store/loginSlice";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import authService from "../../appwrite/auth/auth";
-import { signIn } from "../../store/loginSlice";
-import Header from "../header/Header";
-import Navbar from "../navbar/Navbar";
-import Scroll from "../scrollToTop/Scroll";
-import LayoutRoutes from "./../layoutRoutes/LayoutRoutes";
 
 function Layout() {
   const loggedIn = useSelector(
@@ -22,7 +21,7 @@ function Layout() {
           dispatch(signIn({ userData }));
         }
       } catch (error) {
-        console.log(error);
+      throw new Error(error)
       }
     }
     getUser();
@@ -33,12 +32,7 @@ function Layout() {
       <Scroll />
       <main className="flex flex-col relative h-full min-h-screen my-0 w-full overflow-hidden">
         <section className="relative">
-          <Header
-            Navbar={
-              <Navbar/>
-            }
-            
-          />
+          <Header />
           <LayoutRoutes />
         </section>
       </main>

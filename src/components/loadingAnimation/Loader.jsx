@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const loadingContainer = {
@@ -48,10 +47,12 @@ const loadingCircleTransition = {
 const LoadingAnimation = () => {
   return (
     <motion.div
+      data-testid= 'loader'
       style={loadingContainer}
       variants={loadingContainerVariants}
       initial="start"
       animate="end"
+
     >
       <motion.span
         style={loadingCircle}

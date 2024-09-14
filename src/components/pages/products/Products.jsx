@@ -1,9 +1,9 @@
+import Filter from "@components/filter/Filter";
+import LoadingAnimation from "@components/loadingAnimation/Loader";
+import Sort from "@components/sort/Sort";
+import useScroll from "@hooks/useScroll";
 import { useState } from "react";
 import { useSelector } from "react-redux";
-import useScroll from "../../../hooks/useScroll";
-import Filter from "../../filter/Filter";
-import LoadingAnimation from "../../loadingAnimation/Loader";
-import Sort from "../../sort/Sort";
 import LoadMoreProducts from "./loadMoreProducts/LoadMoreProducts";
 import ProductHeader from "./productHeader.jsx/ProductHeader";
 import RenderProducts from "./renderProducts/RenderProducts";
@@ -11,6 +11,7 @@ import ScrollButton from "./scrollButton/ScrollButton";
 import { useFetchProducts } from "./useFetchProducts";
 
 const Products = () => {
+  
   const products =
     useSelector((state) => state.products.products) || [];
   const productsPerSlide = 10;
@@ -21,6 +22,7 @@ const Products = () => {
   function handleMoreProducts() {
     setNext(next + productsPerSlide);
   }
+
 
   return (
     <section

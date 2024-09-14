@@ -3,11 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   filterProducts,
   setProducts,
-} from "../../store/productSlice";
-import { filter } from "../../utils/constants/constants";
-import Select from "../reusables/select/Select";
+} from "@store/productSlice";
+import { filter } from "@utils/constants/constants";
+import Select from "@components/reusables/select/Select";
 
 const filterType = localStorage.getItem("value");
+
+
 function Filter() {
   const dispatch = useDispatch();
   const optionRef = useRef();
@@ -16,15 +18,20 @@ function Filter() {
   );
   const [value, setValue] = useState(filterType);
 
+
   useEffect(() => {
-    Filter();
+    filterItems();
   }, [myProducts]);
+
+
 
   useEffect(() => {
     localStorage.setItem("value", value);
   }, [value]);
 
-  function Filter(e) {
+
+
+  function filterItems(e) {
     const val = e?.target.value || optionRef.current?.value;
     setValue(val);
     const fragrance = [...myProducts].filter(
@@ -40,7 +47,6 @@ function Filter() {
       (items) => items.fields.type === "Bag"
     );
     const result = {
-      "": [...myProducts],
       None: [...myProducts],
       Fragrance: fragrance,
       Shoe: shoes,
@@ -50,6 +56,7 @@ function Filter() {
     setProducts([...result]);
     dispatch(filterProducts(result));
   }
+  
 
   return (
     <Select
@@ -63,7 +70,7 @@ function Filter() {
       styles={
         "block self-start w-full h-10 text-sm text-right rounded-none border-b outline-none bg-white mb-8 sticky left-0 top-16 z-10 cursor-pointer"
       }
-      onChange={Filter}
+      onChange={filterItems}
       ref={optionRef}
     />
   );

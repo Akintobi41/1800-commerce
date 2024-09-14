@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Input from "../../../reusables/input/Input";
-import ViewPassword from "../../../viewPassword/ViewPassword";
+import Input from "@reusables/input/Input";
+import ViewPassword from "@components/viewPassword/ViewPassword";
 
 function SignUpInputs({ formProp }) {
   const { pvalid, pword, lName, fName, watch, register } =
@@ -54,7 +54,7 @@ function SignUpInputs({ formProp }) {
               view={view1}
             />
           }
-        maxLength='15'
+          maxLength="15"
         />
       </section>
       <p className="h-2 -mt-6 text-red-600">{pvalid}</p>
@@ -77,7 +77,7 @@ function SignUpInputs({ formProp }) {
             view={view2}
           />
         }
-        maxLength='15'
+        maxLength="15"
       />
       {
         <p className="-mt-6 h-2 text-red-600">

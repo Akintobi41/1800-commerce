@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
-import { showEntry } from "../../../../store/accountSlice";
-import TextContainer from "../../../textContainer/TextContainer";
+import { showEntry } from "@store/accountSlice";
+import TextContainer from "@components/textContainer/TextContainer";
 
 function SignUpHeader() {
   const dispatch = useDispatch();

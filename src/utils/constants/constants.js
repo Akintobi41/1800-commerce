@@ -25,5 +25,16 @@ We take pride in fostering strong relationships with our customers, treating eac
 
 In a world where digital transformation is constant, we remain steadfast in our mission to bring you exceptional value without compromising our core principles. Our story is one of resilience, passion, and a relentless pursuit of excellence. Thank you for being part of our journey, and we look forward to serving you with the same dedication and care that has defined 1800 Store for generations.`}`
 
-export const msg = 'A user with the same id, email, or phone already exists in this project.'
-export const userMsg = 'Email address has been used to sign up previously'
+export const msg = 'A user with the same id, email, or phone already exists in this project.';
+export const userMsg = 'Email address has been used to sign up previously';
+export const msg2 = "Creation of a session is prohibited when a session is active.";
+export const userMsg2 = "It looks like you're already logged in. Kindly refresh the page to continue or log out if you'd like to start a new session.";
+export const msg3 = 'Failed to fetch'
+export const userMsg3 = 'An error occurred. Kindly check network connection and try again.'
+
+export const messageMap = {
+    [msg]: userMsg,
+    [msg2]: userMsg2,
+    [msg3]: userMsg3
+  };
+  

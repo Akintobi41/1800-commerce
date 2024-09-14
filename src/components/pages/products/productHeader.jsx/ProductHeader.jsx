@@ -1,4 +1,4 @@
-import Heading from "../../../heading/Heading";
+import Heading from "@components/heading/Heading";
 
 function ProductHeader() {
   return (

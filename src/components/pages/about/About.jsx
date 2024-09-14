@@ -1,11 +1,12 @@
-import { aboutText } from "../../../utils/constants/constants";
-import Heading from "../../heading/Heading";
+import { aboutText } from "@utils/constants/constants";
+import Heading from "@components/heading/Heading";
 
 const About = ({ className = "mt-24" }) => {
+  
   return (
     <>
       <aside
-        data-testid = 'about-main'
+        data-testid="about-main"
         className={`flex flex-col items-center px-4 gap-2 leading-[2] bg-[var(--white)] ${className} max-w-[700px] min-[700px]:mx-auto`}
       >
         <Heading> What do you know about us?</Heading>

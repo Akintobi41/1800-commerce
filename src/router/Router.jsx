@@ -6,7 +6,6 @@ import Faqs from "../components/pages/faqs/Faqs";
 import Home from "../components/pages/home/Home";
 import ProductDetail from "../components/pages/productDetail/ProductDetail";
 import Products from "../components/pages/products/Products";
-import ReturnPolicy from "../components/pages/returnPolicy/ReturnPolicy";
 import Layout from "../components/layout/Layout";
 import Checkout from "../components/pages/checkout/Checkout";
 import Protected from "../components/protected/Protected";
@@ -35,10 +34,6 @@ const router = createBrowserRouter([
       {
         path: "/faqs",
         element: <Faqs />,
-      },
-      {
-        path: "/return-policy",
-        element: <ReturnPolicy />,
       },
       {
         path: "/cart",

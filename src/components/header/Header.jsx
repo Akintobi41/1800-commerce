@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
-function Header({ Navbar}) {
+import Navbar from "@components/navbar/Navbar";
+
+function Header() {
 
   return (
-    <h2 className="fixed z-20 w-full bg-[var(--white)]">  
-      {Navbar}
+    <h2 data-testid= 'header' className="fixed z-20 w-full bg-[var(--white)]">  
+      <Navbar />
     </h2>
   );
   

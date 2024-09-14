@@ -1,32 +1,31 @@
 import React, { Fragment } from "react";
-import FacebookIcon from '../../assets/Icons/FacebookIcon'
-import InstagramIcon from './../../assets/Icons/InstagramIcon';
-import TiktokIcon from "../../assets/Icons/TiktokIcon";
-import PinterestIcon from "../../assets/Icons/PinterestIcon";
+import FacebookIcon from "@icons/FacebookIcon";
+import InstagramIcon from "@icons/InstagramIcon";
+import TiktokIcon from "@icons/TiktokIcon";
+import PinterestIcon from "@icons/PinterestIcon";
 
 const Social = () => {
-
- const socialIcon = [
+  const socialIcon = [
     {
       name: "facebook",
-      icon: <FacebookIcon size={'size-[25px]'} />,
+      icon: <FacebookIcon size={"size-[25px]"} />,
     },
     {
       name: "instagram",
-      icon: <InstagramIcon size={'size-[25px]'} />,
+      icon: <InstagramIcon size={"size-[25px]"} />,
     },
     {
       name: "pinterest",
-      icon: <PinterestIcon size={'size-[25px]'} />,
+      icon: <PinterestIcon size={"size-[25px]"} />,
     },
     {
       name: "tiktok",
-      icon: <TiktokIcon  size={'size-[25px]'}/>,
+      icon: <TiktokIcon size={"size-[25px]"} />,
     },
   ];
   const footerSection = ["section1", "section2"];
   const year = new Date().getFullYear();
-  
+
   return (
     <section>
       <section>
@@ -42,8 +41,10 @@ const Social = () => {
               </section>
             ) : (
               <section className=" font-normal mt-2">
-                © {year} 1800 Stores Ltd. <span className="italic">All Rights
-                Reserved.</span>
+                © {year} 1800 Stores Ltd.{" "}
+                <span className="italic">
+                  All Rights Reserved.
+                </span>
               </section>
             )}
           </React.Fragment>

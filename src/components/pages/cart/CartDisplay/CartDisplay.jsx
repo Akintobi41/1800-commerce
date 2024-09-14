@@ -4,11 +4,12 @@ import {
   addValue,
   reduceValue,
   removeFromCart,
-} from "../../../../store/cartSlice";
-import { format } from "../../../../utils/format/format";
-import Button from "../../../reusables/button/Button";
-import DeleteIcon from "./../../../../assets/Icons/DeleteIcon";
-import EmptyCart from "./../../../../assets/Images/EmptyCart";
+} from "@store/cartSlice";
+import { format } from "@utils/format/format";
+import Button from "@reusables/button/Button";
+import { getButtonProps } from "../u_cart";
+import DeleteIcon from "@icons/DeleteIcon";
+import EmptyCart from "@icons/EmptyCart";
 
 function CartDisplay() {
   const cart = useSelector((state) => state.cart.products);
@@ -22,6 +23,8 @@ function CartDisplay() {
             data;
           const image = images[0].fields.file.url;
           const totalPrice = price * quantity;
+          const { text, style } = getButtonProps(quantity);
+
           return (
             <section
               key={name}
@@ -36,34 +39,25 @@ function CartDisplay() {
                     className="size-full object-cover"
                   />
                 </figure>
-                <section className=" flex flex-col justify-between w-[60px] min-[400px]:w-[200px]  md:w-[200px] gap-y-1">
-                  <p className="text-sm font-medium truncate">
+                <section className="flex flex-col justify-between  ml-2 w-[60px] min-[400px]:w-[150px] gap-y-1">
+                  <p className="text-xs sm:text-sm font-medium truncate w-3/4 lg:w-full">
                     {name}
                   </p>
                   <Button
-                    styles={`hidden sm:flex justify-center w-[5rem] my-2 text-sm font-medium ${
-                      quantity > 6
-                        ? "bg-red-500 text-[var(--white)]"
-                        : "bg-[#53caec4d] text-[#044b60]"
-                    } ${
-                      quantity > 9 ? "opacity-40" : ""
-                    }  px-1 py-[.1rem]  rounded w-[6rem]`}
+                    styles={`hidden sm:flex justify-center w-[5rem] cursor-not-allowed my-2 text-sm font-medium ${style} px-1 py-[.1rem] rounded w-[6rem]`}
                   >
-                    {quantity > 9
-                      ? "Out of Stock"
-                      : quantity > 6
-                      ? "Low Stock"
-                      : "Available"}
+                    {text}
                   </Button>
                   <div className="flex items-center">
-                    <p
-                      className="flex items-center gap-x-1 ml-1 text-sm font-medium cursor-pointer"
+                    <Button
+                      data-testid="remove-icon"
+                      className="flex items-center gap-x-1 text-xs sm:text-sm font-medium cursor-pointer"
                       onClick={() => {
                         dispatch(removeFromCart(data));
                       }}
                     >
                       <DeleteIcon /> Remove
-                    </p>
+                    </Button>
                   </div>
                 </section>
               </>
@@ -71,9 +65,12 @@ function CartDisplay() {
                 <p className="ml-auto text-right text-xs font-medium">
                   &#8358; {format(totalPrice)}
                 </p>
-                <section className="flex justify-end">
+                <section
+                  data-testid="modify-product"
+                  className="flex justify-end"
+                >
                   <Button
-                    styles={`flex items-center justify-center border border-r-0 size-5 ${
+                    styles={`flex items-center justify-center border border-r-0 size-5 md:size-6 ${
                       quantity <= 1
                         ? "opacity-40 cursor-not-allowed"
                         : ""
@@ -86,11 +83,11 @@ function CartDisplay() {
                   >
                     -
                   </Button>
-                  <p className="flex justify-center items-center text-center text-[.65rem]   border px-2 opacity-50 size-5">
+                  <p className="flex justify-center items-center text-center text-[.65rem] border px-2 opacity-50 size-5 md:size-6">
                     {quantity}
                   </p>
                   <Button
-                    styles={`flex items-center justify-center border-l-0 border size-5 ${
+                    styles={`flex items-center justify-center border-l-0 border size-5 md:size-6 ${
                       quantity === 10
                         ? "opacity-40 cursor-not-allowed"
                         : ""
@@ -118,7 +115,7 @@ function CartDisplay() {
           <Link to="/products" className="mt-6">
             <Button
               styles={
-                "w-36 h-9 bg-black hover:bg-[var(--pry-col)] rounded-[8px] text-white"
+                "w-36 h-9 bg-black hover:bg-[var(--pry-col)] rounded-[8px] text-white [word-spacing:6px]"
               }
             >
               Start Shopping
