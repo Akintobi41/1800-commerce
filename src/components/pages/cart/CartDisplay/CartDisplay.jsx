@@ -11,7 +11,9 @@ import { getButtonProps } from "../u_cart";
 import DeleteIcon from "@icons/DeleteIcon";
 import EmptyCart from "@icons/EmptyCart";
 
+
 function CartDisplay() {
+
   const cart = useSelector((state) => state.cart.products);
   const dispatch = useDispatch();
 
@@ -44,7 +46,7 @@ function CartDisplay() {
                     {name}
                   </p>
                   <Button
-                    styles={`hidden sm:flex justify-center w-[5rem] cursor-not-allowed my-2 text-sm font-medium ${style} px-1 py-[.1rem] rounded w-[6rem]`}
+                    styles={`text-xs w-[4.8rem] sm:text-base sm:w-[6.5rem] cursor-not-allowed my-2 text-sm font-medium ${style} px-1 py-[.1rem] rounded w-[6rem]`}
                   >
                     {text}
                   </Button>
@@ -115,7 +117,7 @@ function CartDisplay() {
           <Link to="/products" className="mt-6">
             <Button
               styles={
-                "w-36 h-9 bg-black hover:bg-[var(--pry-col)] rounded-[8px] text-white [word-spacing:6px]"
+                "w-36 h-9 bg-black hover:bg-[var(--pry-col)] rounded-[8px] text-white [word-spacing:3px]"
               }
             >
               Start Shopping

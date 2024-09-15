@@ -52,7 +52,7 @@ function ProductDetail() {
   }, [route]);
 
   function handleClick() {
-    dispatch(modifyCart(data?.fields || productInStore));
+    dispatch(modifyCart(product));
     setRoute(true);
   }
 
