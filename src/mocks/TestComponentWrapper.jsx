@@ -14,6 +14,7 @@ function TestComponentWrapper({ children,initialEntries = ['/'],route = '/' }) {
       queries: {
         cacheTime: 0,
         retry: 0,
+        retries:false,
       },
     },
   });

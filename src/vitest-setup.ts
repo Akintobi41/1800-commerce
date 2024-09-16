@@ -1,6 +1,5 @@
 import '@testing-library/jest-dom'
 import { server } from './mocks/server'
-
 import { vi } from 'vitest';
 import { cleanup } from '@testing-library/react';
 

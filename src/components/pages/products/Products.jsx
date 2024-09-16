@@ -23,6 +23,8 @@ const Products = () => {
     setNext(next + productsPerSlide);
   }
 
+  console.log(products.length)
+  console.log(isLoading)
 
   return (
     <section
@@ -53,11 +55,9 @@ const Products = () => {
           scroll={Scroll}
         />
       </section>
-      <LoadMoreProducts
-        isLoading={isLoading}
-        next={next}
+      {next && <LoadMoreProducts
         handleMoreProducts={handleMoreProducts}
-      />
+      />}
     </section>
   );
 };
