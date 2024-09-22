@@ -1,4 +1,4 @@
-import { fireEvent, render, screen } from "@testing-library/react"
+import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 import { http, HttpResponse } from "msw"
 import React from "react"
 import { expect, vi } from "vitest"
@@ -16,12 +16,6 @@ const MockProducts = () => (
 describe('testing the products section', () => {
 
     test('test if the mock products renders and load more should not be in the document', async () => {
-        render(<MockProducts />)
-        const product = await screen.findAllByTestId('product')
-        expect(product.length).toBeGreaterThan(1);
-    })
-
-    test('should not render load more if list is below 11', async () => {
         render(<MockProducts />)
         const product = await screen.findAllByTestId('product')
         expect(product.length).toBeGreaterThan(1);
@@ -57,13 +51,11 @@ describe('testing the products section', () => {
     })
 
     test('load more products', async () => {
-        const mockData = {
-            items: new Array(12).fill(mockContentfulData.items[0])
-        }
-            server.use(http.get('https://cdn.contentful.com/spaces/6hoi4gahctlw/environments/master/entries', () => {
-                return HttpResponse.json(mockData, { status: 200 })
-            }))
+     
         render(<MockProducts />)
-        expect(screen.getByTestId('load-more')).toBeInTheDocument();
+        await waitFor(() => {
+            const btn = screen.getByTestId('load-more')
+            expect(btn).toBeInTheDocument();
+        })
     })
 })

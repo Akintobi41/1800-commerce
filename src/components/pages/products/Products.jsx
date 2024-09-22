@@ -22,10 +22,6 @@ const Products = () => {
   function handleMoreProducts() {
     setNext(next + productsPerSlide);
   }
-
-  console.log(products.length)
-  console.log(isLoading)
-
   return (
     <section
       data-testid="products"
@@ -55,7 +51,7 @@ const Products = () => {
           scroll={Scroll}
         />
       </section>
-      {next && <LoadMoreProducts
+      {next && next < products?.length && <LoadMoreProducts
         handleMoreProducts={handleMoreProducts}
       />}
     </section>
