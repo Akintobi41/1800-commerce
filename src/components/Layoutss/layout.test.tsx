@@ -2,27 +2,27 @@ import { render, screen } from "@testing-library/react"
 import { http, HttpResponse } from "msw"
 import React from "react"
 import { vi } from "vitest"
-import { server } from './../../mocks/server'
-import TestComponentWrapper from './../../mocks/TestComponentWrapper'
+import { server } from '../../mocks/server'
+import TestComponentWrapper from '../../mocks/TestComponentWrapper'
 import Layout from "./Layout"
 
 
 
 const MockComponent = () => (
     <TestComponentWrapper>
-      <Layout />
+        <Layout />
     </TestComponentWrapper>
 )
 
 beforeEach(() => {
-    window.scrollTo = vi.fn(); 
-  });
-  
+    window.scrollTo = vi.fn();
+});
 
-describe('layout', () => { 
-    test('test layout', () => { 
+
+describe('layout', () => {
+    test('test layout', () => {
         server.use(http.get('https://cloud.appwrite.io/v1/account', async () => {
-          
+
             return HttpResponse.json({
                 "$id": "66b09eaa00239f5c3bb4",
                 "$createdAt": "2024-08-05T09:43:08.566+00:00",
@@ -52,7 +52,7 @@ describe('layout', () => {
                 ],
                 "accessedAt": "2024-09-13T14:12:09.157+00:00"
             }, { status: 200 })
-        
+
         }))
 
         render(<MockComponent />)

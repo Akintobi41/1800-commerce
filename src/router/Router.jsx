@@ -6,11 +6,10 @@ import Faqs from "../components/pages/faqs/Faqs";
 import Home from "../components/pages/home/Home";
 import ProductDetail from "../components/pages/productDetail/ProductDetail";
 import Products from "../components/pages/products/Products";
-import Layout from "../components/layout/Layout";
+import Layout from "../components/Layoutss/Layout";
 import Checkout from "../components/pages/checkout/Checkout";
 import Protected from "../components/protected/Protected";
 import SignUp from "../components/pages/signUp/SignUp";
-
 
 const router = createBrowserRouter([
   {
@@ -27,9 +26,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/products",
-        element: (
-          <Products/>
-        ),
+        element: <Products />,
       },
       {
         path: "/faqs",
@@ -48,13 +45,21 @@ const router = createBrowserRouter([
         element: <ProductDetail />,
       },
       {
-        path: '/cart/checkout',
-        element: <Protected authentication><Checkout authentication/></Protected> ,
+        path: "/cart/checkout",
+        element: (
+          <Protected authentication>
+            <Checkout authentication />
+          </Protected>
+        ),
       },
       {
-        path: 'signup',
-        element: <Protected authentication={false}><SignUp/></Protected> ,
-      }
+        path: "signup",
+        element: (
+          <Protected authentication={false}>
+            <SignUp />
+          </Protected>
+        ),
+      },
     ],
   },
 ]);
