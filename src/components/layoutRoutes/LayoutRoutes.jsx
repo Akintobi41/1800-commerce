@@ -1,7 +1,7 @@
-import { Outlet } from "react-router";
-import { useOverflow } from "@contexts";
 import Entry from "@components/entry/Entry";
 import Footer from "@components/footer/Footer";
+import { useOverflow } from "@contexts";
+import { Outlet } from "react-router";
 
 function LayoutRoutes() {
   const { overflow } = useOverflow();

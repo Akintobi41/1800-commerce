@@ -1,15 +1,15 @@
+import Layout from "@components/layout/Layout";
+import About from "@components/pages/about/About";
+import Cart from "@components/pages/cart/Cart";
+import Checkout from "@components/pages/checkout/Checkout";
+import Contact from "@components/pages/contact/Contact";
+import Faqs from "@components/pages/faqs/Faqs";
+import Home from "@components/pages/home/Home";
+import ProductDetail from "@components/pages/productDetail/ProductDetail";
+import Products from "@components/pages/products/Products";
+import SignUp from "@components/pages/signUp/SignUp";
+import Protected from "@components/protected/Protected";
 import { createBrowserRouter } from "react-router-dom";
-import About from "../components/pages/about/About";
-import Cart from "../components/pages/cart/Cart";
-import Contact from "../components/pages/contact/Contact";
-import Faqs from "../components/pages/faqs/Faqs";
-import Home from "../components/pages/home/Home";
-import ProductDetail from "../components/pages/productDetail/ProductDetail";
-import Products from "../components/pages/products/Products";
-import Layout from "../components/layout/Layout";
-import Checkout from "../components/pages/checkout/Checkout";
-import Protected from "../components/protected/Protected";
-import SignUp from "../components/pages/signUp/SignUp";
 
 const router = createBrowserRouter([
   {

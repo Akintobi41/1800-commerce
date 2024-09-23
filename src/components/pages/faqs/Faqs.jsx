@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState } from "react";
 import Details from "@components/details/Details";
+import { useState } from "react";
 import { faqContent } from "./u_Faqs";
 
 const Faqs = () => {
