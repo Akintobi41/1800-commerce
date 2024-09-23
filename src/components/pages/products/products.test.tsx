@@ -1,10 +1,7 @@
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
-import { http, HttpResponse } from "msw"
 import React from "react"
 import { expect, vi } from "vitest"
 import TestComponentWrapper from './../../../mocks/TestComponentWrapper'
-import { mockContentfulData } from './../../../mocks/mockData'
-import { server } from './../../../mocks/server'
 import Products from "./Products"
 
 const MockProducts = () => (
@@ -51,7 +48,6 @@ describe('testing the products section', () => {
     })
 
     test('load more products', async () => {
-     
         render(<MockProducts />)
         await waitFor(() => {
             const btn = screen.getByTestId('load-more')
