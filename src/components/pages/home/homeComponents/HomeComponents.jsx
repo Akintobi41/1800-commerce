@@ -1,4 +1,4 @@
-import Trending from "@/components/trending/Trending";
+import Trending from "@components/trending/Trending";
 import Patronize from "@components/patronize/Patronize";
 import ReachOut from "@components/reachOut/ReachOut";
 import Subscribe from "@components/subscribe/Subscribe";
