@@ -6,7 +6,7 @@ import Faqs from "../components/pages/faqs/Faqs";
 import Home from "../components/pages/home/Home";
 import ProductDetail from "../components/pages/productDetail/ProductDetail";
 import Products from "../components/pages/products/Products";
-import Layout from "../components/Layoutss/Layout";
+import Layout from "../components/layout/Layout";
 import Checkout from "../components/pages/checkout/Checkout";
 import Protected from "../components/protected/Protected";
 import SignUp from "../components/pages/signUp/SignUp";
