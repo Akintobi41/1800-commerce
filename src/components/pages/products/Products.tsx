@@ -22,6 +22,8 @@ const Products = () => {
   function handleMoreProducts() {
     setNext(next + productsPerSlide);
   }
+
+  
   return (
     <section
       data-testid="products"

@@ -1,6 +1,6 @@
 import { navList } from "@components/navbar/navList";
 import SignOutBtn from "@components/signOutBtn/SignOutBtn";
-import { useOverflow } from "@contexts";
+import { useStoreContext } from "@contexts/useContext";
 import AccountIcon from "@icons/AccountIcon";
 import { showEntry } from "@store/accountSlice";
 import { useEffect, useRef } from "react";
@@ -8,8 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 function OpenAccountModal() {
-
-  const { overflow, setOverflow } = useOverflow();
+  const { overflow, setOverflow } = useStoreContext();
   const navMenu = useRef();
   const dispatch = useDispatch();
   const { name } =
@@ -26,7 +25,6 @@ function OpenAccountModal() {
     };
   }, [overflow]);
 
-
   function clearMenu(e) {
     if (
       overflow &&
@@ -36,7 +34,6 @@ function OpenAccountModal() {
       setOverflow(false);
     }
   }
-
 
   return (
     <div ref={navMenu}>

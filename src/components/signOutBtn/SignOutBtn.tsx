@@ -1,16 +1,16 @@
-import {  useState } from "react";
+import authService from "@appwrite/auth/auth";
+import { useStoreContext } from "@contexts/useContext";
+import Button from "@reusables/button/Button";
+import { signOut } from "@store/loginSlice";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
-import authService from "@appwrite/auth/auth";
-import { useOverflow } from "@contexts";
-import { signOut } from "@store/loginSlice";
-import Button from "@reusables/button/Button";
 
 function SignOutBtn({ className }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
-  const { setOverflow } = useOverflow();
+  const { setOverflow } = useStoreContext();
 
   async function deleteUser() {
     setModal(true);
@@ -23,7 +23,7 @@ function SignOutBtn({ className }) {
       });
     } catch (error) {
       setModal(false);
-      throw new Error(error)
+      throw new Error(error);
     }
   }
 
