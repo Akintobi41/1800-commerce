@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 import React from 'react';
 import { describe, expect, test, vi } from 'vitest';
 import TestComponentWrapper from './../../../mocks/TestComponentWrapper';
-import SignIn from './SignIn';
+import SignIn from '.';
 
 const mockFunction = vi.fn()
 

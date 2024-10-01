@@ -26,5 +26,9 @@ const accountSlice = createSlice({
     }
 })
 
-export const {showEntry,closeEntry} = accountSlice.actions
+export const { showEntry, closeEntry } = accountSlice.actions
+
 export default accountSlice.reducer 
+
+export const accessID= (state: { access: EntryState }) => state.access.id
+export const accessStatus = (state: { access: EntryState }) => state.access.status

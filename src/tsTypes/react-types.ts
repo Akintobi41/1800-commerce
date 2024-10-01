@@ -30,12 +30,16 @@ export interface UserDetails {
   country: string;
   city: string;
 }
-
+interface Images2 { 
+  file: { 
+    url:string,
+  }
+}
 export interface CartItem {
   name: string;
   quantity: number;
   price: number;
-  images: Image[];
+  images: Images2[];
   type: string;
 }
 

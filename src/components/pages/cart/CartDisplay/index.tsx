@@ -16,16 +16,15 @@ import { getButtonProps } from "../u_cart";
 
 const CartDisplay: FC = () => {
   const dispatch = useAppDispatch();
-  const cart: CartItem[] = useAppSelector(cartData);
+  const cart = useAppSelector(cartData);
 
-  
   return (
     <>
       {cart?.length ? (
         cart.map((data) => {
           const { images, name, type, quantity, price } =
             data;
-          const image = images[0]?.fields.file.url
+          const image = images[0]?.file.url
           const totalPrice = price * quantity;
           const { text, style } = getButtonProps(quantity);
 
