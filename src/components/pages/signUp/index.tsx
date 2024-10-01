@@ -1,7 +1,7 @@
 import React from "react";
 import useForms from "@hooks/useForms/useForms";
-import SignUpForm from "./signUpForm/SignUpForm";
-import SignUpHeader from "./signUpHeader/SignUpHeader";
+import SignUpForm from "./signUpForm";
+import SignUpHeader from "./signUpHeader";
 
 
 const SignUp: React.FC = () => {

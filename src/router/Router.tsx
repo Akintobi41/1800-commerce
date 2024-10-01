@@ -7,7 +7,7 @@ import Faqs from "@components/pages/faqs";
 import Home from "@components/pages/home";
 import ProductDetail from "@components/pages/productDetail";
 import Products from "@components/pages/products";
-import SignUp from "@components/pages/signUp/SignUp";
+import SignUp from "@components/pages/signUp";
 import Protected from "@components/protected";
 import { createBrowserRouter } from "react-router-dom";
 
