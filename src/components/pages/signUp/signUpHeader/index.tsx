@@ -1,9 +1,9 @@
 import TextContainer from "@components/textContainer";
+import { useAppDispatch } from "@hooks/useAppStore";
 import { showEntry } from "@store/accountSlice";
-import { useDispatch } from "react-redux";
 
 function SignUpHeader() {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   return (
     <>
