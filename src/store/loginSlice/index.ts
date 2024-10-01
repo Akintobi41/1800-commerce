@@ -11,7 +11,6 @@ interface AuthState {
   status: boolean;           
 }
 
-// Initial state
 const initialState: AuthState = {
   userData: null,
   status: false,

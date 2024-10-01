@@ -41,7 +41,6 @@ describe("Cart Component", () => {
       getByRole("button", { name: /Available/i })
     ).toBeInTheDocument();
 
-    // Check specific test ids for interactive elements
     expect(getByTestId("checkout")).toBeInTheDocument();
     expect(getByTestId("remove-icon")).toBeInTheDocument();
     expect(

@@ -28,12 +28,13 @@ const Subscribe = () => {
       return;
     }
 
-    // If validation passes
     setShakeForm(true);
+
+
     // Reset form fields
     setEmail("");
     setSelectedGender("");
-    setInputError(""); // Clear errors
+    setInputError(""); 
   };
 
   return (
@@ -61,7 +62,7 @@ const Subscribe = () => {
             value={email}
             onChange={(e) => {
               setEmail(e.target.value);
-              setInputError(""); // Clear error on input change
+              setInputError(""); 
             }}
             placeholder="name@example.com"
           />
@@ -89,7 +90,7 @@ const Subscribe = () => {
                   value={gender}
                   onChange={() => {
                     setSelectedGender(gender);
-                    setInputError(""); // Clear error on selection
+                    setInputError(""); 
                   }}
                   className={s["radio-btn"]}
                 />

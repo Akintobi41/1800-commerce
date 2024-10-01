@@ -41,11 +41,9 @@ const useForms = () => {
       const numDays = daysInMonth[birthmonth.toLowerCase()];
       setBirthday((b) => ({ ...b, day: days(numDays) }));
 
-      //Name Validation
       setFName(name.length && name.length > 20);
       setLName(lastName.length && lastName.length > 20);
 
-      //Reset Form Error when you edit the form
       setErrorMsg("");
 
       //Password Validation

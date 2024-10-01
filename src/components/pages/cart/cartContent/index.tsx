@@ -11,6 +11,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { totalValues } from "../u_cart";
+import { selectAuthStatus } from "@store/loginSlice";
 
 interface CartContentProps {
   onCheckout?: () => void;
@@ -21,18 +22,17 @@ const CartContent: React.FC<CartContentProps> = ({
 }) => {
   const dispatch = useAppDispatch();
 
-  const cart = useAppSelector(cartData); // Replace 'any' with your actual state type
+  const cart = useAppSelector(cartData);
   const { cartText, total, VAT, shipFee, cartTotal } =
     useCart(cart);
   const navigate = useNavigate();
-  const loggedIn = useSelector(
-    (state: any) => state.auth.status
-  ); // Replace 'any' with your actual state type
+ 
+  const isAuthenticated = useAppSelector(selectAuthStatus)
 
   const handleCheckout: () => void = onCheckout
     ? onCheckout
     : () => {
-        if (loggedIn) {
+        if (isAuthenticated) {
           navigate("/cart/checkout");
         } else {
           dispatch(showEntry(4)); // Show login modal if not logged in
