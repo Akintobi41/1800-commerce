@@ -1,13 +1,10 @@
-import React, { FC, ReactNode } from 'react'
-import { Provider } from 'react-redux'
-import store from '@store/store';
+import { IChild } from "@src/tsTypes/react-types";
+import store from "@store/index";
+import { FC } from "react";
+import { Provider } from "react-redux";
 
-type ReduxProviderProps = {
-  children : ReactNode
-}
-
-export const ReduxProvider:FC<ReduxProviderProps> = ({children}) => {
-  return (
-    <Provider store={store}>{children }</Provider>
-  )
-}
+export const ReduxProvider: FC<IChild> = ({
+  children,
+}) => {
+  return <Provider store={store}>{children}</Provider>;
+};

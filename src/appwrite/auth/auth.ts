@@ -1,6 +1,12 @@
 import { Client, Account, ID } from "appwrite";
 import { AppwriteConfig } from "../../utils/config/config";
 
+
+interface AuthProps { 
+    email: string,
+    password: string,
+    name?:string
+}
 const { endpoint, projectId } = AppwriteConfig;
 
 export class AuthService {
@@ -12,7 +18,7 @@ export class AuthService {
         this.account = new Account(this.client);
     }
 
-    async createAccount({ email, password, name }) {
+    async createAccount({ email, password, name }:AuthProps) {
         try {
             const userAccount = await this.account.create(ID.unique(), email, password, name);
             if (userAccount) {
@@ -27,7 +33,7 @@ export class AuthService {
         }
     }
 
-    async login({ email, password }) {
+    async login({ email, password }:AuthProps) {
         try {
             return await this.account.createEmailPasswordSession(email, password);
         } catch (error) {
@@ -39,7 +45,7 @@ export class AuthService {
         try {
             return await this.account.get();
         } catch (error) {
-            "Appwrite service :: getCurrentUser() :: ", error;
+            console.log("Appwrite service :: getCurrentUser() :: ", error);
         }
         return null;
     }
@@ -47,7 +53,7 @@ export class AuthService {
         try {
             await this.account.deleteSessions();
         } catch (error) {
-            "Appwrite service :: logout() ::", error;
+            console.log("Appwrite service :: logout() ::", error);
             throw error;
         }
     }

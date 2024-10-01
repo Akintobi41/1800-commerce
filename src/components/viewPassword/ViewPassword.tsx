@@ -1,5 +1,5 @@
-import EyeSlashIcon from "@icons/EyeSlashIcon";
-import EyeIcon from "@icons/EyeIcon";
+import EyeIcon from "@assets/icons/EyeIcon";
+import EyeSlashIcon from "@assets/icons/EyeSlashIcon";
 
 function ViewPassword({ view, ...props }) {
   return (

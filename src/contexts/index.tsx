@@ -1,14 +1,11 @@
-import { FC, ReactNode } from "react";
-import { QueryClientProviderWrapper } from './useQuery/index';
 import { StoreProvider } from "@contexts/useContext";
+import { IChild } from "@src/tsTypes/react-types";
+import { FC } from "react";
+import { QueryClientProviderWrapper } from './useQuery/index';
 import { ReduxProvider } from './useRedux/index';
 
-type GlobalProviderProps = { 
-  children: ReactNode
-}
 
-
-export const GlobalProviders: FC<GlobalProviderProps> = ({ children }) => { 
+export const GlobalProviders: FC<IChild> = ({ children }) => { 
   return (
     <QueryClientProviderWrapper>
       <ReduxProvider>

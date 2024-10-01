@@ -1,28 +1,30 @@
-import { createContext, FC, ReactNode, useContext, useState } from "react"
+import { IChild } from "@src/tsTypes/react-types";
+import {
+  createContext,
+  FC,
+  useContext,
+  useState,
+} from "react";
 
-type StoreProviderProps = { 
-   children: ReactNode
+type StoreContext = {
+  overflow: boolean;
+  setOverflow: (id: boolean) => void;
+};
+
+const StoreContext = createContext({} as StoreContext);
+
+export function useStoreContext() {
+  return useContext(StoreContext);
 }
 
-
-type StoreContext = { 
-  overflow: boolean,
-  setOverflow: (id:boolean) => void;
-}
-
-const StoreContext = createContext({} as StoreContext)
-
-export function useStoreContext () { 
-   return useContext(StoreContext)
-}
-
-export const StoreProvider : FC<StoreProviderProps> = ({children})=> { 
+export const StoreProvider: FC<IChild> = ({ children }) => {
   const [overflow, setOverflow] = useState(false);
 
   return (
-    <StoreContext.Provider value={{overflow,setOverflow}}>
-    {children}
+    <StoreContext.Provider
+      value={{ overflow, setOverflow }}
+    >
+      {children}
     </StoreContext.Provider>
-    )
-
-}
+  );
+};

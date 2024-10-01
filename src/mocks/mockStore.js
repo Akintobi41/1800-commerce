@@ -5,10 +5,10 @@ import loginSlice from '../store/loginSlice'
 import productSlice from '../store/productSlice'
 
 const rootReducer = combineReducers({
-    cart: mySlice,
-    products: productSlice,
-    auth: loginSlice,
-    access:accountSlice,
+  cart: mySlice,
+  products: productSlice,
+  auth: loginSlice,
+  access: accountSlice,
 })
 
 export const setupStore = preloadedState => {

@@ -1,13 +1,12 @@
+import LoadingAnimation from "@components/loadingAnimation";
 import { lazy, Suspense } from "react";
 import { useSelector } from "react-redux";
-import LoadingAnimation from "@components/loadingAnimation/Loader";
 
-const SignOutBtn = lazy(() =>
-  import("@components/signOutBtn/SignOutBtn")
+const SignOutBtn = lazy(
+  () => import("@components/signOutBtn")
 );
 
 function TopNav({ menuToggle, section }) {
-  
   const loggedIn = useSelector(
     (state) => state.auth.status
   );
@@ -16,7 +15,7 @@ function TopNav({ menuToggle, section }) {
 
   return (
     <nav
-      data-testid = 'nav'
+      data-testid="nav"
       className={`${
         menuToggle
           ? "flex flex-col overflow-hidden fixed left-0 items-start z-10 transition-all duration-[.5s] w-full h-full top-[5.8rem] bg-[var(--pry-col)] lg:w-0"
@@ -28,7 +27,12 @@ function TopNav({ menuToggle, section }) {
       )}
       <ul className="flex flex-col mt-10 w-full lg:mt-0 h-full lg:w-[30%] lg:flex-row z-30 lg:gap-8">
         {section}
-        {loggedIn && <Suspense fallback={<LoadingAnimation/>}> <SignOutBtn className="lg:hidden" /></Suspense> }
+        {loggedIn && (
+          <Suspense fallback={<LoadingAnimation />}>
+            {" "}
+            <SignOutBtn className="lg:hidden" />
+          </Suspense>
+        )}
       </ul>
     </nav>
   );

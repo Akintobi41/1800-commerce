@@ -1,10 +1,17 @@
-import { useSelector } from "react-redux";
 import { format } from "@utils/format/format";
+import { cartData } from "@store/cartSlice";
+import { useAppSelector } from "@hooks/useAppStore";
+import { CartItem } from "@src/tsTypes/react-types";
+
+
+interface GroupedCart {
+  [key: string]: CartItem[]; 
+}
 
 function CheckoutItems() {
-  const cart = useSelector((state) => state.cart.products);
+  const cart = useAppSelector(cartData);
 
-  const groupedCartItems = cart.reduce((acc, item) => {
+  const groupedCartItems = cart.reduce<GroupedCart>((acc, item) => {
     const typeKey = item.type.trim().toLowerCase();
     
     if (!acc[typeKey]) {
@@ -13,6 +20,7 @@ function CheckoutItems() {
     acc[typeKey].push(item);
     return acc;
   }, {});
+
 
   return (
     <div>

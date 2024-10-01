@@ -8,6 +8,7 @@ export default defineConfig({
   resolve: {
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
+      '@pages': path.resolve(__dirname, 'src/components/pages'),
       '@reusables': path.resolve(__dirname, 'src/components/reusables'),
       '@assets': path.resolve(__dirname, 'src/assets'),
       '@utils': path.resolve(__dirname, 'src/utils'),
@@ -20,10 +21,5 @@ export default defineConfig({
       '@icons': path.resolve(__dirname, 'src/assets/icons'),
       '@images': path.resolve(__dirname, 'src/assets/images'),
 }
-  },
-  test: {
-    environment: 'jsdom',
-    globals: true,
-    setupFiles: './src/vitest-setup.ts',
-  },
+  }
 })

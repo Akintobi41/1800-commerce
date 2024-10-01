@@ -1,8 +1,8 @@
-import { navList } from "@components/navbar/navList";
-import SignOutBtn from "@components/signOutBtn/SignOutBtn";
+import AccountIcon from "@assets/icons/AccountIcon";
+import SignOutBtn from "@components/signOutBtn";
 import { useStoreContext } from "@contexts/useContext";
-import AccountIcon from "@icons/AccountIcon";
 import { showEntry } from "@store/accountSlice";
+import { navList } from "@utils/constants";
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";

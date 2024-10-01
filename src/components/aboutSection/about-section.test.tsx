@@ -1,20 +1,28 @@
-import { render, screen } from "@testing-library/react"
-import React, { act } from "react"
-import About from './../pages/about/About';
+import { render, screen } from "@testing-library/react";
+import { act } from "react";
 import { BrowserRouter } from "react-router-dom";
-import AboutSection from "./AboutSection";
+import AboutSection from './index';
+import About from "../pages/about";
 
-
-describe('testing about links', (() => { 
-    test('about section is rendered when link is clicked', () => { 
-        render(<BrowserRouter><About /></BrowserRouter>);
-        render(<BrowserRouter> <AboutSection /></BrowserRouter>);
-        const btn = screen.getByTestId('about-section')
-        act(() => { 
-            btn.click();
-        })
-        expect(screen.getByTestId('about-main')).toBeInTheDocument();
-
-
-   })
-}))
+describe("testing about links", () => {
+  test("about section is rendered when link is clicked", () => {
+    render(
+      <BrowserRouter>
+        <About />
+      </BrowserRouter>
+    );
+    render(
+      <BrowserRouter>
+        {" "}
+        <AboutSection />
+      </BrowserRouter>
+    );
+    const btn = screen.getByTestId("about-section");
+    act(() => {
+      btn.click();
+    });
+    expect(
+      screen.getByTestId("about-main")
+    ).toBeInTheDocument();
+  });
+});

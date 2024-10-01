@@ -1,5 +1,3 @@
-import { StoreProvider } from "@contexts";
-import useMyContext from "@contexts/useMyContext";
 import { Provider } from "react-redux";
 import { MemoryRouter, Route, Routes } from "react-router";
 import {
@@ -8,9 +6,18 @@ import {
 } from "react-query";
 import rootReducer from "@store/rootReducer";
 import { configureStore } from "@reduxjs/toolkit";
+import { FC, ReactNode } from "react";
+import { StoreProvider } from "@contexts/useContext";
+import { ReduxProvider } from "@contexts/useRedux";
 
 
-function TestComponentWrapper({ children, initialEntries = ['/'], route = '/' }) {
+interface TestProps { 
+  children?: ReactNode,
+  initialEntries?: string[],
+  route?: string
+
+}
+const TestComponentWrapper: FC<TestProps> = ({ children, initialEntries = ['/'], route = '/' }) =>{
   
   const store = configureStore({ 
     reducer: rootReducer
@@ -21,23 +28,21 @@ function TestComponentWrapper({ children, initialEntries = ['/'], route = '/' })
       queries: {
         cacheTime: 0,
         retry: 0,
-        retries:false,
       },
     },
   });
-  const { overflow, setOverflow } = useMyContext();
 
   return (
     <QueryClientProvider client={queryClient}>
       <MemoryRouter initialEntries={initialEntries}>  
-        <Provider store={store}>
-          <StoreProvider value={{ overflow, setOverflow }}>
+        <ReduxProvider>
+          <StoreProvider>
             <Routes>
           <Route path={route} element={children}>
           </Route>
         </Routes>
           </StoreProvider>
-        </Provider>
+        </ReduxProvider>
       </MemoryRouter>
     </QueryClientProvider>
   );

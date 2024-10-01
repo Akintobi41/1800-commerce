@@ -1,14 +1,14 @@
-import Layout from "@components/layout/Layout";
-import About from "@components/pages/about/About";
-import Cart from "@components/pages/cart/Cart";
-import Checkout from "@components/pages/checkout/Checkout";
-import Contact from "@components/pages/contact/Contact";
-import Faqs from "@components/pages/faqs/Faqs";
-import Home from "@components/pages/home/Home";
-import ProductDetail from "@components/pages/productDetail/ProductDetail";
-import Products from "@components/pages/products/Products";
+import Layout from "@components/layout";
+import About from "@components/pages/about";
+import Cart from "@components/pages/cart";
+import Checkout from "@components/pages/checkout";
+import Contact from "@components/pages/contact";
+import Faqs from "@components/pages/faqs";
+import Home from "@components/pages/home";
+import ProductDetail from "@components/pages/productDetail";
+import Products from "@components/pages/products";
 import SignUp from "@components/pages/signUp/SignUp";
-import Protected from "@components/protected/Protected";
+import Protected from "@components/protected";
 import { createBrowserRouter } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
         path: "/cart/checkout",
         element: (
           <Protected authentication>
-            <Checkout authentication />
+            <Checkout />
           </Protected>
         ),
       },

@@ -1,7 +1,15 @@
-import { shopFilter } from "@utils/constants/constants";
-import Select from "@reusables/select/Select";
+import Select from "@components/reusables/select";
+import { shopFilter } from "@utils/constants";
 
-function SignUpSelect({ formProp }) {
+interface SignUpSelectProps {
+  formProp: {
+    register: (name: string, options?: object) => any; 
+    day: number[];
+    month: string[]; 
+  };
+}
+
+const SignUpSelect: React.FC<SignUpSelectProps> = ({ formProp }) => {
   const { register, day, month } = formProp;
 
   return (
@@ -10,13 +18,13 @@ function SignUpSelect({ formProp }) {
         type="signup"
         options={shopFilter}
         label="Shopping For"
-        styles={"w-1/2 h-[25px] bg-white"}
+        styles="w-1/2 h-[25px] bg-white"
       />
       <section>
         <p>Birthday</p>
         <section className="flex w-full">
           <Select
-            styles={"w-full h-[25px] bg-white"}
+            styles="w-full h-[25px] bg-white"
             type="birthday"
             width="w-[50%]"
             options={month}
@@ -26,9 +34,7 @@ function SignUpSelect({ formProp }) {
           />
           <Select
             type="birthday"
-            styles={
-              "w-full ml-2 h-[25px] bg-white active:bg-white"
-            }
+            styles="w-full ml-2 h-[25px] bg-white active:bg-white"
             width="w-[50%]"
             options={day}
             {...register("birthdate", {
@@ -39,5 +45,6 @@ function SignUpSelect({ formProp }) {
       </section>
     </>
   );
-}
+};
+
 export default SignUpSelect;

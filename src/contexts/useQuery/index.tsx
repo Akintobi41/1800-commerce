@@ -1,13 +1,10 @@
-import { FC, ReactNode } from "react"
-import { QueryClient, QueryClientProvider, useQueryClient } from "react-query"
-
-type QueryProviderProps = { 
-  children: ReactNode
-}
+import { IChild } from "@src/tsTypes/react-types";
+import { FC } from "react";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 export const queryClient = new QueryClient();
 
-export const QueryClientProviderWrapper:FC<QueryProviderProps> =({children}) => { 
+export const QueryClientProviderWrapper:FC<IChild> =({children}) => { 
 
   return (
     <QueryClientProvider client={queryClient}>
