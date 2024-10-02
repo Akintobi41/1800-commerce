@@ -4,7 +4,7 @@ import {
   screen,
 } from "@testing-library/react";
 import { vi } from "vitest";
-import ScrollButton from './index';
+import ScrollButton from '.';
 
 describe("ScrollButton component", () => {
   test("renders ScrollButton when btn is true", () => {

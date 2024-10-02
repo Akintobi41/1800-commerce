@@ -12,9 +12,7 @@ describe("testing the contact form", () => {
     const input = screen.getByTestId("name");
     const email = screen.getByTestId("email");
     const msg = screen.getByTestId("message");
-    const btn = screen.getByRole("button", {
-      name: "button",
-    });
+    const btn = screen.getByTestId("submit-btn")
 
     expect(input).toBeInTheDocument();
     expect(email).toBeInTheDocument();

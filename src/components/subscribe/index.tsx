@@ -13,7 +13,6 @@ const Subscribe = () => {
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
 
-    // Validate email
     const pattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
     const isEmailValid = pattern.test(email);
     const isGenderSelected = selectedGender.length > 0;
@@ -38,7 +37,7 @@ const Subscribe = () => {
   };
 
   return (
-    <section className={s["subscribe-container"]}>
+    <section data-testid="subscribe-section" className={s["subscribe-container"]}>
       <Heading>Join Our Newsletter</Heading>
       <p className={s["sign-up"]}>
         Sign up for exclusive 1800-only deals and early

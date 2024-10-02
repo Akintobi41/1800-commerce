@@ -1,6 +1,6 @@
 import { vi } from "vitest";
 import { renderWithProviders } from "../../../mocks/TestUtils";
-import Cart from './index';
+import Cart from '.';
 
 const createProductWithQuantity = (quantity: number) => ({
   description: "The Sports Sneakers in Off White",

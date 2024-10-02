@@ -1,7 +1,5 @@
 import { fetchAllData } from "@contentful/contentful";
 import { useAppDispatch } from "@hooks/useAppStore";
-import { useLocalStorage } from "@hooks/useLocalStorage";
-import { Product } from "@src/tsTypes/react-types";
 import { setProducts } from "@store/productSlice";
 import { useQuery } from "react-query";
 
@@ -13,5 +11,6 @@ export const useFetchProducts = () => {
     return items;
   };
   const { data, isLoading } = useQuery("load", loadData);
+ data &&  console.log((data))
   return { isLoading, data }
 }

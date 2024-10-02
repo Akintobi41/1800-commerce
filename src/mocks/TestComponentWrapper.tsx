@@ -1,4 +1,3 @@
-import { Provider } from "react-redux";
 import { MemoryRouter, Route, Routes } from "react-router";
 import {
   QueryClient,

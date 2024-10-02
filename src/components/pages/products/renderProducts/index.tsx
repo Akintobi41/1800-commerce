@@ -33,9 +33,9 @@ const RenderProducts: FC<RpProps> = ({ next }) => {
       ).tagName.toLowerCase() === "button";
 
     if (cartRedirect) {
-      dispatch(modifyCart(product as CartItem));
+      dispatch(modifyCart(product as unknown as CartItem));
     } else {
-      navigate(`/products/${product.id}`);
+      navigate(`/products/${product?.id}`);
     }
   }
 

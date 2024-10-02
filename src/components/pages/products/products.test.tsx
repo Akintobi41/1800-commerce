@@ -15,7 +15,7 @@ const MockProducts = () => (
 );
 
 describe("testing the products section", () => {
-  test("test if the mock products renders and load more should not be in the document", async () => {
+  test.only("test if the mock products renders and load more should not be in the document", async () => {
     render(<MockProducts />);
     const product = await screen.findAllByTestId("product");
     expect(product.length).toBeGreaterThan(1);
@@ -65,5 +65,7 @@ describe("testing the products section", () => {
       const btn = screen.getByTestId("load-more");
       expect(btn).toBeInTheDocument();
     });
+
+    
   });
 });

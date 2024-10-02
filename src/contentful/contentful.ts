@@ -16,9 +16,10 @@ export async function fetchAllData(type: string) {
     })) as unknown as {
       items: { fields: Product; sys: { id: string } }[];
     };
-
-    return res.items.map((item, i) => {
+console.log(res)
+    return res.items.map((item) => {
       const { fields, sys } = item;
+      
       return {
         id: sys.id,
         name: fields.name,
@@ -42,7 +43,7 @@ export async function fetchData(id: string) {
       fields: Product;
       sys: { id: string };
     };
-
+console.log(res)
     const { fields } = res;
 
     return {

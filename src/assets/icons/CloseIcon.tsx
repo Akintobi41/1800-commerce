@@ -1,11 +1,10 @@
 import { FC } from "react";
 
-
 interface IProps extends React.SVGProps<SVGSVGElement> {
-  size?: string,
-  strokeWidth?: string,
-  className?:string
-  onClick?: React.MouseEventHandler<SVGSVGElement>; 
+  size?: string;
+  strokeWidth?: string;
+  className?: string;
+  onClick?: React.MouseEventHandler<SVGSVGElement>;
 }
 
 const CloseIcon: FC<IProps> = ({
@@ -23,6 +22,7 @@ const CloseIcon: FC<IProps> = ({
       strokeWidth={strokeWidth}
       stroke="currentColor"
       className={`${size} ${className}`}
+      onClick={onClick}
       {...props}
     >
       <path

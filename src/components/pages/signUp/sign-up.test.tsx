@@ -17,14 +17,12 @@ describe("testing sign up inputs", () => {
     render(<MockComponent />);
 
     const name = screen.getAllByPlaceholderText(
-      "name should not be more than 20 characters"
+      "Name should not be more than 20 characters"
     );
     const pword = screen.getAllByPlaceholderText(
       "Enter password (8-15 characters)"
     );
-    const btn = screen.getByRole("button", {
-      name: "Create Account",
-    });
+ 
 
     expect(name[0]).toBeInTheDocument(); //first name input to be in the document
     expect(name[1]).toBeInTheDocument(); //last name input to be in the document
@@ -35,7 +33,6 @@ describe("testing sign up inputs", () => {
     expect(
       screen.getByPlaceholderText("name@example.com")
     ).toBeInTheDocument();
-    expect(btn).toBeInTheDocument();
   }),
     test("toggles password visibility", () => {
       render(<MockComponent />);

@@ -1,4 +1,4 @@
-import Button from "@components/reusables/button/index";
+import Button from "@components/reusables/button";
 import ArrowImg from "@icons/up-arrow.svg";
 import { FC } from "react";
 

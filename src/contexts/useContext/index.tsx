@@ -1,14 +1,16 @@
 import { IChild } from "@src/tsTypes/react-types";
 import {
   createContext,
+  Dispatch,
   FC,
+  SetStateAction,
   useContext,
   useState,
 } from "react";
 
 type StoreContext = {
   overflow: boolean;
-  setOverflow: (id: boolean) => void;
+  setOverflow: Dispatch<SetStateAction<boolean>>
 };
 
 const StoreContext = createContext({} as StoreContext);

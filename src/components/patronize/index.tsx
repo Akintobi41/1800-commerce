@@ -8,7 +8,7 @@ const Patronize: FC = () => {
   >(null);
 
   return (
-    <section className="w-full flex flex-col justify-center bg-[var(--white)] px-4 text-center max-w-[700px] mx-auto">
+    <section data-testid="patronize-section" className="w-full flex flex-col justify-center bg-[var(--white)] px-4 text-center max-w-[700px] mx-auto">
       <Heading> Why You Should Patronize Us </Heading>
       {accordionContent.map((el) => (
         <Details

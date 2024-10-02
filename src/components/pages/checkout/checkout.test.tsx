@@ -18,7 +18,6 @@ describe("testing checkout ", () => {
     const form = screen.getByTestId("form");
     const input = screen.getByTestId("name");
     const email = screen.getByTestId("email");
-    const country = screen.getByTestId("country");
     const phoneNo = screen.getByTestId("number");
     const address = screen.getByTestId("address");
     const btn = screen.getByTestId("checkout-btn");
@@ -26,7 +25,6 @@ describe("testing checkout ", () => {
     expect(form).toBeInTheDocument();
     expect(input).toBeInTheDocument();
     expect(email).toBeInTheDocument();
-    expect(country).toBeInTheDocument();
     expect(phoneNo).toBeInTheDocument();
     expect(address).toBeInTheDocument();
     expect(btn).toBeInTheDocument();

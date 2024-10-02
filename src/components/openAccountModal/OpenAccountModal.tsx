@@ -1,21 +1,24 @@
 import AccountIcon from "@assets/icons/AccountIcon";
 import SignOutBtn from "@components/signOutBtn";
 import { useStoreContext } from "@contexts/useContext";
+import { useAppDispatch, useAppSelector } from "@hooks/useAppStore";
 import { showEntry } from "@store/accountSlice";
+import { selectAuthStatus, selectUserData } from "@store/loginSlice";
 import { navList } from "@utils/constants";
-import { useEffect, useRef } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { FC, useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 
-function OpenAccountModal() {
+
+const OpenAccountModal : FC =() =>{
+  
   const { overflow, setOverflow } = useStoreContext();
-  const navMenu = useRef();
-  const dispatch = useDispatch();
-  const { name } =
-    useSelector((state) => state.auth?.userData) || {};
-  const loggedIn = useSelector(
-    (state) => state.auth.status
-  );
+  const navMenu = useRef<HTMLDivElement>(null);
+  const dispatch = useAppDispatch();
+  const data = useAppSelector(selectUserData) || {name:''}
+  const {name} = data
+
+  
+  const isAuthenticated = useAppSelector(selectAuthStatus);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,28 +28,31 @@ function OpenAccountModal() {
     };
   }, [overflow]);
 
-  function clearMenu(e) {
+  function clearMenu(e:MouseEvent) {
     if (
       overflow &&
       navMenu.current &&
-      !navMenu.current?.contains(e.target)
+      !navMenu.current?.contains(e.target as Node)
     ) {
       setOverflow(false);
     }
   }
 
+
+
+
   return (
     <div ref={navMenu}>
       <div className="flex items-center justify-center">
         {" "}
-        {loggedIn ? (
+        {isAuthenticated ? (
           <p className="ml-2 text-[.75rem] font-medium hidden lg:block">
-            Hi,{name}
+            Hi,{name || ''}
           </p>
         ) : null}
         <AccountIcon
           styles={`hidden lg:block ml-4 mr-2 ${
-            !loggedIn ? "" : null
+            !isAuthenticated ? "" : null
           }`}
           onClick={() => setOverflow(!overflow)}
         />
@@ -65,7 +71,7 @@ function OpenAccountModal() {
         >
           Account
         </p>
-        {!loggedIn ? (
+        {!isAuthenticated ? (
           Object.keys(navList).map((item, i) => (
             <section
               data-testid={item}

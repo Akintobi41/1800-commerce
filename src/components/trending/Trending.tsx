@@ -11,15 +11,15 @@ const Trending: FC = () => {
         <Heading>2024 Trending Brands</Heading>
       </header>
       <div
-        data-testid="trending-images"
-        className="flex justify-center gap-4 my-4" // Add spacing between icons
+        data-testid="trending-section"
+        className="flex justify-center gap-4 my-4" 
       >
-        <JordanIcon aria-label="Jordan" title="Jordan" />
+        <JordanIcon aria-label="Jordan" />
         <JdSportsIcon
           aria-label="JD Sports"
-          title="JD Sports"
+        
         />
-        <PumaIcon aria-label="Puma" title="Puma" />
+        <PumaIcon aria-label="Puma" />
       </div>
     </section>
   );

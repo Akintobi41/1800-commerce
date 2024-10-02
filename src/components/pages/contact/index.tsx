@@ -123,6 +123,7 @@ const Contact: FC = () => {
         </small>
 
         <Button
+          data-testid="submit-btn"
           aria-label={submitting ? "Submitting" : "Submit"}
           styles="mt-4 bg-[var(--black)] text-white w-24 text-xs py-1 rounded hover:bg-[var(--pry-col)] transition-all duration-300"
           disabled={submitting}
