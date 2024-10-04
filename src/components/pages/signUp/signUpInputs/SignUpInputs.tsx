@@ -1,21 +1,27 @@
 import Input from "@components/reusables/input";
-import ViewPassword from "@components/viewPassword/ViewPassword";
+import ViewPassword from "@components/viewPassword";
 import { useState } from "react";
-import { UseFormRegister, FieldValues } from "react-hook-form";
+import {
+  FieldValues,
+  UseFormRegister,
+} from "react-hook-form";
 
 interface SignUpInputsProps {
   formProp: {
-    pvalid?: string;           
-    pword?: boolean;          
+    pvalid?: string;
+    pword?: boolean;
     lName?: boolean;
-    fName?: boolean;          
-    watch: (field: string) => any; 
-    register: UseFormRegister<FieldValues>; 
+    fName?: boolean;
+    watch: (field: string) => any;
+    register: UseFormRegister<FieldValues>;
   };
 }
 
-const SignUpInputs: React.FC<SignUpInputsProps> = ({ formProp }) => {
-  const { pvalid, pword, lName, fName, watch, register } = formProp;
+const SignUpInputs: React.FC<SignUpInputsProps> = ({
+  formProp,
+}) => {
+  const { pvalid, pword, lName, fName, watch, register } =
+    formProp;
   const [view1, setView1] = useState<boolean>(false);
   const [view2, setView2] = useState<boolean>(false);
 
@@ -24,7 +30,9 @@ const SignUpInputs: React.FC<SignUpInputsProps> = ({ formProp }) => {
       <Input
         label="First Name"
         type="text"
-        styles={`px-[12px] ${fName ? "rounded border-[1px] border-[red]" : ""}`}
+        styles={`px-[12px] ${
+          fName ? "rounded border-[1px] border-[red]" : ""
+        }`}
         {...register("name", {
           required: true,
           maxLength: 20,
@@ -34,7 +42,9 @@ const SignUpInputs: React.FC<SignUpInputsProps> = ({ formProp }) => {
       <Input
         label="Last Name"
         type="text"
-        styles={`px-[12px] ${lName ? "rounded border-[1px] border-[red]" : ""}`}
+        styles={`px-[12px] ${
+          lName ? "rounded border-[1px] border-[red]" : ""
+        }`}
         {...register("lastName", {
           required: true,
           maxLength: 20,
@@ -55,7 +65,12 @@ const SignUpInputs: React.FC<SignUpInputsProps> = ({ formProp }) => {
           styles="relative px-[12px]"
           placeholder="Enter password (8-15 characters)"
           {...register("password", { required: true })}
-          icon={<ViewPassword onClick={() => setView1(!view1)} view={view1} />}
+          icon={
+            <ViewPassword
+              onClick={() => setView1(!view1)}
+              view={view1}
+            />
+          }
           maxLength={15}
         />
       </section>
@@ -73,10 +88,19 @@ const SignUpInputs: React.FC<SignUpInputsProps> = ({ formProp }) => {
             }
           },
         })}
-        icon={<ViewPassword onClick={() => setView2(!view2)} view={view2} />}
+        icon={
+          <ViewPassword
+            onClick={() => setView2(!view2)}
+            view={view2}
+          />
+        }
         maxLength={15}
       />
-      {pword && <p className="-mt-6 h-2 text-red-600">Passwords do not match</p>}
+      {pword && (
+        <p className="-mt-6 h-2 text-red-600">
+          Passwords do not match
+        </p>
+      )}
     </>
   );
 };

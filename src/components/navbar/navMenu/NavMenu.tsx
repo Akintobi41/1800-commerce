@@ -8,7 +8,6 @@ import { CartItem } from "@src/tsTypes/react-types";
 import { cartData } from "@store/cartSlice";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import NavSection from "../navSection/NavSection";
 
 function NavMenu() {
   const [menuToggle, setMenuToggle] = useState(false);
@@ -30,9 +29,7 @@ function NavMenu() {
       >
         <TopNav
           menuToggle={menuToggle}
-          section={
-            <NavSection setMenuToggle={setMenuToggle} />
-          }
+           setMenuToggle={setMenuToggle} 
         />
         <section className="flex w-full lg:w-[58%] justify-between items-center">
           <section

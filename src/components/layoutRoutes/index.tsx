@@ -1,7 +1,7 @@
 import Entry from "@components/entry";
 import Footer from "@components/footer";
-import { useStoreContext } from "@contexts/useContext";
 import { Outlet } from "react-router";
+import { useStoreContext } from "@contexts/index";
 
 function LayoutRoutes() {
   const { overflow } = useStoreContext();

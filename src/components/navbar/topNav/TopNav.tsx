@@ -1,17 +1,24 @@
 import LoadingAnimation from "@components/loadingAnimation";
-import { lazy, Suspense } from "react";
-import { useSelector } from "react-redux";
+import NavSection from "@components/navbar/navSection/NavSection";
+import { useAppSelector } from "@hooks/useAppStore";
+import { selectAuthStatus, selectUserData } from "@store/loginSlice";
+import { Dispatch, FC, lazy, SetStateAction, Suspense } from "react";
 
 const SignOutBtn = lazy(
   () => import("@components/signOutBtn")
 );
 
-function TopNav({ menuToggle, section }) {
-  const loggedIn = useSelector(
-    (state) => state.auth.status
-  );
+interface TNavProps { 
+  menuToggle: boolean
+  setMenuToggle: Dispatch<SetStateAction<boolean>>
+}
+
+const TopNav: FC <TNavProps> = ({ menuToggle, setMenuToggle })=> {
+
+  const isAuthenticated = useAppSelector(selectAuthStatus);
   const { name } =
-    useSelector((state) => state.auth?.userData) || {};
+    useAppSelector(selectUserData) || {};
+
 
   return (
     <nav
@@ -22,12 +29,12 @@ function TopNav({ menuToggle, section }) {
           : "hidden lg:flex flex-col lg:relative fixed left-0 items-start w-full h-full lg:bg-transparent lg:translate-y-[0px] transition-all duration-[1s] lg:w-auto" 
       }`}
     >
-      {loggedIn && (
+      {isAuthenticated && (
         <p className="p-4 italic lg:hidden">Hi, {name}</p>
       )}
       <ul className="flex flex-col mt-10 w-full lg:mt-0 h-full lg:w-[30%] lg:flex-row z-30 lg:gap-8">
-        {section}
-        {loggedIn && (
+       <NavSection setMenuToggle={setMenuToggle}/>
+        {isAuthenticated && (
           <Suspense fallback={<LoadingAnimation />}>
             {" "}
             <SignOutBtn className="lg:hidden" />

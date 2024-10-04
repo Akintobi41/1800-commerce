@@ -1,8 +1,7 @@
-import DeleteIcon from '@assets/icons/DeleteIcon';
+import DeleteIcon from "@assets/icons/DeleteIcon";
 import EmptyCart from "@assets/icons/EmptyCart";
 import Button from "@components/reusables/button";
 import { useAppDispatch, useAppSelector } from "@hooks/useAppStore";
-import { CartItem } from "@src/tsTypes/react-types";
 import {
   addValue,
   cartData,
@@ -14,6 +13,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { getButtonProps } from "../u_cart";
 
+
 const CartDisplay: FC = () => {
   const dispatch = useAppDispatch();
   const cart = useAppSelector(cartData);
@@ -21,10 +21,9 @@ const CartDisplay: FC = () => {
   return (
     <>
       {cart?.length ? (
-        cart.map((data) => {
-          const { images, name, type, quantity, price } =
-            data;
-          const image = images[0]?.file.url
+        cart.map(data => {
+          const { images, name, type, quantity, price } = data;
+          const image = images[0]?.fields.file.url;
           const totalPrice = price * quantity;
           const { text, style } = getButtonProps(quantity);
 
@@ -55,9 +54,7 @@ const CartDisplay: FC = () => {
                   <Button
                     data-testid="remove-icon"
                     className="flex items-center gap-x-1 text-xs sm:text-sm font-medium cursor-pointer"
-                    onClick={() =>
-                      dispatch(removeFromCart(data))
-                    }
+                    onClick={() => dispatch(removeFromCart(data))}
                     aria-label={`Remove ${name} from cart`}
                   >
                     <DeleteIcon /> Remove
@@ -74,14 +71,9 @@ const CartDisplay: FC = () => {
                 >
                   <Button
                     styles={`flex items-center justify-center border border-r-0 size-5 md:size-6 ${
-                      quantity <= 1
-                        ? "opacity-40 cursor-not-allowed"
-                        : ""
+                      quantity <= 1 ? "opacity-40 cursor-not-allowed" : ""
                     }`}
-                    onClick={() =>
-                      quantity > 1 &&
-                      dispatch(reduceValue(data))
-                    }
+                    onClick={() => quantity > 1 && dispatch(reduceValue(data))}
                     aria-label={`Reduce quantity of ${name}`}
                   >
                     -
@@ -91,14 +83,9 @@ const CartDisplay: FC = () => {
                   </p>
                   <Button
                     styles={`flex items-center justify-center border-l-0 border size-5 md:size-6 ${
-                      quantity === 10
-                        ? "opacity-40 cursor-not-allowed"
-                        : ""
+                      quantity === 10 ? "opacity-40 cursor-not-allowed" : ""
                     }`}
-                    onClick={() =>
-                      quantity < 10 &&
-                      dispatch(addValue(data))
-                    }
+                    onClick={() => quantity < 10 && dispatch(addValue(data))}
                     aria-label={`Increase quantity of ${name}`}
                   >
                     +
@@ -116,7 +103,10 @@ const CartDisplay: FC = () => {
             Let&apos;s go buy something!
           </p>
           <Link to="/products" className="mt-6">
-            <Button styles="w-36 h-9 bg-black hover:bg-[var(--pry-col)] rounded-[8px] text-white [word-spacing:3px]">
+            <Button
+              data-testid="start-shopping-btn"
+              styles="w-36 h-9 bg-black hover:bg-[var(--pry-col)] rounded-[8px] text-white [word-spacing:3px]"
+            >
               Start Shopping
             </Button>
           </Link>

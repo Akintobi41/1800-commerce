@@ -1,23 +1,19 @@
-import AccountIcon from "@assets/icons/AccountIcon";
 import SignOutBtn from "@components/signOutBtn";
-import { useStoreContext } from "@contexts/useContext";
+import { useStoreContext } from "@contexts/index";
 import { useAppDispatch, useAppSelector } from "@hooks/useAppStore";
 import { showEntry } from "@store/accountSlice";
 import { selectAuthStatus, selectUserData } from "@store/loginSlice";
 import { navList } from "@utils/constants";
 import { FC, useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
-
-
-const OpenAccountModal : FC =() =>{
-  
+import AccountIcon from "@assets/icons/AccountIcon";
+const OpenAccountModal: FC = () => {
   const { overflow, setOverflow } = useStoreContext();
   const navMenu = useRef<HTMLDivElement>(null);
   const dispatch = useAppDispatch();
-  const data = useAppSelector(selectUserData) || {name:''}
-  const {name} = data
+  const data = useAppSelector(selectUserData) || { name: "" };
+  const { name } = data;
 
-  
   const isAuthenticated = useAppSelector(selectAuthStatus);
   const navigate = useNavigate();
 
@@ -28,7 +24,7 @@ const OpenAccountModal : FC =() =>{
     };
   }, [overflow]);
 
-  function clearMenu(e:MouseEvent) {
+  function clearMenu(e: MouseEvent) {
     if (
       overflow &&
       navMenu.current &&
@@ -38,22 +34,17 @@ const OpenAccountModal : FC =() =>{
     }
   }
 
-
-
-
   return (
     <div ref={navMenu}>
       <div className="flex items-center justify-center">
         {" "}
         {isAuthenticated ? (
           <p className="ml-2 text-[.75rem] font-medium hidden lg:block">
-            Hi,{name || ''}
+            Hi, {name || ""}
           </p>
         ) : null}
         <AccountIcon
-          styles={`hidden lg:block ml-4 mr-2 ${
-            !isAuthenticated ? "" : null
-          }`}
+          styles={`hidden lg:block ml-4 mr-2 ${!isAuthenticated ? "" : null}`}
           onClick={() => setOverflow(!overflow)}
         />
       </div>
@@ -65,10 +56,7 @@ const OpenAccountModal : FC =() =>{
             : "opacity-0 transition-opacity duration-300 invisible"
         } flex flex-col absolute top-full bg-[var(--white)] right-[50px] w-32 h-28 p-6 text-sm `}
       >
-        <p
-          data-testid="account-section"
-          className="opacity-40 text-left"
-        >
+        <p data-testid="account-section" className="opacity-40 text-left">
           Account
         </p>
         {!isAuthenticated ? (
@@ -98,5 +86,5 @@ const OpenAccountModal : FC =() =>{
       </div>
     </div>
   );
-}
+};
 export default OpenAccountModal;

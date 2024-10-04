@@ -46,15 +46,10 @@ const Products: FC = () => {
             <LoadingAnimation />
           </section>
         )}
-        <ScrollButton
-          btn={backToTopButton}
-          scroll={Scroll}
-        />
+        <ScrollButton btn={backToTopButton} scroll={Scroll} />
       </section>
       {next && next < products?.length && (
-        <LoadMoreProducts
-          handleMoreProducts={handleMoreProducts}
-        />
+        <LoadMoreProducts handleMoreProducts={handleMoreProducts} />
       )}
     </section>
   );

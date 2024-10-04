@@ -8,7 +8,6 @@ import { showEntry } from "@store/accountSlice";
 import { cartData } from "@store/cartSlice";
 import { format } from "@utils/format/format";
 import React from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { totalValues } from "../u_cart";
 import { selectAuthStatus } from "@store/loginSlice";

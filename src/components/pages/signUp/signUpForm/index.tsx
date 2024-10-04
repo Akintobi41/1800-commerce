@@ -1,12 +1,12 @@
-import React, { useState } from "react";
 import authService from "@appwrite/auth/auth";
 import Button from "@components/reusables/button";
 import Input from "@components/reusables/input";
+import { useAppDispatch } from "@hooks/useAppStore";
 import { closeEntry } from "@store/accountSlice";
 import { signIn } from "@store/loginSlice";
 import { messageMap, radioText } from "@utils/constants";
 import { validateEmail } from "@utils/validate/emailValidate";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import SignUpInputs from "../signUpInputs/SignUpInputs";
 import SignUpSelect from "../signUpInputs/SignUpSelect";
@@ -40,7 +40,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ formProp }) => {
 
   const { month, day } = birthday;
   const { isValid } = formState;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState<boolean>(false);
   const [isVisible, setIsVisible] = useState<boolean>(false);

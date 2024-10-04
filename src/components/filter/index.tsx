@@ -1,18 +1,17 @@
 import Select from "@components/reusables/select";
+import { useAppDispatch, useAppSelector } from "@hooks/useAppStore";
 import {
   filterProducts,
+  myProductsData,
   setProducts,
 } from "@store/productSlice";
 import { filter } from "@utils/constants";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 
 const Filter = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const optionRef = useRef<HTMLSelectElement>(null);
-  const myProducts = useSelector(
-    (state: any) => state.products.myProducts
-  );
+  const myProducts = useAppSelector(myProductsData);
   const [value, setValue] = useState<string>(
     localStorage.getItem("value") || "None"
   );
@@ -51,9 +50,11 @@ const Filter = () => {
           item.type === "Bag"
       ),
     }[val];
-
-    dispatch(filterProducts(result));
-    dispatch(setProducts(result));
+    if (result) { 
+      dispatch(filterProducts(result));
+      dispatch(setProducts(result));
+ }
+  
   };
 
   return (

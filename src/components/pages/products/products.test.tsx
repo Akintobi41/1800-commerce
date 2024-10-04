@@ -1,12 +1,11 @@
-import {
-  fireEvent,
-  render,
-  screen,
-  waitFor,
-} from "@testing-library/react";
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { expect, vi } from "vitest";
 import Products from ".";
 import TestComponentWrapper from "./../../../mocks/TestComponentWrapper";
+import { mockContentfulData } from "@src/mocks/mockData";
+import { http, HttpResponse } from "msw";
+import { server } from "@src/mocks/server";
+import { uid } from "@utils/config/config";
 
 const MockProducts = () => (
   <TestComponentWrapper>
@@ -15,7 +14,7 @@ const MockProducts = () => (
 );
 
 describe("testing the products section", () => {
-  test.only("test if the mock products renders and load more should not be in the document", async () => {
+  test("test if the mock products renders and load more should not be in the document", async () => {
     render(<MockProducts />);
     const product = await screen.findAllByTestId("product");
     expect(product.length).toBeGreaterThan(1);
@@ -27,17 +26,12 @@ describe("testing the products section", () => {
     fireEvent.change(selectElement, {
       target: { value: "Alphabetically: A-Z" },
     });
-    expect(localStorage.getItem("sortValue")).toBe(
-      "Alphabetically: A-Z"
-    );
+    expect(localStorage.getItem("sortValue")).toBe("Alphabetically: A-Z");
   });
 
   test("test localStorage when filter option is changed", async () => {
-    localStorage.setItem("value", "Fragrance");
     render(<MockProducts />);
-    const filterElement = await screen.findByTestId(
-      "filter"
-    );
+    const filterElement = await screen.findByTestId("filter");
     fireEvent.change(filterElement, {
       target: { value: "Shoe" },
     });
@@ -45,7 +39,7 @@ describe("testing the products section", () => {
   });
 
   test("renders ScrollButton when backToTopButton is true", async () => {
-    vi.mock("../../../hooks/useScroll", () => ({
+    vi.mock("../../../hooks/useScroll/useScroll.ts", () => ({
       default: () => ({
         backToTopButton: true,
         Scroll: vi.fn(),
@@ -53,19 +47,31 @@ describe("testing the products section", () => {
     }));
     render(<MockProducts />);
 
-    const scrollBtn = await screen.findByTestId(
-      "scroll-btn"
-    );
+    const scrollBtn = await screen.findByTestId("scroll-btn");
     expect(scrollBtn).toBeInTheDocument();
   });
 
   test("load more products", async () => {
-    render(<MockProducts />);
-    await waitFor(() => {
-      const btn = screen.getByTestId("load-more");
-      expect(btn).toBeInTheDocument();
-    });
+    const arr: unknown[] = [];
+    for (let i = 0; i < 12; i++) {
+      arr.push({ ...mockContentfulData.items[0], sys: { id: uid() } });
+    }
+    const mockData = {
+      items: arr,
+    };
 
-    
+    server.use(
+      http.get(
+        "https://cdn.contentful.com/spaces/6hoi4gahctlw/environments/master/entries",
+        () => {
+          return HttpResponse.json(mockData, { status: 200 });
+        }
+      )
+    );
+    render(<MockProducts />);
+
+    await waitFor(() =>
+      expect(screen.getByTestId("load-more")).toBeInTheDocument()
+    );
   });
 });

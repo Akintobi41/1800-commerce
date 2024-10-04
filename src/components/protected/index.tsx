@@ -2,7 +2,6 @@
 import { useAppSelector } from "@hooks/useAppStore";
 import { selectAuthStatus } from "@store/loginSlice";
 import { FC, ReactNode, useEffect } from "react";
-import { useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 interface ProtectedProps {

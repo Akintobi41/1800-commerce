@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { act } from "react";
 import { expect } from "vitest";
-import TestComponentWrapper from './../../../../mocks/TestComponentWrapper';
+import TestComponentWrapper from "./../../../../mocks/TestComponentWrapper";
 import Products from "./../";
 const MockProducts = () => (
   <TestComponentWrapper>
@@ -11,17 +11,15 @@ const MockProducts = () => (
 
 describe("testing the products section", () => {
   test("test if select and filter inputs are rendered in the DOM", async () => {
-    render(<MockProducts />)
+    render(<MockProducts />);
     const sort = await screen.findByTestId("sort");
     const filter = await screen.findByTestId("filter");
     expect(sort).toBeInTheDocument();
     expect(filter).toBeInTheDocument();
   }),
     test("check the number of products rendered to the DOM", async () => {
-       render(<MockProducts />)
-      const product = await screen.findAllByTestId(
-        "products"
-      );
+      render(<MockProducts />);
+      const product = await screen.findAllByTestId("product");
       expect(product.length).toBeGreaterThan(2);
     });
 });

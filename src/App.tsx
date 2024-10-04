@@ -1,11 +1,11 @@
-import { GlobalProviders } from "@contexts/index";
 import { RouterProvider } from "react-router";
 import router from "./router/Router";
+import GlobalProviders from "@contexts/index";
 
 const App = () => {
   return (
     <GlobalProviders>
-      <RouterProvider router={router} />{" "}
+      <RouterProvider router={router} />
     </GlobalProviders>
   );
 };

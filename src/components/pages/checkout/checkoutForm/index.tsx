@@ -6,17 +6,17 @@ import { selectUserData } from "@store/loginSlice";
 import {
   Dispatch,
   FC,
+  ReactNode,
   SetStateAction,
   useState,
 } from "react";
 import { useForm } from "react-hook-form";
 
-
 interface CheckoutFormProps {
   submit: (details: UserDetails) => void;
   error: string | null;
   userData: UserDetails;
-  setError: Dispatch<SetStateAction<string|null>>;
+  setError: Dispatch<SetStateAction<string | null>>;
 }
 
 const CheckoutForm: FC<CheckoutFormProps> = ({
@@ -26,7 +26,7 @@ const CheckoutForm: FC<CheckoutFormProps> = ({
   setError,
 }) => {
   const data = useAppSelector(selectUserData);
-  
+
   const {
     register,
     handleSubmit,
@@ -42,6 +42,10 @@ const CheckoutForm: FC<CheckoutFormProps> = ({
     },
   });
   const [success, setIsSuccessful] = useState("");
+
+  const Wrapper = (children: ReactNode) => (
+    <div className="h-2 -mt-4">{children}</div>
+  );
 
   return (
     <form
@@ -62,16 +66,24 @@ const CheckoutForm: FC<CheckoutFormProps> = ({
             value: 3,
             message: "Minimum 3 characters required",
           },
+          maxLength: {
+            value: 30,
+            message:
+              "should not be more than 30 characters",
+          },
         })}
         border="border-b-[1px]"
         height="h-8"
         styles="text-sm px-2"
         placeholder="30 characters max -"
       />
-      {errors.name && (
-        <span className="text-xs text-red-500">
-          {errors.name.message}
-        </span>
+
+      {Wrapper(
+        errors.name && (
+          <span className="text-xs text-red-500">
+            {errors.name.message}
+          </span>
+        )
       )}
 
       <Input
@@ -83,15 +95,22 @@ const CheckoutForm: FC<CheckoutFormProps> = ({
             value: /^\S+@\S+$/i,
             message: "Invalid email address",
           },
+          maxLength: {
+            value: 30,
+            message:
+              "should not be more than 30 characters",
+          },
         })}
         border="border-b-[1px]"
         height="h-8"
         styles="text-sm px-2"
       />
-      {errors.email && (
-        <span className="text-xs text-red-500">
-          {errors.email.message}
-        </span>
+      {Wrapper(
+        errors.email && (
+          <span className="text-xs text-red-500">
+            {errors.email.message}
+          </span>
+        )
       )}
 
       <Input
@@ -99,16 +118,23 @@ const CheckoutForm: FC<CheckoutFormProps> = ({
         data-testid="address"
         {...register("address", {
           required: "Address is required",
+          maxLength: {
+            value: 30,
+            message:
+              "should not be more than 30 characters",
+          },
         })}
         border="border-b-[1px]"
         height="h-8"
         styles="text-sm px-2"
         placeholder="Enter your address"
       />
-      {errors.address && (
-        <span className="text-xs text-red-500">
-          {errors.address.message}
-        </span>
+      {Wrapper(
+        errors.address && (
+          <span className="text-xs text-red-500">
+            {errors.address.message}
+          </span>
+        )
       )}
 
       <Input
@@ -120,16 +146,24 @@ const CheckoutForm: FC<CheckoutFormProps> = ({
             value: 3,
             message: "Minimum 3 characters required",
           },
+          maxLength: {
+            value: 10,
+            message:
+              "should not be more than 15 characters",
+          },
         })}
         border="border-b-[1px]"
         height="h-8"
         styles="text-sm px-2"
         placeholder="Enter your city"
       />
-      {errors.city && (
-        <span className="text-xs text-red-500">
-          {errors.city.message}
-        </span>
+
+      {Wrapper(
+        errors.city && (
+          <span className="text-xs text-red-500">
+            {errors.city.message}
+          </span>
+        )
       )}
 
       <Input
@@ -151,24 +185,17 @@ const CheckoutForm: FC<CheckoutFormProps> = ({
         styles="text-sm px-2"
         placeholder="123-456-7890"
       />
-      {errors.phoneNumber && (
-        <span className="text-xs text-red-500">
-          {errors.phoneNumber.message}
-        </span>
-      )}
-
-      <p className="text-xs text-green-500 h-4 -mt-3 mb-3">
-        {success}
-      </p>
-      {error && (
-        <p className="text-xs text-red-500 h-4 -mt-3 mb-3">
-          {error}
-        </p>
+      {Wrapper(
+        errors.phoneNumber && (
+          <span className="text-xs text-red-500">
+            {errors.phoneNumber.message}
+          </span>
+        )
       )}
 
       <Button
         data-testid="checkout-btn"
-        styles={`bg-[var(--black)] text-[var(--white)] w-[8rem] h-[32px] rounded hover:bg-[var(--pry-col)] transition-colors duration-500`}
+        styles={`bg-[var(--black)] mt-4 text-[var(--white)] w-[8rem] h-[32px] rounded hover:bg-[var(--pry-col)] transition-colors duration-500`}
         type="submit"
       >
         Submit

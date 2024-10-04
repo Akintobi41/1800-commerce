@@ -2,18 +2,15 @@ import ImageSwiper from "@components/imageSwiper";
 import LoadingAnimation from "@components/loadingAnimation";
 import Button from "@components/reusables/button";
 import { fetchData } from "@contentful/contentful";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "@hooks/useAppStore";
-import { CartItem, Product } from "@src/tsTypes/react-types";
+import { useAppDispatch, useAppSelector } from "@hooks/useAppStore";
+import { CartItem } from "@src/tsTypes/react-types";
 import { cartData, modifyCart } from "@store/cartSlice";
 import { productsData } from "@store/productSlice";
 import { FC, useEffect, useState } from "react";
 import { useQuery } from "react-query";
 import { useNavigate, useParams } from "react-router";
 
-const ProductDetail : FC = ()=> {
+const ProductDetail: FC = () => {
   const { id } = useParams();
   const cart = useAppSelector(cartData);
   const products = useAppSelector(productsData) || [];
@@ -21,9 +18,7 @@ const ProductDetail : FC = ()=> {
   const navigate = useNavigate();
   const [route, setRoute] = useState(false);
 
-  const productInStore = products.find(
-    (item) => item.id === id
-  );
+  const productInStore = products.find(item => item.id === id);
 
   const { data, isLoading } = useQuery(
     ["product", id],
@@ -40,9 +35,7 @@ const ProductDetail : FC = ()=> {
 
   const product = productInStore || data;
 
-  const checkProduct = [...cart].some(
-    (item) => item.name === product?.name
-  );
+  const checkProduct = [...cart].some(item => item.name === product?.name);
 
   useEffect(() => {
     if (route) {
@@ -61,13 +54,8 @@ const ProductDetail : FC = ()=> {
     setRoute(true);
   }
 
-  console.log(product)
-
   return (
-    <section
-      data-testid="product-detail-section"
-      className="overflow-x-hidden"
-    >
+    <section data-testid="product-detail-section" className="overflow-x-hidden">
       {product ? (
         <>
           <section
@@ -76,17 +64,15 @@ const ProductDetail : FC = ()=> {
           >
             <ImageSwiper images={product.images} />
             <section className="flex w-full h-full justify-center px-4">
-              {product?.images?.map(
-                (img) => (
-                  <img
-                    src={img.fields.file.url}
-                    alt={product.name}
-                    className="size-[4rem] sm:size-24 cursor-pointer bg-[#cbd5e140] mr-[.5rem]"
-                    key={img.fields.file.url}
-                    loading="lazy"
-                  />
-                )
-              )}
+              {product?.images?.map(img => (
+                <img
+                  src={img.fields.file.url}
+                  alt={product.name}
+                  className="size-[4rem] sm:size-24 cursor-pointer bg-[#cbd5e140] mr-[.5rem]"
+                  key={img.fields.file.url}
+                  loading="lazy"
+                />
+              ))}
             </section>
             <section className="flex flex-col items-center">
               <p className="text-[1.25rem] font-bold p-4 text-center">
@@ -141,12 +127,12 @@ const ProductDetail : FC = ()=> {
         </section>
       ) : !product ? (
         <p className="my-40 px-4 leading-7 font-medium text-center max-w-md mx-auto">
-          There might be an issue with your network
-          connection or our servers might be down. <br />
+          There might be an issue with your network connection or our servers
+          might be down. <br />
           kindly refresh page to retry.
         </p>
       ) : null}
     </section>
   );
-}
+};
 export default ProductDetail;

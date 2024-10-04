@@ -1,8 +1,9 @@
-import { useSelector } from "react-redux";
+import { useAppSelector } from "@hooks/useAppStore";
+import { cartData } from "@store/cartSlice";
 
 function Delivery() {
 
-  const cart = useSelector((state) => state.cart.products);
+  const cart = useAppSelector(cartData);
   
   return (
     <>

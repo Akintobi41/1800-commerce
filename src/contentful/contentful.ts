@@ -16,17 +16,17 @@ export async function fetchAllData(type: string) {
     })) as unknown as {
       items: { fields: Product; sys: { id: string } }[];
     };
-console.log(res)
-    return res.items.map((item) => {
+
+    return res.items.map(item => {
       const { fields, sys } = item;
-      
+
       return {
         id: sys.id,
         name: fields.name,
         price: fields.price,
         description: fields.description,
         type: fields.type,
-        images: fields.images.map((img) => ({
+        images: fields.images.map(img => ({
           fields: { file: { url: img.fields.file.url } },
         })),
         quantity: 0,
@@ -43,7 +43,7 @@ export async function fetchData(id: string) {
       fields: Product;
       sys: { id: string };
     };
-console.log(res)
+
     const { fields } = res;
 
     return {
@@ -52,7 +52,7 @@ console.log(res)
       price: fields.price,
       description: fields.description,
       type: res.fields.type,
-      images: fields.images.map((img) => ({
+      images: fields.images.map(img => ({
         fields: { file: { url: img.fields.file.url } },
       })),
       quantity: 0,

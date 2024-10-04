@@ -1,16 +1,23 @@
-import { render, screen } from '@testing-library/react';
-import React from 'react';
-import { describe, expect } from 'vitest';
-import ViewPassword from './ViewPassword';
+import { render, screen } from "@testing-library/react";
+import { describe, expect } from "vitest";
+import ViewPassword from "./";
 
-describe('ViewPassword component', () => {
-  test('should render EyeIcon when view is true', () => {
-    render(<ViewPassword view={true} />);
-    expect(screen.getByTestId('eye-icon')).toBeInTheDocument();
+describe("ViewPassword component", () => {
+  test("should render EyeIcon when view is true", () => {
+    render(<ViewPassword view={true} onClick={function (): void {
+      throw new Error("Function not implemented.");
+    } } />);
+    expect(
+      screen.getByTestId("eye-icon")
+    ).toBeInTheDocument();
   });
 
-  test('should render EyeSlashIcon when view is false', () => {
-    render(<ViewPassword view={false} />);
-    expect(screen.getByTestId('eye-slash-icon')).toBeInTheDocument();
+  test("should render EyeSlashIcon when view is false", () => {
+    render(<ViewPassword view={false} onClick={function (): void {
+      throw new Error("Function not implemented.");
+    } } />);
+    expect(
+      screen.getByTestId("eye-slash-icon")
+    ).toBeInTheDocument();
   });
 });

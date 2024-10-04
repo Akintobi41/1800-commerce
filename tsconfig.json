@@ -14,6 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "react-jsx",
+    "allowUmdGlobalAccess": true,
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
@@ -31,14 +32,16 @@
       "@images/*": ["src/assets/images/*"]
     }
   },
-  "include": ["src",
-  "vite-env.d.ts",
-  "@testing-library/jest-dom/vitest",
-  "test-config/setup.ts",
-  "vitest.config.ts",
-  ".eslintrc.cjs",
-  "vite.config.ts",
-  "jest.config.cjs",
-  "tailwind.config.js",
-  "postcss.config.js",
-]}
+  "include": [
+    "src",
+    "vite-env.d.ts",
+    "@testing-library/jest-dom/vitest",
+    "test-config/setup.ts",
+    "vitest.config.ts",
+    ".eslintrc.cjs",
+    "vite.config.ts",
+    "jest.config.cjs",
+    "tailwind.config.js",
+    "postcss.config.js"
+  ]
+}

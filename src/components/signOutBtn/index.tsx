@@ -1,17 +1,18 @@
 import authService from "@appwrite/auth/auth";
 import Button from "@components/reusables/button";
-import { useStoreContext } from "@contexts/useContext";
+import { useStoreContext } from "@contexts/index";
+import { useAppDispatch } from "@hooks/useAppStore";
 import { signOut } from "@store/loginSlice";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+
 
 interface SignOutBtnProps {
   className?: string; 
 }
 
 const SignOutBtn: React.FC<SignOutBtnProps> = ({ className }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const [modal, setModal] = useState(false);
   const { setOverflow } = useStoreContext();

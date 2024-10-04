@@ -1,14 +1,10 @@
 import Button from "@components/reusables/button";
-import { useAppSelector } from "@hooks/useAppStore";
-import {
-  CartItem,
-  Product,
-} from "@src/tsTypes/react-types";
+import { useAppDispatch, useAppSelector } from "@hooks/useAppStore";
+import { CartItem, Product } from "@src/tsTypes/react-types";
 import { cartData, modifyCart } from "@store/cartSlice";
 import { productsData } from "@store/productSlice";
 import { format } from "@utils/format/format";
 import { FC, MouseEvent } from "react";
-import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 
 type RpProps = {
@@ -18,9 +14,8 @@ type RpProps = {
 const RenderProducts: FC<RpProps> = ({ next }) => {
   const cart = useAppSelector(cartData);
 
-  const products: Product[] =
-    useAppSelector(productsData) || [];
-  const dispatch = useDispatch();
+  const products: Product[] = useAppSelector(productsData) || [];
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
   function handleClick(
@@ -28,9 +23,7 @@ const RenderProducts: FC<RpProps> = ({ next }) => {
     product: Product
   ) {
     const cartRedirect =
-      (
-        e.target as HTMLButtonElement
-      ).tagName.toLowerCase() === "button";
+      (e.target as HTMLButtonElement).tagName.toLowerCase() === "button";
 
     if (cartRedirect) {
       dispatch(modifyCart(product as unknown as CartItem));
@@ -41,15 +34,15 @@ const RenderProducts: FC<RpProps> = ({ next }) => {
 
   return (
     <>
-      {[...products.slice(0, next)].map((product) => {
-        const { name, images, type, price } = product;
+      {[...products.slice(0, next)].map(product => {
+        const { name, images, type, price, id } = product;
 
         return (
           <section
             data-testid="product"
-            key={name}
+            key={id}
             className="flex flex-col relative w-[46%] sm:w-[30%] md:w-[23%] lg:w-[30%] h-[18rem] sm:h-[24em] max-h-[700px] cursor-pointer border-none"
-            onClick={(e) => handleClick(e, product)}
+            onClick={e => handleClick(e, product)}
           >
             <section className="relative w-full bg-[#fff] h-[60%] lg:-h-[700px]">
               <img
@@ -64,9 +57,7 @@ const RenderProducts: FC<RpProps> = ({ next }) => {
                 }
               >
                 {" "}
-                {[...cart].some(
-                  (item) => item.name === name
-                )
+                {[...cart].some(item => item.name === name)
                   ? "Remove from Cart"
                   : "Add to Cart"}
               </Button>
@@ -76,11 +67,7 @@ const RenderProducts: FC<RpProps> = ({ next }) => {
                 key={item}
                 className={`text-sm mt-1 w-full truncate text-ellipsis overflow-hidden ${
                   i > 1 ? "font-medium" : ""
-                } ${
-                  i === 1
-                    ? "text-[#737373] text-[11px]"
-                    : ""
-                } `}
+                } ${i === 1 ? "text-[#737373] text-[11px]" : ""} `}
               >
                 {i > 1 ? format(price) : item}
               </p>

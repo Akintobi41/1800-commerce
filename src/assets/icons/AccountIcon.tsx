@@ -1,10 +1,10 @@
 import { IBaseProps } from "@src/tsTypes/react-types";
-import { Dispatch, FC, SetStateAction } from "react";
+import { Dispatch, FC } from "react";
 
-interface AccountProps extends IBaseProps{ 
-  onClick: ()=> Dispatch<SetStateAction<boolean>>
+interface AccountProps extends IBaseProps {
+  onClick: () => void;
 }
-const AccountIcon : FC<AccountProps> = ({ styles, ...props })=> {
+const AccountIcon: FC<AccountProps> = ({ styles, ...props }) => {
   return (
     <svg
       data-testid="account-icon"
@@ -24,6 +24,6 @@ const AccountIcon : FC<AccountProps> = ({ styles, ...props })=> {
       />
     </svg>
   );
-}
+};
 
 export default AccountIcon;

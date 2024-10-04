@@ -6,11 +6,11 @@ import { useQuery } from "react-query";
 export const useFetchProducts = () => {
   const dispatch = useAppDispatch();
   const loadData = async function () {
-    const items  = await fetchAllData("products");
+    const items = await fetchAllData("products");
     items && dispatch(setProducts(items));
     return items;
   };
   const { data, isLoading } = useQuery("load", loadData);
- data &&  console.log((data))
-  return { isLoading, data }
-}
+
+  return { isLoading, data };
+};

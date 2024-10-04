@@ -1,14 +1,13 @@
 import authService from '@appwrite/auth/auth';
-import { useAppSelector } from '@hooks/useAppStore';
-import { selectUserData, signIn } from '@store/loginSlice';
+import { useAppDispatch, useAppSelector } from '@hooks/useAppStore';
+import { selectAuthStatus, selectUserData, signIn } from '@store/loginSlice';
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 
 const useAuth = () => {
-  const isAuthenticated = useAppSelector(selectUserData);
+  const isAuthenticated = useAppSelector(selectAuthStatus);
   const userData = useAppSelector(selectUserData)
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     const getUser = async () => {
@@ -23,7 +22,7 @@ const useAuth = () => {
     };
 
     getUser();
-  }, []);
+  }, [isAuthenticated]);
 
   return userData;
 };

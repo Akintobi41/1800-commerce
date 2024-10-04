@@ -33,13 +33,11 @@ function Checkout() {
     city: "",
   });
   const [submit, setSubmit] = useState(false);
-  const [step, setStep] = useState<"address" | "summary">(
-    "address"
-  );
+  const [step, setStep] = useState<"address" | "summary">("address");
 
   const handleFormSubmit = (data: UserDetails) => {
     setError(null);
-  console.log(data)
+
     if (validateEmail(email)) {
       setError("Invalid email address.");
       return;
@@ -53,14 +51,7 @@ function Checkout() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const {
-    name,
-    email,
-    phoneNumber,
-    city,
-    country,
-    address,
-  } = formData;
+  const { name, email, phoneNumber, city, country, address } = formData;
 
   const userInfo = {
     Name: name,
@@ -86,10 +77,7 @@ function Checkout() {
           />
         </>
       ) : (
-        <CheckoutSummary
-          userInfo={userInfo}
-          setNext={setNext}
-        >
+        <CheckoutSummary userInfo={userInfo} setNext={setNext}>
           <PaystackButton
             email={email}
             amount={amount}
@@ -100,8 +88,8 @@ function Checkout() {
             }}
             publicKey={publicKey}
             text="Pay Now"
-              onSuccess={approved}
-              className="bg-[var(--black)] text-[var(--white)] w-[8rem] h-[32px] rounded hover:bg-[var(--pry-col)] transition-colors duration-500"
+            onSuccess={approved}
+            className="bg-[var(--black)] text-[var(--white)] w-[8rem] h-[32px] rounded hover:bg-[var(--pry-col)] transition-colors duration-500"
           />
         </CheckoutSummary>
       )}

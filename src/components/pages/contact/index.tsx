@@ -74,11 +74,14 @@ const Contact: FC = () => {
             required: "Name is required",
           })}
         />
+        <h2 className="h-3">
         {errors.name && (
           <span className="text-xs text-red-500">
             {errors.name.message}
           </span>
         )}
+        </h2>
+       
 
         <Input
           border="border-0 border-b-[1px]"
@@ -95,11 +98,14 @@ const Contact: FC = () => {
             },
           })}
         />
+        <h2 className="h-3">
         {errors.email && (
           <span className="text-xs text-red-500">
             {errors.email.message}
           </span>
         )}
+        </h2>
+       
 
         <Input
           border="border-0 border-b-[1px]"
@@ -112,11 +118,14 @@ const Contact: FC = () => {
             required: "Message is required",
           })}
         />
+        
+        <h2>
         {errors.message && (
           <span className="text-xs text-red-500">
             {errors.message.message}
           </span>
         )}
+        </h2>
 
         <small className="h-4 text-green-500">
           {successText}
@@ -125,7 +134,7 @@ const Contact: FC = () => {
         <Button
           data-testid="submit-btn"
           aria-label={submitting ? "Submitting" : "Submit"}
-          styles="mt-4 bg-[var(--black)] text-white w-24 text-xs py-1 rounded hover:bg-[var(--pry-col)] transition-all duration-300"
+          styles="mt-2 bg-[var(--black)] text-white w-24 text-xs py-1 rounded hover:bg-[var(--pry-col)] transition-all duration-300"
           disabled={submitting}
         >
           {submitting ? "Submitting..." : "Submit"}
