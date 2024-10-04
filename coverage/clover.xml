@@ -1,100 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1727036447092" clover="3.2.0">
-  <project timestamp="1727036447093" name="All files">
-    <metrics statements="4232" coveredstatements="3731" conditionals="373" coveredconditionals="321" methods="170" coveredmethods="123" elements="4775" coveredelements="4175" complexity="0" loc="4232" ncloc="4232" packages="76" files="114" classes="114"/>
-    <package name="eCommerce">
-      <metrics statements="29" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
-      <file name="postcss.config.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\postcss.config.js">
-        <metrics statements="6" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-      </file>
-      <file name="tailwind.config.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\tailwind.config.js">
-        <metrics statements="23" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="eCommerce.src">
-      <metrics statements="42" coveredstatements="12" conditionals="5" coveredconditionals="3" methods="2" coveredmethods="0"/>
-      <file name="App.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\App.jsx">
-        <metrics statements="21" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-      </file>
-      <file name="main.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\main.jsx">
-        <metrics statements="9" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-      </file>
-      <file name="vitest-setup.ts" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\vitest-setup.ts">
-        <metrics statements="12" coveredstatements="12" conditionals="3" coveredconditionals="3" methods="0" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="5" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="6" count="30" type="stmt"/>
-        <line num="7" count="30" type="stmt"/>
-        <line num="8" count="30" type="stmt"/>
-        <line num="10" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="11" count="74" type="stmt"/>
-        <line num="12" count="74" type="stmt"/>
-        <line num="13" count="74" type="stmt"/>
-        <line num="15" count="1" type="cond" truecount="1" falsecount="0"/>
-      </file>
-    </package>
-    <package name="eCommerce.src.appwrite.auth">
+<coverage generated="1728044043441" clover="3.2.0">
+  <project timestamp="1728044043441" name="All files">
+    <metrics statements="4083" coveredstatements="3713" conditionals="361" coveredconditionals="315" methods="164" coveredmethods="120" elements="4608" coveredelements="4148" complexity="0" loc="4083" ncloc="4083" packages="72" files="107" classes="107"/>
+    <package name="appwrite.auth">
       <metrics statements="58" coveredstatements="28" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="3"/>
       <file name="auth.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\appwrite\auth\auth.js">
         <metrics statements="58" coveredstatements="28" conditionals="4" coveredconditionals="3" methods="6" coveredmethods="3"/>
@@ -158,7 +66,7 @@
         <line num="58" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.assets.icons">
+    <package name="assets.icons">
       <metrics statements="667" coveredstatements="667" conditionals="15" coveredconditionals="15" methods="15" coveredmethods="15"/>
       <file name="AccountIcon.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\assets\icons\AccountIcon.jsx">
         <metrics statements="20" coveredstatements="20" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -873,7 +781,7 @@
         <line num="10" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.aboutSection">
+    <package name="components.aboutSection">
       <metrics statements="19" coveredstatements="19" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="AboutSection.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\aboutSection\AboutSection.jsx">
         <metrics statements="19" coveredstatements="19" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -898,7 +806,7 @@
         <line num="23" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.banner">
+    <package name="components.banner">
       <metrics statements="32" coveredstatements="32" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="FeatureBanner.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\banner\FeatureBanner.jsx">
         <metrics statements="32" coveredstatements="32" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -936,7 +844,7 @@
         <line num="42" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.bgImage">
+    <package name="components.bgImage">
       <metrics statements="17" coveredstatements="17" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="BgImg.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\bgImage\BgImg.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
@@ -959,7 +867,7 @@
         <line num="19" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.delivery">
+    <package name="components.delivery">
       <metrics statements="32" coveredstatements="32" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
       <file name="Delivery.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\delivery\Delivery.jsx">
         <metrics statements="32" coveredstatements="32" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
@@ -997,7 +905,7 @@
         <line num="50" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.details">
+    <package name="components.details">
       <metrics statements="30" coveredstatements="29" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <file name="Details.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\details\Details.jsx">
         <metrics statements="30" coveredstatements="29" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="2"/>
@@ -1033,7 +941,7 @@
         <line num="37" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.entry">
+    <package name="components.entry">
       <metrics statements="35" coveredstatements="29" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="1"/>
       <file name="Entry.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\entry\Entry.jsx">
         <metrics statements="35" coveredstatements="29" conditionals="6" coveredconditionals="3" methods="2" coveredmethods="1"/>
@@ -1074,7 +982,7 @@
         <line num="44" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.filter">
+    <package name="components.filter">
       <metrics statements="60" coveredstatements="60" conditionals="11" coveredconditionals="11" methods="2" coveredmethods="2"/>
       <file name="Filter.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\filter\Filter.jsx">
         <metrics statements="60" coveredstatements="60" conditionals="11" coveredconditionals="11" methods="2" coveredmethods="2"/>
@@ -1140,7 +1048,7 @@
         <line num="78" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.footer">
+    <package name="components.footer">
       <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Footer.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\footer\Footer.jsx">
         <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1164,7 +1072,7 @@
         <line num="23" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.header">
+    <package name="components.header">
       <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Header.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\header\Header.jsx">
         <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1179,7 +1087,7 @@
         <line num="14" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.headerText">
+    <package name="components.headerText">
       <metrics statements="16" coveredstatements="16" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <file name="HeaderText.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\headerText\HeaderText.jsx">
         <metrics statements="16" coveredstatements="16" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
@@ -1201,7 +1109,7 @@
         <line num="22" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.heading">
+    <package name="components.heading">
       <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Heading.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\heading\Heading.jsx">
         <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1215,7 +1123,7 @@
         <line num="11" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.help">
+    <package name="components.help">
       <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="HelpAndSupportLinks.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\help\HelpAndSupportLinks.jsx">
         <metrics statements="22" coveredstatements="22" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -1243,7 +1151,7 @@
         <line num="26" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.homeBg">
+    <package name="components.homeBg">
       <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="HomeBg.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\homeBg\HomeBg.jsx">
         <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1264,7 +1172,7 @@
         <line num="19" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.imageSwiper">
+    <package name="components.imageSwiper">
       <metrics statements="48" coveredstatements="48" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
       <file name="ImageSwiper.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\imageSwiper\ImageSwiper.jsx">
         <metrics statements="48" coveredstatements="48" conditionals="6" coveredconditionals="6" methods="1" coveredmethods="1"/>
@@ -1318,7 +1226,7 @@
         <line num="62" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.layout">
+    <package name="components.layout">
       <metrics statements="38" coveredstatements="36" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
       <file name="Layout.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\layout\Layout.jsx">
         <metrics statements="38" coveredstatements="36" conditionals="5" coveredconditionals="4" methods="2" coveredmethods="2"/>
@@ -1362,7 +1270,7 @@
         <line num="43" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.layoutRoutes">
+    <package name="components.layoutRoutes">
       <metrics statements="23" coveredstatements="19" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="LayoutRoutes.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\layoutRoutes\LayoutRoutes.jsx">
         <metrics statements="23" coveredstatements="19" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1391,7 +1299,7 @@
         <line num="29" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.loadingAnimation">
+    <package name="components.loadingAnimation">
       <metrics statements="66" coveredstatements="66" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Loader.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\loadingAnimation\Loader.jsx">
         <metrics statements="66" coveredstatements="66" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1463,7 +1371,7 @@
         <line num="76" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.logo">
+    <package name="components.logo">
       <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Logo.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\logo\Logo.jsx">
         <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1482,7 +1390,7 @@
         <line num="18" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.navbar">
+    <package name="components.navbar">
       <metrics statements="22" coveredstatements="22" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Navbar.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\navbar\Navbar.jsx">
         <metrics statements="14" coveredstatements="14" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1513,7 +1421,7 @@
         <line num="8" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.navbar.navBody">
+    <package name="components.navbar.navBody">
       <metrics statements="17" coveredstatements="17" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="NavBodyOverflow.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\navbar\navBody\NavBodyOverflow.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
@@ -1536,7 +1444,7 @@
         <line num="20" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.navbar.navMenu">
+    <package name="components.navbar.navMenu">
       <metrics statements="71" coveredstatements="71" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
       <file name="NavMenu.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\navbar\navMenu\NavMenu.jsx">
         <metrics statements="71" coveredstatements="71" conditionals="5" coveredconditionals="5" methods="2" coveredmethods="2"/>
@@ -1613,7 +1521,7 @@
         <line num="81" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.navbar.navSection">
+    <package name="components.navbar.navSection">
       <metrics statements="38" coveredstatements="28" conditionals="10" coveredconditionals="10" methods="3" coveredmethods="1"/>
       <file name="NavSection.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\navbar\navSection\NavSection.jsx">
         <metrics statements="38" coveredstatements="28" conditionals="10" coveredconditionals="10" methods="3" coveredmethods="1"/>
@@ -1657,7 +1565,7 @@
         <line num="44" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.navbar.topNav">
+    <package name="components.navbar.topNav">
       <metrics statements="29" coveredstatements="29" conditionals="9" coveredconditionals="9" methods="1" coveredmethods="1"/>
       <file name="TopNav.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\navbar\topNav\TopNav.jsx">
         <metrics statements="29" coveredstatements="29" conditionals="9" coveredconditionals="9" methods="1" coveredmethods="1"/>
@@ -1692,7 +1600,7 @@
         <line num="37" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.openAccountModal">
+    <package name="components.openAccountModal">
       <metrics statements="85" coveredstatements="73" conditionals="23" coveredconditionals="19" methods="4" coveredmethods="3"/>
       <file name="OpenAccountModal.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\openAccountModal\OpenAccountModal.jsx">
         <metrics statements="85" coveredstatements="73" conditionals="23" coveredconditionals="19" methods="4" coveredmethods="3"/>
@@ -1783,7 +1691,7 @@
         <line num="99" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.about">
+    <package name="components.pages.about">
       <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="About.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\about\About.jsx">
         <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -1805,7 +1713,7 @@
         <line num="22" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.cart">
+    <package name="components.pages.cart">
       <metrics statements="66" coveredstatements="66" conditionals="16" coveredconditionals="16" methods="3" coveredmethods="3"/>
       <file name="Cart.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\cart\Cart.jsx">
         <metrics statements="40" coveredstatements="40" conditionals="8" coveredconditionals="8" methods="1" coveredmethods="1"/>
@@ -1880,7 +1788,7 @@
         <line num="26" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.cart.CartDisplay">
+    <package name="components.pages.cart.CartDisplay">
       <metrics statements="109" coveredstatements="98" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="1"/>
       <file name="CartDisplay.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\cart\CartDisplay\CartDisplay.jsx">
         <metrics statements="109" coveredstatements="98" conditionals="8" coveredconditionals="7" methods="4" coveredmethods="1"/>
@@ -1995,7 +1903,7 @@
         <line num="132" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.cart.cartContent">
+    <package name="components.pages.cart.cartContent">
       <metrics statements="64" coveredstatements="62" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="1"/>
       <file name="CartContent.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\cart\cartContent\CartContent.jsx">
         <metrics statements="64" coveredstatements="62" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="1"/>
@@ -2065,7 +1973,7 @@
         <line num="80" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.checkout">
+    <package name="components.pages.checkout">
       <metrics statements="130" coveredstatements="64" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="1"/>
       <file name="Checkout.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\checkout\Checkout.jsx">
         <metrics statements="130" coveredstatements="64" conditionals="4" coveredconditionals="3" methods="4" coveredmethods="1"/>
@@ -2201,7 +2109,7 @@
         <line num="148" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.checkout.checkoutForm">
+    <package name="components.pages.checkout.checkoutForm">
       <metrics statements="137" coveredstatements="137" conditionals="10" coveredconditionals="9" methods="4" coveredmethods="3"/>
       <file name="CheckoutForm.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\checkout\checkoutForm\CheckoutForm.jsx">
         <metrics statements="137" coveredstatements="137" conditionals="10" coveredconditionals="9" methods="4" coveredmethods="3"/>
@@ -2344,7 +2252,7 @@
         <line num="144" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.checkout.checkoutItems">
+    <package name="components.pages.checkout.checkoutItems">
       <metrics statements="41" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="CheckoutItems.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\checkout\checkoutItems\CheckoutItems.jsx">
         <metrics statements="41" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
@@ -2391,7 +2299,7 @@
         <line num="48" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.contact">
+    <package name="components.pages.contact">
       <metrics statements="78" coveredstatements="68" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <file name="Contact.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\contact\Contact.jsx">
         <metrics statements="78" coveredstatements="68" conditionals="3" coveredconditionals="2" methods="2" coveredmethods="1"/>
@@ -2475,7 +2383,7 @@
         <line num="93" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.faqs">
+    <package name="components.pages.faqs">
       <metrics statements="74" coveredstatements="74" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Faqs.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\faqs\Faqs.jsx">
         <metrics statements="23" coveredstatements="23" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -2558,7 +2466,7 @@
         <line num="51" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.home">
+    <package name="components.pages.home">
       <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Home.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\home\Home.jsx">
         <metrics statements="13" coveredstatements="13" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -2577,7 +2485,7 @@
         <line num="16" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.home.homeComponents">
+    <package name="components.pages.home.homeComponents">
       <metrics statements="26" coveredstatements="26" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="HomeComponents.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\home\homeComponents\HomeComponents.jsx">
         <metrics statements="26" coveredstatements="26" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -2609,7 +2517,7 @@
         <line num="34" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.productDetail">
+    <package name="components.pages.productDetail">
       <metrics statements="123" coveredstatements="119" conditionals="23" coveredconditionals="20" methods="3" coveredmethods="3"/>
       <file name="ProductDetail.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\productDetail\ProductDetail.jsx">
         <metrics statements="123" coveredstatements="119" conditionals="23" coveredconditionals="20" methods="3" coveredmethods="3"/>
@@ -2738,7 +2646,7 @@
         <line num="143" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.products">
+    <package name="components.pages.products">
       <metrics statements="68" coveredstatements="66" conditionals="10" coveredconditionals="9" methods="4" coveredmethods="3"/>
       <file name="Products.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\products\Products.jsx">
         <metrics statements="52" coveredstatements="50" conditionals="7" coveredconditionals="6" methods="2" coveredmethods="1"/>
@@ -2815,7 +2723,7 @@
         <line num="16" count="31" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.products.loadMoreProducts">
+    <package name="components.pages.products.loadMoreProducts">
       <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="LoadMoreProducts.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\products\loadMoreProducts\LoadMoreProducts.jsx">
         <metrics statements="16" coveredstatements="16" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -2837,7 +2745,7 @@
         <line num="22" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.products.productHeader.jsx">
+    <package name="components.pages.products.productHeader.jsx">
       <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="ProductHeader.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\products\productHeader.jsx\ProductHeader.jsx">
         <metrics statements="15" coveredstatements="15" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -2858,7 +2766,7 @@
         <line num="19" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.products.renderProducts">
+    <package name="components.pages.products.renderProducts">
       <metrics statements="65" coveredstatements="57" conditionals="13" coveredconditionals="11" methods="3" coveredmethods="1"/>
       <file name="RenderProducts.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\products\renderProducts\RenderProducts.jsx">
         <metrics statements="65" coveredstatements="57" conditionals="13" coveredconditionals="11" methods="3" coveredmethods="1"/>
@@ -2929,7 +2837,7 @@
         <line num="76" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.products.scrollButton">
+    <package name="components.pages.products.scrollButton">
       <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="ScrollButton.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\products\scrollButton\ScrollButton.jsx">
         <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -2955,7 +2863,7 @@
         <line num="25" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.signIn">
+    <package name="components.pages.signIn">
       <metrics statements="124" coveredstatements="99" conditionals="11" coveredconditionals="7" methods="7" coveredmethods="3"/>
       <file name="SignIn.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\signIn\SignIn.jsx">
         <metrics statements="124" coveredstatements="99" conditionals="11" coveredconditionals="7" methods="7" coveredmethods="3"/>
@@ -3085,7 +2993,7 @@
         <line num="147" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.signUp">
+    <package name="components.pages.signUp">
       <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="SignUp.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\signUp\SignUp.jsx">
         <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -3109,7 +3017,7 @@
         <line num="21" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.signUp.signUpForm">
+    <package name="components.pages.signUp.signUpForm">
       <metrics statements="79" coveredstatements="58" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
       <file name="SignUpForm.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\signUp\signUpForm\SignUpForm.jsx">
         <metrics statements="79" coveredstatements="58" conditionals="3" coveredconditionals="1" methods="3" coveredmethods="1"/>
@@ -3194,7 +3102,7 @@
         <line num="95" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.signUp.signUpHeader">
+    <package name="components.pages.signUp.signUpHeader">
       <metrics statements="25" coveredstatements="25" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="SignUpHeader.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\signUp\signUpHeader\SignUpHeader.jsx">
         <metrics statements="25" coveredstatements="25" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="1"/>
@@ -3225,7 +3133,7 @@
         <line num="32" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.pages.signUp.signUpInputs">
+    <package name="components.pages.signUp.signUpInputs">
       <metrics statements="122" coveredstatements="118" conditionals="9" coveredconditionals="5" methods="5" coveredmethods="3"/>
       <file name="SignUpInputs.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\pages\signUp\signUpInputs\SignUpInputs.jsx">
         <metrics statements="83" coveredstatements="79" conditionals="8" coveredconditionals="4" methods="4" coveredmethods="2"/>
@@ -3356,7 +3264,7 @@
         <line num="43" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.patronize">
+    <package name="components.patronize">
       <metrics statements="67" coveredstatements="67" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Patronize.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\patronize\Patronize.jsx">
         <metrics statements="20" coveredstatements="20" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -3432,33 +3340,7 @@
         <line num="47" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.protected">
-      <metrics statements="20" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Protected.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\protected\Protected.jsx">
-        <metrics statements="20" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="eCommerce.src.components.reachOut">
+    <package name="components.reachOut">
       <metrics statements="40" coveredstatements="40" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="ReachOut.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\reachOut\ReachOut.jsx">
         <metrics statements="40" coveredstatements="40" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
@@ -3504,19 +3386,19 @@
         <line num="49" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.reusables.button">
+    <package name="components.reusables.button">
       <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Button.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\reusables\button\Button.jsx">
         <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
-        <line num="3" count="296" type="cond" truecount="1" falsecount="0"/>
-        <line num="4" count="296" type="stmt"/>
-        <line num="5" count="296" type="stmt"/>
-        <line num="7" count="296" type="stmt"/>
+        <line num="3" count="297" type="cond" truecount="1" falsecount="0"/>
+        <line num="4" count="297" type="stmt"/>
+        <line num="5" count="297" type="stmt"/>
+        <line num="7" count="297" type="stmt"/>
         <line num="9" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.reusables.input">
+    <package name="components.reusables.input">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Input.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\reusables\input\Input.jsx">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -3532,7 +3414,7 @@
         <line num="15" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.reusables.select">
+    <package name="components.reusables.select">
       <metrics statements="50" coveredstatements="49" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
       <file name="Select.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\reusables\select\Select.jsx">
         <metrics statements="50" coveredstatements="49" conditionals="8" coveredconditionals="7" methods="1" coveredmethods="1"/>
@@ -3588,7 +3470,7 @@
         <line num="57" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.scrollToTop">
+    <package name="components.scrollToTop">
       <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="Scroll.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\scrollToTop\Scroll.jsx">
         <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -3604,7 +3486,7 @@
         <line num="13" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.showcaseSection">
+    <package name="components.showcaseSection">
       <metrics statements="34" coveredstatements="34" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="ShowcaseSection.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\showcaseSection\ShowcaseSection.jsx">
         <metrics statements="34" coveredstatements="34" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -3644,7 +3526,7 @@
         <line num="40" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.signOutBtn">
+    <package name="components.signOutBtn">
       <metrics statements="48" coveredstatements="34" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
       <file name="SignOutBtn.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\signOutBtn\SignOutBtn.jsx">
         <metrics statements="48" coveredstatements="34" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="1"/>
@@ -3698,7 +3580,7 @@
         <line num="55" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.social">
+    <package name="components.social">
       <metrics statements="50" coveredstatements="50" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
       <file name="Social.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\social\Social.jsx">
         <metrics statements="50" coveredstatements="50" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
@@ -3754,7 +3636,7 @@
         <line num="57" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.sort">
+    <package name="components.sort">
       <metrics statements="61" coveredstatements="61" conditionals="19" coveredconditionals="19" methods="2" coveredmethods="2"/>
       <file name="Sort.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\sort\Sort.jsx">
         <metrics statements="61" coveredstatements="61" conditionals="19" coveredconditionals="19" methods="2" coveredmethods="2"/>
@@ -3821,7 +3703,7 @@
         <line num="75" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.subscribe">
+    <package name="components.subscribe">
       <metrics statements="98" coveredstatements="90" conditionals="13" coveredconditionals="10" methods="4" coveredmethods="3"/>
       <file name="Subscribe.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\subscribe\Subscribe.jsx">
         <metrics statements="98" coveredstatements="90" conditionals="13" coveredconditionals="10" methods="4" coveredmethods="3"/>
@@ -3925,7 +3807,7 @@
         <line num="119" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.textContainer">
+    <package name="components.textContainer">
       <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="TextContainer.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\textContainer\TextContainer.jsx">
         <metrics statements="7" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -3938,7 +3820,7 @@
         <line num="9" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.trending">
+    <package name="components.trending">
       <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="Trending.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\trending\Trending.jsx">
         <metrics statements="18" coveredstatements="18" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -3962,7 +3844,7 @@
         <line num="21" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.components.viewPassword">
+    <package name="components.viewPassword">
       <metrics statements="17" coveredstatements="17" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
       <file name="ViewPassword.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\components\viewPassword\ViewPassword.jsx">
         <metrics statements="17" coveredstatements="17" conditionals="3" coveredconditionals="3" methods="1" coveredmethods="1"/>
@@ -3985,7 +3867,7 @@
         <line num="24" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.contentful">
+    <package name="contentful">
       <metrics statements="33" coveredstatements="29" conditionals="6" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <file name="contentful.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\contentful\contentful.js">
         <metrics statements="33" coveredstatements="29" conditionals="6" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -4024,7 +3906,7 @@
         <line num="33" count="2" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.contexts">
+    <package name="contexts">
       <metrics statements="22" coveredstatements="22" conditionals="3" coveredconditionals="3" methods="3" coveredmethods="3"/>
       <file name="MyContext.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\contexts\MyContext.js">
         <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -4058,7 +3940,7 @@
         <line num="9" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.hooks">
+    <package name="hooks">
       <metrics statements="127" coveredstatements="83" conditionals="11" coveredconditionals="10" methods="7" coveredmethods="4"/>
       <file name="useCart.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\hooks\useCart.js">
         <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="1" coveredmethods="1"/>
@@ -4200,7 +4082,7 @@
         <line num="28" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.mocks">
+    <package name="mocks">
       <metrics statements="240" coveredstatements="240" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="4"/>
       <file name="TestComponentWrapper.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\mocks\TestComponentWrapper.jsx">
         <metrics statements="36" coveredstatements="36" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
@@ -4461,71 +4343,7 @@
         <line num="4" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.router">
-      <metrics statements="58" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Router.jsx" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\router\Router.jsx">
-        <metrics statements="58" coveredstatements="0" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="22" count="0" type="stmt"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="28" count="0" type="stmt"/>
-        <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="stmt"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="40" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="43" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="stmt"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="49" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="51" count="0" type="stmt"/>
-        <line num="52" count="0" type="stmt"/>
-        <line num="53" count="0" type="stmt"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="55" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="57" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-      </file>
-    </package>
-    <package name="eCommerce.src.store">
+    <package name="store">
       <metrics statements="166" coveredstatements="129" conditionals="7" coveredconditionals="6" methods="12" coveredmethods="5"/>
       <file name="accountSlice.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\store\accountSlice.js">
         <metrics statements="26" coveredstatements="21" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -4712,7 +4530,7 @@
         <line num="7" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.utils.config">
+    <package name="utils.config">
       <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="config.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\utils\config\config.js">
         <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -4726,7 +4544,7 @@
         <line num="8" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.utils.constants">
+    <package name="utils.constants">
       <metrics statements="39" coveredstatements="39" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="constants.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\utils\constants\constants.js">
         <metrics statements="39" coveredstatements="39" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -4771,37 +4589,37 @@
         <line num="39" count="1" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.utils.format">
+    <package name="utils.format">
       <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="format.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\utils\format\format.js">
         <metrics statements="6" coveredstatements="6" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="195" type="stmt"/>
-        <line num="3" count="195" type="stmt"/>
-        <line num="4" count="195" type="stmt"/>
-        <line num="5" count="195" type="stmt"/>
-        <line num="6" count="195" type="stmt"/>
+        <line num="2" count="187" type="stmt"/>
+        <line num="3" count="187" type="stmt"/>
+        <line num="4" count="187" type="stmt"/>
+        <line num="5" count="187" type="stmt"/>
+        <line num="6" count="187" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.utils.testInput">
-      <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+    <package name="utils.testInput">
+      <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
       <file name="testInput.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\utils\testInput\testInput.js">
-        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="7" type="stmt"/>
-        <line num="3" count="7" type="stmt"/>
-        <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="5" count="6" type="stmt"/>
-        <line num="6" count="6" type="stmt"/>
+        <metrics statements="6" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
       </file>
     </package>
-    <package name="eCommerce.src.utils.validate">
-      <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
+    <package name="utils.validate">
+      <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="emailValidate.js" path="C:\Users\USER\OneDrive\Documents\React\Projects\eCommerce\src\utils\validate\emailValidate.js">
-        <metrics statements="3" coveredstatements="3" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="2" count="9" type="stmt"/>
-        <line num="3" count="9" type="stmt"/>
+        <metrics statements="3" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
       </file>
     </package>
   </project>
