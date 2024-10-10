@@ -17,7 +17,7 @@ const FeatureBanner = () => {
         <HomeBg />
       </section>
       <section className="flex flex-col items-center mb-6 px-4">
-        <h1 className="text-[33px] font-medium mt-6">
+        <h1 className="text-[33px] font-medium mt-10">
           Be bright. Be bold.
         </h1>
         <p className="text-center">

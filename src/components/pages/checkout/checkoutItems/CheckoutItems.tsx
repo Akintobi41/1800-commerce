@@ -43,7 +43,7 @@ function CheckoutItems() {
                   : `${item.quantity} items`}
               </p>
               <span className="ml-4 truncate text-ellipsis">
-                &#8358; {format(item.price)}
+                &#8358; {format(item.price)} per item
               </span>
             </div>
           ))}

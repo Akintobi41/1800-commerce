@@ -37,7 +37,7 @@ const CheckoutSummary: FC<CheckoutSummaryProps> = ({
   return (
     <section>
       <p
-        className="text-sm cursor-pointer flex items-center"
+        className="text-sm cursor-pointer flex items-center max-w-screen-2xl mx-auto"
         onClick={() => setNext(false)}
       >
         {" "}
